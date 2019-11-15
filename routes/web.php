@@ -1,5 +1,8 @@
 <?php
 
+use App\Slider;
+use App\Recommended;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,11 @@
 */
 
 Route::get('/', function () {
-    return view('hello');
+    $hello_slider = Slider::where('name', 'Главный слайдер')->first();
+    $special_slider = Slider::where('name', 'Специально для вас')->first();
+    $recommended = Recommended::all();
+
+    return view('hello', compact('hello_slider', 'special_slider', 'recommended'));
 });
 
 

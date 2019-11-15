@@ -59,10 +59,7 @@
                     <div class="col-xl-9 flexible">
                         <ul class="main-nav">
                             @foreach(menu('Главное меню сайта', '_json') as $item)
-                                @php
-                                    $item = $item->translate(Lang::lang());
-                                @endphp
-                                <li><a href="{{$item->url}}"><span>{{$item->title}}</span></a></li>
+                                <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -76,15 +73,14 @@
             @php
                 function renderMenu($items) {
                     foreach($items as $item) {
-                        $item = $item->translate(Lang::lang());
                         if($item->children->count()) {
-                            echo "<li><span>".$item->title."</span>";
+                            echo "<li><span>".$item->getTranslatedAttribute('title')."</span>";
                                 echo "<ul>";
                                     renderMenu($item->children);
                                 echo "</ul>";
                             echo "</li>";
                         } else {
-                            echo "<li><a href='".$item->url."'>".$item->title."</a></li>";
+                            echo "<li><a href='".$item->url."'>".$item->getTranslatedAttribute('title')."</a></li>";
                         }
                     }
                 }
@@ -95,41 +91,39 @@
     </nav>
     <!-- PRODUCTION CATALOG END -->
     <!-- HEADER END -->
+    <div class="main">
 
     @yield('content')
+    
+    </div>
 
     <!-- FOOTER -->
 <div class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
-					<h5>меню</h5>
+					<h5>{{__('Меню')}}</h5>
 					<ul class="footer__nav">
-						<li><a href="#">О компании</a></li>
-						<li><a href="#">Торговые дома</a></li>
-						<li><a href="#">Туры в хоргосе</a></li>
-						<li><a href="#">Тур операторы</a></li>
-						<li><a href="#">Контакты</a></li>
-						<li><a href="#">Прочее</a></li>
+                        @foreach(menu('Меню в футере', '_json') as $item)
+                            <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
+                        @endforeach
 					</ul>
 				</div>
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
-					<h5>торговые дома</h5>
+					<h5>{{__('Торговые дома')}}</h5>
 					<ul class="footer__nav">
-						<li><a href="#">Кинг-Конг</a></li>
-						<li><a href="#">Чжун Хэ</a></li>
-						<li><a href="#">Цзянь Юань</a></li>
-						<li><a href="#">Золотой Порт</a></li>
-						<li><a href="#">Самрук</a></li>
+                        @foreach(menu('Торговые дома в футере', '_json') as $item)
+                            <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
+                        @endforeach
 					</ul>
 				</div>
 				<div class="col-xl-5 col-lg-5 col-md-8">
-					<h5>подпишитесь на рассылку</h5>
+					<h5>{{__('Подпишитесь на рассылку')}}</h5>
 					<form action="" class="subscription__form">
 						<input class="subscription__value" type="email" placeholder="">
-						<button class="subscription__button" type="button">Подписаться</button>
+						<button class="subscription__button" type="button">{{__('Подписаться')}}</button>
 					</form>
-					<h5 class="mt-3">мы в социальных сетях</h5>
+					<h5 class="mt-3">{{__('Мы в социальных сетях')}}</h5>
 					<ul class="social__btns mt-2">
 						<li><a href="#">
 						<svg version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -204,15 +198,15 @@
 					</div>
 				</div>
 				<div class="col-xl-3 col-lg-3 pl-5 mobile__padding-left">
-					<h5>Звоните</h5>
+					<h5>{{__('Звоните')}}</h5>
 					<a class="phoneNumber" href="tel: 8 707 328 2299">8 707 328 2299</a>
-					<button class="callOrder" type="button">Заказать звонок</button>
+					<button class="callOrder" type="button">{{__('Заказать звонок')}}</button>
 					<div class="mt-4">
-						<h5>Адрес</h5>
-						<p>Зона беспошлинной торговли между Казахстаном и Китаем</p>
+						<h5>{{__('Адрес')}}</h5>
+						<p>{{__('Зона беспошлинной торговли между Казахстаном и Китаем')}}</p>
 					</div>
 					<div class="mt-4">
-						<h5>Время работы</h5>
+						<h5>{{__('Время работы')}}</h5>
 						<p>Работаем с <span>7:00</span> до <span>19:00</span> без выходных.</p>
 					</div>
 				</div>
@@ -228,12 +222,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     
 	<!-- MAIN PAGE SLICKS -->
-	<script>
+	<style>
 			
+			.{{env('MIX_EDITABLE_BLOCK_CLASS')}} {
+				border: none !important;
+			}
+
+			.{{env('MIX_EDITABLE_BLOCK_CLASS')}} .edit {
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				background-color: rgba(0, 0, 0, 0.3);
+				color: #fff;
+				padding: 5px;left: 0;
+			}
+
+			.{{env('MIX_EDITABLE_BLOCK_CLASS')}}:hover .edit {
+				opacity: 1;
+			}
 			  	
-	</script>
+	</style>
 	<!-- MAIN PAGE SLICKS END -->
 	<!-- FOOTER END -->
 </body>

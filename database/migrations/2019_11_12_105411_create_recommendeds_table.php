@@ -17,8 +17,7 @@ class CreateRecommendedsTable extends Migration
             $table->increments('id');
             $table->string('image')->nullable();
             $table->string('name')->nullable();
-            $table->string('category')->nullable();
-            $table->string('link')->nullable();
+            $table->bigInteger('boutique_id')->nullable();
             $table->timestamps();
         });
     }

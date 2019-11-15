@@ -20,6 +20,6 @@ class Lang extends Facade
 
     public function setLocaleFromCookie()
     {
-        return 'en';
+        return 'ru';
     }
 }
