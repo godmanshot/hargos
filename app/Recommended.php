@@ -13,7 +13,7 @@ class Recommended extends Model
 
     public function getBoutiqueNameAttribute()
     {
-        return $this->boutique->name ?? '';
+        return $this->boutique->getTranslatedAttribute('name') ?? '';
     }
 
     public function getBoutiqueCategoriesAttribute()

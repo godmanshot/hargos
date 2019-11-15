@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
     
-	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}"> -->
 </head>
 <body class="bg-grey">
     <!-- HEADER -->
