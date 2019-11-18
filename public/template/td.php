@@ -508,7 +508,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">
                                 <p class="boutique-title">Женская одежда</p>
                             </div>
-                            <div class="col-xl-2 col-lg-4 col-md-5 col-sm-4 col-4">
+                            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-4 col-4">
                                 <div class="star-rating__wrapper">
                                     <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
                                         <input class="star-rating__input" type="radio" name="rating" value="5">

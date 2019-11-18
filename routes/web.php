@@ -6,6 +6,7 @@ use App\TopProduct;
 use App\Recommended;
 use App\CategoryStock;
 use App\PopularProduct;
+use App\Boutique;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,10 @@ Route::get('/', function () {
         'popular_products',
         'freebies'
     ));
+});
+
+Route::get('/boutique/{boutique}', function(Request $request, Boutique $boutique) {
+    return view('boutique', compact('boutique'));
 });
 
 

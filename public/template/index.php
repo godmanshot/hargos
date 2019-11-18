@@ -155,7 +155,7 @@
 				<div class="row">
 					<div class="col-xl-4">
 						<div class="flexibleServices">
-							<img src="images/visa.svg" alt="">
+							<embed src="images/visa.svg" alt="">
 							<div>
 								<h4>Безвизовый доступ</h4>
 								<p>Возможность БЕЗ ВИЗЫ посетить рынок на территории Китая в границах МЦПС</p>
@@ -164,7 +164,7 @@
 					</div>
 					<div class="col-xl-4">
 						<div class="flexibleServices">
-							<img src="images/terminal.svg" alt="">
+							<embed src="images/terminal.svg" alt="">
 							<div>
 								<h4>Без лишних платежей</h4>
 								<p>Освобождение от уплаты таможенных платежей, сумма и вес которых не превышает</p>
@@ -173,7 +173,7 @@
 					</div>
 					<div class="col-xl-4">
 						<div class="flexibleServices">
-							<img src="images/car.svg" alt="">
+							<embed src="images/car.svg" alt="">
 							<div>
 								<h4>Самовывоз</h4>
 								<p>Самовывоз закупленного товара без лишних вопросов</p>
@@ -800,35 +800,45 @@
 						  <div>
 							<div class="about-us__block">
 								<div>
-									<img src="images/about-us__img.png">
+									<iframe
+										src="https://www.youtube.com/embed/tgbNymZ7vqY">
+									</iframe> 
 								</div>
 							</div>
 						  </div>
 						  <div>
 							<div class="about-us__block">
 								<div>
-									<img src="images/about-us__img.png">
+									<iframe
+										src="https://www.youtube.com/embed/tgbNymZ7vqY">
+									</iframe>
 								</div>
 							</div>
 						  </div>
 						  <div>
 							<div class="about-us__block">
 								<div>
-									<img src="images/about-us__img.png">
+									<iframe
+										src="https://www.youtube.com/embed/tgbNymZ7vqY">
+									</iframe>
 								</div>
 							</div>
 						  </div>
 						  <div>
 							<div class="about-us__block">
 								<div>
-									<img src="images/about-us__img.png">
+									<iframe
+										src="https://www.youtube.com/embed/tgbNymZ7vqY">
+									</iframe>
 								</div>
 							</div>
 						  </div>
 						  <div>
 							<div class="about-us__block">
 								<div>
-									<img src="images/about-us__img.png">
+									<iframe
+										src="https://www.youtube.com/embed/tgbNymZ7vqY">
+									</iframe>
 								</div>
 							</div>
 						  </div>

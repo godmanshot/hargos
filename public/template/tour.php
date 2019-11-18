@@ -33,7 +33,7 @@
         <div class="filters-block">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-3">
+                    <div class="col-xl-3  col-sm-5">
                         <div class="filters-confirm__bc"></div>
                         <div class="filters-confirm__block">
                             <div class="filters-question__block">
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-9">
+                    <div class="col-xl-9  col-sm-7">
                         <div class="row h-100 align-items-center">
                             <div class="col-xl-3">
                                 <select class="countries js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -412,7 +412,7 @@
         </div>
         <div class="container mt-5">
             <div class="row">
-                <div class="col-xl-5">
+                <div class="col-xl-5 col-md-6">
                     <div class="slider slider-for">
                         <div>
                             <img src="images/tour__slider-for_img-01.png">
@@ -436,7 +436,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-7 pl-3">
+                <div class="col-xl-7 col-md-6 pl-3">
                     <div class="tour__info">
                         <h1>МЦПС Хоргос с компанией «<span>BRAZZЕRSTOUR»</span></h1>
                         <p>Шоп тур на Хоргос из Алматы - <span>2 дня</span></p>
@@ -478,14 +478,14 @@
         <div class="schedule mt-5">
             <div class="container h-100">
                 <div class="row h-100">
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 col-lg-3">
                         <div class="schedule__left-block">
                             <h1>
                                 Расписание выездов на однодневный  шоппинг
                             </h1>
                         </div>
                     </div>
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 col-sm-6 col-lg-4">
                         <div class="schedule__right-block">
                             <h1>Сентябрь 2019</h1>
                             <div class="schedule__content-wrapper">
@@ -519,7 +519,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 col-sm-6 col-lg-4">
                         <div class="schedule__right-block">
                             <h1>Сентябрь 2019</h1>
                             <div class="schedule__content-wrapper">
@@ -559,7 +559,7 @@
         <div class="tour__program">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-7 mt-5">
+                    <div class="col-xl-7 col-md-6 mt-5">
                         <h1>Программа тура</h1>
                         <ul>
                             <li>
@@ -594,7 +594,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xl-5">
+                    <div class="col-xl-5 col-md-6">
                         <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%B0%D0%BB%D0%BC%D0%B0%D1%82%D1%8B&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
                     </div>
                 </div>

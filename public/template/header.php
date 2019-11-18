@@ -11,13 +11,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body class="bg-grey">
     <!-- HEADER -->
     <div class="header">
-        <div class="container pt-5 pb-4 pl-0 pr-0">
+        <div class="container pt-5 pb-4">
             <div class="row">
                 <div class="col-xl-2 col-sm-4">
                     <a href="#" class="logo">Хоргос</a>
