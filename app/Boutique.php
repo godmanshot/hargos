@@ -9,6 +9,11 @@ class Boutique extends Model
 {
     use Translatable;
     protected $translatable = ['name'];
+    protected $appends = ['firstImage', 'categoriesName'];
+    // public function getTestAttribute()
+    // {
+    //     return 123123;
+    // }
 
     public $with = ['categories', 'tradingHouses', 'products'];
 
@@ -39,5 +44,37 @@ class Boutique extends Model
     public function products()
     {
         return $this->hasMany('App\BoutiqueProduct');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\BoutiqueReview');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->selectRaw("AVG(rating) as rating")->first();
+    }
+
+    public function getImagesArrayAttribute()
+    {
+        return !empty($this->images) ? json_decode($this->images, true) : [];
+    }
+
+    public function getFirstImageAttribute()
+    {
+        $images = $this->imagesArray;
+
+        return !empty($images) ? $images[0] : '';
+    }
+
+    public function recommended()
+    {
+        return $this->belongsToMany('App\Boutique', 'recommended_boutiques', 'boutique_id');
+    }
+
+    public function related()
+    {
+        return $this->belongsToMany('App\Boutique', 'related_boutiques', 'boutique_id');
     }
 }

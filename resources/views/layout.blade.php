@@ -21,7 +21,7 @@
         <div class="container pt-5 pb-4 pl-0 pr-0">
             <div class="row">
                 <div class="col-xl-2 col-sm-4">
-                    <a href="#" class="logo">{{__('Хоргос')}}</a>
+                    <a href="{{url('/')}}" class="logo">{{__('Хоргос')}}</a>
                 </div>
                 <div class="col-xl-4 col-sm-8">
                     <p>
@@ -36,10 +36,26 @@
                     <p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
                 </div>
                 <div class="col-xl-2 col-sm-4">
-                    <div class="loginOrReg">
-						<a class="login-btn" href="#">{{__('Войти')}}</a>
-						<a class="reg-btn" href="#">{{__('Зарегистрироваться')}}</a>
-					</div>
+					@if(Auth::user())
+						<div class="loginOrReg">
+							<a class="login-btn" href="{{route('home')}}">{{Auth::user()->name}}</a>
+
+							<a class="reg-btn" href="{{ route('logout') }}"
+								onclick="event.preventDefault();
+												document.getElementById('logout-form').submit();">
+								{{ __('Выйти') }}
+							</a>
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</div>
+					@else
+						<div class="loginOrReg">
+							<a class="login-btn" href="{{route('login')}}">{{__('Войти')}}</a>
+							<a class="reg-btn" href="{{route('register')}}">{{__('Зарегистрироваться')}}</a>
+						</div>
+					@endif
                 </div>
             </div>
         </div>
@@ -221,9 +237,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('js/app.js')}}"></script>
-    
+	<script>
+		window.lang = 'ru';
+	</script>
+    <script src="{{asset('js/app.js')}}?q={{rand()}}"></script>
+	<script src="{{asset('js/main.js')}}"></script>
+    @stack('scripts')
 	<!-- MAIN PAGE SLICKS -->
 	<style>
 			

@@ -124,9 +124,9 @@
                                     <div>
                                         <img src="{{Voyager::image($item->image)}}">
                                         <div class="geek-recommendation__inner-block">
-                                            <h3>{{$item->boutiqueName}}</h3>
+                                            <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                             <p>{{$item->boutiqueCategories}}</p>
-                                            <a href="#">Перейти в бутик</a>
+                                            <a href="{{route('boutique', $item->boutique->id)}}">Перейти в бутик</a>
                                         </div>
                                     </div>
                                 </div>
@@ -154,8 +154,8 @@
                         <div class="glide_header">
                             <div class="glide__track" data-glide-el="track">
                                 <ul class="glide__slides">
-                                    @foreach($hello_slider->slides as $slide)
-                                    <li class="glide__slide">
+                                    @foreach($special_slider->slides as $slide)
+                                    <li class="glide__slide" style="background-image: url('{{Voyager::image($slide->image)}}') !important;">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-7">
@@ -217,7 +217,7 @@
                             $first_stock = $category_stocks->first();
                             $images = !empty($first_stock->images) ? json_decode($first_stock->images, true) : [];
                         @endphp
-                        <a href="#">
+                        <a href="{{$first_stock->link}}">
                             <div class="category-discounts__left-block">
                                 <div class="container">
                                     <div class="row">
@@ -252,7 +252,7 @@
                                 @php
                                     $images = !empty($item->images) ? json_decode($item->images, true) : [];
                                 @endphp
-                                <a href="#">
+                                <a href="{{$item->link}}">
                                 <div>
                                 <div class="category-discounts__block">
                                     <div>
@@ -402,11 +402,11 @@
             <div class="container about-us">
                 <div class="row">
                     <div class="col-xl-9 col-sm-6">
-                        <h2>Интервью о нас</h2>
+                        <h2>{{__('Интервью о нас')}}</h2>
                     </div>
                     <div class="col-xl-3 col-sm-6">
                         <div class="about-us__control-panel">
-                            <a href="#" class="showAll">Смотреть все</a>
+                            <a href="#" class="showAll">{{__('Смотреть все')}}</a>
                             <ul>
                                 <li class="prev"></li>
                                 <li class="next"></li>
@@ -415,43 +415,18 @@
                     </div>
                 </div>
                 <div class="col-xl-12 mt-4 pr-0 pl-0">
-                    
                     <div class="slider about-us__slick">
-                        <div>
-                        <div class="about-us__block">
+                    @if($interviews->count())
+                        @foreach($interviews as $interview)
                             <div>
-                                <img src="images/about-us__img.png">
+                            <div class="about-us__block">
+                                <div>
+                                    {!!$interview->iframe!!}
+                                </div>
                             </div>
-                        </div>
-                        </div>
-                        <div>
-                        <div class="about-us__block">
-                            <div>
-                                <img src="images/about-us__img.png">
                             </div>
-                        </div>
-                        </div>
-                        <div>
-                        <div class="about-us__block">
-                            <div>
-                                <img src="images/about-us__img.png">
-                            </div>
-                        </div>
-                        </div>
-                        <div>
-                        <div class="about-us__block">
-                            <div>
-                                <img src="images/about-us__img.png">
-                            </div>
-                        </div>
-                        </div>
-                        <div>
-                        <div class="about-us__block">
-                            <div>
-                                <img src="images/about-us__img.png">
-                            </div>
-                        </div>
-                        </div>
+                        @endforeach
+                    @endif
                     </div>
                 </div>
             </div>
@@ -459,11 +434,11 @@
             <div class="container freebie">
                 <div class="row">
                     <div class="col-xl-9 col-sm-6">
-                        <h2>Халява</h2>
+                        <h2>{{__('Халява')}}</h2>
                     </div>
                     <div class="col-xl-3 col-sm-6">
                         <div class="freebie__control-panel">
-                            <a href="#" class="showAll">Смотреть все</a>
+                            <a href="#" class="showAll">{{__('Смотреть все')}}</a>
                             <ul>
                                 <li class="prev"></li>
                                 <li class="next"></li>

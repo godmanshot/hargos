@@ -2,11 +2,15 @@
 
 use App\Slider;
 use App\Freebie;
+use App\Boutique;
+use App\Category;
+use App\Interview;
 use App\TopProduct;
 use App\Recommended;
+use App\TradingHouse;
 use App\CategoryStock;
 use App\PopularProduct;
-use App\Boutique;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +35,7 @@ Route::get('/', function () {
     $top_products_second_line = $top_products->split(2)[1] ?? collect([]);
     $popular_products = PopularProduct::orderBy('order')->get();
     $freebies = Freebie::orderBy('order')->get();
+    $interviews = Interview::orderBy('order')->get();
 
     return view('hello', compact(
         'hello_slider',
@@ -43,15 +48,49 @@ Route::get('/', function () {
         'top_products_first_line',
         'top_products_second_line',
         'popular_products',
-        'freebies'
+        'freebies',
+        'interviews'
     ));
 });
 
 Route::get('/boutique/{boutique}', function(Request $request, Boutique $boutique) {
     return view('boutique', compact('boutique'));
+})->name('boutique');
+
+Route::get('/about', function(Request $request) {
+    return view('about');
 });
 
+Route::get('/trading-houses', function(Request $request) {
+    $trading_houses = TradingHouse::orderBy('order')->with('boutiques.categories')->get();
+
+    if($request->has('trading_house')) {
+        $selected_trading_house = TradingHouse::where('id', $request->trading_house)->first();
+        $categories = $selected_trading_house->boutiquesCategories;
+    } else {
+        $selected_trading_house = false;
+        $categories = Category::all();
+    }
+
+    if($request->has('category')) {
+        $selected_category = Category::where('id', $request->category)->first();
+        $boutiques = $selected_category->boutiques;
+    } else {
+        $selected_category = false;
+        $boutiques = Boutique::all();
+    }
+
+    return view('trading-houses', compact('trading_houses', 'selected_trading_house', 'categories', 'selected_category', 'boutiques'));
+})->name('trading-houses');
+
+Route::get('/tour-operators', function(Request $request) {
+    return view('tour-operators');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

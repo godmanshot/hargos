@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryStocksTable extends Migration
+class CreateTourHouseSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCategoryStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_stocks', function (Blueprint $table) {
+        Schema::create('tour_house_sliders', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('images')->nullable();
-            $table->string('name')->nullable();
-            $table->string('link')->nullable();
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
+            $table->bigInteger('tour_house_id')->nullable();
             $table->integer('order')->nullable();
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateCategoryStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_stocks');
+        Schema::dropIfExists('tour_house_sliders');
     }
 }
