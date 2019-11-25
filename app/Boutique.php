@@ -9,7 +9,7 @@ class Boutique extends Model
 {
     use Translatable;
     protected $translatable = ['name'];
-    protected $appends = ['firstImage', 'categoriesName'];
+    protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
     // public function getTestAttribute()
     // {
     //     return 123123;

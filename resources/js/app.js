@@ -89,6 +89,7 @@ window.renderContent = function(data) {
     '            <div class="row align-items-center mt-3">' +
     '                <div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-7">' +
     '                    <a href="' + process.env.MIX_APP_URL + '/boutique/' + data.id  + '">Перейти в бутик</a>' +
+    '                    <span class"favorite" data-boutique_id="'+data.id+'"></span>'+
     '                </div>' +
     '                <div class="col-xl-3 col-lg-7 col-md-6 col-sm-5 col-5">' +
     '                    <p>Артикул: ' + data.id + '</p>' +
@@ -220,3 +221,9 @@ $('#create-review').click(function() {
     var boutique_id = $(this).data('boutique_id');
     review(boutique_id);
 });
+
+var favorites = () => {
+    $('.favorite').each(function() {
+        
+    });
+};
