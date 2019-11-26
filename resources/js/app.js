@@ -41,6 +41,32 @@ window.boutiquesInTradingHousesFilterClear = function() {
     window.boutiquesInTradingHouses();
 };
 
+window.renderRating = function(rating) {
+    rating = rating.rating;
+
+    let html = '';
+    html += '<div class="star-rating__wrapper">';
+    html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg '+(rating>=5 ? 'star-rating__checked' : '')+'">';
+    html += '        <input class="star-rating__input" type="radio" name="rating" value="5">';
+    html += '    </label>';
+    html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg '+(rating>=4 ? 'star-rating__checked' : '')+'">';
+    html += '        <input class="star-rating__input" type="radio" name="rating" value="4">';
+    html += '    </label>';
+    html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg '+(rating>=3 ? 'star-rating__checked' : '')+'">';
+    html += '        <input class="star-rating__input" type="radio" name="rating" value="3">';
+    html += '    </label>';
+    html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg '+(rating>=2 ? 'star-rating__checked' : '')+'">';
+    html += '        <input class="star-rating__input" type="radio" name="rating" value="2">';
+    html += '    </label>';
+    html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg '+(rating>=1 ? 'star-rating__checked' : '')+'">';
+    html += '        <input class="star-rating__input" type="radio" name="rating" value="1">';
+    html += '    </label>';
+    html += '</div>';
+
+    console.log(html);
+    return html;
+};
+
 window.renderContent = function(data) {
     
     $('#content').empty();
@@ -58,23 +84,7 @@ window.renderContent = function(data) {
     '                    <p class="boutique-title">' + data.categoriesName + '</p>' +
     '                </div>' +
     '                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-4 col-4">' +
-    '                    <div class="star-rating__wrapper">' +
-    '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-    '                            <input class="star-rating__input" type="radio" name="rating" value="5">' +
-    '                        </label>' +
-    '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-    '                            <input class="star-rating__input" type="radio" name="rating" value="4" checked>' +
-    '                        </label>' +
-    '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-    '                            <input class="star-rating__input" type="radio" name="rating" value="3">' +
-    '                        </label>' +
-    '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-    '                            <input class="star-rating__input" type="radio" name="rating" value="2">' +
-    '                        </label>' +
-    '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-    '                            <input class="star-rating__input" type="radio" name="rating" value="1">' +
-    '                        </label>' +
-    '                    </div>' +
+                        renderRating(data.averageRating) + 
     '                </div>' +
     '                <div class="col-xl-5">' +
     '                </div>' +
@@ -117,23 +127,7 @@ window.boutiquesInTradingHouses = function() {
             '        <img src="' + process.env.MIX_APP_STORAGE_URL + '/' + model.firstImage + '">' +
             '        <h3 class="boutique-header">' + model.name +'</h3>' +
             '        <p class="boutique-title">' + model.categoriesName + '</p>' +
-            '        <div class="star-rating__wrapper">' +
-            '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-            '                <input class="star-rating__input" type="radio" name="rating" value="5">' +
-            '            </label>' +
-            '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-            '                <input class="star-rating__input" type="radio" name="rating" value="4" checked>' +
-            '            </label>' +
-            '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-            '                <input class="star-rating__input" type="radio" name="rating" value="3">' +
-            '            </label>' +
-            '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-            '                <input class="star-rating__input" type="radio" name="rating" value="2">' +
-            '            </label>' +
-            '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' +
-            '                <input class="star-rating__input" type="radio" name="rating" value="1">' +
-            '            </label>' +
-            '        </div>' +
+                    renderRating(model.averageRating) + 
             '        <a href="' + process.env.MIX_APP_URL + '/boutique/' + model.id  + '">Перейти в бутик</a>' +
             '        <p>Артикул: ' + model.id + '</p>' +
             '    </div>'

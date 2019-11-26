@@ -2,18 +2,17 @@
 
 namespace App;
 
+use App\CanFilterTrait;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Boutique extends Model
 {
-    use Translatable;
+    use Translatable, CanFilterTrait;
+
     protected $translatable = ['name'];
+
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
-    // public function getTestAttribute()
-    // {
-    //     return 123123;
-    // }
 
     public $with = ['categories', 'tradingHouses', 'products'];
 

@@ -87,6 +87,10 @@ Route::get('/tour-operators', function(Request $request) {
     return view('tour-operators');
 });
 
+Route::get('/advice', function(Request $request) {
+    return view('advice');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

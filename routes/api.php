@@ -30,7 +30,7 @@ Route::middleware('cors')->group(function() {
     Route::get('/cities', 'Api\CitiesController@index');
     Route::get('/boutique/{boutique}/reviews/create', 'Api\ReviewsController@create')->name('boutique.review');
 
-    Route::get('/token', 'App\AuthController@getToken');
+    Route::get('/token', 'Api\AuthController@getToken');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {

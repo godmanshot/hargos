@@ -57,22 +57,16 @@
                     </div>
                 </div>
                 <div class="col-xl-9  col-sm-7">
-                    <div class="row h-100 align-items-center">
+                    <div class="row h-100 align-items-center yourLocation">
                         <div class="col-xl-3">
                             <select class="countries js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                 <option></option>
-                                <option value="kazakhstan">Казахстан</option>
-                                <option value="russia">Россия</option>
-                                <option value="ukraine">Украина</option>
+                                
                             </select>
                         </div>
                         <div class="col-xl-3">
                             <select class="cities js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                 <option></option>
-                                <option value="nur-sultan">Нур-Султан</option>
-                                <option value="shymkent">Шымкент</option>
-                                <option value="karganda">Караганда</option>
-                                <option value="aktobe">Актобе</option>
                             </select>
                         </div>
                         <div class="col-xl-3 separator">
@@ -84,7 +78,7 @@
         </div>
     </div>
     <div class="container boutique__container mt-5">
-        <div class="row">
+        <div class="row" id="boutique__products">
             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                 <div class="boutique-block">
                     <div class="boutique-img__wrapper">
@@ -412,7 +406,7 @@
         </div>
     </div>
     <div class="container mt-5">
-        <div class="row">
+        <div class="row" id="product__info">
             <div class="col-xl-5 col-md-6">
                 <div class="slider slider-for">
                     <div>
@@ -560,7 +554,7 @@
     <div class="tour__program">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-md-6 mt-5">
+                <div class="col-xl-7 col-md-6 mt-5" id="tour__program-content">
                     <h1>Программа тура</h1>
                     <ul>
                         <li>
@@ -595,8 +589,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-xl-5 col-md-6">
-                    <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%B0%D0%BB%D0%BC%D0%B0%D1%82%D1%8B&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+                <div class="col-xl-5 col-md-6" id="tour__program-map">
+                    <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%B0%D0%BB%D0%BC%D0%B0%D1%82%D1%8B&&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
                 </div>
             </div>
             <div class="row">
