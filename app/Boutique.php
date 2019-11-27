@@ -10,7 +10,13 @@ class Boutique extends Model
 {
     use Translatable, CanFilterTrait;
 
-    protected $translatable = ['name'];
+    protected $translatable = [
+        'name',
+        'seller_name',
+        'owner_name',
+        'languages',
+        'full_description',
+    ];
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
 

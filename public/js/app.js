@@ -40553,10 +40553,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+var _app_url = document.head.querySelector('meta[name="app-url"]').content;
+
+var _app_storage_url = _app_url + '/storage';
+
+var _app_api_url = _app_url + '/api';
+
 var edit_class = "mx-edit";
 $("." + edit_class).each(function () {
   var id = $(this).data('edit-id');
-  var url = "http://horgos.ibeacon.kz" + '/admin/blocks/' + id + '/edit';
+  var url = _app_url + '/admin/blocks/' + id + '/edit';
   $(this).append("<a class='edit' href='" + url + "'>Редактировать</a>");
   $(this).css('border', '1px solid black');
 });
@@ -40573,20 +40579,44 @@ window.boutiquesInTradingHousesFilterClear = function () {
   window.boutiquesInTradingHouses();
 };
 
+window.renderRating = function (rating) {
+  rating = rating.rating;
+  var html = '';
+  html += '<div class="star-rating__wrapper">';
+  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 5 ? 'star-rating__checked' : '') + '">';
+  html += '        <input class="star-rating__input" type="radio" name="rating" value="5">';
+  html += '    </label>';
+  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 4 ? 'star-rating__checked' : '') + '">';
+  html += '        <input class="star-rating__input" type="radio" name="rating" value="4">';
+  html += '    </label>';
+  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 3 ? 'star-rating__checked' : '') + '">';
+  html += '        <input class="star-rating__input" type="radio" name="rating" value="3">';
+  html += '    </label>';
+  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 2 ? 'star-rating__checked' : '') + '">';
+  html += '        <input class="star-rating__input" type="radio" name="rating" value="2">';
+  html += '    </label>';
+  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 1 ? 'star-rating__checked' : '') + '">';
+  html += '        <input class="star-rating__input" type="radio" name="rating" value="1">';
+  html += '    </label>';
+  html += '</div>';
+  console.log(html);
+  return html;
+};
+
 window.renderContent = function (data) {
   $('#content').empty();
-  $('#content').append('<div class="about-boutique__container">' + '    <div class="row">' + '        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 col-12 about-boutique__img-wrapper">' + '            <img src="' + "http://horgos.ibeacon.kz/storage" + '/' + data.firstImage + '">' + '        </div>' + '        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-12 col-12 about-boutique__info-wrapper">' + '            <div class="row align-items-end">' + '                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-4 col-4">' + '                    <h1 class="boutique-header">' + data.name + '</h1>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">' + '                    <p class="boutique-title">' + data.categoriesName + '</p>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-4 col-4">' + '                    <div class="star-rating__wrapper">' + '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                            <input class="star-rating__input" type="radio" name="rating" value="5">' + '                        </label>' + '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                            <input class="star-rating__input" type="radio" name="rating" value="4" checked>' + '                        </label>' + '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                            <input class="star-rating__input" type="radio" name="rating" value="3">' + '                        </label>' + '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                            <input class="star-rating__input" type="radio" name="rating" value="2">' + '                        </label>' + '                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                            <input class="star-rating__input" type="radio" name="rating" value="1">' + '                        </label>' + '                    </div>' + '                </div>' + '                <div class="col-xl-5">' + '                </div>' + '            </div>' + '            <div class="row mt-3">' + '                <div class="col-xl-12 col-lg-11 col-md-12 col-sm-12 col-12">' + '                    <p>' + '                    Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце' + '                    </p>' + '                </div>' + '            </div>' + '            <div class="row align-items-center mt-3">' + '                <div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-7">' + '                    <a href="' + "http://horgos.ibeacon.kz" + '/boutique/' + data.id + '">Перейти в бутик</a>' + '                </div>' + '                <div class="col-xl-3 col-lg-7 col-md-6 col-sm-5 col-5">' + '                    <p>Артикул: ' + data.id + '</p>' + '                </div>' + '                <div class="col-xl-6"></div>' + '            </div>' + '        </div>' + '    </div>' + '</div>');
+  $('#content').append('<div class="about-boutique__container">' + '    <div class="row">' + '        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 col-12 about-boutique__img-wrapper">' + '            <img src="' + _app_storage_url + '/' + data.firstImage + '">' + '        </div>' + '        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-12 col-12 about-boutique__info-wrapper">' + '            <div class="row align-items-end">' + '                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-4 col-4">' + '                    <h1 class="boutique-header">' + data.name + '</h1>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">' + '                    <p class="boutique-title">' + data.categoriesName + '</p>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-4 col-4">' + renderRating(data.averageRating) + '                </div>' + '                <div class="col-xl-5">' + '                </div>' + '            </div>' + '            <div class="row mt-3">' + '                <div class="col-xl-12 col-lg-11 col-md-12 col-sm-12 col-12">' + '                    <p>' + '                    Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце' + '                    </p>' + '                </div>' + '            </div>' + '            <div class="row align-items-center mt-3">' + '                <div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-7">' + '                    <a href="' + _app_url + '/boutique/' + data.id + '">Перейти в бутик</a>' + '                    <span class"favorite" data-boutique_id="' + data.id + '"></span>' + '                </div>' + '                <div class="col-xl-3 col-lg-7 col-md-6 col-sm-5 col-5">' + '                    <p>Артикул: ' + data.id + '</p>' + '                </div>' + '                <div class="col-xl-6"></div>' + '            </div>' + '        </div>' + '    </div>' + '</div>');
 };
 
 window.boutiquesInTradingHouses = function () {
-  fetch("http://horgos.ibeacon.kz/api" + '/boutiques?' + $.param(window.filter)).then(function (res) {
+  fetch(_app_api_url + '/boutiques?' + $.param(window.filter)).then(function (res) {
     return res.json();
   }).then(function (data) {
     $('#boutiquesInTradingHouses').empty();
     data.map(function (model) {
       var cont = $('<div>');
       cont.attr('class', 'col-xl-3 col-lg-4 col-md-4 col-sm-6');
-      cont.append('    <div class="boutique-block">' + '        <img src="' + "http://horgos.ibeacon.kz/storage" + '/' + model.firstImage + '">' + '        <h3 class="boutique-header">' + model.name + '</h3>' + '        <p class="boutique-title">' + model.categoriesName + '</p>' + '        <div class="star-rating__wrapper">' + '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                <input class="star-rating__input" type="radio" name="rating" value="5">' + '            </label>' + '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                <input class="star-rating__input" type="radio" name="rating" value="4" checked>' + '            </label>' + '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                <input class="star-rating__input" type="radio" name="rating" value="3">' + '            </label>' + '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                <input class="star-rating__input" type="radio" name="rating" value="2">' + '            </label>' + '            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">' + '                <input class="star-rating__input" type="radio" name="rating" value="1">' + '            </label>' + '        </div>' + '        <a href="' + "http://horgos.ibeacon.kz" + '/boutique/' + model.id + '">Перейти в бутик</a>' + '        <p>Артикул: ' + model.id + '</p>' + '    </div>');
+      cont.append('    <div class="boutique-block">' + '        <img src="' + _app_storage_url + '/' + model.firstImage + '">' + '        <h3 class="boutique-header">' + model.name + '</h3>' + '        <p class="boutique-title">' + model.categoriesName + '</p>' + renderRating(model.averageRating) + '        <a href="' + _app_url + '/boutique/' + model.id + '">Перейти в бутик</a>' + '        <p>Артикул: ' + model.id + '</p>' + '    </div>');
       cont.click(function () {
         window.renderContent(model);
       });
@@ -40646,7 +40676,7 @@ window.review = function _callee(boutique_id) {
           formValues = _ref.value;
 
           if (formValues) {
-            fetch("http://horgos.ibeacon.kz/api" + '/boutique/' + boutique_id + '/reviews/create?' + $.param({
+            fetch(_app_api_url + '/boutique/' + boutique_id + '/reviews/create?' + $.param({
               name: formValues[0],
               review: formValues[1],
               rating: formValues[2]
@@ -40667,6 +40697,10 @@ $('#create-review').click(function () {
   var boutique_id = $(this).data('boutique_id');
   review(boutique_id);
 });
+
+var favorites = function favorites() {
+  $('.favorite').each(function () {});
+};
 
 /***/ }),
 

@@ -16,11 +16,15 @@ import Swal from 'sweetalert2'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+var _app_url = document.head.querySelector('meta[name="app-url"]').content;
+var _app_storage_url = _app_url + '/storage';
+var _app_api_url = _app_url + '/api';
+
 let edit_class = process.env.MIX_EDITABLE_BLOCK_CLASS;
 
 $("."+edit_class).each(function() {
     let id = $(this).data('edit-id');
-    let url = process.env.MIX_APP_URL + '/admin/blocks/' + id + '/edit';
+    let url = _app_url + '/admin/blocks/' + id + '/edit';
 
     $(this).append("<a class='edit' href='"+url+"'>Редактировать</a>");
     $(this).css('border', '1px solid black');
@@ -73,7 +77,7 @@ window.renderContent = function(data) {
     $('#content').append('<div class="about-boutique__container">' +
     '    <div class="row">' +
     '        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 col-12 about-boutique__img-wrapper">' +
-    '            <img src="' + process.env.MIX_APP_STORAGE_URL + '/' + data.firstImage + '">' +
+    '            <img src="' + _app_storage_url + '/' + data.firstImage + '">' +
     '        </div>' +
     '        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-12 col-12 about-boutique__info-wrapper">' +
     '            <div class="row align-items-end">' +
@@ -98,7 +102,7 @@ window.renderContent = function(data) {
     '            </div>' +
     '            <div class="row align-items-center mt-3">' +
     '                <div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-7">' +
-    '                    <a href="' + process.env.MIX_APP_URL + '/boutique/' + data.id  + '">Перейти в бутик</a>' +
+    '                    <a href="' + _app_url + '/boutique/' + data.id  + '">Перейти в бутик</a>' +
     '                    <span class"favorite" data-boutique_id="'+data.id+'"></span>'+
     '                </div>' +
     '                <div class="col-xl-3 col-lg-7 col-md-6 col-sm-5 col-5">' +
@@ -114,7 +118,7 @@ window.renderContent = function(data) {
 
 window.boutiquesInTradingHouses = function() {
 
-    fetch(process.env.MIX_APP_API_URL + '/boutiques?' + $.param(window.filter))
+    fetch(_app_api_url + '/boutiques?' + $.param(window.filter))
     .then(res => res.json())
     .then(
       (data) => {
@@ -124,11 +128,11 @@ window.boutiquesInTradingHouses = function() {
             cont.attr('class', 'col-xl-3 col-lg-4 col-md-4 col-sm-6');
             cont.append(
             '    <div class="boutique-block">' +
-            '        <img src="' + process.env.MIX_APP_STORAGE_URL + '/' + model.firstImage + '">' +
+            '        <img src="' + _app_storage_url + '/' + model.firstImage + '">' +
             '        <h3 class="boutique-header">' + model.name +'</h3>' +
             '        <p class="boutique-title">' + model.categoriesName + '</p>' +
                     renderRating(model.averageRating) + 
-            '        <a href="' + process.env.MIX_APP_URL + '/boutique/' + model.id  + '">Перейти в бутик</a>' +
+            '        <a href="' + _app_url + '/boutique/' + model.id  + '">Перейти в бутик</a>' +
             '        <p>Артикул: ' + model.id + '</p>' +
             '    </div>'
             );
@@ -202,7 +206,7 @@ window.review = async (boutique_id) => {
     })
 
     if (formValues) {
-        fetch(process.env.MIX_APP_API_URL + '/boutique/'+boutique_id+'/reviews/create?' + $.param({name: formValues[0], review: formValues[1], rating: formValues[2]}))
+        fetch(_app_api_url + '/boutique/'+boutique_id+'/reviews/create?' + $.param({name: formValues[0], review: formValues[1], rating: formValues[2]}))
         .then(res => {
             Swal.fire("Спасибо за отзыв!");
         });

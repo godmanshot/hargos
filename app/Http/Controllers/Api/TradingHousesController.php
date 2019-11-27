@@ -6,14 +6,15 @@ use App\Boutique;
 use App\Category;
 use App\TradingHouse;
 use Illuminate\Http\Request;
+use App\Filters\TradingHouseFilter;
 use App\Http\Controllers\Controller;
 
 class TradingHousesController extends Controller
 {
-    public function index(Request $request) {
-        $models = TradingHouse::orderBy('order')->get();
+    public function index(Request $request, TradingHouseFilter $filter) {
+        $models = TradingHouse::filter($filter)->orderBy('order');
     
-        return $models;
+        return $models->get();
     }
 
     public function categories(Request $request, TradingHouse $trading_house) {

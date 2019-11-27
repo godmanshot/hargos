@@ -6,9 +6,9 @@ use App\Filters\Filter;
 
 trait CanFilterTrait {
 
-    public function scopeFilter($query, Filter $filter)
+    public function scopeFilter($query, Filter $filter, $params = [])
     {
-        return $filter->apply($query);
+        return $filter->apply($query, $params);
     }
 
 }

@@ -19,18 +19,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('cors')->group(function() {
+Route::middleware('cors')->namespace('Api')->group(function() {
 
-    Route::get('/trading-house', 'Api\TradingHousesController@index');
-    Route::get('/trading-house/{trading_house}/categories', 'Api\TradingHousesController@categories');
-    Route::get('/trading-house/{trading_house}/boutiques-by-category/{category}', 'Api\TradingHousesController@boutiquesByCategory');
-    Route::get('/boutiques', 'Api\BoutiquesController@index');
-    Route::get('/tour-operators', 'Api\TourOperatorsController@index');
-    Route::get('/countries', 'Api\CountriesController@index');
-    Route::get('/cities', 'Api\CitiesController@index');
-    Route::get('/boutique/{boutique}/reviews/create', 'Api\ReviewsController@create')->name('boutique.review');
+    Route::get('/token', 'AuthController@getToken');
 
-    Route::get('/token', 'Api\AuthController@getToken');
+    Route::get('/trading-house', 'TradingHousesController@index');
+    Route::get('/trading-house/{trading_house}/categories', 'TradingHousesController@categories');
+    Route::get('/trading-house/{trading_house}/boutiques-by-category/{category}', 'TradingHousesController@boutiquesByCategory');
+
+    Route::get('/boutiques', 'BoutiquesController@index');
+    Route::get('/boutique/{boutique}/reviews/create', 'ReviewsController@create')->name('boutique.review');
+    Route::get('/boutique/reviews', 'BoutiqueReviewsController@index');
+
+    Route::get('/categories', 'CategoriesController@index');
+
+    Route::get('/tour-operators', 'TourOperatorsController@index');
+
+    Route::get('/countries', 'CountriesController@index');
+
+    Route::get('/cities', 'CitiesController@index');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {

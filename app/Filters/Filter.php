@@ -12,9 +12,10 @@ abstract class Filter extends Model {
         $this->request = $request;
     }
 
-    public function apply($query)
+    public function apply($query, $params = [])
     {
         $this->builder = $query;
+        $this->params = $params;
 
         foreach($this->getFilters() as $key => $value) {
             if(method_exists($this, $key)) {
@@ -27,6 +28,9 @@ abstract class Filter extends Model {
     
     public function getFilters()
     {
-        return array_filter($this->request->all());
+
+        $filters = array_merge($this->request->all(), $this->params);
+
+        return array_filter($filters);
     }
 }
