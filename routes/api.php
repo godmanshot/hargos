@@ -38,6 +38,26 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/countries', 'CountriesController@index');
 
     Route::get('/cities', 'CitiesController@index');
+
+    Route::get('/freebies', 'FreebiesController@index');
+
+    Route::get('/interviews', 'InterviewsController@index');
+
+    Route::get('/popular-products', 'PopularProductsController@index');
+
+    Route::get('/posts', 'PostsController@index');
+
+    Route::get('/recommended', 'RecommendedController@index');
+
+    Route::get('/reviews-about', 'ReviewsAboutController@index');
+
+    Route::get('/sliders', 'SlidersController@index');
+
+    Route::get('/top-products', 'TopProductsController@index');
+
+    Route::get('/tour-houses', 'TourHousesController@index');
+
+    Route::get('/trading-houses', 'TradingHousesController@index');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {

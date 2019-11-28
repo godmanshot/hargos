@@ -11,6 +11,22 @@ class CategoryFilter extends Filter {
         return $this->builder->where('name', 'like', '%'.$value.'%');
     }
 
+    public function trading_house_id($value)
+    {
+        return $this->builder->whereHas('boutiques', function ($query) use ($value) {
+            $query->whereHas('tradingHouses', function ($trad) use ($value) {
+                $trad->where('trading_houses.id', '=', $value);
+            });
+        });
+    }
+
+    public function boutique_id($value)
+    {
+        return $this->builder->whereHas('boutiques', function ($query) use ($value) {
+            $query->where('boutiques.id', '=', $value);
+        });
+    }
+
     public function sort($value)
     {
         return $this->builder->orderBy($value);

@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\CanFilterTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class TourHouse extends Model
 {
+    use CanFilterTrait;
     
     public $translatable = [
         'house_name',

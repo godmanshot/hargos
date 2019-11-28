@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\CanFilterTrait;
 use TCG\Voyager\Traits\Translatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Slide extends Model
 {
-    use Translatable;
+    use Translatable, CanFilterTrait;
 
     protected $translatable = ['title', 'description'];
 }
