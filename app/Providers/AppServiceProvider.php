@@ -25,13 +25,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('block', function ($expression) {
-            $args = explode(',', $expression);
-            $args = array_map('trim', $args);
+        // $this->app->singleton('Block', function ($app) {
+        //     return new BlockFactory();
+        // });
 
-            $block = (new BlockFactory)->getByName($args[0]);
+        // Blade::directive('block', function ($expression) {
+        //     $args = explode(',', $expression);
+        //     $args = array_map('trim', $args);
 
-            return $block ? $block->getContent($args[1] ?? null) : '';
-        });
+        //     $block = (new BlockFactory)->_($args[0]);
+
+        //     return $block ? $block->getContent($args[1] ?? null) : '';
+        // });
     }
 }

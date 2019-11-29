@@ -223,7 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Lang' => \App\Facades\Lang::class
+        // 'LangS' => \App\Facades\Lang::class,
+        'Block' => \App\Facades\Block::class,
 
     ],
 

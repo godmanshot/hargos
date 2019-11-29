@@ -15,18 +15,18 @@ class BlockFactory {
         return $blocks;
     }
 
-    public function getByName($name)
+    public function _($name)
     {
         if(isset($this->_cache[$name]))
         {
         
-            return $this->_cache[$name];
+            return $this->_cache[$name]->getContent();
         
         } else {
         
             $block = Block::where('name', $name)->first();
 
-            return $block ? ($this->_cache[$name] = $block) : null;
+            return $block ? ($this->_cache[$name] = $block)->getContent() : null;
             
         }
     }

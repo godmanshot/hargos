@@ -74,8 +74,8 @@
                         <div class="flexibleServices">
                             <embed src="{{asset('images/visa.svg')}}" alt="">
                             <div>
-                                <h4>@block(Безвизовый доступ)</h4>
-                                <p>@block(23rf3fds)</p>
+                                <h4>{!!Block::_('Безвизовый доступ')!!}</h4>
+                                <p>{!!Block::_('23rf3fds')!!}</p>
                             </div>
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                         <div class="flexibleServices">
                             <embed src="{{asset('images/terminal.svg')}}" alt="">
                             <div>
-                                <h4>@block(vdf4rf3)</h4>
-                                <p>@block(fasd43)</p>
+                                <h4>{!!Block::_('vdf4rf3')!!}</h4>
+                                <p>{!!Block::_('fasd43')!!}</p>
                             </div>
                         </div>
                     </div>
@@ -92,8 +92,8 @@
                         <div class="flexibleServices">
                             <embed src="{{asset('images/car.svg')}}" alt="">
                             <div>
-                                <h4>@block(vdsfvre)</h4>
-                                <p>@block(brec23)</p>
+                                <h4>{!!Block::_('vdsfvre')!!}</h4>
+                                <p>{!!Block::_('brec23')!!}</p>
                             </div>
                         </div>
                     </div>
