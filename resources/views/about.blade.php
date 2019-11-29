@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="arrowBox">
-                        {!!Block::_('dkczXHqoHRar4kab')!!}
+                        {!!Block::_('ijbwC4bEGmp3ZYAw')!!}
                         <div></div>
                     </div>
                 </div>
