@@ -22,13 +22,15 @@ var _app_api_url = _app_url + '/api';
 
 let edit_class = process.env.MIX_EDITABLE_BLOCK_CLASS;
 
-$("."+edit_class).each(function() {
-    let id = $(this).data('edit-id');
-    let url = _app_url + '/admin/blocks/' + id + '/edit';
-
-    $(this).append("<a class='edit' href='"+url+"'>Редактировать</a>");
-    $(this).css('border', '1px solid black');
-});
+window.adminEdit = function() {
+    $("."+edit_class).each(function() {
+        let id = $(this).data('edit-id');
+        let url = _app_url + '/admin/blocks/' + id + '/edit';
+    
+        $(this).append("<a class='edit' href='"+url+"'>Редактировать</a>");
+        $(this).css('border', '1px solid black');
+    });
+}
 
 window.filterInitial = {};
 window.filter = {};

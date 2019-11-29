@@ -40560,12 +40560,16 @@ var _app_storage_url = _app_url + '/storage';
 var _app_api_url = _app_url + '/api';
 
 var edit_class = "mx-edit";
-$("." + edit_class).each(function () {
-  var id = $(this).data('edit-id');
-  var url = _app_url + '/admin/blocks/' + id + '/edit';
-  $(this).append("<a class='edit' href='" + url + "'>Редактировать</a>");
-  $(this).css('border', '1px solid black');
-});
+
+window.adminEdit = function () {
+  $("." + edit_class).each(function () {
+    var id = $(this).data('edit-id');
+    var url = _app_url + '/admin/blocks/' + id + '/edit';
+    $(this).append("<a class='edit' href='" + url + "'>Редактировать</a>");
+    $(this).css('border', '1px solid black');
+  });
+};
+
 window.filterInitial = {};
 window.filter = {};
 

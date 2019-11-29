@@ -265,6 +265,12 @@
 			}
 			  	
 	</style>
+	
+	@if((Auth::user()->role_id ?? 0) == 1)
+	<script>
+		adminEdit();
+	</script>
+	@endif
 	<!-- MAIN PAGE SLICKS END -->
 	<!-- FOOTER END -->
 </body>
