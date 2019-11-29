@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Events\BreadDataUpdated;
 
-class BlocksController extends Controller
+class BlocksController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
     public function store(Request $request) {
         $slug = $this->getSlug($request);
