@@ -262,6 +262,11 @@
 			.{{env('MIX_EDITABLE_BLOCK_CLASS')}}:hover .edit {
 				opacity: 1;
 			}
+
+			.no-spacing {
+				padding: 0;
+				margin: 0;
+			}
 			  	
 	</style>
 	

@@ -115,15 +115,15 @@
                     <div class="makeSure">
                         <div>
                             <h1>{{__('Узнайте точно')}}</h1>
-                            <div>
+                            <div class="no-spacing">
                                 {!!Block::_('6tOPu9JcT6fHv2gG')!!}
                             </div>
                             <button type="button" class="getConsultation">{{__('Получить консультацию')}}</button>
-                            <div>
+                            <div class="no-spacing">
                                 {!!Block::_('GQfI1j13nUJYFsFp')!!}
                             </div>
                         </div>
-                        <div>
+                        <div class="no-spacing">
                             {!!Block::_('lExW48dKxvQSpsmY')!!}
                         </div>
                     </div>
