@@ -8,30 +8,25 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="#">
-                            <span>главная</span>
+                            <span>{{__('главная')}}</span>
                         </a>
                         <span>/</span>
-                        <h4>советы</h4>
+                        <h4>{{__('советы')}}</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>Популярные советы</h1>
+                    <h1>{{__('Популярные советы')}}</h1>
                 </div> 
                 <div class="col-xl-12">
                     <div class="popular__advices mt-4">
-                        <button class="advice-btn">Как включить кондиционер</button>
-                        <button class="advice-btn">Как выбрать шубу</button>
-                        <button class="advice-btn">Как звать такси</button>
-                        <button class="advice-btn">Как включить кондиционер</button>
-                        <button class="advice-btn">Как звать такси</button>
-                        <button class="advice-btn">Как включить кондиционер</button>
-                        <button class="advice-btn">Как звать такси</button>
-                        <button class="advice-btn">Как включить кондиционер</button>
-                        <button class="advice-btn">Как звать такси</button>
-                        <button class="advice-btn">Как включить кондиционер</button>
+                        @if($categories->count())
+                            @foreach($categories as $category)
+                                <button onclick="window.location.href = '{{url('advice')}}?category_id={{$category->id}}';" class="advice-btn {{$category->id == $selected_category ? 'advice-btn__chosen' : ''}}">{{$category->getTranslatedAttribute('name')}}</ onclick="window.location.href = "http://www.w3schools.com";">
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -40,34 +35,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        <h1>Видео</h1>
+                        <h1>{{__('Видео')}}</h1>
                     </div>
                     <div class="col-xl-12">
                         <div class="slider advice-player">
-                            <div>
-                                <iframe
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                                </iframe>
-                                <h3>Как выключить кондиционер</h3>
-                            </div>
-                            <div>
-                                <iframe
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                                </iframe>
-                                <h3>Как выключить кондиционер</h3>
-                            </div>
-                            <div>
-                                <iframe
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                                </iframe>
-                                <h3>Как выключить кондиционер</h3>
-                            </div>
-                            <div>
-                                <iframe
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                                </iframe>
-                                <h3>Как выключить кондиционер</h3>
-                            </div>
+                            @if($videos->count())
+                                @foreach($videos as $video)
+                                    <div>
+                                        {{$video->video}}
+                                        <h3>{{$video->getTranslatedAttribute('title')}}</h3>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -77,84 +56,30 @@
         <div class="container articles--container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>Статьи</h1>
+                    <h1>{{__('Статьи')}}</h1>
                 </div>
-                <div class="col-xl-12 article--wrapper">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-6">
-                            <div class="img__wrapper" img-caption="Какая то подпись под картинкой">
-                                <img  src="images/advices__img-01.png">
+                @if($posts->count())
+                    @foreach($posts as $post)
+                    <div class="col-xl-12 article--wrapper">
+                        <div class="row">
+                            <div class="col-xl-5 col-md-6">
+                                <div class="img__wrapper" img-caption="{{$post->getTranslatedAttribute('title')}}">
+                                    <img src="{{Voyager::image($post->image)}}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-7 col-md-6">
-                            <h1>Как включить кондиционер</h1>
-                            <p>Текст генерируется абзацами случайным образом</p>
-                            <div class="moreContent">
-                                <p><span>Сайт рыбатекст поможет дизайнеру</span>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <div class="content__fadeout"></div>
+                            <div class="col-xl-7 col-md-6">
+                                <h1>{{$post->getTranslatedAttribute('title')}}</h1>
+                                <p>{{$post->getTranslatedAttribute('description')}}</p>
+                                <div class="moreContent">
+                                    {!!$post->getTranslatedAttribute('content')!!}
+                                    <div class="content__fadeout"></div>
+                                </div>
+                                <a class="article__more">{{__('Читать далее')}}</a>
                             </div>
-                            <a class="article__more">Читать далее</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-12 article--wrapper">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-6">
-                            <div class="img__wrapper" img-caption="Какая то подпись под картинкой">
-                                <img  src="images/advices__img-01.png">
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-6">
-                            <h1>Как включить кондиционер</h1>
-                            <p>Текст генерируется абзацами случайным образом</p>
-                            <div class="moreContent">
-                                <p><span>Сайт рыбатекст поможет дизайнеру</span>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <div class="content__fadeout"></div>
-                            </div>
-                            <a class="article__more">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12 article--wrapper">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-6">
-                            <div class="img__wrapper" img-caption="Какая то подпись под картинкой">
-                                <img  src="images/advices__img-01.png">
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-6">
-                            <h1>Как включить кондиционер</h1>
-                            <p>Текст генерируется абзацами случайным образом</p>
-                            <div class="moreContent">
-                                <p><span>Сайт рыбатекст поможет дизайнеру</span>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <div class="content__fadeout"></div>
-                            </div>
-                            <a class="article__more">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12 article--wrapper">
-                    <div class="row">
-                        <div class="col-xl-5 col-md-6">
-                            <div class="img__wrapper" img-caption="Какая то подпись под картинкой">
-                                <img  src="images/advices__img-01.png">
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-md-6">
-                            <h1>Как включить кондиционер</h1>
-                            <p>Текст генерируется абзацами случайным образом</p>
-                            <div class="moreContent">
-                                <p><span>Сайт рыбатекст поможет дизайнеру</span>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <div class="content__fadeout"></div>
-                            </div>
-                            <a class="article__more">Читать далее</a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         

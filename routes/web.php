@@ -1,14 +1,18 @@
 <?php
 
+use App\Review;
 use App\Slider;
 use App\Freebie;
 use App\Boutique;
 use App\Category;
 use App\Interview;
+use App\AdvicePost;
 use App\TopProduct;
+use App\AdviceVideo;
 use App\Recommended;
 use App\TradingHouse;
 use App\CategoryStock;
+use App\AdviceCategory;
 use App\PopularProduct;
 use Illuminate\Http\Request;
 
@@ -88,7 +92,60 @@ Route::get('/tour-operators', function(Request $request) {
 });
 
 Route::get('/advice', function(Request $request) {
-    return view('advice');
+    $categories = AdviceCategory::latest()->get();
+
+    $videos = AdviceVideo::latest();
+    $posts = AdvicePost::latest();
+    $selected_category = 0;
+
+    if($request->has('category_id')) {
+        $selected_category = $request->category_id;
+        $videos->where('advice_category_id', $selected_category);
+        $posts->where('advice_category_id', $selected_category);
+    }
+
+    $videos = $videos->get();
+    $posts = $posts->get();
+
+    return view('advice', compact('categories', 'videos', 'posts', 'selected_category'));
+});
+
+Route::get('/reviews', function(Request $request) {
+    $reviews = Review::latest()->get();
+
+    return view('reviews', compact('reviews'));
+});
+
+Route::get('/reviews/{review}/like', function(Request $request, Review $review) {
+
+    $review->likes += 1;
+    $review->save();
+
+    $can_like = json_decode(request()->cookie('can_like', '[]'), true);
+
+    if(array_search($review->id, $can_like) === false) {
+        $can_like[] = $review->id;
+    }
+
+    return back()->cookie(
+        'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
+    );
+});
+
+Route::get('/reviews/{review}/dislike', function(Request $request, Review $review) {
+
+    $review->likes -= 1;
+    $review->save();
+
+    $can_like = json_decode(request()->cookie('can_like', '[]'), true);
+
+    if(array_search($review->id, $can_like) === false) {
+        $can_like[] = $review->id;
+    }
+
+    return back()->cookie(
+        'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
+    );
 });
 
 Route::group(['prefix' => 'admin'], function () {
