@@ -252,7 +252,6 @@
 			}
 
 			.{{env('MIX_EDITABLE_BLOCK_CLASS')}} .edit {
-				opacity: 0;
 				position: absolute;
 				top: 0;
 				background-color: rgba(0, 0, 0, 0.3);
