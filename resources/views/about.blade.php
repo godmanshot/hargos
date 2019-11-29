@@ -77,53 +77,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>Что такое “<span>SMART SHOPPING</span>”?</h1>
+                    <h1>{{__('Что такое')}} “<span>{{__('SMART SHOPPING')}}</span>”?</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-4 col-sm-6 col-md-4">
                     <div class="smart__wrapper">
                         <img src="images/smart-shopping_img-01.png">
-                        <p>Есть два способа сделать так, чтобы ваши покупки прошли без последствий</p>
+                        {!!Block::_('3Xjyx6TBXY8mmws8')!!}
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-md-4">
                     <div class="smart__wrapper">
                         <img src="images/smart-shopping_img-02.png">
-                        <p>Есть два способа сделать так, чтобы ваши покупки прошли без последствий</p>
+                        {!!Block::_('Es7yunl3KSL7vLRM')!!}
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-md-4">
                     <div class="smart__wrapper">
                         <img src="images/smart-shopping_img-03.png">
-                        <p>Есть два способа сделать так, чтобы ваши покупки прошли без последствий</p>
+                        {!!Block::_('rdVEPlRukZ1CO5f1')!!}
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-md-4">
                     <div class="smart__wrapper">
                         <img src="images/smart-shopping_img-04.png">
-                        <p>Есть два способа сделать так, чтобы ваши покупки прошли без последствий</p>
+                        {!!Block::_('caeOBGdCA6M7oXfH')!!}
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-md-4">
                     <div class="smart__wrapper">
                         <img src="images/smart-shopping_img-05.png">
-                        <p>Есть два способа сделать так, чтобы ваши покупки прошли без последствий</p>
+                        {!!Block::_('U7BdHBzPNDC9cKTI')!!}
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-12 col-md-8 col-lg-4">
                     <div class="makeSure">
                         <div>
-                            <h1>Узнайте точно</h1>
-                            <p>Есть два способа сделать так, чтобы вашипокупки прошли без последствий на почту:</p>
-                            <a href="mailto: Horgos@horgos.kz">Horgos@horgos.kz</a>
-                            <p>или запишитесь на бесплатную телефонную консультацию</p>
-                            <button type="button" class="getConsultation">Получить консультацию</button>
-                            <p>
-                            Работаем с <span>9:00</span> до <span>18:00</span>. Если сегодня выходной,то перезвоним в понедельник до обеда.
-                            </p>
+                            <h1>{{__('Узнайте точно')}}</h1>
+                            {!!Block::_('6tOPu9JcT6fHv2gG')!!}
+                            <button type="button" class="getConsultation">{{__('Получить консультацию')}}</button>
+                            {!!Block::_('GQfI1j13nUJYFsFp')!!}
                         </div>
-                        <p>Дадим бесплатную и точную консультацию, а надо ли делать покупки и что будет,если?</p>
+                        {!!Block::_('lExW48dKxvQSpsmY')!!}
                     </div>
                 </div>
             </div>
