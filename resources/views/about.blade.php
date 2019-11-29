@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    {{Block::_('XjaFhOpNU9ovuxoS')}}
+                    {!!Block::_('XjaFhOpNU9ovuxoS')!!}
                 </div>
             </div>
             <div class="row">
@@ -51,21 +51,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    {{Block::_('YGL3uLmZrfdcnMAz')}}
+                    {!!Block::_('YGL3uLmZrfdcnMAz')!!}
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-xl-6 col-12 col-md-6">
-                    {{Block::_('kd7GgvxxrRMVFEVU')}}
+                    {!!Block::_('kd7GgvxxrRMVFEVU')!!}
                 </div>
                 <div class="col-xl-6 col-12 col-md-6">
-                    {{Block::_('xniF58UyUrV4OejF')}}
+                    {!!Block::_('xniF58UyUrV4OejF')!!}
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="arrowBox">
-                        {{Block::_('dkczXHqoHRar4kab')}}
+                        {!!Block::_('dkczXHqoHRar4kab')!!}
                         <div></div>
                     </div>
                 </div>
