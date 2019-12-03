@@ -29,7 +29,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-3">
+                                        @if(!empty($slide->link))
                                         <a href="{{$slide->link}}" class="detailed">{{__('подробнее')}}</a>
+                                        @endif
                                     </div>
                                     <div class="col-xl-9"></div>
                                 </div>
