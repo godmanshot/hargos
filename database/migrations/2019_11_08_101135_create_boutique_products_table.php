@@ -19,6 +19,12 @@ class CreateBoutiqueProductsTable extends Migration
             $table->string('name')->nullable();
             $table->integer('price_from')->nullable();
             $table->integer('price_to')->nullable();
+            $table->integer('price_from_dollar')->nullable();
+            $table->integer('price_to_dollar')->nullable();
+            $table->integer('price_from_rub')->nullable();
+            $table->integer('price_to_rub')->nullable();
+            
+
             $table->timestamps();
         });
     }

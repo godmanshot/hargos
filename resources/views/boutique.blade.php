@@ -193,9 +193,9 @@
                         </div>
                         <div class="col-xl-4 col-6">
                             <select class="prices js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option value="kzt" >&#8376; KZT</option>
-                                <option value="usd">&#36; USD</option>
-                                <option value="rub">&#8381; RUB</option>
+                                <option value="price_kzt" >&#8376; KZT</option>
+                                <option value="price_usd">&#36; USD</option>
+                                <option value="price_rub">&#8381; RUB</option>
                             </select>
                         </div>
                         <div class="col-xl-4"></div>
@@ -206,12 +206,23 @@
                                 @foreach($boutique->products as $product)
                                     <li>
                                         <p>{{$product->getTranslatedAttribute('name')}}</p>
-                                        <h2>от {{$product->price_from}} до {{$product->price_to}} тг</h2>
+                                        <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} тг</h2>
+                                        <h2 class="one_price price_usd" style="display: none;">от {{$product->price_from_dollar}} до {{$product->price_to_dollar}} $</h2>
+                                        <h2 class="one_price price_rub" style="display: none;">от {{$product->price_from_rub}} до {{$product->price_to_rub}} руб.</h2>
                                     </li>
                                 @endforeach
                             @endif
                         </ul>
                     </div>
+                    @push('scripts')
+                    <script>
+                        $('select.prices').change(function() {
+                            $('.one_price').css({'display': 'none'});
+                            $('.'+$(this).val()).css({'display': 'block'});
+                        });
+                    </script>
+                    @endpush
+
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6">
@@ -299,7 +310,7 @@
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                             <div class="boutique-block">
-                                <img src="{{Voyager::image($boutique->firstImage)}}">
+                                <img src="{{Voyager::image($fav_boutique->firstImage)}}">
                                 <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
                                 <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">
