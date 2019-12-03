@@ -61,7 +61,7 @@
                         <h1>{{__('Общество с ограниченной ответственностью “Хоргос”')}}</h1>
                         <div class="separator"></div>
                     </div>
-                    <div class="mapouter"><div class="gmap_canvas">{{setting('kontakty.map')}}</div></div>
+                    <div class="mapouter"><div class="gmap_canvas">{!!setting('kontakty.map')!!}</div></div>
                 </div>
             </div>
         </div>
