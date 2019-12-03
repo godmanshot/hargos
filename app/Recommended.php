@@ -13,7 +13,7 @@ class Recommended extends Model
 
     public function boutique()
     {
-        return $this->hasOne('App\Boutique', 'id');
+        return $this->hasOne('App\Boutique', 'id', 'boutique_id');
     }
 
     public function getBoutiqueNameAttribute()
