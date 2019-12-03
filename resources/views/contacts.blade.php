@@ -20,12 +20,12 @@
                     <div class="contact__wrapper">
                         <div class="contact__details--wrapper">
                             <div class="contact__details">
-                                <h2>{{setting('kontakty.name.1')}}</h2>
-                                <a href="tel: {{setting('kontakty.phone.1')}}">{{setting('kontakty.phone.1')}}</a>
+                                <h2>{{setting('kontakty.name-1')}}</h2>
+                                <a href="tel: {{setting('kontakty.phone-1')}}">{{setting('kontakty.phone-1')}}</a>
                             </div>
                             <div class="contact__details">
-                                <h2>{{setting('kontakty.name.2')}}</h2>
-                                <a href="tel: {{setting('kontakty.phone.2')}}">{{setting('kontakty.phone.2')}}</a>
+                                <h2>{{setting('kontakty.name-2')}}</h2>
+                                <a href="tel: {{setting('kontakty.phone-2')}}">{{setting('kontakty.phone-2')}}</a>
                             </div>
                             <div class="contact__details">
                                 <h2>{{__('Адрес')}}</h2>
@@ -36,9 +36,9 @@
                             <h2>{{__('Генеральный директор')}}:</h2>
                             <div class="card__wrapper">
                                 <div class="img__wrapper">
-                                    <img src="{{setting('kontakty.director.photo')}}">
+                                    <img src="{{setting('kontakty.director-photo')}}">
                                 </div>
-                                <p>{{setting('kontakty.director.name')}}</p>
+                                <p>{{setting('kontakty.director-name')}}</p>
                             </div>
                         </div>
                         <div class="contact__details--wrapper">
