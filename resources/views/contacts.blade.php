@@ -36,7 +36,7 @@
                             <h2>{{__('Генеральный директор')}}:</h2>
                             <div class="card__wrapper">
                                 <div class="img__wrapper">
-                                    <img src="{{setting('kontakty.director-photo')}}">
+                                    <img src="{{Voyager::image(setting('kontakty.director-photo'))}}">
                                 </div>
                                 <p>{{setting('kontakty.director-name')}}</p>
                             </div>
@@ -61,7 +61,7 @@
                         <h1>{{__('Общество с ограниченной ответственностью “Хоргос”')}}</h1>
                         <div class="separator"></div>
                     </div>
-                    <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%9E%D0%9E%D0%9E%20%E2%80%9C%D0%A5%D0%BE%D1%80%D0%B3%D0%BE%D1%81%E2%80%9D%2C%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+                    <div class="mapouter"><div class="gmap_canvas">{{setting('kontakty.map')}}</div></div>
                 </div>
             </div>
         </div>
