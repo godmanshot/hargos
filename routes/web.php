@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 use App\Review;
 use App\Slider;
 use App\Freebie;
@@ -177,3 +178,17 @@ Route::middleware('auth')->delete('/favorite/{boutique}', function(Request $requ
     return redirect()->back();
 
 });
+
+Route::get('/contacts', function(Request $request) {
+    
+});
+
+Route::get('/posts', function(Request $request) {
+    $posts = Post::latest()->get();
+
+    return view('posts', compact('posts'));
+});
+
+Route::get('/posts/{post}', function(Request $request, Post $post) {
+    return view('post', compact('post'));
+})->name('posts.show');

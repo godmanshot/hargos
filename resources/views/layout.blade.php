@@ -12,9 +12,12 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hc-offcanvas-nav@3.4.1/dist/hc-offcanvas-nav.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.theme.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.core.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 </head>
 <body class="bg-grey">
     <!-- HEADER -->
@@ -251,6 +254,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+	<script src="https://cdn.jsdelivr.net/npm/hc-offcanvas-nav@3.4.1/dist/hc-offcanvas-nav.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 	<script>
 		window.lang = 'ru';

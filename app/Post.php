@@ -15,4 +15,10 @@ class Post extends Model
         'description',
         'content',
     ];
+
+
+    public function getDateFormatedAttribute()
+    {
+        return Carbon::parse($this->created_at)->format('d.m.Y');
+    }
 }

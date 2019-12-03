@@ -54,7 +54,7 @@
         </div>
         @endif
     </div>
-        <div class="relative__wrapper pt-5">
+        <div class="relative__wrapper pt-5" id="top">
             <div class="absolute__wrapper-left">
                 <div class="left-block">
                     <a class="playMarket" href="#"></a>
@@ -68,6 +68,7 @@
                     <a class="vk" href="#"></a>
                     <a class="youtube" href="#"></a>
                     <a class="instagram" href="#"></a>
+                    <a href="#top" class="anchor"></a>
                 </div>
             </div>
             <div class="container">
