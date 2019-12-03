@@ -210,162 +210,22 @@
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">Избранные бутики</h1>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                @if((Auth::user()->favoriteBoutiques ?? false) && Auth::user()->favoriteBoutiques->count())
+                    @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                         <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
+                            <img src="{{Voyager::image($fav_boutique->firstImage)}}">
+                            <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
+                            <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
+                            <div class="star-rating__wrapper">
+                                {!!$fav_boutique->averageRatingHtml!!}
+                            </div>
+                            <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
+                            <p>Артикул: {{$fav_boutique->id}}</p>
                         </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

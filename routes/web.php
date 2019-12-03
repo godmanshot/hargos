@@ -180,7 +180,7 @@ Route::middleware('auth')->delete('/favorite/{boutique}', function(Request $requ
 });
 
 Route::get('/contacts', function(Request $request) {
-    
+    return view('contacts');
 });
 
 Route::get('/posts', function(Request $request) {
