@@ -114,7 +114,7 @@
     
 
     <!-- FOOTER -->
-<div class="footer">
+	<div class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
@@ -141,7 +141,7 @@
 					</form>
 					<h5 class="mt-3">{{__('Мы в социальных сетях')}}</h5>
 					<ul class="social__btns mt-2">
-						<li><a href="#">
+						<li><a href="{{setting('sayt.facebook')}}">
 						<svg version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
 								<g fill="#000000" id="Facebook">
@@ -150,7 +150,7 @@
 							</g>
 						</svg>
 						</a></li>
-						<li><a href="#">
+						<li><a href="{{setting('sayt.twitter')}}">
 						<svg version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
 								<g fill="#000000" id="Twitter">
@@ -159,7 +159,7 @@
 							</g>
 						</svg>
 						</a></li>
-						<li><a href="#">
+						<li><a href="{{setting('sayt.vk')}}">
 						<svg enable-background="new 0 0 1024 1024" id="Layer_1" version="1.1" viewBox="0 0 1024 1024" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g id="Background">
 								<path d="M983.766,312.727c-25.785-60.972-62.694-115.728-109.705-162.744   C827.05,102.966,772.299,66.049,711.329,40.257C648.194,13.548,581.14,0.004,512,0c-69.104,0-136.155,13.54-199.289,40.243   c-60.969,25.787-115.721,62.699-162.735,109.71c-47.014,47.011-83.929,101.761-109.72,162.728   C13.548,375.814,0.004,442.865,0,511.97c-0.004,69.109,13.533,136.165,40.234,199.304   c25.785,60.973,62.696,115.728,109.707,162.743c47.011,47.018,101.762,83.935,162.732,109.727   c63.136,26.708,130.19,40.253,199.323,40.257h0.009c69.104,0,136.153-13.54,199.288-40.243   c60.969-25.787,115.72-62.699,162.733-109.709c47.013-47.01,83.929-101.76,109.72-162.728   c26.708-63.134,40.251-130.186,40.255-199.29C1024.004,442.921,1010.467,375.866,983.766,312.727z M512.004,976.328h-0.03   c-124.026-0.007-240.627-48.313-328.323-136.019C95.957,752.604,47.665,635.999,47.672,511.973   c0.015-256.016,208.312-464.3,464.356-464.3c124.026,0.007,240.626,48.312,328.32,136.017   c87.695,87.706,135.986,204.311,135.979,328.337C976.313,768.043,768.018,976.328,512.004,976.328z" fill="#262626"/>
@@ -169,7 +169,7 @@
 							</g>
 						</svg>
 						</a></li>
-						<li><a href="#">
+						<li><a href="{{setting('sayt.youtube')}}">
 							<svg version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
 							
 								<g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
@@ -179,7 +179,7 @@
 								</g>
 							</svg>
 						</a></li>
-						<li><a href="#">
+						<li><a href="{{setting('sayt.instagram')}}">
 						<svg enable-background="new 0 0 40 40" version="1.1" viewBox="0 0 40 40" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g>
 								<g>
@@ -191,7 +191,7 @@
 						</a></li>
 					</ul>
 					<div class="AStoreGPlay mt-5">
-						<a href="#">
+						<a href="{{setting('sayt.Play market')}}">
 							<svg 
 								xmlns="http://www.w3.org/2000/svg"
 								xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -201,7 +201,7 @@
 								<image  x="51.5px" y="7.5px" width="124px" height="37px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAAlCAMAAAC3QX2zAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC8VBMVEX/OlL/////OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL///+ZEEjoAAAA+XRSTlMAAB+Iz6wBb+7Al51tSx721AUDEiYsOnI1cQIKeyOCQDvs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" />
 							</svg>
 						</a>
-						<a href="#">
+						<a href="{{setting('sayt.Appstore')}}">
 							<svg 
 								xmlns="http://www.w3.org/2000/svg"
 								xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -215,15 +215,15 @@
 				</div>
 				<div class="col-xl-3 col-lg-3 pl-5 mobile__padding-left">
 					<h5>{{__('Звоните')}}</h5>
-					<a class="phoneNumber" href="tel: 8 707 328 2299">8 707 328 2299</a>
+					<a class="phoneNumber" href="tel: {{setting('sayt.phone')}}">{{setting('sayt.phone')}}</a>
 					<button class="callOrder" type="button">{{__('Заказать звонок')}}</button>
 					<div class="mt-4">
 						<h5>{{__('Адрес')}}</h5>
-						<p>{{__('Зона беспошлинной торговли между Казахстаном и Китаем')}}</p>
+						<p>{{setting('sayt.address')}}</p>
 					</div>
 					<div class="mt-4">
 						<h5>{{__('Время работы')}}</h5>
-						<p>Работаем с <span>7:00</span> до <span>19:00</span> без выходных.</p>
+						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
 					</div>
 				</div>
 			</div>
