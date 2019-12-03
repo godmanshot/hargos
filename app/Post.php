@@ -3,6 +3,7 @@
 namespace App;
 
 use App\CanFilterTrait;
+use Illuminate\Support\Carbon;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
