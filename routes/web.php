@@ -155,3 +155,25 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->post('/favorite/{boutique}', function(Request $request, Boutique $boutique) {
+
+    $user = Auth::user();
+    
+    $user->favorites()->create([
+        'boutique_id' => $boutique->id
+    ]);
+
+    return redirect()->back();
+
+});
+
+Route::middleware('auth')->delete('/favorite/{boutique}', function(Request $request, Boutique $boutique) {
+
+    $user = Auth::user();
+        
+    $user->favorites()->where('boutique_id', $boutique->id)->delete();
+
+    return redirect()->back();
+
+});

@@ -61,6 +61,26 @@ class Boutique extends Model
         return $this->reviews()->selectRaw("AVG(rating) as rating")->first();
     }
 
+    public function getAverageRatingHtmlAttribute()
+    {
+        return "
+        <label class=\"star-rating__ico star-rating__hover fa fa-star fa-lg ".(($this->averageRating->rating ?? 0) >= 5 ? 'star-rating__checked' : '')."\">
+            <input class=\"star-rating__input\" type=\"radio\" name=\"rating\" value=\"5\">
+        </label>
+        <label class=\"star-rating__ico star-rating__hover fa fa-star fa-lg ".(($this->averageRating->rating ?? 0) >= 4 ? 'star-rating__checked' : '')."\">
+            <input class=\"star-rating__input\" type=\"radio\" name=\"rating\" value=\"4\" checked>
+        </label>
+        <label class=\"star-rating__ico star-rating__hover fa fa-star fa-lg ".(($this->averageRating->rating ?? 0) >= 3 ? 'star-rating__checked' : '')."\">
+            <input class=\"star-rating__input\" type=\"radio\" name=\"rating\" value=\"3\">
+        </label>
+        <label class=\"star-rating__ico star-rating__hover fa fa-star fa-lg ".(($this->averageRating->rating ?? 0) >= 2 ? 'star-rating__checked' : '')."\">
+            <input class=\"star-rating__input\" type=\"radio\" name=\"rating\" value=\"2\">
+        </label>
+        <label class=\"star-rating__ico star-rating__hover fa fa-star fa-lg ".(($this->averageRating->rating ?? 0) >= 1 ? 'star-rating__checked' : '')."\">
+            <input class=\"star-rating__input\" type=\"radio\" name=\"rating\" value=\"1\">
+        </label>";
+    }
+
     public function getImagesArrayAttribute()
     {
         return !empty($this->images) ? json_decode($this->images, true) : [];

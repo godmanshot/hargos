@@ -43,35 +43,46 @@
                         <div class="col-xl-6 col-sm-4 col-12">
                             <p>{{__('Поделиться')}}</p>
                             <ul class="share">
-                                <li><a href="#"><i class="fab fa-twitter-square"></i>11.6K</a></li>
-                                <li><a href="#"><i class="fab fa-facebook-square"></i>12.3M</a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-square"></i>11.38M</a></li>
-                                <li><a href="#"><i class="fab fa-invision"></i>8.42K</a></li>
+                                <li>
+                                    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+
+                                    <script type="text/javascript">
+                                        document.write(VK.Share.button(false,{type: "round", text: "Поделиться"}));
+                                    </script>
+                                </li>
+                                <li style="display: inline-block; width: 130px;padding: 0;">
+                                    <a target="_blank" class="mrc__plugin_like_button" href="https://connect.mail.ru/share" data-mrc-config="{'cm' : '2', 'sz' : '20', 'st' : '1', 'tp' : 'mm'}">Нравится</a>
+                                    <script src="https://connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-xl-4 col-sm-5 col-12">
                             <div class="boutique__rating">
                                 <p>{{__('Рейтинг')}}:</p>
                                 <div class="star-rating__wrapper">
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="5">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="3">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="2">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="1">
-                                    </label>
+                                    {!!$boutique->averageRatingHtml!!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-8"></div>
+                        <div class="col-12">
+                            @if(Auth::user()->favoriteBoutiques &&
+                                !Auth::user()->favoriteBoutiques->pluck('id')->contains($boutique->id))
+                            <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
+                                @method('POST')
+                                @csrf
+
+                                <button type="submit" class="btn btn-link pl-0">{{__('В избранное')}}</button>
+                            </form>
+                            @else
+                            <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+
+                                <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
+                            </form>
+                            @endif
+                        </div>
                     </div>
                     <div class="boutique__info">
                         <div class="row">
@@ -227,21 +238,7 @@
                             <div class="avg--rate">
                                 <p>Средняя оценка <span>{{$boutique->averageRating->rating ?? 0}}</span></p>
                                 <div class="star-rating__wrapper">
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{($boutique->averageRating->rating ?? 0) >= 5 ? 'star-rating__checked' : ''}}">
-                                        <input class="star-rating__input" type="radio" name="rating" value="5">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{($boutique->averageRating->rating ?? 0) >= 4 ? 'star-rating__checked' : ''}}">
-                                        <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{($boutique->averageRating->rating ?? 0) >= 3 ? 'star-rating__checked' : ''}}">
-                                        <input class="star-rating__input" type="radio" name="rating" value="3">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{($boutique->averageRating->rating ?? 0) >= 2 ? 'star-rating__checked' : ''}}">
-                                        <input class="star-rating__input" type="radio" name="rating" value="2">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{($boutique->averageRating->rating ?? 0) >= 1 ? 'star-rating__checked' : ''}}">
-                                        <input class="star-rating__input" type="radio" name="rating" value="1">
-                                    </label>
+                                    {!!$boutique->averageRatingHtml!!}
                                 </div>
                                 <button type="button" class="leave__feedback" id="create-review" data-boutique_id="{{$boutique->id}}">Оставить отзыв</button>
                             </div>
@@ -293,170 +290,30 @@
         </div>
         
         <div class="container-fluid favorite-boutiques">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 mt-5">
+                        <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                        <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
+                    @if((Auth::user()->favoriteBoutiques ?? false) && Auth::user()->favoriteBoutiques->count())
+                        @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="boutique-block">
+                                <img src="{{Voyager::image($boutique->firstImage)}}">
+                                <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
+                                <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
+                                <div class="star-rating__wrapper">
+                                    {!!$fav_boutique->averageRatingHtml!!}
+                                </div>
+                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
+                                <p>Артикул: {{$fav_boutique->id}}</p>
+                            </div>
                         </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="boutique-block">
-                        <img src="images/boutique-oodji.png">
-                        <h3 class="boutique-header">oodji</h3>
-                        <p class="boutique-title">Женская одежда</p>
-                        <div class="star-rating__wrapper">
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                            </label>
-                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                            </label>
-                        </div>
-                        <a href="#">Перейти в бутик</a>
-                        <p>Артикул: 100156321</p>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="container-fluid similar-boutiques">
         <div class="container">
@@ -472,23 +329,9 @@
                                 <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
                                 <p class="boutique-title">{{$boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="5">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="3">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="2">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="1">
-                                    </label>
+                                    {!!$boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">Перейти в бутик</a>
+                                <a href="{{route('boutique', $boutique)}}">{{__('Перейти в бутик')}}</a>
                                 <p>Артикул: {{$boutique->id}}</p>
                             </div>
                         </div>
@@ -512,23 +355,9 @@
                                 <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
                                 <p class="boutique-title">{{$boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="5">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="4" checked>
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="3">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="2">
-                                    </label>
-                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
-                                        <input class="star-rating__input" type="radio" name="rating" value="1">
-                                    </label>
+                                    {!!$boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">Перейти в бутик</a>
+                                <a href="{{route('boutique', $boutique)}}">{{__('Перейти в бутик')}}</a>
                                 <p>Артикул: {{$boutique->id}}</p>
                             </div>
                         </div>
