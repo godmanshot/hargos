@@ -23,6 +23,8 @@ Route::middleware('cors')->namespace('Api')->group(function() {
 
     Route::get('/token', 'AuthController@getToken');
 
+    Route::post('/register', 'AuthController@register');
+
     Route::get('/trading-house', 'TradingHousesController@index');
     Route::get('/trading-house/{trading_house}/categories', 'TradingHousesController@categories');
     Route::get('/trading-house/{trading_house}/boutiques-by-category/{category}', 'TradingHousesController@boutiquesByCategory');

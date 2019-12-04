@@ -52,6 +52,11 @@ class BoutiqueFilter extends Filter {
         });
     }
 
+    public function is_hit($value)
+    {
+        return $this->builder->where('is_hit', $value);
+    }
+
     public function sort($value)
     {
         return $this->builder->orderBy($value);

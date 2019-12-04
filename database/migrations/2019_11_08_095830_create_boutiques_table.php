@@ -25,6 +25,7 @@ class CreateBoutiquesTable extends Migration
             $table->longText('full_description')->nullable();
             $table->text('images')->nullable();
             $table->longText('trading_house_image')->nullable();
+            $table->boolean('is_hit')->nullable();
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('images')->nullable();
+            $table->string('icon')->nullable();
+            $table->boolean('is_popular')->nullable();
             $table->timestamps();
         });
     }

@@ -33,4 +33,9 @@ abstract class Filter extends Model {
 
         return array_filter($filters);
     }
+
+    public function id($value)
+    {
+        return $this->builder->where('id', $value);
+    }
 }

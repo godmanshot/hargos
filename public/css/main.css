@@ -4292,16 +4292,26 @@ body {
         .tour .schedule .schedule__right-block .schedule__content-wrapper ul {
           margin-top: 1rem;
           padding-left: 0;
-          list-style: none; }
+          list-style: none;
+          padding-bottom: 2.5rem; }
           .tour .schedule .schedule__right-block .schedule__content-wrapper ul li {
+            font-family: Montserrat;
+            font-size: 19px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #262626;
+            display: inline-block;
             position: relative;
             padding-left: 2rem;
-            margin-top: .5rem; }
+            padding-bottom: 1rem; }
             .tour .schedule .schedule__right-block .schedule__content-wrapper ul li:before {
               content: url(../images/tour-list__img.png);
               position: absolute;
               left: 0;
-              top: 7%; }
+              top: 0; }
+            .tour .schedule .schedule__right-block .schedule__content-wrapper ul li:first-letter {
+              color: #383838;
+              font-weight: 700; }
             .tour .schedule .schedule__right-block .schedule__content-wrapper ul li p {
               font-family: Montserrat;
               font-size: 19px;

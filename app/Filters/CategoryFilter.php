@@ -27,6 +27,11 @@ class CategoryFilter extends Filter {
         });
     }
 
+    public function is_popular($value)
+    {
+        return $this->builder->where('is_popular', $value);
+    }
+
     public function sort($value)
     {
         return $this->builder->orderBy($value);
