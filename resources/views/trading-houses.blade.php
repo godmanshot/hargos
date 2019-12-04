@@ -8,7 +8,7 @@
         }
 
         if($selected_category) {
-            $params['category'] = $selected_category->id;
+            $params['categories'] = $selected_category->id;
         }
     @endphp
     <script>
