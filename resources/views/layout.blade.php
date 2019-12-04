@@ -204,8 +204,8 @@
 						@endif
 					</ul>
 					<div class="AStoreGPlay mt-5">
-						@if(!empty(setting('sayt.Play market')))
-						<a href="{{setting('sayt.Play market')}}">
+						@if(!empty(setting('sayt.playmarket')))
+						<a href="{{setting('sayt.playmarket')}}">
 							<svg 
 								xmlns="http://www.w3.org/2000/svg"
 								xmlns:xlink="http://www.w3.org/1999/xlink"

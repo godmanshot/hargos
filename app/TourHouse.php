@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TourHouse extends Model
 {
     use CanFilterTrait;
+
+    public $with = [
+        'sheldures'
+    ];
     
     public $translatable = [
         'house_name',
@@ -22,4 +26,9 @@ class TourHouse extends Model
         'tour_content',
         'tour_description',
     ];
+
+    public function sheldures()
+    {
+        return $this->hasMany('App\TourHouseSheldure');
+    }
 }

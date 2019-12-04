@@ -57,17 +57,17 @@
         <div class="relative__wrapper pt-5" id="top">
             <div class="absolute__wrapper-left">
                 <div class="left-block">
-                    <a class="playMarket" href="#"></a>
-                    <a class="appStore" href="#"></a>
+                    <a class="playMarket" href="{{setting('sayt.playmarket')}}"></a>
+                    <a class="appStore" href="{{setting('sayt.Appstore')}}"></a>
                 </div>
             </div>
             <div class="absolute__wrapper-right">
                 <div class="right-block">
-                    <a class="facebook" href="#"></a>
-                    <a class="twitter" href="#"></a>
-                    <a class="vk" href="#"></a>
-                    <a class="youtube" href="#"></a>
-                    <a class="instagram" href="#"></a>
+                    <a class="facebook" href="{{setting('sayt.facebook')}}"></a>
+                    <a class="twitter" href="{{setting('sayt.twitter')}}"></a>
+                    <a class="vk" href="{{setting('sayt.vk')}}"></a>
+                    <a class="youtube" href="{{setting('sayt.youtube')}}"></a>
+                    <a class="instagram" href="{{setting('sayt.instagram')}}"></a>
                     <a href="#top" class="anchor"></a>
                 </div>
             </div>
@@ -120,16 +120,17 @@
                     </div>
                     <div class="col-xl-12 mt-4 pr-0">
                         <div class="slider geek-recommendation">
-                            
                             @if($recommended && $recommended->count())
                                 @foreach($recommended as $item)
-                                <div class="geek-recommendation__block">
-                                    <div>
-                                        <img src="{{Voyager::image($item->image)}}">
-                                        <div class="geek-recommendation__inner-block">
-                                            <h3>{{$item->getTranslatedAttribute('name')}}</h3>
-                                            <p>{{$item->boutiqueCategories}}</p>
-                                            <a href="{{route('boutique', $item->boutique->id)}}">Перейти в бутик</a>
+                                <div>
+                                    <div class="geek-recommendation__block">
+                                        <div>
+                                            <img src="{{Voyager::image($item->image)}}">
+                                            <div class="geek-recommendation__inner-block">
+                                                <h3>{{$item->getTranslatedAttribute('name')}}</h3>
+                                                <p>{{$item->boutiqueCategories}}</p>
+                                                <a href="{{route('boutique', $item->boutique->id)}}">Перейти в бутик</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
