@@ -10,7 +10,8 @@ class TourHouse extends Model
     use CanFilterTrait;
 
     public $with = [
-        'sheldures'
+        'sheldures',
+        'slider'
     ];
     
     public $translatable = [
@@ -30,5 +31,10 @@ class TourHouse extends Model
     public function sheldures()
     {
         return $this->hasMany('App\TourHouseSheldure');
+    }
+
+    public function slider()
+    {
+        return $this->hasMany('App\TourHouseSlider');
     }
 }
