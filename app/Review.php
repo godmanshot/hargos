@@ -10,6 +10,15 @@ class Review extends Model
 {
     use CanFilterTrait;
 
+    public $fillable = [
+        'name',
+        'date',
+        'review',
+        'rating',
+        'likes',
+        'dislikes',
+    ];
+
     public function getDateFormatedAttribute()
     {
         return Carbon::parse($this->date)->format('d.m.Y');

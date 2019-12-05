@@ -90,29 +90,50 @@
             @endif
         </div>
     </div>
+    
     <div class="leave__review-wrapper" id="leave__review-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5">
+                <div class="col-xl-5 col-lg-4">
                     {!!Block::_('Jio0ql0pbwByBjek')!!}
                 </div>
-                <div class="col-xl-7">
-                    <form action="">
+                <div class="col-xl-7 col-lg-8">
+                    <form action="{{route('reviews.create')}}" method="POST" class="leave__review-form">
+                        @csrf
                         <div class="row">
-                            <div class="col-xl-4 pl-2 pr-2 pb-2">
-                                <input type="text" placeholder="{{__('Имя')}}">
+                            <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
+                                <input type="text" name="uname" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
                             </div>
-                            <div class="col-xl-4 pl-2 pr-2 pb-2">
-                                <input type="tel" placeholder="{{__('Телефон')}}">
+                            <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
+                                <input type="tel" name="utel" placeholder="Телефон" required oninvalid="this.setCustomValidity('Введите ваш номер телефона')" oninput="setCustomValidity('')">
                             </div>
-                            <div class="col-xl-4 pl-2 pr-2 pb-2">
-                                <input type="email" placeholder="{{__('Эл. почта')}}">
+                            <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
+                                <input type="email" name="umail" placeholder="Эл. почта" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
                             </div>
                             <div class="col-xl-12 pl-2 pr-2 pt-2 pb-2">
-                                <textarea name="review__textarea" placeholder="{{__('Оставьте отзыв')}}"></textarea>
+                                <textarea name="review__textarea" required placeholder="Оставьте отзыв" oninvalid="this.setCustomValidity('Введите ваш отзыв')" oninput="setCustomValidity('')"></textarea>
                             </div>
-                            <div class="col-xl-4 pl-2 pr-2 pt-2">
-                                <button type="button" class="leave__review-btn">{{__('Оставить отзыв')}}</button>
+                            <div class="col-xl-4 col-md-4 pl-2 pr-2 pt-2">
+                                <div class="star-rating__wrapper">
+                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
+                                        <input class="star-rating__input" type="radio" name="rating" value="5">
+                                    </label>
+                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
+                                        <input class="star-rating__input" type="radio" name="rating" value="4">
+                                    </label>
+                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
+                                        <input class="star-rating__input" type="radio" name="rating" value="3">
+                                    </label>
+                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
+                                        <input class="star-rating__input" type="radio" name="rating" value="2">
+                                    </label>
+                                    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg">
+                                        <input class="star-rating__input" type="radio" name="rating" value="1" required>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4 pl-2 pr-2 pt-2">
+                                <button type="submit" class="leave__review-btn">Оставить отзыв</button>
                             </div>
                         </div>
                     </form>

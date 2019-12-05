@@ -117,6 +117,28 @@ Route::get('/reviews', function(Request $request) {
     return view('reviews', compact('reviews'));
 });
 
+Route::post('/reviews', function(Request $request) {
+    $request->validate([
+        'uname',
+        'utel',
+        'umail',
+        'review__textarea',
+        'rating',
+    ]);
+
+    Review::create([
+        'name' => $request->uname,
+        'date' => now(),
+        'review' => $request->review__textarea,
+        'rating' => $request->rating,
+        'likes' => 0,
+        'dislikes' => 0,
+    ]);
+    
+    return redirect()->back();
+
+})->name('reviews.create');
+
 Route::get('/reviews/{review}/like', function(Request $request, Review $review) {
 
     $review->likes += 1;
