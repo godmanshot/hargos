@@ -214,3 +214,7 @@ Route::get('/posts', function(Request $request) {
 Route::get('/posts/{post}', function(Request $request, Post $post) {
     return view('post', compact('post'));
 })->name('posts.show');
+
+Route::post('/send', function(Request $request) {
+    return redirect()->back();
+})->name('send');

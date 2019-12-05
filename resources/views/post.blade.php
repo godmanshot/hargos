@@ -11,8 +11,6 @@
                         </a>
                         <span>/</span>
                         <h4>{{__('новости')}}</h4>
-                        <span>/</span>
-                        <h4>{{$post->getTranslatedAttribute('title')}}</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -20,34 +18,28 @@
         </div>
         <div class="news__wrapper">
             <div class="container">
-                @if($posts->count())
-                    @foreach($posts as $post)
-                        <div class="row mt-4 mb-4">
-                            <div class="col-xl-4 col-md-4 pl-0 pr-0">
-                                <img src="{{Voyager::image($post->image)}}">
-                            </div>
-                            <div class="col-xl-8 col-md-8">
-                                <div class="d-flex flex-column justify-content-between h-100 pt-3 pb-3">
-                                    <h1>{{$post->getTranslatedAttribute('title')}}</h1>
-                                    <p>
-                                        {{$post->getTranslatedAttribute('description')}}
-                                    </p>
-                                    <div class="d-flex align-items-center">
-                                        <a href="{{route('posts.show', $post)}}" class="more">{{__('Подробнее')}}...</a>
-                                        <span>{{$post->dateFormated}}</span>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row mt-4 mb-4" style="background: unset; box-shadow: unset;">
+                    <div class="col-xl-4 col-md-4">
+                        <img src="{{Voyager::image($post->image)}}">
+                    </div>
+                    
+                    <div class="col-xl-12">
+                        <div class="d-flex flex-column justify-content-between h-100 pt-3 pb-3">
+                            <h1 style="line-height: 2.2;">{{$post->getTranslatedAttribute('title')}}</h1>
+                            <p>
+                            {!!$post->getTranslatedAttribute('content')!!}
+                            </p>
+                            <span style="-webkit-transform: unset; font-size: 15px; line-height: 2.2;">{{$post->dateFormated}}</span>
                         </div>
-                    @endforeach
-                @endif
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container-fluid favorite-boutiques">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 mt-5">
-                        <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
+                        <h1 class="favorite-header">Избранные бутики</h1>
                     </div>
                     @if((Auth::user()->favoriteBoutiques ?? false) && Auth::user()->favoriteBoutiques->count())
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)

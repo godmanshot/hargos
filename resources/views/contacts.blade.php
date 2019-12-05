@@ -43,7 +43,8 @@
                         </div>
                         <div class="contact__details--wrapper">
                             <h1>{{__('Отправить сообщения')}}</h1>
-                            <form action="" class="leave__message-form">
+                            <form action="{{route('send')}}" method="POST" class="leave__message-form">
+                                @csrf
                                 <input type="text" name="uname" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
                                 <input type="email" name="umail" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
                                 <textarea name="review__textarea" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
