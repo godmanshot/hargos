@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdvicePost extends Model
 {
-    use Translatable;
+    use Translatable, CanFilterTrait;
     protected $translatable = ['title', 'description', 'content'];
 }

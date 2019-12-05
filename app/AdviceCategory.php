@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdviceCategory extends Model
 {
-    use Translatable;
+    use Translatable, CanFilterTrait;
     protected $translatable = ['name'];
 }

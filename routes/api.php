@@ -60,6 +60,10 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/tour-houses', 'TourHousesController@index');
 
     Route::get('/trading-houses', 'TradingHousesController@index');
+
+    Route::get('/advices/categories', 'AdvicesController@categories');
+    Route::get('/advices/posts', 'AdvicesController@posts');
+    Route::get('/advices/videos', 'AdvicesController@videos');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {
