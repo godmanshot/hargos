@@ -380,9 +380,9 @@
                 <div class="row mt-4">
                     <div class="col-xl-12 pr-0">
                         <div class="slider popular-products__slick">
+                            @foreach($popular_products as $item)
                             <div>
                                 <div class="popular-products__block">
-                                @foreach($popular_products as $item)
                                     <div>
                                         <div class="flexible">
                                             <img src="images/popular-products__img-01.png">
@@ -395,9 +395,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
