@@ -7,6 +7,7 @@ use TCG\Voyager\Facades\Voyager;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Events\BreadDataAdded;
+use TCG\Voyager\Events\BreadDataUpdated;
 
 class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
@@ -52,8 +53,9 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             return response()->json(['errors' => $val->messages()]);
         }
         if (!$request->ajax()) {
+            $old_images = json_decode($data->images, true);
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
-            $this->addWatermark($data);
+            $this->addWatermark($data, $old_images);
             event(new BreadDataUpdated($dataType, $data));
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
@@ -64,19 +66,47 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         }
     }
 
-    public function addWatermark($model)
+    public function addWatermark($model, $old_images = [])
     {
         $images = json_decode($model->images ?? '[]', true);
 
         foreach($images as $image) {
+            if(in_array($image, $old_images))
+                continue;
             $img = Image::make(storage_path('app/public/'.$image));
 
-            $watermark = Image::make(public_path('images/watermark.png'));
-            $watermark->resize($img->width()*0.3, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+            // $watermark = Image::make(public_path('images/watermark.png'));
+            // $watermark->resize($img->width()*0.3, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // });
 
-            $img->insert($watermark, 'top-left', 10, 10);
+            // $img->insert($watermark, 'top-left', 10, 10);
+
+
+
+            $x = 0;
+
+            while ($x < $img->width()) {
+                $y = 0;
+
+                while($y < $img->height()) {
+                    $font_size = $img->width() * 0.05;
+
+                    $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
+                        $font->file(public_path('fonts/Montserrat-Black.ttf'));
+                        $font->size($font_size);
+                        $font->color(array(255, 255, 255, 0.3));
+                        $font->align('center');
+                        $font->valign('top');
+                        $font->angle(45);
+                    });
+
+
+                    $y += $font_size*5;
+                }
+
+                $x += $font_size*5;
+            }
 
             $img->save(storage_path('app/public/'.$image));
         }
