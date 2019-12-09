@@ -95,6 +95,22 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
+                                <p>{{__('Этаж')}}</p>
+                            </div>
+                            <div class="col-xl-9 col-md-6 col-sm-8 col-6">
+                                <h2>{{$boutique->floor}}</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 col-sm-4 col-6">
+                                <p>{{__('Номер бутика')}}</p>
+                            </div>
+                            <div class="col-xl-9 col-md-6 col-sm-8 col-6">
+                                <h2>{{$boutique->boutique_number}}</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 col-sm-4 col-6">
                                 <p>{{__('Категория')}}</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
