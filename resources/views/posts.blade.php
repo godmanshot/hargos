@@ -47,7 +47,7 @@
                     <div class="col-xl-12 mt-5">
                         <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
                     </div>
-                    @if((Auth::user()->favoriteBoutiques ?? false) && Auth::user()->favoriteBoutiques->count())
+                    @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                             <div class="boutique-block">
