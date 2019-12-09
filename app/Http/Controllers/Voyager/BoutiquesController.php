@@ -53,7 +53,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             return response()->json(['errors' => $val->messages()]);
         }
         if (!$request->ajax()) {
-            $old_images = json_decode($data->images, true);
+            $old_images = json_decode($data->images ?? '[]', true);
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
             $this->addWatermark($data, $old_images);
             event(new BreadDataUpdated($dataType, $data));
