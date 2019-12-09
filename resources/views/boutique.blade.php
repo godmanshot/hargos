@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-xl-8"></div>
                         <div class="col-12">
-                            @if(Auth::user()->favoriteBoutiques &&
+                            @if(Auth::user() && Auth::user()->favoriteBoutiques &&
                                 !Auth::user()->favoriteBoutiques->pluck('id')->contains($boutique->id))
                             <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
                                 @method('POST')
