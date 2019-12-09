@@ -17,6 +17,8 @@ class CreateBoutiquesTable extends Migration
             $table->increments('id')->nullable();
             $table->string('name')->nullable();
             $table->string('seller_name')->nullable();
+            $table->integer('boutique_number')->nullable();
+            $table->integer('floor')->nullable();
             $table->string('owner_name')->nullable();
             $table->string('languages')->nullable();
             $table->string('phone')->nullable();

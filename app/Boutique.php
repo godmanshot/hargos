@@ -13,6 +13,8 @@ class Boutique extends Model
     protected $translatable = [
         'name',
         'seller_name',
+        'floor',
+        'boutique_number',
         'owner_name',
         'languages',
         'full_description',
