@@ -9,25 +9,23 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryStock extends Model
 {
     use Translatable, CanFilterTrait;
-    protected $translatable = ['name', 'boutique_id'];
+    
+    protected $translatable = ['name', 'category_id'];
 
-    public function boutique()
+    public $with = ['category'];
+
+    public function category()
     {
-        return $this->hasOne('App\Boutique', 'id', 'boutique_id');
+        return $this->hasOne('App\Category', 'id', 'category_id');
     }
 
-    public function getBoutiqueNameAttribute()
+    public function getCategoryNameAttribute()
     {
-        return $this->boutique->getTranslatedAttribute('name') ?? '';
+        return $this->category->getTranslatedAttribute('name') ?? '';
     }
 
-    public function getBoutiqueCategoriesAttribute()
+    public function getCategoryLinkAttribute()
     {
-        return $this->boutique->categories->implode('name', ', ');
-    }
-
-    public function getBoutiqueLinkAttribute()
-    {
-        return $this->boutique ? route('boutique', $this->boutique->id) : '#';
+        return $this->category ? route('trading-houses', ['category' => $this->category_id]) : '#';
     }
 }

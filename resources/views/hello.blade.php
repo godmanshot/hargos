@@ -221,7 +221,7 @@
                             $first_stock = $category_stocks->first();
                             $images = !empty($first_stock->images) ? json_decode($first_stock->images, true) : [];
                         @endphp
-                        <a href="{{$first_stock->boutiqueLink}}">
+                        <a href="{{$first_stock->categoryLink}}">
                             <div class="category-discounts__left-block">
                                 <div class="container">
                                     <div class="row">
@@ -256,7 +256,7 @@
                                 @php
                                     $images = !empty($item->images) ? json_decode($item->images, true) : [];
                                 @endphp
-                                <a href="{{$item->boutiqueLink}}">
+                                <a href="{{$item->categoryLink}}">
                                 <div>
                                 <div class="category-discounts__block">
                                     <div>
