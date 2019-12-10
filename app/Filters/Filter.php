@@ -38,4 +38,10 @@ abstract class Filter extends Model {
     {
         return $this->builder->where('id', $value);
     }
+
+    public function ids($value)
+    {
+        $ids = explode(',', $value);
+        return $this->builder->whereIn('id', $ids);
+    }
 }
