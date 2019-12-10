@@ -129,7 +129,7 @@
                                             <div class="geek-recommendation__inner-block">
                                                 <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                                 <p>{{$item->boutiqueCategories}}</p>
-                                                <a href="{{route('boutique', $item->boutique->id)}}">Перейти в бутик</a>
+                                                <a href="{{$item->boutiqueLink}}">Перейти в бутик</a>
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                             $first_stock = $category_stocks->first();
                             $images = !empty($first_stock->images) ? json_decode($first_stock->images, true) : [];
                         @endphp
-                        <a href="{{route('boutique', $first_stock->boutique->id)}}">
+                        <a href="{{$first_stock->boutiqueLink}}">
                             <div class="category-discounts__left-block">
                                 <div class="container">
                                     <div class="row">
@@ -256,7 +256,7 @@
                                 @php
                                     $images = !empty($item->images) ? json_decode($item->images, true) : [];
                                 @endphp
-                                <a href="{{route('boutique', $item->boutique->id)}}">
+                                <a href="{{$item->boutiqueLink}}">
                                 <div>
                                 <div class="category-discounts__block">
                                     <div>
@@ -283,7 +283,7 @@
                                 @php
                                     $images = !empty($item->images) ? json_decode($item->images, true) : [];
                                 @endphp
-                                <a href="{{route('boutique', $item->boutique->id)}}">
+                                <a href="{{$item->boutiqueLink}}">
                                 <div>
                                 <div class="category-discounts__block">
                                     <div>
@@ -328,7 +328,7 @@
                     <div class="col-xl-12 flexible">
                         <div class="slider top-products__slick-01">
                             @foreach($top_products_first_line as $item)
-                            <a href="{{route('boutique', $item->boutique->id)}}">
+                            <a href="{{$item->boutiqueLink}}">
                                 <div>
                                     <div class="top-products__block">
                                         <div>
@@ -344,7 +344,7 @@
                         </div>
                         <div class="slider top-products__slick-02">
                             @foreach($top_products_second_line as $item)
-                            <a href="{{route('boutique', $item->boutique->id)}}">
+                            <a href="{{$item->boutiqueLink}}">
                                 <div>
                                     <div class="top-products__block">
                                         <div>
@@ -391,7 +391,7 @@
                                                 <p>
                                                     {{$item->getTranslatedAttribute('description')}}
                                                 </p>
-                                                <a href="{{route('boutique', $item->boutique->id)}}">{{__('Подробнее')}}</a>
+                                                <a href="{{$item->boutiqueLink}}">{{__('Подробнее')}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -464,7 +464,7 @@
                                                     <p>
                                                         {{$item->getTranslatedAttribute('description')}}
                                                     </p>
-                                                    <a href="{{route('boutique', $item->boutique->id)}}">{{__('Подробнее')}}</a>
+                                                    <a href="{{$item->boutiqueLink}}">{{__('Подробнее')}}</a>
                                                 </div>
                                             </div>
                                         </div>

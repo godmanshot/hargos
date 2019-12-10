@@ -25,4 +25,9 @@ class PopularProduct extends Model
     {
         return $this->boutique->categories->implode('name', ', ');
     }
+
+    public function getBoutiqueLinkAttribute()
+    {
+        return $this->boutique ? route('boutique', $this->boutique->id) : '#';
+    }
 }
