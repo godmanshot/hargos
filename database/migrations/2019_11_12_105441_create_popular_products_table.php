@@ -19,6 +19,7 @@ class CreatePopularProductsTable extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('link')->nullable();
+            $table->bigInteger('boutique_id')->nullable();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ class CreateCategoryStocksTable extends Migration
             $table->string('name')->nullable();
             $table->string('link')->nullable();
             $table->integer('order')->nullable();
+            $table->bigInteger('boutique_id')->nullable();
             $table->timestamps();
         });
     }

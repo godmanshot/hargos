@@ -18,6 +18,7 @@ class CreateTopProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('name')->nullable();
             $table->string('link')->nullable();
+            $table->bigInteger('boutique_id')->nullable();
             $table->timestamps();
         });
     }
