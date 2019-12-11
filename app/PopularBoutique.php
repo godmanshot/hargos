@@ -6,12 +6,10 @@ use App\CanFilterTrait;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Freebie extends Model
+class PopularBoutique extends Model
 {
     use Translatable, CanFilterTrait;
-
     protected $translatable = ['name', 'description'];
-    protected $with = ['boutique'];
 
     public function boutique()
     {

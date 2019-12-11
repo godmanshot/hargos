@@ -68,6 +68,10 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/category-stocks', 'CategoryStocksController@index');
 
     Route::get('/customer-choices', 'CustomerChoicesController@index');
+
+    Route::get('/popular-boutiques', 'PopularBoutiquesController@index');
+
+    Route::get('/stock-today', 'StockTodayController@index');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {
