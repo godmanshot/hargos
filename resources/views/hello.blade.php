@@ -423,9 +423,9 @@
                     @if($interviews->count())
                         @foreach($interviews as $interview)
                             <div>
-                            <div class="about-us__block">
+                            <div class="about-us__block" style="height: 300px">
                                 <div>
-                                    {!!$interview->iframe!!}
+                                    {!!$interview->lazyIframe!!}
                                 </div>
                             </div>
                             </div>
