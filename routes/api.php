@@ -72,6 +72,12 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/popular-boutiques', 'PopularBoutiquesController@index');
 
     Route::get('/stock-today', 'StockTodayController@index');
+
+    Route::get('/video-about-horgos', 'VideoHorgosController@index');
+
+    Route::get('/special-for-you', 'SpecialForYouController@index');
+
+    Route::get('/help', 'HelpController@index');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {

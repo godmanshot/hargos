@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryStocksTable extends Migration
+class CreateVideoHargosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateCategoryStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_stocks', function (Blueprint $table) {
+        Schema::create('video_horgos', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('images')->nullable();
-            $table->string('background')->nullable();
-            $table->string('name')->nullable();
-            $table->string('link')->nullable();
+            $table->string('iframe')->nullable();
             $table->integer('order')->nullable();
-            $table->bigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateCategoryStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_stocks');
+        Schema::dropIfExists('video_hargos');
     }
 }
