@@ -10,6 +10,7 @@ class StockToday extends Model
 {
     use Translatable, CanFilterTrait;
     protected $translatable = ['name'];
+    public $with = ['boutique'];
 
     public function boutique()
     {

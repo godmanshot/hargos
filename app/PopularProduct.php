@@ -10,6 +10,7 @@ class PopularProduct extends Model
 {
     use Translatable, CanFilterTrait;
     protected $translatable = ['name', 'description'];
+    public $with = ['boutique'];
 
     public function boutique()
     {
