@@ -6,7 +6,7 @@ use App\CanFilterTrait;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class TopProduct extends Model
+class CustomerChoice extends Model
 {
     use Translatable, CanFilterTrait;
     protected $translatable = ['name'];
