@@ -10,7 +10,7 @@ class CategoryStock extends Model
 {
     use Translatable, CanFilterTrait;
     
-    protected $translatable = ['name', 'category_id'];
+    protected $translatable = ['name'];
 
     public $with = ['category'];
 
