@@ -79,7 +79,11 @@
                     </div>
                     <div class="col-xl-9 flexible">
                         <ul class="main-nav">
-                            @foreach(menu('Главное меню сайта', '_json') as $item)
+							@php
+								$menu = menu('Главное меню сайта', '_json');
+								$menu->load('translations');
+							@endphp
+                            @foreach($menu as $item)
                                 <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
                             @endforeach
                         </ul>
@@ -92,6 +96,8 @@
 	<nav id="catalog-nav">
 		<ul class="first-nav">
             @php
+				$menu = menu('Каталог бутиков', '_json');
+				$menu->load('translations');
                 function renderMenu($items) {
                     foreach($items as $item) {
                         if($item->children->count()) {
@@ -107,7 +113,7 @@
                 }
             @endphp
 
-            {{renderMenu(menu('Каталог бутиков', '_json'))}}
+            {{renderMenu($menu)}}
 		</ul>
     </nav>
     <!-- PRODUCTION CATALOG END -->
@@ -123,7 +129,11 @@
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
 					<h5>{{__('Меню')}}</h5>
 					<ul class="footer__nav">
-                        @foreach(menu('Меню в футере', '_json') as $item)
+						@php
+							$menu = menu('Меню в футере', '_json');
+							$menu->load('translations');
+						@endphp
+						@foreach($menu as $item)
                             <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
                         @endforeach
 					</ul>
@@ -131,7 +141,11 @@
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
 					<h5>{{__('Торговые дома')}}</h5>
 					<ul class="footer__nav">
-                        @foreach(menu('Торговые дома в футере', '_json') as $item)
+						@php
+							$menu = menu('Торговые дома в футере', '_json');
+							$menu->load('translations');
+						@endphp
+						@foreach($menu as $item)
                             <li><a href="{{$item->url}}"><span>{{$item->getTranslatedAttribute('title')}}</span></a></li>
                         @endforeach
 					</ul>

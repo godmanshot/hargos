@@ -29,18 +29,18 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    $hello_slider = Slider::where('name', 'Главный слайдер')->first();
-    $special_slider = Slider::where('name', 'Специально для вас')->first();
-    $recommended = Recommended::orderBy('order')->get();
-    $category_stocks = CategoryStock::orderBy('order')->get();
+    $hello_slider = Slider::withTranslations()->where('name', 'Главный слайдер')->first();
+    $special_slider = Slider::withTranslations()->where('name', 'Специально для вас')->first();
+    $recommended = Recommended::withTranslations()->orderBy('order')->get();
+    $category_stocks = CategoryStock::withTranslations()->orderBy('order')->get();
     $category_stocks_first_line = $category_stocks->split(2)[0] ?? collect([]);
     $category_stocks_second_line = $category_stocks->split(2)[1] ?? collect([]);
-    $top_products = TopProduct::orderBy('order')->get();
+    $top_products = TopProduct::withTranslations()->orderBy('order')->get();
     $top_products_first_line = $top_products->split(2)[0] ?? collect([]);
     $top_products_second_line = $top_products->split(2)[1] ?? collect([]);
-    $popular_products = PopularProduct::orderBy('order')->get();
-    $freebies = Freebie::orderBy('order')->get();
-    $interviews = Interview::orderBy('order')->get();
+    $popular_products = PopularProduct::withTranslations()->orderBy('order')->get();
+    $freebies = Freebie::withTranslations()->orderBy('order')->get();
+    $interviews = Interview::withTranslations()->orderBy('order')->get();
 
     return view('hello', compact(
         'hello_slider',
