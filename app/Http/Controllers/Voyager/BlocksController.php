@@ -36,34 +36,6 @@ class BlocksController extends \TCG\Voyager\Http\Controllers\VoyagerBaseControll
         }
     }
 
-    public function update(Request $request, $id)
-    {
-        
-        $slug = $this->getSlug($request);
-        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-        // Compatibility with Model binding.
-        $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
-        $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-        // Check permission
-        $this->authorize('edit', $data);
-        // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id);
-        if ($val->fails()) {
-            return response()->json(['errors' => $val->messages()]);
-        }
-        if (!$request->ajax()) {
-            $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
-            $this->addRandomName($data);
-            event(new BreadDataUpdated($dataType, $data));
-            return redirect()
-                ->route("voyager.{$dataType->slug}.index")
-                ->with([
-                    'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
-    }
-
     public function addRandomName($model)
     {
         $model->name = str_random(16);
