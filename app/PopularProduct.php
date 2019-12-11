@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class PopularProduct extends Model
 {
     use Translatable, CanFilterTrait;
-    protected $translatable = ['name', 'description', 'boutique_id'];
+    protected $translatable = ['name', 'description'];
 
     public function boutique()
     {
