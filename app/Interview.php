@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Interview extends Model
 {
-    use Translatable, CanFilterTrait;
+    use CanFilterTrait;
 
     public $appends = ["code"];
 

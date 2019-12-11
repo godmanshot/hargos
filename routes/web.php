@@ -40,7 +40,7 @@ Route::get('/', function () {
     $top_products_second_line = $top_products->split(2)[1] ?? collect([]);
     $popular_products = PopularProduct::withTranslations()->orderBy('order')->get();
     $freebies = Freebie::withTranslations()->orderBy('order')->get();
-    $interviews = Interview::withTranslations()->orderBy('order')->get();
+    $interviews = Interview::orderBy('order')->get();
 
     return view('hello', compact(
         'hello_slider',
