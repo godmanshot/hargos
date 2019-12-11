@@ -385,7 +385,7 @@
                                 <div class="popular-products__block">
                                     <div>
                                         <div class="flexible">
-                                            <img src="images/popular-products__img-01.png">
+                                            <img src="{{Voyager::image($item->image)}}">
                                             <div class="popular-products__inner-block">
                                                 <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                                 <p>
