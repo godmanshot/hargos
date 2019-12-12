@@ -33,8 +33,8 @@
                     </p>
                 </div>
                 <div class="col-xl-4 col-sm-8">
-                    <form action="" class="search-form">
-					    <input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}">
+                    <form action="{{route('search')}}" method="GET" class="search-form">
+					    <input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}" name="q" required>
 					    <input class="search-btn" type="submit" value="">
 				    </form>
                     <p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
@@ -152,9 +152,10 @@
 				</div>
 				<div class="col-xl-5 col-lg-5 col-md-8">
 					<h5>{{__('Подпишитесь на рассылку')}}</h5>
-					<form action="" class="subscription__form">
-						<input class="subscription__value" type="email" placeholder="">
-						<button class="subscription__button" type="button">{{__('Подписаться')}}</button>
+					<form action="{{route('subscribe')}}" method="POST" class="subscription__form">
+						@csrf
+						<input class="subscription__value" type="email" name="email" placeholder="{{__('Почта')}}" required>
+						<button class="subscription__button" type="submit">{{__('Подписаться')}}</button>
 					</form>
 					<h5 class="mt-3">{{__('Мы в социальных сетях')}}</h5>
 					<ul class="social__btns mt-2">
@@ -276,6 +277,11 @@
     <script src="{{asset('js/app.js')}}?q={{rand()}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
     @stack('scripts')
+
+	@if(session('message'))
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script>swal("{{session('message')}}", "");</script>
+	@endif
 	<!-- MAIN PAGE SLICKS -->
 	<style>
 			

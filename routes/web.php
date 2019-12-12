@@ -7,6 +7,7 @@ use App\Freebie;
 use App\Boutique;
 use App\Category;
 use App\Interview;
+use App\Subscribe;
 use App\AdvicePost;
 use App\TopProduct;
 use App\AdviceVideo;
@@ -218,3 +219,37 @@ Route::get('/posts/{post}', function(Request $request, Post $post) {
 Route::post('/send', function(Request $request) {
     return redirect()->back();
 })->name('send');
+
+Route::post('/subscribe', function(Request $request) {
+
+    $request->validate([
+        'email' => 'required'
+    ]);
+
+    $model = Subscribe::create([
+        'email' => $request->email
+    ]);
+
+    $request->session()->flash('message', __('Вы подписаны!'));
+
+	return back();
+
+})->name('subscribe');
+
+Route::get('/search', function(Request $request) {
+
+    $request->validate([
+        'q' => 'required'
+    ]);
+
+    $search_query = $request->q;
+
+    $models = Boutique::whereHas('products', function ($query) use ($search_query) {
+        $query->where('name', 'like', '%'.$search_query.'%');
+    })->orWhereHas('categories', function ($query) use ($search_query) {
+        $query->where('name', 'like', '%'.$search_query.'%');
+    })->orWhere('name', 'like', '%'.$search_query.'%')->get();
+
+    return view('search', compact('search_query', 'models'));
+
+})->name('search');
