@@ -10,8 +10,21 @@ class HelpController extends Controller
 {
     public function index(Request $request)
     {
-        $models = Help::latest();
+        $models = Help::latest()->whereNotNull('content');
 
         return $models->get();
+    }
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        $model = Help::create([
+            'title' => $request->title
+        ]);
+
+        return $model;
     }
 }
