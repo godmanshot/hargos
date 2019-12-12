@@ -178,7 +178,7 @@
                                 <p>{{__('QR код')}}</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
-                                <img src="{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}"/>
+                                <img style="width: 100%;max-width: 150px;margin-top: 15px;" src="{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}"/>
                             </div>
                         </div>
                     </div>
