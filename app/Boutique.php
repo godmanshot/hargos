@@ -22,7 +22,7 @@ class Boutique extends Model
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
 
-    public $with = ['categories', 'tradingHouses', 'products'];
+    public $with = ['categories', 'tradingHouses', 'products', 'reviews', 'recommended', 'related'];
 
     public function categories()
     {
