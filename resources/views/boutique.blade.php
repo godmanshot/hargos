@@ -173,6 +173,14 @@
                                 <h2>{{$boutique->getTranslatedAttribute('weechat')}}</h2>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 col-sm-4 col-6">
+                                <p>{{__('QR код')}}</p>
+                            </div>
+                            <div class="col-xl-9 col-md-6 col-sm-8 col-6">
+                                <h2>{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

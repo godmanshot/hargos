@@ -15,10 +15,11 @@ class CreateBoutiquesTable extends Migration
     {
         Schema::create('boutiques', function (Blueprint $table) {
             $table->increments('id')->nullable();
+            $table->string('qr_code')->nullable();
             $table->string('name')->nullable();
             $table->string('seller_name')->nullable();
             $table->string('boutique_number')->nullable();
-            $table->integer('floor')->nullable();
+            $table->string('floor')->nullable();
             $table->string('owner_name')->nullable();
             $table->string('languages')->nullable();
             $table->string('phone')->nullable();
