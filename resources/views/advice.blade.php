@@ -42,7 +42,7 @@
                             @if($videos->count())
                                 @foreach($videos as $video)
                                     <div>
-                                        {{$video->video}}
+                                        {!!$video->lazyIframe!!}
                                         <h3>{{$video->getTranslatedAttribute('title')}}</h3>
                                     </div>
                                 @endforeach
