@@ -22,7 +22,7 @@ class Boutique extends Model
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
 
-    public $with = ['categories', 'tradingHouses', 'products', 'reviews', 'recommended', 'related'];
+    public $with = ['categories', 'tradingHouses', 'products', 'reviews', 'recommendedRelations', 'relatedRelations'];
 
     public function categories()
     {
@@ -103,5 +103,15 @@ class Boutique extends Model
     public function related()
     {
         return $this->belongsToMany('App\Boutique', 'related_boutiques', 'boutique_id');
+    }
+
+    public function recommendedRelations()
+    {
+        return $this->hasMany('App\RecommendedBoutique');
+    }
+
+    public function relatedRelations()
+    {
+        return $this->hasMany('App\RelatedBoutique');
     }
 }
