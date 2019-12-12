@@ -324,39 +324,39 @@
             </div>
         </div>
         
-        <div class="container-fluid favorite-boutiques">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 mt-5">
-                        <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
-                    </div>
-                    @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
-                        @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                            <div class="boutique-block">
-                                <img src="{{Voyager::image($fav_boutique->firstImage)}}">
-                                <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
-                                <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
-                                <div class="star-rating__wrapper">
-                                    {!!$fav_boutique->averageRatingHtml!!}
-                                </div>
-                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$fav_boutique->id}}</p>
-                            </div>
-                        </div>
-                        @endforeach
-                    @endif
+    @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
+    <div class="container-fluid favorite-boutiques">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 mt-5">
+                    <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
                 </div>
+                @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="boutique-block">
+                        <img src="{{Voyager::image($fav_boutique->firstImage)}}">
+                        <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
+                        <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
+                        <div class="star-rating__wrapper">
+                            {!!$fav_boutique->averageRatingHtml!!}
+                        </div>
+                        <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
+                        <p>Артикул: {{$fav_boutique->id}}</p>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
+    </div>
+    @endif
 
+    @if($boutique->related->count())
     <div class="container-fluid similar-boutiques">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">{{__('Похожие бутики')}}</h1>
                 </div>
-                @if($boutique->related->count())
                     @foreach($boutique->related as $boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                             <div class="boutique-block">
@@ -371,18 +371,18 @@
                             </div>
                         </div>
                     @endforeach
-                @endif
             </div>
         </div>
     </div>
+    @endif
 
+    @if($boutique->related->count())
     <div class="container-fluid recommended-boutiques">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">{{__('Рекомендуемые бутики')}}</h1>
                 </div>
-                @if($boutique->related->count())
                     @foreach($boutique->recommended as $boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                             <div class="boutique-block">
@@ -397,9 +397,9 @@
                             </div>
                         </div>
                     @endforeach
-                @endif
             </div>
         </div>
     </div>
+    @endif
 </div>
 @endsection
