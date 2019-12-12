@@ -13,7 +13,7 @@ class AdviceVideo extends Model
 
     public function getLazyIframeAttribute()
     {
-        $code = str_replace('https://youtu.be/', '', $this->iframe);
+        $code = str_replace('https://youtu.be/', '', $this->video);
 
         return '
         <iframe
@@ -25,6 +25,6 @@ class AdviceVideo extends Model
 
     public function getCodeAttribute()
     {
-        return str_replace('https://youtu.be/', '', $this->iframe);
+        return str_replace('https://youtu.be/', '', $this->video);
     }
 }
