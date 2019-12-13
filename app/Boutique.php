@@ -53,6 +53,11 @@ class Boutique extends Model
         return $this->hasMany('App\BoutiqueProduct');
     }
 
+    public function allProducts()
+    {
+        return $this->hasMany('App\AllProduct');
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\BoutiqueReview');

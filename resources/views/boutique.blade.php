@@ -224,7 +224,7 @@
                         </div>
                         <div class="col-xl-4"></div>
                     </div>
-                    <div class="priceList">
+                    <div class="priceList mb-3">
                         <ul>
                             @if($boutique->products->count())
                                 @foreach($boutique->products->sortBy('name') as $product)
@@ -233,6 +233,22 @@
                                         <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} тг</h2>
                                         <h2 class="one_price price_usd" style="display: none;">от {{$product->price_from_dollar}} до {{$product->price_to_dollar}} $</h2>
                                         <h2 class="one_price price_rub" style="display: none;">от {{$product->price_from_rub}} до {{$product->price_to_rub}} руб.</h2>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-6">
+                            <h1>Весь ассортимент</h1>
+                        </div>
+                    </div>
+                    <div class="priceList mb-3">
+                        <ul>
+                            @if($boutique->allProducts->count())
+                                @foreach($boutique->allProducts->sortBy('name') as $product)
+                                    <li>
+                                        <p>{{$product->getTranslatedAttribute('name')}}</p>
                                     </li>
                                 @endforeach
                             @endif
