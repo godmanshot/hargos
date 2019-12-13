@@ -122,12 +122,12 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
 
     public function addProductsAll($model)
     {
-        $model->productsAll()->delete();
+        $model->allProducts()->delete();
         $products = array_map('trim', explode(';', $model->str_products_all));
         $products_tmp = [];
 
         foreach($products as $product) {
-            $products_tmp[] = $model->productsAll()->create(['name' => $product]);
+            $products_tmp[] = $model->allProducts()->create(['name' => $product]);
         }
 
         return $products_tmp;
