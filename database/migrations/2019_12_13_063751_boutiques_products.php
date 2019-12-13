@@ -14,8 +14,8 @@ class BoutiquesProducts extends Migration
     public function up()
     {
         Schema::table('boutiques', function (Blueprint $table) {
-            $table->text("products")->nullable();
-            $table->text("products_all")->nullable();
+            $table->text("str_products")->nullable();
+            $table->text("str_products_all")->nullable();
         });
     }
 
@@ -27,8 +27,8 @@ class BoutiquesProducts extends Migration
     public function down()
     {
         Schema::table('boutiques', function (Blueprint $table) {
-            $table->dropColumn("products");
-            $table->dropColumn("products_all");
+            $table->dropColumn("str_products");
+            $table->dropColumn("str_products_all");
         });
     }
 }

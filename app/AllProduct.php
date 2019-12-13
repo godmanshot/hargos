@@ -10,4 +10,5 @@ class AllProduct extends Model
     use Translatable;
     
     protected $translatable = ['name'];
+    public $fillable = ['name'];
 }

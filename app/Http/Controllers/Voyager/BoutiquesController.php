@@ -24,6 +24,8 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         if (!$request->has('_validate')) {
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             $this->addWatermark($data);
+            $this->addProducts($data);
+            $this->addProductsAll($data);
             event(new BreadDataAdded($dataType, $data));
             if ($request->ajax()) {
                 return response()->json(['success' => true, 'data' => $data]);
@@ -56,6 +58,8 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $old_images = json_decode($data->images ?? '[]', true);
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
             $this->addWatermark($data, $old_images);
+            $this->addProducts($data);
+            $this->addProductsAll($data);
             event(new BreadDataUpdated($dataType, $data));
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
@@ -74,15 +78,6 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             if(in_array($image, $old_images))
                 continue;
             $img = Image::make(storage_path('app/public/'.$image));
-
-            // $watermark = Image::make(public_path('images/watermark.png'));
-            // $watermark->resize($img->width()*0.3, null, function ($constraint) {
-            //     $constraint->aspectRatio();
-            // });
-
-            // $img->insert($watermark, 'top-left', 10, 10);
-
-
 
             $x = 0;
 
@@ -114,11 +109,27 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
 
     public function addProducts($model)
     {
-        
+        $model->products()->delete();
+        $products = array_map('trim', explode(';', $model->str_products));
+        $products_tmp = [];
+
+        foreach($products as $product) {
+            $products_tmp[] = $model->products()->create(['name' => $product]);
+        }
+
+        return $products_tmp;
     }
 
     public function addProductsAll($model)
     {
-        
+        $model->productsAll()->delete();
+        $products = array_map('trim', explode(';', $model->str_products_all));
+        $products_tmp = [];
+
+        foreach($products as $product) {
+            $products_tmp[] = $model->productsAll()->create(['name' => $product]);
+        }
+
+        return $products_tmp;
     }
 }

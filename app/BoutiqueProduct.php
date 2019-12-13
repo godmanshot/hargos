@@ -10,4 +10,5 @@ class BoutiqueProduct extends Model
 {
     use Translatable, CanFilterTrait;
     protected $translatable = ['name'];
+    public $fillable = ['name'];
 }
