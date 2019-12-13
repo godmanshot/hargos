@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="app-url" content="{{url('/')}}">
+    <meta name="app-lang" content="{{app()->getLocale()}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Хоргос</title>
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> 
@@ -248,7 +249,7 @@
 				<div class="col-xl-3 col-lg-3 pl-5 mobile__padding-left">
 					<h5>{{__('Звоните')}}</h5>
 					<a class="phoneNumber" href="tel: {{setting('sayt.phone')}}">{{setting('sayt.phone')}}</a>
-					<button class="callOrder" type="button">{{__('Заказать звонок')}}</button>
+					<button class="callOrder" type="button" onclick="function(){callhunter();}()">{{__('Заказать звонок')}}</button>
 					<div class="mt-4">
 						<h5>{{__('Адрес')}}</h5>
 						<p>{{setting('sayt.address')}}</p>

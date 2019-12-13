@@ -17,6 +17,7 @@ import Swal from 'sweetalert2'
  */
 
 var _app_url = document.head.querySelector('meta[name="app-url"]').content;
+var _app_lang = document.head.querySelector('meta[name="app-lang"]').content;
 var _app_storage_url = _app_url + '/storage';
 var _app_api_url = _app_url + '/api';
 

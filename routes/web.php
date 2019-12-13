@@ -5,6 +5,7 @@ use App\Review;
 use App\Slider;
 use App\Freebie;
 use App\Boutique;
+use App\Callback;
 use App\Category;
 use App\Interview;
 use App\Subscribe;
@@ -256,8 +257,17 @@ Route::get('/search', function(Request $request) {
 })->name('search');
 
 
-Route::get('test', function() {
-    $product = BoutiqueProduct::first();
+Route::get('/callback', function(Request $request) {
+    
+    $request->validate([
+        'name' => 'required',
+        'phone' => 'required',
+    ]);
 
-    dd($product);
+    $model = Callback::create([
+        'name' => $request->name,
+        'phone' => $request->phone,
+    ]);
+
+    return $model;
 });
