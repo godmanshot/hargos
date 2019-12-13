@@ -114,6 +114,9 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         $products_tmp = [];
 
         foreach($products as $product) {
+            if(empty($product)) {
+                continue;
+            }
             $products_tmp[] = $model->products()->create(['name' => $product]);
         }
 
@@ -127,6 +130,9 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         $products_tmp = [];
 
         foreach($products as $product) {
+            if(empty($product)) {
+                continue;
+            }
             $products_tmp[] = $model->allProducts()->create(['name' => $product]);
         }
 
