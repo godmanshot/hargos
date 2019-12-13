@@ -271,3 +271,10 @@ Route::get('/callback', function(Request $request) {
 
     return $model;
 });
+
+
+Route::get('/lang/{lang}', function(Request $request, $lang) {
+    
+    
+    return back()->withCookie(cookie()->forever('lang', $lang));
+});
