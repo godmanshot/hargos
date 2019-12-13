@@ -16,6 +16,7 @@ use App\TradingHouse;
 use App\CategoryStock;
 use App\AdviceCategory;
 use App\PopularProduct;
+use App\BoutiqueProduct;
 use Illuminate\Http\Request;
 
 /*
@@ -253,3 +254,10 @@ Route::get('/search', function(Request $request) {
     return view('search', compact('search_query', 'models'));
 
 })->name('search');
+
+
+Route::get('test', function() {
+    $product = BoutiqueProduct::first();
+
+    dd($product);
+});

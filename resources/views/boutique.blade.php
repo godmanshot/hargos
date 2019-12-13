@@ -217,9 +217,9 @@
                         </div>
                         <div class="col-xl-4 col-6">
                             <select class="prices js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option value="price_kzt" >&#8376; KZT</option>
+                                <option value="price_kzt" >&#165; CNY</option>
                                 <option value="price_usd">&#36; USD</option>
-                                <option value="price_rub">&#8381; RUB</option>
+                                <option value="price_rub">&#8376; KZT</option>
                             </select>
                         </div>
                         <div class="col-xl-4"></div>
@@ -230,9 +230,9 @@
                                 @foreach($boutique->products->sortBy('name') as $product)
                                     <li>
                                         <p>{{$product->getTranslatedAttribute('name')}}</p>
-                                        <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} тг</h2>
-                                        <h2 class="one_price price_usd" style="display: none;">от {{$product->price_from_dollar}} до {{$product->price_to_dollar}} $</h2>
-                                        <h2 class="one_price price_rub" style="display: none;">от {{$product->price_from_rub}} до {{$product->price_to_rub}} руб.</h2>
+                                        <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} &#165;</h2>
+                                        <h2 class="one_price price_usd" style="display: none;">от {{$product->priceFromDollar}} до {{$product->priceToDollar}} &#36;</h2>
+                                        <h2 class="one_price price_rub" style="display: none;">от {{$product->priceFromTenge}} до {{$product->priceToTenge}} &#8376;</h2>
                                     </li>
                                 @endforeach
                             @endif
