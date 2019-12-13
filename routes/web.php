@@ -250,6 +250,8 @@ Route::get('/search', function(Request $request) {
         $query->where('name', 'like', '%'.$search_query.'%');
     })->orWhereHas('categories', function ($query) use ($search_query) {
         $query->where('name', 'like', '%'.$search_query.'%');
+    })->orWhereHas('allProducts', function ($query) use ($search_query) {
+        $query->where('name', 'like', '%'.$search_query.'%');
     })->orWhere('name', 'like', '%'.$search_query.'%')->get();
 
     return view('search', compact('search_query', 'models'));
