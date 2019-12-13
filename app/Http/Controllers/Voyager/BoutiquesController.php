@@ -95,7 +95,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
                     $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
                         $font->file(public_path('fonts/Montserrat-Regular.ttf'));
                         $font->size($font_size);
-                        $font->color(array(255, 255, 255, 0.1));
+                        $font->color(array(255, 255, 255, 0.2));
                         $font->align('center');
                         $font->valign('top');
                         $font->angle(45);
