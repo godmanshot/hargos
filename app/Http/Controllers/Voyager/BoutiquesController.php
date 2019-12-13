@@ -111,4 +111,14 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $img->save(storage_path('app/public/'.$image));
         }
     }
+
+    public function addProducts($model)
+    {
+        
+    }
+
+    public function addProductsAll($model)
+    {
+        
+    }
 }
