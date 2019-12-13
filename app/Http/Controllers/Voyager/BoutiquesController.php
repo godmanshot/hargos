@@ -120,10 +120,10 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $product = array_map('trim', explode('-', $product));
             $prices = isset($product[1]) ? array_map('trim', explode(',', $product[1])) : [0, 0];
             $name = $product[0];
-            $price_from = $prices[0];
-            $price_to = $prices[1];
+            $price_from = (int)$prices[0];
+            $price_to = (int)$prices[1];
     
-            $products_tmp[] = $model->products()->create(['name' => $product, 'price_from' => $price_from, 'price_to' => $price_to]);
+            $products_tmp[] = $model->products()->create(['name' => $name, 'price_from' => $price_from, 'price_to' => $price_to]);
         }
 
         return $products_tmp;
