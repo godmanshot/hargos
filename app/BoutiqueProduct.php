@@ -11,7 +11,7 @@ class BoutiqueProduct extends Model
     use Translatable, CanFilterTrait;
     protected $translatable = ['name'];
     public $fillable = ['name', 'price_from', 'price_to'];
-    public $append = ['priceFromDollar', 'priceToDollar', 'priceFromTenge', 'priceToTenge'];
+    public $appends = ['priceFromDollar', 'priceToDollar', 'priceFromTenge', 'priceToTenge'];
 
     static $currency_json = false;
 
