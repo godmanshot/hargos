@@ -36,22 +36,22 @@ class BoutiqueProduct extends Model
 
     public function getPriceFromDollarAttribute() {
         $currency = self::currency()['USD']->kurs;
-        return $this->priceFromTenge/$currency;
+        return round($this->priceFromTenge/$currency, 2);
     }
     
     public function getPriceToDollarAttribute() {
         $currency = self::currency()['USD']->kurs;
-        return $this->priceToTenge/$currency;
+        return round($this->priceToTenge/$currency, 2);
     }
     
     public function getPriceFromTengeAttribute() {
         $currency = self::currency()['CNY']->kurs;
-        return $this->price_from*$currency;
+        return round($this->price_from*$currency, 2);
     }
     
     public function getPriceToTengeAttribute() {
         $currency = self::currency()['CNY']->kurs;
-        return $this->price_to*$currency;
+        return round($this->price_to*$currency, 2);
     }
     
 }
