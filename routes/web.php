@@ -252,7 +252,11 @@ Route::get('/search', function(Request $request) {
         $query->where('name', 'like', '%'.$search_query.'%');
     })->orWhereHas('allProducts', function ($query) use ($search_query) {
         $query->where('name', 'like', '%'.$search_query.'%');
-    })->orWhere('name', 'like', '%'.$search_query.'%')->get();
+    })->orWhere('name', 'like', '%'.$search_query.'%')
+    ->orWhere('boutique_number', 'like', '%'.$search_query.'%')
+    ->orWhere('seller_name', 'like', '%'.$search_query.'%')
+    ->orWhere('owner_name', 'like', '%'.$search_query.'%')->get();
+    //->orWhere('full_description', 'like', '%'.$search_query.'%')->get();
 
     return view('search', compact('search_query', 'models'));
 
