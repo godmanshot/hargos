@@ -213,7 +213,7 @@
                 <div class="pricesPerProducts">
                     <div class="row">
                         <div class="col-xl-4 col-6">
-                            <h1>Цены на товары</h1>
+                            <h1>Цены на товары от А до Я</h1>
                         </div>
                         <div class="col-xl-4 col-6">
                             <select class="prices js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -227,7 +227,7 @@
                     <div class="priceList">
                         <ul>
                             @if($boutique->products->count())
-                                @foreach($boutique->products as $product)
+                                @foreach($boutique->products->sortBy('name') as $product)
                                     <li>
                                         <p>{{$product->getTranslatedAttribute('name')}}</p>
                                         <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} тг</h2>
