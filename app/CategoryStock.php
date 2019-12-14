@@ -21,7 +21,9 @@ class CategoryStock extends Model
 
     public function getCategoryNameAttribute()
     {
-        return $this->category->getTranslatedAttribute('name') ?? '';
+        if($this->category) {
+            return $this->category->getTranslatedAttribute('name') ?? '';
+        }
     }
 
     public function getCategoryLinkAttribute()
