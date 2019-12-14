@@ -19,7 +19,7 @@ class TopProduct extends Model
 
     public function getBoutiqueNameAttribute()
     {
-        if($this->boutique && $this->boutique->categories) {
+        if($this->boutique) {
             return $this->boutique->getTranslatedAttribute('name') ?? '';
         }
     }
