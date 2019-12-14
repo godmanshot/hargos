@@ -16,17 +16,19 @@ class PopularProduct extends Model
     {
         return $this->hasOne('App\Boutique', 'id', 'boutique_id');
     }
-
+    
     public function getBoutiqueNameAttribute()
     {
-        return $this->boutique->getTranslatedAttribute('name') ?? '';
+        if($this->boutique && $this->boutique->categories) {
+            return $this->boutique->getTranslatedAttribute('name') ?? '';
+        }
     }
-
     public function getBoutiqueCategoriesAttribute()
     {
-        return $this->boutique->categories->implode('name', ', ');
+        if($this->boutique && $this->boutique->categories) {
+            return $this->boutique->categories->implode('name', ', ');
+        }
     }
-
     public function getBoutiqueLinkAttribute()
     {
         return $this->boutique ? route('boutique', $this->boutique->id) : '#';
