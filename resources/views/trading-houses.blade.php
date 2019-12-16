@@ -57,7 +57,7 @@
             <div class="col-xl-12">
                 <div class="row">
                     @foreach($categories as $category)
-                        <div class="col-lg-2 col-md-3 col-sm-6">
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-4">
                             <button class="category-btn {{($selected_category->id ?? false) == $category->id ? 'category-btn__chosen' : ''}}" onclick="window.location.href = '{{route('trading-houses', ['trading_house' => $selected_trading_house->id ?? null, 'category' => $category->id])}}';">{{$category->getTranslatedAttribute('name')}}</button>
                         </div>
                     @endforeach
@@ -120,9 +120,11 @@
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">Избранные бутики</h1>
                 </div>
+            </div>
+            <div class="row favorite__slick">
                     @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <img src="{{Voyager::image($fav_boutique->firstImage)}}">
                                 <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>

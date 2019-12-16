@@ -72,9 +72,11 @@
                     <div class="col-xl-12 mt-5">
                         <h1 class="favorite-header">Избранные бутики</h1>
                     </div>
+                </div>
+                <div class="row favorite__slick">
                     @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <img src="{{Voyager::image($fav_boutique->firstImage)}}">
                                 <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>

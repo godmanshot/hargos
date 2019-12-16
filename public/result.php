@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -42,7 +42,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -68,7 +68,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -94,7 +94,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>

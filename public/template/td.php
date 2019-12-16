@@ -180,7 +180,7 @@
         </div>
         <div class="container boutique__container mt-5">
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -206,7 +206,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -232,7 +232,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -258,7 +258,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -284,7 +284,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -310,7 +310,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -336,7 +336,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -362,7 +362,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -388,7 +388,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -414,7 +414,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -440,7 +440,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -466,7 +466,7 @@
                         <p>Артикул: 100156321</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="images/boutique-oodji.png">
                         <h3 class="boutique-header">oodji</h3>
@@ -556,7 +556,9 @@
                     <div class="col-xl-12 mt-5">
                         <h1 class="favorite-header">Избранные бутики</h1>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                </div>
+                <div class="row favorite__slick">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>
@@ -582,7 +584,7 @@
                             <p>Артикул: 100156321</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>
@@ -608,7 +610,7 @@
                             <p>Артикул: 100156321</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>
@@ -634,7 +636,7 @@
                             <p>Артикул: 100156321</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>
@@ -660,7 +662,7 @@
                             <p>Артикул: 100156321</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>
@@ -686,7 +688,7 @@
                             <p>Артикул: 100156321</p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
                             <img src="images/boutique-oodji.png">
                             <h3 class="boutique-header">oodji</h3>

@@ -229,10 +229,14 @@
                             @if($boutique->products->count())
                                 @foreach($boutique->products->sortBy('name') as $product)
                                     <li>
-                                        <p>{{$product->getTranslatedAttribute('name')}}</p>
-                                        <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} &#165;</h2>
-                                        <h2 class="one_price price_usd" style="display: none;">от {{$product->priceFromDollar}} до {{$product->priceToDollar}} &#36;</h2>
-                                        <h2 class="one_price price_rub" style="display: none;">от {{$product->priceFromTenge}} до {{$product->priceToTenge}} &#8376;</h2>
+                                        <div class="col-xl-7">
+                                            <p>{{$product->getTranslatedAttribute('name')}}</p>
+                                        </div>
+                                        <div class="col-xl-5">
+                                            <h2 class="one_price price_kzt" style="display: block;">от {{$product->price_from}} до {{$product->price_to}} &#165;</h2>
+                                            <h2 class="one_price price_usd" style="display: none;">от {{$product->priceFromDollar}} до {{$product->priceToDollar}} &#36;</h2>
+                                            <h2 class="one_price price_rub" style="display: none;">от {{$product->priceFromTenge}} до {{$product->priceToTenge}} &#8376;</h2>
+                                        </div>
                                     </li>
                                 @endforeach
                             @endif
@@ -272,7 +276,7 @@
                                 <h1>{{__('Карта торгового центра')}}</h1>
                             </div>
                         </div>
-                        <a class="zoomMap" href="images/mallMap.png">
+                        <a class="zoomMap" href="{{Voyager::image($boutique->trading_house_image)}}">
                             <img src="{{Voyager::image($boutique->trading_house_image)}}">
                         </a>
                     </div>
@@ -347,8 +351,10 @@
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
                 </div>
+            </div>
+            <div class="row favorite__slick">
                 @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="{{Voyager::image($fav_boutique->firstImage)}}">
                         <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
@@ -373,8 +379,10 @@
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">{{__('Похожие бутики')}}</h1>
                 </div>
+            </div>
+            <div class="row similar__slick">
                     @foreach($boutique->related as $boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <img src="{{Voyager::image($boutique->firstImage)}}">
                                 <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
@@ -399,8 +407,10 @@
                 <div class="col-xl-12 mt-5">
                     <h1 class="favorite-header">{{__('Рекомендуемые бутики')}}</h1>
                 </div>
+            </div>
+            <div class="row recommended__slick">
                     @foreach($boutique->recommended as $boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <img src="{{Voyager::image($boutique->firstImage)}}">
                                 <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>

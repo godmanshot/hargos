@@ -11,7 +11,7 @@
         <div class="row">
             @if($models->count())
             @foreach($models as $model)
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
                         <img src="{{Voyager::image($model->firstImage)}}">
                         <h3 class="boutique-header">{{$model->getTranslatedAttribute('name')}}</h3>

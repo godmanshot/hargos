@@ -96,6 +96,18 @@
     <!-- PRODUCTION CATALOG -->
 	<nav id="catalog-nav">
 		<ul class="first-nav">
+			<li>
+				<span>Навигация</span>
+				<ul>
+					<li><a href="#">о компании</></a></li>
+					<li><a href="#">торговые дома</></a></li>
+					<li><a href="#">тур операторы</></a></li>
+					<li><a href="#">советы</></a></li>
+					<li><a href="#">отзывы</></a></li>
+					<li><a href="#">новости</></a></li>
+					<li><a href="#">контакты</a></li>
+				</ul>
+			</li>
             @php
 				$menu = menu('Каталог бутиков', '_json');
 				$menu->load('translations');

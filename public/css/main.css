@@ -845,6 +845,18 @@ body.hc-nav-open {
 
 body {
   word-wrap: break-word; }
+  body .boutique__container .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+    display: flex;
+    flex-direction: column; }
+  body .favorite-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+    display: flex;
+    flex-direction: column; }
+  body .similar-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+    display: flex;
+    flex-direction: column; }
+  body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+    display: flex;
+    flex-direction: column; }
 
 ::-webkit-scrollbar {
   width: 13px; }
@@ -905,6 +917,9 @@ body {
   font-family: Montserrat;
   font-weight: 500; }
 
+.hc-offcanvas-nav li.nav-parent:first-child {
+  display: none; }
+
 .hc-offcanvas-nav a {
   font-family: Montserrat;
   font-weight: 500;
@@ -932,6 +947,8 @@ body {
 
 .header {
   background-color: #fff; }
+  .header .mobile-nav {
+    display: none; }
   .header .logo {
     font-family: Pacifico;
     font-size: 48px;
@@ -1133,6 +1150,22 @@ body {
           right: 0; }
 
 @media (max-width: 576px) {
+  body {
+    word-wrap: break-word; }
+    body .boutique__container .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+      margin-left: auto;
+      margin-right: auto; }
+    body .favorite-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+      margin-left: auto;
+      margin-right: auto; }
+    body .similar-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+      margin-left: auto;
+      margin-right: auto; }
+    body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
+      margin-left: auto;
+      margin-right: auto; }
+  .hc-offcanvas-nav li.nav-parent:first-child {
+    display: block; }
   .header p {
     text-align: center; }
   .header p.search-example {
@@ -1166,7 +1199,10 @@ body {
   .header .multicolors .main-nav {
     flex-direction: column;
     align-items: center;
-    padding-left: 0; } }
+    padding-left: 0;
+    display: none; }
+  .header .mobile-nav {
+    display: block; } }
 
 @media (min-width: 577px) and (max-width: 768px) {
   .header .container.pt-5.pb-4 {
@@ -3160,7 +3196,8 @@ body {
   box-shadow: 0px 6px 17px 0px rgba(39, 39, 39, 0.07);
   text-align: center;
   margin-top: 27px;
-  transition: all .3s ease; }
+  transition: all .3s ease;
+  height: 100%; }
   .boutique-block:hover {
     box-shadow: 0px 22px 17px 0px rgba(39, 39, 39, 0.17); }
   .boutique-block.boutique-block__list-style {
@@ -3719,6 +3756,10 @@ body {
           z-index: -1; }
 
 @media (max-width: 576px) {
+  .td .filters-block .filter-btn {
+    background-image: unset; }
+  .col-4 {
+    display: flex; }
   .td .filters-block .list-grid_wrapper {
     display: none; }
   .td .filters-block .clear-filter {
@@ -3923,8 +3964,6 @@ body {
       position: relative;
       opacity: 1;
       transition: all .3s ease; }
-      .tour .filters-block .filters-confirm__block.hide {
-        pointer-events: none; }
       .tour .filters-block .filters-confirm__block .filters-question__block {
         display: -webkit-flex;
         display: -moz-flex;
@@ -3971,6 +4010,10 @@ body {
         align-items: center;
         justify-content: start;
         margin-top: .7rem; }
+        .tour .filters-block .filters-confirm__block .filters-answer__block.hide {
+          opacity: 0;
+          transition: all .3s ease;
+          pointer-events: none; }
         .tour .filters-block .filters-confirm__block .filters-answer__block .separator {
           background-color: #fff;
           width: 1px;
@@ -4573,7 +4616,9 @@ body {
 .cardd .slider-for {
   margin-bottom: -50px; }
   .cardd .slider-for .slick-slide img {
-    width: 100%; }
+    width: 100%;
+    max-height: 485px;
+    min-height: 485px; }
 
 .cardd .slider-nav .slick-prev, .cardd .slider-nav .slick-next {
   border-radius: unset;
@@ -4594,7 +4639,9 @@ body {
 .cardd .slider-nav .slick-slide img {
   width: 88%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  max-height: 110px;
+  min-height: 110px; }
 
 .cardd .boutique__info-wrapper h1 {
   font-family: Montserrat;
@@ -4830,9 +4877,9 @@ body {
         position: absolute; }
       .cardd .pricesPerProducts .priceList ul li p {
         font-family: Montserrat;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 2;
-        font-weight: 400;
+        font-weight: 500;
         color: #1c222e; }
       .cardd .pricesPerProducts .priceList ul li h2 {
         font-family: Montserrat;
@@ -5014,6 +5061,12 @@ body {
   background-color: transparent; }
 
 @media (max-width: 576px) {
+  .cardd .slider-for .slick-slide img {
+    max-height: 275px;
+    min-height: 275px; }
+  .cardd .slider-nav .slick-slide img {
+    max-height: 90px;
+    min-height: 90px; }
   .cardd .boutique__info-wrapper .share li {
     padding-left: 0; }
   .cardd .pricesPerProducts .priceList ul {
@@ -5073,6 +5126,12 @@ body {
     margin-bottom: 13px; } }
 
 @media (min-width: 769px) and (max-width: 992px) {
+  .cardd .slider-for .slick-slide img {
+    max-height: 315px;
+    min-height: 315px; }
+  .cardd .slider-nav .slick-slide img {
+    max-height: 100px;
+    min-height: 100px; }
   .cardd .boutique__info-wrapper .share li {
     padding-left: 0; }
   .pricesPerProducts .select2-container {
@@ -5403,7 +5462,12 @@ body {
   .advice .advices__video .advice-player .slick-next {
     right: 5%; }
   .advice .advices__video .advice-player .slick-prev {
-    left: 65%; } }
+    left: 65%; }
+  .advice .article--wrapper .img__wrapper:hover img {
+    transform: unset;
+    -webkit-transform: unset; }
+  .advice .article--wrapper .img__wrapper:after {
+    display: none; } }
 
 @media (min-width: 577px) and (max-width: 768px) {
   .advice .popular__advices {
@@ -5415,7 +5479,12 @@ body {
   .advice .advices__video .advice-player .slick-next {
     right: 5%; }
   .advice .advices__video .advice-player .slick-prev {
-    left: 65%; } }
+    left: 65%; }
+  .advice .article--wrapper .img__wrapper:hover img {
+    transform: unset;
+    -webkit-transform: unset; }
+  .advice .article--wrapper .img__wrapper:after {
+    display: none; } }
 
 @media (min-width: 769px) and (max-width: 992px) {
   .advice .advices__video .advice-player .slick-prev, .advice .advices__video .advice-player .slick-next {
@@ -5889,9 +5958,7 @@ button, a {
 
 .news .news__wrapper img {
   width: 100%;
-  min-width: 426px;
   max-width: 426px;
-  min-height: 261px;
   max-height: 261px; }
 
 .news .news__wrapper .row {
