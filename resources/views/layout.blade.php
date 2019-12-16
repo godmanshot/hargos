@@ -99,13 +99,13 @@
 			<li>
 				<span>Навигация</span>
 				<ul>
-					<li><a href="#">о компании</></a></li>
-					<li><a href="#">торговые дома</></a></li>
-					<li><a href="#">тур операторы</></a></li>
-					<li><a href="#">советы</></a></li>
-					<li><a href="#">отзывы</></a></li>
-					<li><a href="#">новости</></a></li>
-					<li><a href="#">контакты</a></li>
+					@php
+					$menu = menu('Главное меню сайта', '_json');
+					$menu->load('translations');
+					@endphp
+					@foreach($menu as $item)
+						<li><a href="{{$item->url}}">{{$item->getTranslatedAttribute('title')}}</a></li>
+					@endforeach
 				</ul>
 			</li>
             @php
