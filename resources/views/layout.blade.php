@@ -284,6 +284,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 	<script src="https://cdn.jsdelivr.net/npm/hc-offcanvas-nav@3.4.1/dist/hc-offcanvas-nav.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/headhesive/1.2.4/headhesive.min.js"></script>
 	<script>
 		window.lang = 'ru';
 	</script>

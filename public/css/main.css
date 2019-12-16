@@ -937,13 +937,73 @@ body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background-color: #fff;
-  background-image: url(../images/scroll__bg.png);
+  background-image: url("../images/scroll__bg.png");
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat; }
 
 ::-webkit-scrollbar-thumb:window-inactive {
   background-color: #fff; }
+
+.banner--clone {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out; }
+
+.banner--stick {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%); }
+
+.banner--unstick {
+  /* Not required to use, but could be useful to have */ }
+
+.search-form {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  background-image: -webkit-linear-gradient(90deg, #a551db, #7286e7);
+  background-image: -moz-linear-gradient(90deg, #a551db, #7286e7);
+  padding: 1px;
+  max-height: 46px;
+  width: 100%; }
+  .search-form .search-field {
+    font-family: Montserrat;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #a39ab4;
+    text-align: left;
+    border: none;
+    background-color: #f4f0fb;
+    padding: 10px 0 10px 20px;
+    width: 100%;
+    border-right: 1px solid #a551db;
+    outline: none; }
+    .search-form .search-field .search-field::placeholder {
+      color: rgba(28, 28, 28, 0.502); }
+  .search-form .search-btn {
+    width: 60px;
+    background-image: url(../images/finder.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    border: none;
+    outline: none;
+    background-color: #f4f0fb; }
 
 .header {
   background-color: #fff; }
@@ -3242,7 +3302,9 @@ body {
     -moz-transform: matrix(0.66161, 0, 0, 0.66053, 0, 0);
     -webkit-transform: matrix(0.66161, 0, 0, 0.66053, 0, 0);
     -ms-transform: matrix(0.66161, 0, 0, 0.66053, 0, 0); }
-  .boutique-block a {
+  .boutique-block a:first-of-type {
+    display: contents; }
+  .boutique-block a:last-of-type {
     font-family: Montserrat;
     font-size: 12px;
     line-height: 1;
@@ -3262,9 +3324,9 @@ body {
     position: relative;
     z-index: 0;
     transition: all 300ms ease; }
-    .boutique-block a:hover {
+    .boutique-block a:last-of-type:hover {
       border-color: transparent; }
-    .boutique-block a:before {
+    .boutique-block a:last-of-type:before {
       position: absolute;
       content: '';
       width: 0%;
@@ -3279,9 +3341,9 @@ body {
       right: 0;
       z-index: -1;
       transition: all 300ms ease; }
-    .boutique-block a:hover {
+    .boutique-block a:last-of-type:hover {
       color: white; }
-      .boutique-block a:hover:before {
+      .boutique-block a:last-of-type:hover:before {
         position: absolute;
         content: '';
         width: 100%;

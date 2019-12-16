@@ -126,7 +126,9 @@
                         @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
-                                <img src="{{Voyager::image($fav_boutique->firstImage)}}">
+                                <a href="{{route('boutique', $fav_boutique->id)}}">
+                                    <img src="{{Voyager::image($fav_boutique->firstImage)}}">
+                                </a>
                                 <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
                                 <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">

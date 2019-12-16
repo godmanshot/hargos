@@ -13,7 +13,9 @@
             @foreach($models as $model)
                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                     <div class="boutique-block">
-                        <img src="{{Voyager::image($model->firstImage)}}">
+                        <a href="{{route('boutique', $model)}}">
+                            <img src="{{Voyager::image($model->firstImage)}}">
+                        </a>
                         <h3 class="boutique-header">{{$model->getTranslatedAttribute('name')}}</h3>
                         <p class="boutique-title">{{$model->categoriesName}}</p>
                         <div class="star-rating__wrapper">

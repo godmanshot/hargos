@@ -131,7 +131,8 @@ window.boutiquesInTradingHouses = function() {
             cont.attr('class', 'col-xl-3 col-lg-4 col-md-4 col-sm-6');
             cont.append(
             '    <div class="boutique-block">' +
-            '        <img src="' + _app_storage_url + '/' + model.firstImage + '">' +
+            '        <a href="' + _app_url + '/boutique/' + model.id  + '"><img src="' + _app_storage_url + '/' + model.firstImage + '"></a>' +
+            // '        <img src="' + _app_storage_url + '/' + model.firstImage + '">' +
             '        <h3 class="boutique-header">' + model.name +'</h3>' +
             '        <p class="boutique-title">' + model.categoriesName + '</p>' +
                     renderRating(model.averageRating) + 
