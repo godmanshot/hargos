@@ -261,7 +261,7 @@
 				<div class="col-xl-3 col-lg-3 pl-5 mobile__padding-left">
 					<h5>{{__('Звоните')}}</h5>
 					<a class="phoneNumber" href="tel: {{setting('sayt.phone')}}">{{setting('sayt.phone')}}</a>
-					<button class="callOrder" type="button" onclick="function(){callhunter();}()">{{__('Заказать звонок')}}</button>
+					<button class="callOrder" type="button"  data-toggle="modal" data-target="#callUs" onclick="function(){callhunter();}()">{{__('Заказать звонок')}}</button>
 					<div class="mt-4">
 						<h5>{{__('Адрес')}}</h5>
 						<p>{{setting('sayt.address')}}</p>
@@ -269,6 +269,23 @@
 					<div class="mt-4">
 						<h5>{{__('Время работы')}}</h5>
 						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
+					</div>
+					<!-- Модальное окно -->  
+					<div class="modal fade" id="callUs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Свяжитесь с нами</h4>
+							</div>
+							<div class="modal-body">
+								<h2>{{setting('kontakty.name-1')}}</h2>
+								<a href="tel: {{setting('kontakty.phone-1')}}">{{setting('kontakty.phone-1')}}</a>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+							</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
