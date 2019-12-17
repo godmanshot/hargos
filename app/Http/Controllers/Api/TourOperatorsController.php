@@ -20,6 +20,10 @@ class TourOperatorsController extends Controller
             $models->where('city_id', $request->city_id);
         }
     
+        if($request->has('id')) {
+            $models->where('id', $request->id);
+        }
+    
         return $models->get();
     }
 }
