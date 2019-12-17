@@ -255,8 +255,7 @@ Route::get('/search', function(Request $request) {
     })->orWhere('name', 'like', '%'.$search_query.'%')
     ->orWhere('boutique_number', 'like', '%'.$search_query.'%')
     ->orWhere('seller_name', 'like', '%'.$search_query.'%')
-    ->orWhere('owner_name', 'like', '%'.$search_query.'%')->get();
-    //->orWhere('full_description', 'like', '%'.$search_query.'%')->get();
+    ->orWhere('owner_name', 'like', '%'.$search_query.'%')->get()->shuffle();
 
     return view('search', compact('search_query', 'models'));
 
