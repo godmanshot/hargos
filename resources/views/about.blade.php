@@ -194,22 +194,22 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6">
-                    <h2>{{__('Лучшие показатели')}}</h2>
+                    {!!Block::_('Vq0KyoL1SsxpMcpc')!!}
                     <ul>
                         <li>
-                            <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum;</p>
+                            {!!Block::_('EBHC23Gv15LF0uqa')!!}
                         </li>
                         <li>
-                            <p>По своей сути рыбатекст</p>
+                            {!!Block::_('2SLemyr1Iv89ir6k')!!}
                         </li>
                         <li>
-                            <p>По своей сути рыбатекст</p>
+                            {!!Block::_('udEM0wCQavSIYkzP')!!}
                         </li>
                         <li>
-                            <p>По своей сути рыбатекст</p>
+                            {!!Block::_('IHwGiAMuo3SQP3y5')!!}
                         </li>
                         <li>
-                            <p>По своей сути рыбатекст</p>
+                            {!!Block::_('yNIXAdIqWFGCIjwz')!!}
                         </li>
                     </ul>
                 </div>
@@ -220,20 +220,20 @@
     <div class="container whyImportant">
         <div class="row">
             <div class="col-xl-7 col-md-7">
-                <h1>Почему важно покупать с Хоргос?</h1>
-                <p>Альбом авторского надзора позволяет вносить изменения в шоппинг:</p>
+                {!!Block::_('pkQXTlRkyDZV3cuk')!!}
+                {!!Block::_('gI4DI9YOYL8Gk4nL')!!}
                 <ul>
                     <li>
-                        <p>По своей сути рыбатекст является альтернативой, </p>
+                        {!!Block::_('TAjZJ0X3gq2apvPA')!!}
                     </li>
                     <li>
-                        <p>Изменить итоговое расстояние между бутиками, </p>
+                        {!!Block::_('69QV3qjsD8bQ736x')!!}
                     </li>
                     <li>
-                        <p>Бутики планировали сделать в одном месте, а теперьхотите в другом.</p>
+                        {!!Block::_('hw6rORlxxX4WdNGt')!!}
                     </li>
                 </ul>
-                <h2>Все изменения в каталог бутиков вносим <span>своевременно!</span></h2>
+                {!!Block::_('yzabdeapzcVYYcSh')!!}
             </div>
             <div class="col-xl-5 col-md-5">
                 <img src="images/whyImporatntImg.png">
@@ -245,27 +245,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>Что делать с товарами?</h1>
+                    {!!Block::_('l6Ieiqe8rarlqW0W')!!}
                 </div>
                 <div class="col-xl-6 col-md-6">
-                    <p>Дадим пошаговую инструкцию каксамостоятельно приобрести товарыили согласуем  для приобретениятоваров под ключ</p>
+                    {!!Block::_('3j59dt4heXHgGtpx')!!}
                 </div>
                 <div class="col-xl-6 col-md-6">
                     <ul>
                         <li>
-                            <p>С управляющей компанией,</p>
+                            {!!Block::_('uccp4lhAhc43K6xf')!!}
                         </li>
                         <li>
-                            <p>Управлением государственного пожарного надзора района, </p>
+                            {!!Block::_('3hv6kkQTEnWC5tv6')!!}
                         </li>
                         <li>
-                            <p>Службами банка (при ипотеке), </p>
+                            {!!Block::_('K4Yrq0UR4Q5Fkta4')!!}
                         </li>
                         <li>
-                            <p>Центром гигиены и эпидемиологии (СЭС), </p>
+                            {!!Block::_('0u46LFDuRDh1fNVW')!!}
                         </li>
                         <li>
-                            <p>Межведомственной комиссией Администрации района.</p>
+                            {!!Block::_('AKmjEM1GSFQo9Epr')!!}
                         </li>
                     </ul>
                 </div>
@@ -275,20 +275,20 @@
     <div class="container app__get">
         <div class="row">
             <div class="col-xl-12">
-                <h1>Как скачать приложение?</h1>
+                {!!Block::_('z2PKyTvUJBMplnbw')!!}
             </div>
             <div class="col-xl-6 col-md-6">
-                <h2>Windows / Imac</h2>
+                {!!Block::_('pykgRWrSUUDFqQzo')!!}
                 <div class="app__flexer">
                     <img src="images/windows__imac.png">
-                    <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст.</p>
+                    {!!Block::_('GwxTBEdUjb5hCYq7')!!}
                 </div>
             </div>
             <div class="col-xl-6 col-md-6">
-                <h2>Android / IOS</h2>
+                {!!Block::_('iCGrzFcS7ed7yCaq')!!}
                 <div class="app__flexer">
                     <img src="images/android__ios.png">
-                    <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст.</p>
+                    {!!Block::_('h9yxf7903vAu2RlE')!!}
                 </div>
             </div>
         </div>
