@@ -88,6 +88,7 @@
                                 <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
                             </form>
                             @endif
+                            <b>{{__('Эту страницу посещали')}} {{$current_page_visitors_count}} {{__('человек')}}</b>
                         </div>
                     </div>
                     <div class="boutique__info">

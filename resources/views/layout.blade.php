@@ -273,6 +273,10 @@
 						<h5>{{__('Время работы')}}</h5>
 						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
 					</div>
+					<div class="mt-4">
+						<h5>{{__('Уникальных посетителей')}}</h5>
+						<p>{{$all_visitors_count}} {{__('человек')}}.</p>
+					</div>
 					<!-- Модальное окно -->  
 					<div class="modal fade" id="callUs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">

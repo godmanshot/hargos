@@ -7,6 +7,7 @@ use App\BlockFactory;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Klisl\Statistics\Models\KslStatistic;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,11 +41,26 @@ class AppServiceProvider extends ServiceProvider
         //     return $block ? $block->getContent($args[1] ?? null) : '';
         // });
         View::composer('layout', function ($view) {
-            $models = Category::all()->sortBy(function ($model, $key) {
+            $models = Category::withTranslations()->get()->sortBy(function ($model, $key) {
                 return $model->getTranslatedAttribute('name');
             });
             
             $view->with('_categories', $models);
         });
+
+        View::composer('*', function ($view) {
+            $count = KslStatistic::distinct('ip')->count('ip');
+
+            $view->with('all_visitors_count', $count);
+        });
+
+        View::composer('*', function ($view) {
+            
+            $count = KslStatistic::where('str_url', url()->current())->distinct('ip')->count('ip');
+
+            $view->with('current_page_visitors_count', $count);
+            
+        });
+
     }
 }

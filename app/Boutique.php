@@ -22,7 +22,7 @@ class Boutique extends Model
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
 
-    public $with = ['categories', 'tradingHouses', 'products', 'allProducts', 'reviews', 'recommendedRelations', 'relatedRelations'];
+    public $with = ['categories', 'tradingHouses', 'products', 'allProducts', 'reviews', 'reviewsAvg', 'recommendedRelations', 'relatedRelations'];
 
     protected static function boot()
     {
@@ -72,9 +72,14 @@ class Boutique extends Model
         return $this->hasMany('App\BoutiqueReview');
     }
 
+    public function reviewsAvg()
+    {
+        return $this->reviews()->selectRaw("AVG(rating) as rating");
+    }
+
     public function getAverageRatingAttribute()
     {
-        return $this->reviews()->selectRaw("AVG(rating) as rating")->first();
+        return $this->reviewsAvg->first();
     }
 
     public function getAverageRatingHtmlAttribute()

@@ -1,23 +1,5 @@
 @extends('layout')
 
-@push('scripts')
-    @php
-        $params = [];
-        if($selected_trading_house) {
-            $params['trading_house'] = $selected_trading_house->id;
-        }
-
-        if($selected_category) {
-            $params['categories'] = $selected_category->id;
-        }
-    @endphp
-    <script>
-        window.filter = @json($params);
-        window.filterInitial = @json($params);
-        boutiquesInTradingHouses();
-    </script>
-@endpush
-
 @section('content')
 <div class="td">
     <div class="container">
@@ -65,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="filters-block mt-5">
+    <div class="filters-block mt-5" id="filters-block">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-sm-12">
@@ -75,10 +57,10 @@
                         </div>
                         <div class="col-xl-9 col-sm-9">
                             <ul class="filter__wrapper">
-                                <li><button class="filter-btn" id="filter-by-popular">{{__('По популярности')}}</button></li>
-                                <li><button class="filter-btn top-products" id="filter-by-top">{{__('TOP товары')}}</button></li>
-                                <li><button class="filter-btn discounts" id="filter-by-discount">{{__('Скидки %')}}</button></li>
-                                <li><button class="filter-btn novelties" id="filter-by-new">{{__('NEW')}}</button></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'popular'])}}#filters-block" class="filter-btn" id="filter-by-popular">{{__('По популярности')}}</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'top'])}}#filters-block" class="filter-btn top-products" id="filter-by-top">{{__('TOP товары')}}</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'stock'])}}#filters-block" class="filter-btn discounts" id="filter-by-discount">{{__('Скидки %')}}</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'new'])}}#filters-block" class="filter-btn novelties" id="filter-by-new">{{__('NEW')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,8 +68,8 @@
                 <div class="col-xl-6 col-sm-12">
                     <div class="row">
                         <div class="col-xl-7 col-sm-9">
-                            <form action="" class="search-form">
-                                <input class="search-field" type="search" placeholder="{{__('Поиск')}}">
+                            <form action="#filters-block" class="search-form">
+                                <input class="search-field" type="search" name="search" placeholder="{{__('Поиск')}}">
                                 <input class="search-btn" type="submit" value="">
                             </form>
                         </div>
@@ -102,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-sm-12 separator">
-                            <button class="clear-filter" id="filter-clear">Очистить фильтр</button>
+                            <a href="{{url('/trading-houses')}}" class="clear-filter" id="filter-clear">Очистить фильтр</a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +92,24 @@
         </div>
     </div>
     <div class="container boutique__container mt-5">
-        <div class="row" id="boutiquesInTradingHouses"></div>
+        <div class="row" id="boutiquesInTradingHouses">
+            @foreach($boutiques as $boutique)
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
+                <div class="boutique-block">
+                    <a href="{{route('boutique', $boutique->id)}}">
+                        <img src="{{Voyager::image($boutique->firstImage)}}">
+                    </a>
+                    <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
+                    <p class="boutique-title">{{$boutique->categoriesName}}</p>
+                    <div class="star-rating__wrapper">
+                        {!!$boutique->averageRatingHtml!!}
+                    </div>
+                    <a href="{{route('boutique', $boutique->id)}}">{{__('Перейти в бутик')}}</a>
+                    <p>Артикул: {{$boutique->id}}</p>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
     <div class="container" id="content">
     </div>
