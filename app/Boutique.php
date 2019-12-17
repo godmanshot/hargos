@@ -24,6 +24,15 @@ class Boutique extends Model
 
     public $with = ['categories', 'tradingHouses', 'products', 'allProducts', 'reviews', 'recommendedRelations', 'relatedRelations'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('is_hidden', function ($builder) {
+            $builder->where('is_hidden', '<>', '1')->orWhereNull('is_hidden');
+        });
+    }
+
     public function categories()
     {
         return $this->belongsToMany('App\Category', 'boutique_categories');
@@ -118,5 +127,10 @@ class Boutique extends Model
     public function relatedRelations()
     {
         return $this->hasMany('App\RelatedBoutique');
+    }
+
+    public function scopeNotHidden($query)
+    {
+        return $query->where('is_hidden', '<>', '1')->orWhereNull('is_hidden');
     }
 }

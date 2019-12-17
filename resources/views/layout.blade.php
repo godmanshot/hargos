@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-xl-4 col-sm-8">
                     <form action="{{route('search')}}" method="GET" class="search-form">
-					    <input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}" name="q" required>
+					    <input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
 					    <input class="search-btn" type="submit" value="">
 				    </form>
                     <p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
@@ -126,7 +126,10 @@
                 }
             @endphp
 
-            {{renderMenu($menu)}}
+            <!-- {{renderMenu($menu)}} -->
+			@foreach($_categories as $item)
+				<li><a href='{{route('trading-houses', ['category' => $item->id])}}'>{{$item->getTranslatedAttribute('name')}}</a></li>
+			@endforeach
 		</ul>
     </nav>
     <!-- PRODUCTION CATALOG END -->
