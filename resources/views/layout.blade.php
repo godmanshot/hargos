@@ -126,7 +126,10 @@
                 }
             @endphp
 
-            {{renderMenu($menu)}}
+            <!-- {{renderMenu($menu)}} -->
+			@foreach($_categories as $item)
+				<li><a href='{{route('trading-houses', ['category' => $item->id])}}'>{{$item->getTranslatedAttribute('name')}}</a></li>
+			@endforeach
 		</ul>
     </nav>
     <!-- PRODUCTION CATALOG END -->

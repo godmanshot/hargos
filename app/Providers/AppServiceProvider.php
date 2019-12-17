@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Category;
 use App\BlockFactory;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,5 +39,12 @@ class AppServiceProvider extends ServiceProvider
 
         //     return $block ? $block->getContent($args[1] ?? null) : '';
         // });
+        View::composer('layout', function ($view) {
+            $models = Category::all()->sortBy(function ($model, $key) {
+                return $model->getTranslatedAttribute('name');
+            });
+            
+            $view->with('_categories', $models);
+        });
     }
 }

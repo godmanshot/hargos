@@ -87,6 +87,9 @@ Route::get('/trading-houses', function(Request $request) {
         $selected_category = false;
         $boutiques = Boutique::all();
     }
+    $categories =$categories->sortBy(function ($model, $key) {
+        return $model->getTranslatedAttribute('name');
+    });
 
     return view('trading-houses', compact('trading_houses', 'selected_trading_house', 'categories', 'selected_category', 'boutiques'));
 })->name('trading-houses');
