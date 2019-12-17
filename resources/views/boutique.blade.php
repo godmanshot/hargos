@@ -22,7 +22,9 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                            <img src="{{Voyager::image($image)}}">
+                            <a href="{{Voyager::image($image)}}">
+                                <img src="{{Voyager::image($image)}}">
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -54,6 +56,10 @@
                                     <a target="_blank" class="mrc__plugin_like_button" href="https://connect.mail.ru/share" data-mrc-config="{'cm' : '2', 'sz' : '20', 'st' : '1', 'tp' : 'mm'}">Нравится</a>
                                     <script src="https://connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
                                 </li>
+                                <!-- <li>
+                                    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5df850c338258c00124bd2ad&product=inline-share-buttons&cms=website' async='async'></script>
+                                    <div class="sharethis-inline-share-buttons"></div>
+                                </li> -->
                             </ul>
                         </div>
                         <div class="col-xl-4 col-sm-5 col-12">
