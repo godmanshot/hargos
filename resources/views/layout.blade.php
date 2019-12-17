@@ -7,7 +7,11 @@
     <meta name="app-url" content="{{url('/')}}">
     <meta name="app-lang" content="{{app()->getLocale()}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Хоргос</title>
+    <title>{{$seo_page ? $seo_page->title : 'Хоргос'}}</title>
+	<meta name="og:title" property="og:title" content="{{$seo_page ? $seo_page->title : 'Хоргос'}}">
+	<meta name="description" content="{{$seo_page ? $seo_page->description : 'Хоргос'}}">
+	<meta property="og:description" content="{{$seo_page ? $seo_page->description : 'Хоргос'}}" />
+	<meta name="Keywords" content="{{$seo_page ? $seo_page->keywords : 'Хоргос'}}"> 
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">

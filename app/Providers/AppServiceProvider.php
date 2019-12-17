@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\SeoPage;
 use App\Category;
 use App\BlockFactory;
 use Illuminate\Support\Facades\View;
@@ -59,6 +60,14 @@ class AppServiceProvider extends ServiceProvider
             $count = KslStatistic::where('str_url', url()->current())->distinct('ip')->count('ip');
 
             $view->with('current_page_visitors_count', $count);
+            
+        });
+
+        View::composer('*', function ($view) {
+            
+            $page = SeoPage::where('url', url()->current().'/')->first();
+
+            $view->with('seo_page', $page);
             
         });
 
