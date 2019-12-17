@@ -13,7 +13,7 @@
                             <span>{{__('главная')}}</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('тур операторы')}}</h4>
+                        <h4>{{__('о компании')}}</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -26,21 +26,13 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="slider about-player">
+                    @if($interviews->count())
+                        @foreach($interviews as $interview)
                         <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
+                            {!!$interview->lazyIframe!!}
                         </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">    
-                            </iframe>
-                        </div>
+                        @endforeach
+                    @endif
                     </div>
                 </div>
             </div>

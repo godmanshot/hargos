@@ -66,7 +66,8 @@ Route::get('/boutique/{boutique}', function(Request $request, Boutique $boutique
 })->name('boutique');
 
 Route::get('/about', function(Request $request) {
-    return view('about');
+    $interviews = Interview::orderBy('order')->get();
+    return view('about', compact('interviews'));
 });
 
 Route::get('/trading-houses', function(Request $request) {
