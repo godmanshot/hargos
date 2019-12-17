@@ -65,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             
-            $page = SeoPage::where('url', url()->current())->first();
+            $page = SeoPage::where('url', url()->current().'/')->orWhere('url', url()->current())->first();
 
             $view->with('seo_page', $page);
             
