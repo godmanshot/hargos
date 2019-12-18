@@ -27,10 +27,11 @@ class Boutique extends Model
     protected static function boot()
     {
         parent::boot();
-
-        static::addGlobalScope('is_hidden', function ($builder) {
-            $builder->where('is_hidden', '<>', '1')->orWhereNull('is_hidden');
-        });
+        if(strripos(url()->current(),'admin') === false) {
+            static::addGlobalScope('is_hidden', function ($builder) {
+                $builder->where('is_hidden', '<>', '1')->orWhereNull('is_hidden');
+            });
+        }
     }
 
     public function categories()

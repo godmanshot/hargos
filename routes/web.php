@@ -100,7 +100,11 @@ Route::get('/trading-houses', function(Request $request) {
         $boutiques->whereTranslation('name', 'like', $request->search);
     }
 
-    $boutiques = $boutiques->get();
+    if(!$request->has('sort')) {
+        $boutiques = $boutiques->get()->shuffle();
+    } else {
+        $boutiques = $boutiques->get();
+    }
 
     $categories =$categories->sortBy(function ($model, $key) {
         return $model->getTranslatedAttribute('name');
