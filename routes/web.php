@@ -59,34 +59,49 @@ Route::get('/', function () {
         'freebies',
         'interviews'
     ));
-});
+})->name('main');
 
 Route::get('/boutique/{boutique}', function(Request $request, Boutique $boutique) {
     return view('boutique', compact('boutique'));
 })->name('boutique');
 
 Route::get('/about', function(Request $request) {
-    return view('about');
+    $interviews = Interview::orderBy('order')->get();
+    return view('about', compact('interviews'));
 });
 
 Route::get('/trading-houses', function(Request $request) {
-    $trading_houses = TradingHouse::orderBy('order')->with('boutiques.categories')->get();
+    $trading_houses = TradingHouse::withTranslations()->orderBy('order')->with('boutiques.categories')->get();
 
-    if($request->has('trading_house')) {
-        $selected_trading_house = TradingHouse::where('id', $request->trading_house)->first();
-        $categories = $selected_trading_house->boutiquesCategories;
-    } else {
-        $selected_trading_house = false;
-        $categories = Category::all();
+    $selected_trading_house = $request->has('trading_house') ? TradingHouse::withTranslations()->where('id', $request->trading_house)->first() : false;
+    $categories = $selected_trading_house ? $selected_trading_house->boutiquesCategories : Category::withTranslations()->get();
+
+    $selected_category = $request->has('category') ? Category::withTranslations()->where('id', $request->category)->first() : false;
+
+    $boutiques = Boutique::withTranslations()->latest();
+
+    if($selected_trading_house) {
+        $boutiques->whereHas('tradingHouses', function ($query) use ($selected_trading_house) {
+            $query->where('trading_houses.id', '=', $selected_trading_house->id);
+        });
     }
 
-    if($request->has('category')) {
-        $selected_category = Category::where('id', $request->category)->first();
-        $boutiques = $selected_category->boutiques;
-    } else {
-        $selected_category = false;
-        $boutiques = Boutique::all();
+    if($selected_category) {
+        $boutiques->whereHas('categories', function ($query) use ($selected_category) {
+            $query->where('categories.id', '=', $selected_category->id);
+        });
     }
+
+    if($request->has('sort')) {
+        $boutiques->orderBy($request->sort);
+    }
+
+    if($request->has('search')) {
+        $boutiques->whereTranslation('name', 'like', $request->search);
+    }
+
+    $boutiques = $boutiques->get();
+
     $categories =$categories->sortBy(function ($model, $key) {
         return $model->getTranslatedAttribute('name');
     });

@@ -5659,19 +5659,13 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -5695,7 +5689,7 @@ var _app_storage_url = _app_url + '/storage';
 
 var _app_api_url = _app_url + '/api';
 
-var edit_class = process.env.MIX_EDITABLE_BLOCK_CLASS;
+var edit_class = "mx-edit";
 
 window.adminEdit = function () {
   $("." + edit_class).each(function () {
@@ -5705,95 +5699,6 @@ window.adminEdit = function () {
     $(this).css('border', '1px solid black');
   });
 };
-
-window.filterInitial = {};
-window.filter = {};
-
-window.boutiquesInTradingHousesFilter = function (filter) {
-  window.filter = _objectSpread({}, window.filter, {}, filter);
-  window.boutiquesInTradingHouses();
-};
-
-window.boutiquesInTradingHousesFilterClear = function () {
-  window.filter = window.filterInitial;
-  window.boutiquesInTradingHouses();
-};
-
-window.renderRating = function (rating) {
-  rating = rating.rating;
-  var html = '';
-  html += '<div class="star-rating__wrapper">';
-  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 5 ? 'star-rating__checked' : '') + '">';
-  html += '        <input class="star-rating__input" type="radio" name="rating" value="5">';
-  html += '    </label>';
-  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 4 ? 'star-rating__checked' : '') + '">';
-  html += '        <input class="star-rating__input" type="radio" name="rating" value="4">';
-  html += '    </label>';
-  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 3 ? 'star-rating__checked' : '') + '">';
-  html += '        <input class="star-rating__input" type="radio" name="rating" value="3">';
-  html += '    </label>';
-  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 2 ? 'star-rating__checked' : '') + '">';
-  html += '        <input class="star-rating__input" type="radio" name="rating" value="2">';
-  html += '    </label>';
-  html += '    <label class="star-rating__ico star-rating__hover fa fa-star fa-lg ' + (rating >= 1 ? 'star-rating__checked' : '') + '">';
-  html += '        <input class="star-rating__input" type="radio" name="rating" value="1">';
-  html += '    </label>';
-  html += '</div>';
-  console.log(html);
-  return html;
-};
-
-window.renderContent = function (data) {
-  $('#content').empty();
-  $('#content').append('<div class="about-boutique__container">' + '    <div class="row">' + '        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 col-12 about-boutique__img-wrapper">' + '            <img src="' + _app_storage_url + '/' + data.firstImage + '">' + '        </div>' + '        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-12 col-12 about-boutique__info-wrapper">' + '            <div class="row align-items-end">' + '                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-4 col-4">' + '                    <h1 class="boutique-header">' + data.name + '</h1>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">' + '                    <p class="boutique-title">' + data.categoriesName + '</p>' + '                </div>' + '                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-4 col-4">' + renderRating(data.averageRating) + '                </div>' + '                <div class="col-xl-5">' + '                </div>' + '            </div>' + '            <div class="row mt-3">' + '                <div class="col-xl-12 col-lg-11 col-md-12 col-sm-12 col-12">' + '                    <p>' + '                    Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце' + '                    </p>' + '                </div>' + '            </div>' + '            <div class="row align-items-center mt-3">' + '                <div class="col-xl-3 col-lg-5 col-md-6 col-sm-7 col-7">' + '                    <a href="' + _app_url + '/boutique/' + data.id + '">Перейти в бутик</a>' + '                    <span class"favorite" data-boutique_id="' + data.id + '"></span>' + '                </div>' + '                <div class="col-xl-3 col-lg-7 col-md-6 col-sm-5 col-5">' + '                    <p>Артикул: ' + data.id + '</p>' + '                </div>' + '                <div class="col-xl-6"></div>' + '            </div>' + '        </div>' + '    </div>' + '</div>');
-};
-
-window.boutiquesInTradingHouses = function () {
-  fetch(_app_api_url + '/boutiques?' + $.param(window.filter)).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    $('#boutiquesInTradingHouses').empty();
-    data.map(function (model) {
-      var cont = $('<div>');
-      cont.attr('class', 'col-xl-3 col-lg-4 col-md-4 col-sm-6');
-      cont.append('    <div class="boutique-block">' + '        <a href="' + _app_url + '/boutique/' + model.id + '"><img src="' + _app_storage_url + '/' + model.firstImage + '"></a>' + // '        <img src="' + _app_storage_url + '/' + model.firstImage + '">' +
-      '        <h3 class="boutique-header">' + model.name + '</h3>' + '        <p class="boutique-title">' + model.categoriesName + '</p>' + renderRating(model.averageRating) + '        <a href="' + _app_url + '/boutique/' + model.id + '">Перейти в бутик</a>' + '        <p>Артикул: ' + model.id + '</p>' + '    </div>');
-      cont.click(function () {
-        window.renderContent(model);
-      });
-      $('#boutiquesInTradingHouses').append(cont);
-    });
-  });
-};
-
-$(".filter-by-category").click(function () {
-  boutiquesInTradingHousesFilter({
-    category: $(this).data('category-id')
-  });
-});
-$('#filter-by-popular').click(function () {
-  boutiquesInTradingHousesFilter({
-    sort: 'popular'
-  });
-});
-$('#filter-by-top').click(function () {
-  boutiquesInTradingHousesFilter({
-    sort: 'top'
-  });
-});
-$('#filter-by-discount').click(function () {
-  boutiquesInTradingHousesFilter({
-    sort: 'stock'
-  });
-});
-$('#filter-by-new').click(function () {
-  boutiquesInTradingHousesFilter({
-    sort: 'new'
-  });
-});
-$('#filter-clear').click(function () {
-  boutiquesInTradingHousesFilterClear();
-});
 
 window.review = function _callee(boutique_id) {
   var _ref, formValues;
@@ -5842,7 +5747,6 @@ $('#create-review').click(function () {
 var favorites = function favorites() {
   $('.favorite').each(function () {});
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -5919,8 +5823,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\OSPanel\domains\hargos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\OSPanel\domains\hargos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\hargos\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\hargos\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
