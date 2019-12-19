@@ -46,6 +46,10 @@
                             <p>{{__('Поделиться')}}</p>
                             <ul class="share">
                                 <li>
+                                    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5df850c338258c00124bd2ad&product=inline-share-buttons&cms=website' async='async'></script>
+                                    <div class="sharethis-inline-share-buttons"></div>
+                                </li>
+                                <!-- <li>
                                     <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
 
                                     <script type="text/javascript">
@@ -56,6 +60,11 @@
                                     <a target="_blank" class="mrc__plugin_like_button" href="https://connect.mail.ru/share" data-mrc-config="{'cm' : '2', 'sz' : '20', 'st' : '1', 'tp' : 'mm'}">Нравится</a>
                                     <script src="https://connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
                                 </li>
+                                <li  style="display: inline-block; width: 130px;padding: 0;">
+                                    <div id="fb-root"></div>
+                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0"></script>
+                                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Поделиться</a></div>
+                                </li> -->
                                 <!-- <li>
                                     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5df850c338258c00124bd2ad&product=inline-share-buttons&cms=website' async='async'></script>
                                     <div class="sharethis-inline-share-buttons"></div>
@@ -185,7 +194,9 @@
                                 <p>{{__('QR код')}}</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
-                                <img style="width: 100%;max-width: 150px;margin-top: 15px;" src="{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}"/>
+                                <a class="QR" href="{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}">
+                                    <img style="width: 100%;max-width: 150px;margin-top: 15px;" src="{{!empty($boutique->qr_code) ? Voyager::image($boutique->qr_code) : ''}}"/>
+                                </a>
                             </div>
                         </div>
                     </div>

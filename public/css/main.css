@@ -858,9 +858,6 @@ body {
     display: flex;
     flex-direction: column; }
 
-::-webkit-scrollbar {
-  width: 13px; }
-
 .hc-offcanvas-nav .nav-container, .hc-offcanvas-nav .nav-wrapper, .hc-offcanvas-nav ul {
   background-image: -webkit-linear-gradient(-90deg, #ad3df5 35%, #7286e7 100%) !important; }
 
@@ -924,6 +921,15 @@ body {
   font-family: Montserrat;
   font-weight: 500;
   transition: all .1s ease; }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none; }
+
+::-webkit-scrollbar:vertical {
+  width: 13px; }
+
+::-webkit-scrollbar:horizontal {
+  height: 13px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -1744,6 +1750,7 @@ body {
       padding-right: 10px;
       width: 30%;
       min-height: 87px;
+      max-height: 87px;
       max-width: 83px; }
       .main .category-discounts .category-discounts__block .flexible img:last-child {
         padding-right: unset; }
@@ -4471,7 +4478,8 @@ body {
             font-weight: 700; }
     .tour .tour__program .mapouter {
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      max-height: 527px; }
     .tour .tour__program .gmap_canvas {
       width: 100%;
       height: 100%; }
@@ -4659,10 +4667,12 @@ body {
 
 .cardd .slider-for {
   margin-bottom: -50px; }
-  .cardd .slider-for .slick-slide img {
-    width: 100%;
-    max-height: 485px;
-    min-height: 485px; }
+  .cardd .slider-for .slick-slide {
+    pointer-events: none; }
+    .cardd .slider-for .slick-slide img {
+      width: 100%;
+      max-height: 485px;
+      min-height: 485px; }
 
 .cardd .slider-nav .slick-prev, .cardd .slider-nav .slick-next {
   border-radius: unset;
@@ -5105,6 +5115,8 @@ body {
   background-color: transparent; }
 
 @media (max-width: 576px) {
+  .cardd .slider-for .slick-slide {
+    pointer-events: all; }
   .cardd .slider-for .slick-slide img {
     max-height: 275px;
     min-height: 275px; }
@@ -5915,7 +5927,8 @@ button, a {
 @media (max-width: 576px) {
   .leave__review-form .star-rating__wrapper {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    flex-direction: row-reverse; }
   .reviews .comment--wrapper .avatar__wrapper {
     height: 106px;
     margin-left: auto;
