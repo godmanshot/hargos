@@ -46,29 +46,10 @@
                             <p>{{__('Поделиться')}}</p>
                             <ul class="share">
                                 <li>
-                                    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5df850c338258c00124bd2ad&product=inline-share-buttons&cms=website' async='async'></script>
-                                    <div class="sharethis-inline-share-buttons"></div>
+                                    <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                                    <script src="https://yastatic.net/share2/share.js"></script>
+                                    <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,linkedin,whatsapp,telegram"></div>
                                 </li>
-                                <!-- <li>
-                                    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
-
-                                    <script type="text/javascript">
-                                        document.write(VK.Share.button(false,{type: "round", text: "Поделиться"}));
-                                    </script>
-                                </li>
-                                <li style="display: inline-block; width: 130px;padding: 0;">
-                                    <a target="_blank" class="mrc__plugin_like_button" href="https://connect.mail.ru/share" data-mrc-config="{'cm' : '2', 'sz' : '20', 'st' : '1', 'tp' : 'mm'}">Нравится</a>
-                                    <script src="https://connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
-                                </li>
-                                <li  style="display: inline-block; width: 130px;padding: 0;">
-                                    <div id="fb-root"></div>
-                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0"></script>
-                                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Поделиться</a></div>
-                                </li> -->
-                                <!-- <li>
-                                    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5df850c338258c00124bd2ad&product=inline-share-buttons&cms=website' async='async'></script>
-                                    <div class="sharethis-inline-share-buttons"></div>
-                                </li> -->
                             </ul>
                         </div>
                         <div class="col-xl-4 col-sm-5 col-12">
