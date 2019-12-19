@@ -5921,7 +5921,8 @@ button, a {
 @media (max-width: 576px) {
   .leave__review-form .star-rating__wrapper {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    flex-direction: row-reverse; }
   .reviews .comment--wrapper .avatar__wrapper {
     height: 106px;
     margin-left: auto;
