@@ -1744,6 +1744,7 @@ body {
       padding-right: 10px;
       width: 30%;
       min-height: 87px;
+      max-height: 87px;
       max-width: 83px; }
       .main .category-discounts .category-discounts__block .flexible img:last-child {
         padding-right: unset; }
