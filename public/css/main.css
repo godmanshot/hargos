@@ -858,9 +858,6 @@ body {
     display: flex;
     flex-direction: column; }
 
-::-webkit-scrollbar {
-  width: 13px; }
-
 .hc-offcanvas-nav .nav-container, .hc-offcanvas-nav .nav-wrapper, .hc-offcanvas-nav ul {
   background-image: -webkit-linear-gradient(-90deg, #ad3df5 35%, #7286e7 100%) !important; }
 
@@ -924,6 +921,15 @@ body {
   font-family: Montserrat;
   font-weight: 500;
   transition: all .1s ease; }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none; }
+
+::-webkit-scrollbar:vertical {
+  width: 13px; }
+
+::-webkit-scrollbar:horizontal {
+  height: 13px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
