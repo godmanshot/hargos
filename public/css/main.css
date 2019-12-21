@@ -730,10 +730,8 @@ body.hc-nav-open {
 
 @media (min-width: 577px) and (max-width: 768px) {
   .footer h5 {
-    text-align: center;
-    margin-top: .7rem; }
-  .footer .footer__nav {
-    align-items: center; }
+    margin-top: .7rem;
+    line-height: 2.5; }
   .footer .social__btns {
     margin-left: auto;
     margin-right: auto; }

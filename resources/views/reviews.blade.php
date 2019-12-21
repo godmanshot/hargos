@@ -16,10 +16,10 @@
             <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
         </div>
         <div class="row">
-            <div class="col-xl-3 d-flex align-items-center">
+            <div class="col-xl-3 col-lg-4 col-sm-6 d-flex align-items-center">
                 <h1>{{__('Наши клиенты о нас')}}</h1>
             </div>
-            <div class="col-xl-2">
+            <div class="col-xl-2 col-lg-3 col-sm-6">
                 <a href="#leave__review-wrapper" class="leave__review">
                     {{__('Оставить отзыв')}}
                 </a>
@@ -33,11 +33,11 @@
 
                 <div class="col-xl-12 comment--wrapper">
                     <div class="row justify-content-between">
-                        <div class="col-xl-2">
+                        <div class="col-xl-2 col-lg-2">
                             <div class="avatar__wrapper avatar__bg" style="min-height: 100px;">
                             </div>
                         </div>
-                        <div class="col-xl-10">
+                        <div class="col-xl-10 col-lg-10">
                             <div class="row">
                                 <div class="col-xl-4">
                                     <div class="reviewBy">
