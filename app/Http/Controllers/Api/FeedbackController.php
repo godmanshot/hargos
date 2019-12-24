@@ -17,6 +17,6 @@ class FeedbackController extends Controller
 
         Feedback::create($request->all());
 
-        return response(['message' => trans::get('interface.message')], 201);
+        return response(['message' => trans('interface.message')], 201);
     }
 }
