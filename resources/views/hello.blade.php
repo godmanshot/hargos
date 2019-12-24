@@ -13,7 +13,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xl-5">
-                                        <h1>{{$slide->getTranslatedAttribute('title')}}</h1>
+                                        <h1 style="color: {{ $slide->color }}">{{$slide->getTranslatedAttribute('title')}}</h1>
                                     </div>
                                     <div class="col-xl-7">
 
@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
-                                        <p>
+                                        <p style="color: {{ $slide->color }}">
                                             {{$slide->getTranslatedAttribute('description')}}
                                         </p>
                                     </div>
