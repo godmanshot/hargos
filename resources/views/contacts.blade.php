@@ -43,12 +43,12 @@
                         </div>
                         <div class="contact__details--wrapper">
                             <h1>{{__('Отправить сообщения')}}</h1>
-                            <form action="{{route('send')}}" method="POST" class="leave__message-form">
+                            <form action="{{route('send')}}" method="POST" class="leave__message-form" id="leave__message-form">
                                 @csrf
                                 <input type="text" name="name" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
                                 <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
                                 <textarea name="message" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
-                                <button type="button" class="leave__message-btn" id="leave__msg-btn">Отправить</button>
+                                <button type="submit" class="leave__message-btn">Отправить</button>
                                 <div class="consent__wrapper">
                                     <input id="consent" type="checkbox" required oninvalid="this.setCustomValidity('Необходимо принять условие соглашения')" oninput="setCustomValidity('')">
                                     <label for="consent">Даю согласие на обработку <span>персональных данных</span></label>
@@ -100,10 +100,11 @@
 
 @push('scripts')
     <script>
-        var requestBtn = document.getElementById('leave__msg-btn');
+        var requestForm = document.getElementById('leave__message-form');
 
-        requestBtn.addEventListener('click', function(event) {
-            console.log(event);
+        requestForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('SUBMITTED');
         });
     </script>
 @endpush
