@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Feedback;
-use App\Facades\Lang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,6 +17,6 @@ class FeedbackController extends Controller
 
         Feedback::create($request->all());
 
-        return response(['message' => Lang::get('interface.message')], 201);
+        return response(['message' => trans::get('interface.message')], 201);
     }
 }
