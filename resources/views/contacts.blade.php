@@ -43,11 +43,11 @@
                         </div>
                         <div class="contact__details--wrapper">
                             <h1>{{__('Отправить сообщения')}}</h1>
-                            <form action="{{route('send')}}" method="POST" class="leave__message-form">
+                            <form action="{{route('send')}}" method="POST" class="leave__message-form" id="leave__message-form">
                                 @csrf
-                                <input type="text" name="uname" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
-                                <input type="email" name="umail" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
-                                <textarea name="review__textarea" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
+                                <input type="text" name="name" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
+                                <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
+                                <textarea name="message" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
                                 <button type="submit" class="leave__message-btn">Отправить</button>
                                 <div class="consent__wrapper">
                                     <input id="consent" type="checkbox" required oninvalid="this.setCustomValidity('Необходимо принять условие соглашения')" oninput="setCustomValidity('')">
@@ -97,3 +97,20 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        var requestForm = document.getElementById('leave__message-form');
+        var appUrl = document.querySelector('meta[name=app-url]').content;
+
+        requestForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            var data = new FormData(requestForm);
+
+            axios.post(appUrl + "/api/feedback", data)
+                .then(function(response) {
+                    // Swal.fire(response.message);
+                });
+        });
+    </script>
+@endpush

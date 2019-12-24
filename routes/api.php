@@ -82,6 +82,10 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::post('/help', 'HelpController@create');
 
     Route::get('/best-products', 'BestProductsController@index');
+
+    Route::post('/feedback', 'FeedbackController@store');
+
+    Route::post('/consultations', 'ConsultationController@store');
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {
