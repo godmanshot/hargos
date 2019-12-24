@@ -101,10 +101,16 @@
 @push('scripts')
     <script>
         var requestForm = document.getElementById('leave__message-form');
+        var appUrl = document.getElementsByTagName('meta[name=app-url]').content;
 
         requestForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            console.log('SUBMITTED');
+            var data = new FormData(requestForm);
+
+            axios.post(appUrl + "/api/feedback", data)
+                .then(function(response) {
+                    console.log(response);
+                });
         });
     </script>
 @endpush
