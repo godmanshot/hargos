@@ -101,7 +101,7 @@
 @push('scripts')
     <script>
         var requestForm = document.getElementById('leave__message-form');
-        var appUrl = document.getElementsByTagName('meta[name=app-url]').content;
+        var appUrl = document.querySelector('meta[name=app-url]').content;
 
         requestForm.addEventListener('submit', function(event) {
             event.preventDefault();
