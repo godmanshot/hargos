@@ -45,10 +45,10 @@
                             <h1>{{__('Отправить сообщения')}}</h1>
                             <form action="{{route('send')}}" method="POST" class="leave__message-form">
                                 @csrf
-                                <input type="text" name="uname" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
-                                <input type="email" name="umail" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
-                                <textarea name="review__textarea" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
-                                <button type="submit" class="leave__message-btn">Отправить</button>
+                                <input type="text" name="name" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
+                                <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
+                                <textarea name="message" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
+                                <button type="button" class="leave__message-btn" id="leave__msg-btn">Отправить</button>
                                 <div class="consent__wrapper">
                                     <input id="consent" type="checkbox" required oninvalid="this.setCustomValidity('Необходимо принять условие соглашения')" oninput="setCustomValidity('')">
                                     <label for="consent">Даю согласие на обработку <span>персональных данных</span></label>
@@ -97,3 +97,13 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        var requestBtn = document.getElementById('leave__msg-btn');
+
+        requestBtn.addEventListener('click', function(event) {
+            console.log(event);
+        });
+    </script>
+@endpush
