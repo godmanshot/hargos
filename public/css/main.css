@@ -1032,6 +1032,8 @@ body {
     .header .logo:hover {
       background-size: 200%;
       animation-play-state: running; }
+  .header p:first-child {
+    display: none; }
   .header p {
     font-family: Montserrat;
     font-size: 13px;
