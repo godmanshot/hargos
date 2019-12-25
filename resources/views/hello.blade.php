@@ -125,9 +125,7 @@
                                 <div>
                                     <div class="geek-recommendation__block">
                                         <div>
-                                            <a href="{{$item->boutiqueLink}}">
-                                                <img src="{{Voyager::image($item->image)}}">
-                                            </a>
+                                            <img src="{{Voyager::image($item->image)}}">
                                             <div class="geek-recommendation__inner-block">
                                                 <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                                 <p>{{$item->boutiqueCategories}}</p>
