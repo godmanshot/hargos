@@ -48,7 +48,7 @@
                                 <li>
                                     <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
                                     <script src="https://yastatic.net/share2/share.js"></script>
-                                    <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,linkedin,whatsapp,telegram"></div>
+                                    <div class="ya-share2" data-services="whatsapp,vkontakte,telegram,facebook,moimir,odnoklassniki,twitter,linkedin"></div>
                                 </li>
                             </ul>
                         </div>
