@@ -125,7 +125,7 @@
                                 <div>
                                     <div class="geek-recommendation__block">
                                         <div>
-                                            <a href="{{$item->boutiqueLink}">
+                                            <a href="{{$item->boutiqueLink}}">
                                                 <img src="{{Voyager::image($item->image)}}">
                                             </a>
                                             <div class="geek-recommendation__inner-block">
@@ -386,10 +386,8 @@
                             <div>
                                 <div class="popular-products__block">
                                     <div>
-                                        <a class="flexible">
-                                            <a href="{{$item->boutiqueLink}}">
-                                                <img src="{{Voyager::image($item->image)}}">
-                                            </a>
+                                        <div class="flexible">
+                                            <img src="{{Voyager::image($item->image)}}">
                                             <div class="popular-products__inner-block">
                                                 <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                                 <p>
