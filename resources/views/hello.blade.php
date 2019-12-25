@@ -462,7 +462,9 @@
                                     <div class="freebie__block">
                                         <div>
                                             <div class="flexible">
-                                                <img src="images/popular-products__img-01.png">
+                                                <a href="{{$item->boutiqueLink}}">
+                                                    <img src="images/popular-products__img-01.png">
+                                                </a>
                                                 <div class="freebie__inner-block">
                                                     <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                                     <p>
