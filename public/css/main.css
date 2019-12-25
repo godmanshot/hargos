@@ -4668,12 +4668,10 @@ body {
 
 .cardd .slider-for {
   margin-bottom: -50px; }
-  .cardd .slider-for .slick-slide {
-    pointer-events: none; }
-    .cardd .slider-for .slick-slide img {
-      width: 100%;
-      max-height: 485px;
-      min-height: 485px; }
+  .cardd .slider-for .slick-slide img {
+    width: 100%;
+    max-height: 485px;
+    min-height: 485px; }
 
 .cardd .slider-nav .slick-prev, .cardd .slider-nav .slick-next {
   border-radius: unset;
@@ -5116,8 +5114,6 @@ body {
   background-color: transparent; }
 
 @media (max-width: 576px) {
-  .cardd .slider-for .slick-slide {
-    pointer-events: all; }
   .cardd .slider-for .slick-slide img {
     max-height: 275px;
     min-height: 275px; }
