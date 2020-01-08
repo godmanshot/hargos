@@ -203,8 +203,7 @@
 						<a href="{{setting('sayt.playmarket')}}">
 							<svg 
 								xmlns="http://www.w3.org/2000/svg"
-								xmlns:xlink="http://www.w3.org/1999/xlink"
-								>
+								xmlns:xlink="http://www.w3.org/1999/xlink">
 								<path fill-rule="evenodd"  stroke="rgb(255, 58, 82)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
 								d="M3.500,0.499 L227.500,0.499 C229.157,0.499 230.500,1.843 230.500,3.499 L230.500,51.500 C230.500,53.156 229.157,54.499 227.500,54.499 L3.500,54.499 C1.843,54.499 0.500,53.156 0.500,51.500 L0.500,3.499 C0.500,1.843 1.843,0.499 3.500,0.499 Z"/>
 								<image  x="51.5px" y="7.5px" width="124px" height="37px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAAlCAMAAAC3QX2zAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC8VBMVEX/OlL/////OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL/OlL///+ZEEjoAAAA+XRSTlMAAB+Iz6wBb+7Al51tSx721AUDEiYsOnI1cQIKeyOCQDvs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" />
@@ -260,6 +259,7 @@
 					</div>
 				</div>
 			</div>
+			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
 		</div>
 	</div>
 	<!-- PRODUCTION CATALOG -->
@@ -300,7 +300,7 @@
 				<li><a href='{{route('trading-houses', ['category' => $item->id])}}'>{{$item->getTranslatedAttribute('name')}}</a></li>
 			@endforeach
 		</ul>
-    </nav>
+	</nav>
     <!-- PRODUCTION CATALOG END -->
 	
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
