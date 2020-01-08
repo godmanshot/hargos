@@ -4,8 +4,8 @@
 <div class="cardd">
     <div class="container">
         <div class="row mt-5 mb-5">
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
-                <div class="flexible">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 col-12 pr-0">
+                <div class="flexible justify-content-start">
                     <a href="#">
                         <span>главная</span>
                     </a>
@@ -62,22 +62,24 @@
                         </div>
                         <div class="col-xl-8"></div>
                         <div class="col-12">
-                            @if(Auth::user() && Auth::user()->favoriteBoutiques &&
-                                !Auth::user()->favoriteBoutiques->pluck('id')->contains($boutique->id))
-                            <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
-                                @method('POST')
-                                @csrf
+                            @auth
+                                @if(Auth::user() && Auth::user()->favoriteBoutiques &&
+                                    !Auth::user()->favoriteBoutiques->pluck('id')->contains($boutique->id))
+                                <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
+                                    @method('POST')
+                                    @csrf
 
-                                <button type="submit" class="btn btn-link pl-0">{{__('В избранное')}}</button>
-                            </form>
-                            @else
-                            <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
-                                @method('DELETE')
-                                @csrf
+                                    <button type="submit" class="btn btn-link pl-0">{{__('В избранное')}}</button>
+                                </form>
+                                @else
+                                <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
 
-                                <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
-                            </form>
-                            @endif
+                                    <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
+                                </form>
+                                @endif
+                            @endauth
                             <b>{{__('Эту страницу посещали')}} {{$current_page_visitors_count}} {{__('человек')}}</b>
                         </div>
                     </div>
