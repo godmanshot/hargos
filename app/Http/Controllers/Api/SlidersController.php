@@ -15,4 +15,8 @@ class SlidersController extends Controller
 
         return $models->get();
     }
+
+    public function show(Slider $slider) {
+        return $slider;
+    }
 }

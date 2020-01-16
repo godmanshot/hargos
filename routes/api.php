@@ -54,6 +54,7 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/reviews-about', 'ReviewsAboutController@index');
 
     Route::get('/sliders', 'SlidersController@index');
+    Route::get('/sliders/{slider}', 'SlidersController@show');
 
     Route::get('/top-products', 'TopProductsController@index');
 
