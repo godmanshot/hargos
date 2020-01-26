@@ -28,5 +28,7 @@ class FavoriteController extends Controller
         $user = Auth::user();
         
         $user->favorites()->where('boutique_id', $boutique->id)->delete();
+
+        return response(null, 204);
     }
 }
