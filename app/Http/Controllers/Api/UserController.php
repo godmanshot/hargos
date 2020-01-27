@@ -1,33 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+class UserController extends Controller {
+    public function index(Request $request) {
+        return response([
+            'name' => $request->user()->name,
+            'email' => $request->user()->email,
+            'avatar' => $request->user()->avatar
+        ]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
-    }
-
-    public function updateUserInfo(Request $request) {
+    public function update(Request $request) {
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.$request->user()->id,
@@ -55,12 +42,6 @@ class HomeController extends Controller
         $request->user()
             ->update($data);
 
-        return redirect()->back()->with('updated', true);
-    }
-
-    public function favorites() {
-        $boutiques = auth()->user()->favoriteBoutiques;
-
-        return view('favorites', compact('boutiques'));
+        return response(['message' => 'Updated']);
     }
 }

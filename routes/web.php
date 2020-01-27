@@ -203,6 +203,8 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::put('/home', 'HomeController@updateUserInfo')->name('update.user.info');
+Route::get('/home/favorites', 'HomeController@favorites')->name('user.favorites');
 
 Route::middleware('auth')->post('/favorite/{boutique}', function(Request $request, Boutique $boutique) {
 

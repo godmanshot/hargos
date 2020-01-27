@@ -327,6 +327,11 @@
 		<script src="{{asset('js/sweetalert2.min.js')}}"></script>
 		<script>swal("{{session('message')}}", "");</script>
 	@endif
+	@if (session('updated'))
+		<script>
+			Swal.fire('Данные успешно обновлены!');
+		</script>
+	@endif
 	<!-- MAIN PAGE SLICKS -->
 	<style>
 			

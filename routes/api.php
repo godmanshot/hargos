@@ -21,6 +21,9 @@ use Illuminate\Http\Request;
 
 Route::middleware('cors')->namespace('Api')->group(function() {
 
+    Route::get('/maps', function() {
+        return response(\App\Map::first());
+    });
     Route::get('/token', 'AuthController@getToken');
 
     Route::post('/register', 'AuthController@register');
@@ -90,8 +93,9 @@ Route::middleware('cors')->namespace('Api')->group(function() {
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {
-
-    Route::get('/favorite', 'Api\FavoriteController@index');
+    Route::get('user', 'Api\UserController@index');
+    Route::put('user/update', 'Api\UserController@update');
+    Route::get('/favorite', 'Api\FavoriteConwetroller@index');
     Route::post('/favorite/{boutique}', 'Api\FavoriteController@add');
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
 
