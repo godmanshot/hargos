@@ -96,7 +96,7 @@ Route::middleware('cors')->namespace('Api')->group(function() {
 Route::middleware(['cors', 'auth:api'])->group(function() {
     Route::get('user', 'Api\UserController@index');
     Route::put('user/update', 'Api\UserController@update');
-    Route::get('/favorite', 'Api\FavoriteConwetroller@index');
+    Route::get('/favorite', 'Api\FavoriteController@index');
     Route::post('/favorite/{boutique}', 'Api\FavoriteController@add');
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
 
