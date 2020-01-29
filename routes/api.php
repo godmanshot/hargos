@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 
 Route::middleware('cors')->namespace('Api')->group(function() {
 
+    Route::post('/forgot-password', 'ForgotPasswordController@sendResetLinkEmail');
     Route::get('/maps', function() {
         return response(\App\Map::first());
     });
@@ -100,4 +101,3 @@ Route::middleware(['cors', 'auth:api'])->group(function() {
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
 
 });
-

@@ -70,17 +70,20 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
                             <div class="useful__wrapper">
                                 <h2>{{__('Отзыв полезен')}}</h2>
-                                <span class="review-like"
-                                    @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
+                                <span class="review-like" data-id="{{ $review->id }}"
+                                {{-- @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
                                         onclick="window.location.href = '{{url('/reviews/'.$review->id.'/like')}}';"
-                                    @endif
-                                ><button class="liked" type="button"></button>{{$review->likes ?? 0}}</span>
-
-                                <span class="review-dislike"
-                                    @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
+                                    @endif --}}
+                                ><button class="liked" type="button"></button>
+                                <span>{{ $review->likes }}</span>
+                                </span>
+                                <span class="review-dislike" data-id="{{ $review->id }}"
+                                    {{-- @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
                                         onclick="window.location.href = '{{url('/reviews/'.$review->id.'/dislike')}}';"
-                                    @endif
-                                ><button class="disliked" type="button"></button>{{$review->dislikes ?? 0}}</span>
+                                    @endif --}}
+                                ><button class="disliked" type="button"></button>
+                                <span>{{ $review->dislikes }}</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -143,3 +146,29 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('.review-like').on('click', function(e) {
+            var id = this.getAttribute('data-id');
+            var dislike = this.parentNode.querySelector('span.review-dislike span');
+            var like = this.querySelector('span');
+            axios.post('/reviews/' + id + '/like')
+                .then(function(response) {
+                    like.innerHTML = response.data.likes;
+                    dislike.innerHTML = response.data.dislikes;
+                });
+        });
+
+        $('.review-dislike').on('click', function(e) {
+            var id = this.getAttribute('data-id');
+            var like = this.parentNode.querySelector('span.review-like span');
+            var dislike = this.querySelector('span');
+            axios.post('/reviews/' + id + '/dislike')
+                .then(function(response) {
+                    like.innerHTML = response.data.likes;
+                    dislike.innerHTML = response.data.dislikes;
+                });
+        })
+    </script>
+@endpush
