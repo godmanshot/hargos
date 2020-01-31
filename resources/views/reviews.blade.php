@@ -65,22 +65,6 @@
                         </div>
                         <p>{{$review->review}}</p>
                     </div>
-<<<<<<< HEAD
-                </div>
-                <div class="row justify-content-end mt-3">
-                    <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
-                        <div class="useful__wrapper">
-                            <h2>{{__('Отзыв полезен')}}</h2>
-                            <span class="review-like" @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
-                                onclick="window.location.href = '{{url('/reviews/'.$review->id.'/like')}}';"
-                                @endif
-                                ><button class="liked" type="button"></button>{{$review->likes ?? 0}}</span>
-
-                            <span class="review-dislike" @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
-                                onclick="window.location.href = '{{url('/reviews/'.$review->id.'/dislike')}}';"
-                                @endif
-                                ><button class="disliked" type="button"></button>{{$review->dislikes ?? 0}}</span>
-=======
                     <div class="row justify-content-end mt-3">
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
                             <div class="useful__wrapper">
@@ -100,7 +84,6 @@
                                 <span>{{ $review->dislikes }}</span>
                                 </span>
                             </div>
->>>>>>> 15d7acbb44710f0d30eed06bcb1985d25568fa83
                         </div>
                     </div>
                 </div>
