@@ -539,9 +539,10 @@ body.hc-nav-open {
     font-weight: 700;
     color: #ff3a52;
     border: none;
+    color: #832fd1;
     background-color: transparent;
     border-width: 1px;
-    border-color: #ff3a52;
+    border-color: #832fd1;
     border-style: solid;
     border-radius: 3px;
     text-transform: uppercase;
@@ -559,7 +560,10 @@ body.hc-nav-open {
       content: "";
       width: 0%;
       height: 100%;
-      background: #ff3a52;
+      background-image: -moz-linear-gradient(0deg, #a844f6 0%, #7087f1 100%);
+      background-image: -webkit-linear-gradient(0deg, #a844f6 0%, #7087f1 100%);
+      background-image: -ms-linear-gradient(0deg, #a844f6 0%, #7087f1 100%);
+      box-shadow: 1.693px 6.792px 21px 0px rgba(125, 51, 183, 0.38);
       top: 0;
       left: auto;
       right: 0;
@@ -625,7 +629,7 @@ body.hc-nav-open {
       border: unset;
       border-bottom-right-radius: 3px;
       border-top-right-radius: 3px;
-      background-color: #ff3a52;
+      background-color: #3F47CE;
       padding-left: 35px;
       padding-right: 35px;
       transition: all 0.4s ease;
@@ -679,13 +683,13 @@ body.hc-nav-open {
     list-style: none;
     padding-left: 0;
     max-width: 350px; }
-    .footer .social__btns li a svg {
+    .footer .social__btns li a img {
       width: 46px;
       height: 47px;
       transition: all 0.4s; }
-      .footer .social__btns li a svg path {
+      .footer .social__btns li a img path {
         fill: #ff3a52; }
-      .footer .social__btns li a svg:hover {
+      .footer .social__btns li a img:hover {
         filter: drop-shadow(0px 0px 6px #ff3a52); }
   .footer .AStoreGPlay {
     display: -webkit-flex;
@@ -698,12 +702,12 @@ body.hc-nav-open {
     align-items: stretch;
     justify-content: space-between;
     max-width: 95%; }
-    .footer .AStoreGPlay svg {
+    .footer .AStoreGPlay img {
       width: 231px;
       height: 55px;
       line-height: 2.5;
       transition: all 0.4s; }
-      .footer .AStoreGPlay svg:hover {
+      .footer .AStoreGPlay img:hover {
         filter: drop-shadow(0px 0px 6px #ff3a52); }
 
 @media (max-width: 576px) {
@@ -1022,7 +1026,7 @@ body {
     background-color: #f4f0fb; }
 
 .header {
-  background-color: #e6e6e6; }
+  background-color: #fff; }
   .header .mobile-nav {
     display: none; }
   .header .logo {

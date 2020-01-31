@@ -32,12 +32,12 @@
                 <div class="col-xl-2 col-sm-4">
                     <a href="{{url('/')}}" class="logo">{{__('Хоргос')}}</a>
                 </div>
-                <div class="col-xl-4 col-sm-8">
+                <!-- <div class="col-xl-4 col-sm-8">
                     <p>
                         {{__('Это зона беспошлинной торговли между Казахстаном и Китаем, Дюти Фри (Duty Free) на нейтральной территории.')}}
                     </p>
-                </div>
-                <div class="col-xl-4 col-sm-8">
+                </div> -->
+                <div class="col-xl-8 col-sm-8">
                     <form action="{{route('search')}}" method="GET" class="search-form">
 					    <input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
 					    <input class="search-btn" type="submit" value="">
