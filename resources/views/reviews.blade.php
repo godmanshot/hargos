@@ -65,6 +65,7 @@
                         </div>
                         <p>{{$review->review}}</p>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="row justify-content-end mt-3">
                     <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
@@ -79,6 +80,27 @@
                                 onclick="window.location.href = '{{url('/reviews/'.$review->id.'/dislike')}}';"
                                 @endif
                                 ><button class="disliked" type="button"></button>{{$review->dislikes ?? 0}}</span>
+=======
+                    <div class="row justify-content-end mt-3">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
+                            <div class="useful__wrapper">
+                                <h2>{{__('Отзыв полезен')}}</h2>
+                                <span class="review-like" data-id="{{ $review->id }}"
+                                {{-- @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
+                                        onclick="window.location.href = '{{url('/reviews/'.$review->id.'/like')}}';"
+                                    @endif --}}
+                                ><button class="liked" type="button"></button>
+                                <span>{{ $review->likes }}</span>
+                                </span>
+                                <span class="review-dislike" data-id="{{ $review->id }}"
+                                    {{-- @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
+                                        onclick="window.location.href = '{{url('/reviews/'.$review->id.'/dislike')}}';"
+                                    @endif --}}
+                                ><button class="disliked" type="button"></button>
+                                <span>{{ $review->dislikes }}</span>
+                                </span>
+                            </div>
+>>>>>>> 15d7acbb44710f0d30eed06bcb1985d25568fa83
                         </div>
                     </div>
                 </div>
@@ -140,12 +162,38 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $('.leave__review-wrapper .star-rating__input').on('click', function() {
-        $(this).parent('label').nextAll('label').addClass('star-rating__checked');
-        $(this).parent('label').prevAll('label').removeClass('star-rating__checked');
-        $(this).nextAll('.leave__review-wrapper .star-rating__input').trigger('click');
-        $(this).parent('label').addClass('star-rating__checked');
-    });
-</script>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $('.leave__review-wrapper .star-rating__input').on('click', function() {
+            $(this).parent('label').nextAll('label').addClass('star-rating__checked');
+            $(this).parent('label').prevAll('label').removeClass('star-rating__checked');
+            $(this).nextAll('.leave__review-wrapper .star-rating__input').trigger('click');
+            $(this).parent('label').addClass('star-rating__checked');
+        });
+    </script>
+    <script>
+        $('.review-like').on('click', function(e) {
+            var id = this.getAttribute('data-id');
+            var dislike = this.parentNode.querySelector('span.review-dislike span');
+            var like = this.querySelector('span');
+            axios.post('/reviews/' + id + '/like')
+                .then(function(response) {
+                    like.innerHTML = response.data.likes;
+                    dislike.innerHTML = response.data.dislikes;
+                });
+        });
+
+        $('.review-dislike').on('click', function(e) {
+            var id = this.getAttribute('data-id');
+            var like = this.parentNode.querySelector('span.review-like span');
+            var dislike = this.querySelector('span');
+            axios.post('/reviews/' + id + '/dislike')
+                .then(function(response) {
+                    like.innerHTML = response.data.likes;
+                    dislike.innerHTML = response.data.dislikes;
+                });
+        })
+    </script>
+@endpush

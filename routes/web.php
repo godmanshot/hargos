@@ -138,6 +138,11 @@ Route::get('/advice', function(Request $request) {
 
 Route::get('/reviews', function(Request $request) {
     $reviews = Review::latest()->get();
+    $reviews = $reviews->map(function($review, $key) {
+        $review->likes = $review->getLikes();
+        $review->dislikes = $review->getDislikes();
+        return $review;
+    });
 
     return view('reviews', compact('reviews'));
 });
@@ -164,37 +169,37 @@ Route::post('/reviews', function(Request $request) {
 
 })->name('reviews.create');
 
-Route::get('/reviews/{review}/like', function(Request $request, Review $review) {
+// Route::get('/reviews/{review}/like', function(Request $request, Review $review) {
 
-    $review->likes += 1;
-    $review->save();
+//     $review->likes += 1;
+//     $review->save();
+    
+//     $can_like = json_decode(request()->cookie('can_like', '[]'), true);
 
-    $can_like = json_decode(request()->cookie('can_like', '[]'), true);
+//     if(array_search($review->id, $can_like) === false) {
+//         $can_like[] = $review->id;
+//     }
 
-    if(array_search($review->id, $can_like) === false) {
-        $can_like[] = $review->id;
-    }
+//     return back()->cookie(
+//         'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
+//     );
+// });
 
-    return back()->cookie(
-        'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
-    );
-});
+// Route::get('/reviews/{review}/dislike', function(Request $request, Review $review) {
 
-Route::get('/reviews/{review}/dislike', function(Request $request, Review $review) {
+//     $review->likes -= 1;
+//     $review->save();
 
-    $review->likes -= 1;
-    $review->save();
+//     $can_like = json_decode(request()->cookie('can_like', '[]'), true);
 
-    $can_like = json_decode(request()->cookie('can_like', '[]'), true);
+//     if(array_search($review->id, $can_like) === false) {
+//         $can_like[] = $review->id;
+//     }
 
-    if(array_search($review->id, $can_like) === false) {
-        $can_like[] = $review->id;
-    }
-
-    return back()->cookie(
-        'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
-    );
-});
+//     return back()->cookie(
+//         'can_like', json_encode($can_like), time() + (10 * 365 * 24 * 60 * 60)
+//     );
+// });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -306,4 +311,10 @@ Route::get('/lang/{lang}', function(Request $request, $lang) {
     
     
     return back()->withCookie(cookie()->forever('lang', $lang));
+});
+
+Route::post('reviews/{review}/like', 'LikeController@like')->name('review.like');
+Route::post('reviews/{review}/dislike', 'LikeController@dislike')->name('review.dislike');
+Route::get('testtest', function() {
+    
 });

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth\SendsPasswordResetEmails;
+use App\Http\Controllers\Api\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
 {

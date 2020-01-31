@@ -325,7 +325,7 @@
 
 	@if(session('message'))
 		<script src="{{asset('js/sweetalert2.min.js')}}"></script>
-		<script>swal("{{session('message')}}", "");</script>
+		<script>Swal.fire("{{session('message')}}");</script>
 	@endif
 	@if (session('updated'))
 		<script>
