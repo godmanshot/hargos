@@ -65,7 +65,9 @@
                         </div>
                         <p>{{$review->review}}</p>
                     </div>
-                    <div class="row justify-content-end mt-3">
+                    
+                </div>
+                <div class="row justify-content-end mt-3">
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
                             <div class="useful__wrapper">
                                 <h2>{{__('Отзыв полезен')}}</h2>
@@ -86,7 +88,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
 
             @endforeach
