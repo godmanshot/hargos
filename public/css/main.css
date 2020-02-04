@@ -1561,9 +1561,9 @@ body {
   position: relative;
   z-index: 0;
   transition: all 300ms ease; }
-  .main .geek-block .geek-recommendation .slick-slide a:last-of-type:hover {
+  .main .geek-block .geek-recommendation .slick-slide .geek-recommendation__inner-block a:last-of-type:hover {
     border-color: transparent; }
-  .main .geek-block .geek-recommendation .slick-slide a:last-of-type:before {
+  .main .geek-block .geek-recommendation .slick-slide .geek-recommendation__inner-block a:last-of-type:before {
     position: absolute;
     content: '';
     width: 0%;
@@ -1578,7 +1578,7 @@ body {
     right: 0;
     z-index: -1;
     transition: all 300ms ease; }
-  .main .geek-block .geek-recommendation .slick-slide a:last-of-type:hover {
+  .main .geek-block .geek-recommendation .slick-slide .geek-recommendation__inner-block a:last-of-type:hover {
     color: white; }
     .main .geek-block .geek-recommendation .slick-slide .geek-recommendation__inner-block a:last-of-type:hover:before {
       position: absolute;
