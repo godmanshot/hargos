@@ -1567,7 +1567,7 @@ body {
   transition: all 300ms ease; }
   .main .geek-block .geek-recommendation .slick-slide a:last-of-type:hover {
     border-color: transparent; }
-  .main .geek-block .geek-recommendation .slick-slide a:last-of-type:before {
+  .main .geek-block .geek-recommendation .slick-slide .geek-recommendation__block a:last-of-type:before {
     position: absolute;
     content: '';
     width: 0%;
