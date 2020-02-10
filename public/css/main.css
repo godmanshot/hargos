@@ -1545,7 +1545,7 @@ body {
   font-weight: 400;
   color: #676767; }
 
-.main .geek-block .geek-recommendation .slick-slide .geek-recommendation__block a:last-of-type {
+.main .geek-block .geek-recommendation .slick-slide .geek-recommendation__block .geek-recommendation__inner-block a:last-of-type {
   font-family: Montserrat;
   font-size: 12px;
   line-height: 1;
