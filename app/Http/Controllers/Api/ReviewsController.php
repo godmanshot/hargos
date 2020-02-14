@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Review;
 use App\Boutique;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,5 +18,14 @@ class ReviewsController extends Controller
         ]);
         
         return response('Отзыв оставлен', 201);
+    }
+
+    public function update(Request $request, Review $review) {
+
+        $review->fill($request->all());
+
+        $review->save();
+        
+        return response('Отзыв обновлен', 201);
     }
 }

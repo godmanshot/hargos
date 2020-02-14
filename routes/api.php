@@ -34,7 +34,6 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/trading-house/{trading_house}/boutiques-by-category/{category}', 'TradingHousesController@boutiquesByCategory');
 
     Route::get('/boutiques', 'BoutiquesController@index');
-    Route::get('/boutique/{boutique}/reviews/create', 'ReviewsController@create')->name('boutique.review');
     Route::get('/boutique/reviews', 'BoutiqueReviewsController@index');
 
     Route::get('/categories', 'CategoriesController@index');
@@ -100,4 +99,6 @@ Route::middleware(['cors', 'auth:api'])->group(function() {
     Route::post('/favorite/{boutique}', 'Api\FavoriteController@add');
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
 
+    Route::get('/boutique/{boutique}/reviews/create', 'Api\ReviewsController@create')->name('boutique.review');
+    Route::get('/boutique/{boutique}/reviews/update', 'Api\ReviewsController@update')->name('boutique.review.update');
 });
