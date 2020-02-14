@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Review;
 use App\Boutique;
+use App\BoutiqueReview;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,12 +21,12 @@ class ReviewsController extends Controller
         return response('Отзыв оставлен', 201);
     }
 
-    public function update(Request $request, Review $review) {
+    public function update(Request $request, Boutique $boutique, BoutiqueReview $review) {
 
         $review->fill($request->all());
 
         $review->save();
-        
+
         return response('Отзыв обновлен', 201);
     }
 }

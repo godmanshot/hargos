@@ -100,5 +100,5 @@ Route::middleware(['cors', 'auth:api'])->group(function() {
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
 
     Route::get('/boutique/{boutique}/reviews/create', 'Api\ReviewsController@create')->name('boutique.review');
-    Route::get('/boutique/{boutique}/reviews/update', 'Api\ReviewsController@update')->name('boutique.review.update');
+    Route::get('/boutique/{boutique}/reviews/{review}/update', 'Api\ReviewsController@update')->name('boutique.review.update');
 });
