@@ -167,10 +167,7 @@
     <div class="tour__program">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-md-6 mt-5" id="tour__program-content">
-                    
-                </div>
-                <div class="col-xl-5 col-md-6" id="tour__program-map">
+                <div class="col-xl-12 col-md-12" id="tour__program-map">
                     <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%B0%D0%BB%D0%BC%D0%B0%D1%82%D1%8B&&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
                 </div>
             </div>
