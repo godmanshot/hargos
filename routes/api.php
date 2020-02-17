@@ -117,7 +117,7 @@ Route::middleware('cors')->namespace('Api')->group(function() {
                         (SELECT name FROM categories WHERE name LIKE '%".$request->word."%') UNION
                         (SELECT name FROM boutique_products WHERE name LIKE '%".$request->word."%') UNION
                         (SELECT name FROM boutiques WHERE name LIKE '%".$request->word."%') UNION
-                        (SELECT boutique_number FROM boutiques WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT boutique_number FROM boutiques WHERE boutique_number LIKE '%".$request->word."%') UNION
                         (SELECT seller_name FROM boutiques WHERE seller_name LIKE '%".$request->word."%') UNION
                         (SELECT owner_name FROM boutiques WHERE owner_name LIKE '%".$request->word."%')
                     ")
