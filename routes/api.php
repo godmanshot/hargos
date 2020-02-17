@@ -90,6 +90,43 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::post('/feedback', 'FeedbackController@store');
 
     Route::post('/consultations', 'ConsultationController@store');
+
+    Route::get('/search-words', function(Request $request) {
+
+        if(empty($request->word)) {
+            $res = collect(
+                DB::select(
+                    DB::raw("
+                        (SELECT name FROM trading_houses) UNION
+                        (SELECT name FROM all_products) UNION
+                        (SELECT name FROM categories) UNION
+                        (SELECT name FROM boutique_products) UNION
+                        (SELECT name FROM boutiques) UNION
+                        (SELECT boutique_number FROM boutiques) UNION
+                        (SELECT seller_name FROM boutiques) UNION
+                        (SELECT owner_name FROM boutiques)
+                    ")
+                )
+            );
+        } else {
+            $res = collect(
+                DB::select(
+                    DB::raw("
+                        (SELECT name FROM trading_houses WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT name FROM all_products WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT name FROM categories WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT name FROM boutique_products WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT name FROM boutiques WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT boutique_number FROM boutiques WHERE name LIKE '%".$request->word."%') UNION
+                        (SELECT seller_name FROM boutiques WHERE seller_name LIKE '%".$request->word."%') UNION
+                        (SELECT owner_name FROM boutiques WHERE owner_name LIKE '%".$request->word."%')
+                    ")
+                )
+            );
+        }
+        
+        return $res->pluck('name')->sort();
+    });
 });
 
 Route::middleware(['cors', 'auth:api'])->group(function() {
