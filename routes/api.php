@@ -99,5 +99,4 @@ Route::middleware(['cors', 'auth:api'])->group(function() {
     Route::get('/favorite', 'Api\FavoriteController@index');
     Route::post('/favorite/{boutique}', 'Api\FavoriteController@add');
     Route::delete('/favorite/{boutique}', 'Api\FavoriteController@delete');
-
 });
