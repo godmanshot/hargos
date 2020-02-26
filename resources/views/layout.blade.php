@@ -40,9 +40,12 @@
                     </p>
                 </div> -->
 				<div class="col-xl-8 col-sm-8">
-					<form action="{{route('search')}}" method="GET" class="search-form">
-						<input class="search-field" type="search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
-						<input class="search-btn" type="submit" value="">
+					<form action="{{route('search')}}" method="GET" class="search-form flex-wrap">
+						<div class="d-flex w-100">
+							<input class="search-field" type="search" id="predictive_search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
+							<input class="search-btn" id="predictive_search_btn" type="submit" value="">
+						</div>
+						<div id="livesearch" class="w-100 bg-white mt-2" style="z-index: 100"></div>
 					</form>
 					<p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
 				</div>
@@ -288,7 +291,42 @@
 	<script src="{{asset('js/app.js')}}?q={{rand()}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 	@stack('scripts')
+	<script>
+		var searchInput = document.getElementById('predictive_search');
+		var livesearch = document.getElementById('livesearch');
+		var searchBtn = document.getElementById('predictive_search_btn');
 
+		searchInput.addEventListener('keyup', function() {
+			showResult(this.value);
+		});
+
+		function showResult(str) {
+			if (str.length == 0) {
+				livesearch.innerHTML = "";
+				livesearch.classList.remove('p-2');
+				return;
+			}
+			axios.get('/api/search-words?word=' + str)
+				.then(response => {
+					livesearch.innerHTML = '';
+					for (const wordIndex in response.data) {
+						livesearch.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
+					}
+
+					if(livesearch.children.length > 0) {
+						livesearch.classList.add('p-2');
+					} else {
+						livesearch.classList.remove('p-2');
+					}
+				});
+		}
+
+		function addWordToSearchField(word) {
+			searchInput.value = word;
+			livesearch.innerHTML = '';
+			searchBtn.click();
+		}
+	</script>
 	@if(session('message'))
 	<script src="{{asset('js/sweetalert2.min.js')}}"></script>
 	<script>
