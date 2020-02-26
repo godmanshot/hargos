@@ -29,44 +29,45 @@
         <div class="row">
 
             @if($reviews->count())
-                @foreach($reviews as $review)
+            @foreach($reviews as $review)
 
-                <div class="col-xl-12 comment--wrapper">
-                    <div class="row justify-content-between">
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="avatar__wrapper avatar__bg" style="min-height: 100px;">
-                            </div>
+            <div class="col-xl-12 comment--wrapper">
+                <div class="row justify-content-between">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="avatar__wrapper avatar__bg" style="min-height: 100px;">
                         </div>
-                        <div class="col-xl-10 col-lg-10">
-                            <div class="row">
-                                <div class="col-xl-4">
-                                    <div class="reviewBy">
-                                        <h2>{{$review->name}} <span>{{$review->dateFormated}}</span></h2>
-                                        <h2>{{__('Оценка')}}</h2>
-                                        <div class="star-rating__wrapper">
-                                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 5 ? 'star-rating__checked' : ''}}">
-                                                <input class="star-rating__input" type="radio" name="rating" value="5">
-                                            </label>
-                                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 4 ? 'star-rating__checked' : ''}}">
-                                                <input class="star-rating__input" type="radio" name="rating" value="4">
-                                            </label>
-                                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 3 ? 'star-rating__checked' : ''}}">
-                                                <input class="star-rating__input" type="radio" name="rating" value="3">
-                                            </label>
-                                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 2 ? 'star-rating__checked' : ''}}">
-                                                <input class="star-rating__input" type="radio" name="rating" value="2">
-                                            </label>
-                                            <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 1 ? 'star-rating__checked' : ''}}">
-                                                <input class="star-rating__input" type="radio" name="rating" value="1">
-                                            </label>
-                                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="reviewBy">
+                                    <h2>{{$review->name}} <span>{{$review->dateFormated}}</span></h2>
+                                    <h2>{{__('Оценка')}}</h2>
+                                    <div class="star-rating__wrapper">
+                                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 5 ? 'star-rating__checked' : ''}}">
+                                            <input class="star-rating__input" type="radio" name="rating" value="5">
+                                        </label>
+                                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 4 ? 'star-rating__checked' : ''}}">
+                                            <input class="star-rating__input" type="radio" name="rating" value="4">
+                                        </label>
+                                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 3 ? 'star-rating__checked' : ''}}">
+                                            <input class="star-rating__input" type="radio" name="rating" value="3">
+                                        </label>
+                                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 2 ? 'star-rating__checked' : ''}}">
+                                            <input class="star-rating__input" type="radio" name="rating" value="2">
+                                        </label>
+                                        <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 1 ? 'star-rating__checked' : ''}}">
+                                            <input class="star-rating__input" type="radio" name="rating" value="1">
+                                        </label>
                                     </div>
                                 </div>
                             </div>
-                            <p>{{$review->review}}</p>
                         </div>
+                        <p>{{$review->review}}</p>
                     </div>
-                    <div class="row justify-content-end mt-3">
+                    
+                </div>
+                <div class="row justify-content-end mt-3">
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
                             <div class="useful__wrapper">
                                 <h2>{{__('Отзыв полезен')}}</h2>
@@ -87,13 +88,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
 
-                @endforeach
+            @endforeach
             @endif
         </div>
     </div>
-    
+
     <div class="leave__review-wrapper" id="leave__review-wrapper">
         <div class="container">
             <div class="row">
@@ -148,6 +149,14 @@
 @endsection
 
 @push('scripts')
+    <script type="text/javascript">
+        $('.leave__review-wrapper .star-rating__input').on('click', function() {
+            $(this).parent('label').nextAll('label').addClass('star-rating__checked');
+            $(this).parent('label').prevAll('label').removeClass('star-rating__checked');
+            $(this).nextAll('.leave__review-wrapper .star-rating__input').trigger('click');
+            $(this).parent('label').addClass('star-rating__checked');
+        });
+    </script>
     <script>
         $('.review-like').on('click', function(e) {
             var id = this.getAttribute('data-id');

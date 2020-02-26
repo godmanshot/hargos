@@ -15,6 +15,7 @@ class BoutiqueReview extends Model
         'date',
         'review',
         'rating',
+        'user_id',
     ];
     
     public function getDateFormatedAttribute()

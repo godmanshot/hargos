@@ -19,15 +19,15 @@
             <div class="col-xl-12">
                 <div class="slider td-slider">
                     @foreach($trading_houses as $house)
-                        <a href="{{route('trading-houses', ['trading_house' => $house->id])}}">
-                            <div class="td-slider__block">
-                                <div class="td-slider__img-wrapper">
-                                    <img src="{{Voyager::image($house->logo)}}">
-                                </div>
-                                <div class="separator"></div>
-                                <h2>{{$house->getTranslatedAttribute('name')}}</h2>
+                    <a href="{{route('trading-houses', ['trading_house' => $house->id])}}">
+                        <div class="td-slider__block">
+                            <div class="td-slider__img-wrapper">
+                                <img src="{{Voyager::image($house->logo)}}">
                             </div>
-                        </a>
+                            <div class="separator"></div>
+                            <h2>{{$house->getTranslatedAttribute('name')}}</h2>
+                        </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -39,9 +39,9 @@
             <div class="col-xl-12">
                 <div class="row">
                     @foreach($categories as $category)
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-4">
-                            <button class="category-btn {{($selected_category->id ?? false) == $category->id ? 'category-btn__chosen' : ''}}" onclick="window.location.href = '{{route('trading-houses', ['trading_house' => $selected_trading_house->id ?? null, 'category' => $category->id])}}';">{{$category->getTranslatedAttribute('name')}}</button>
-                        </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 col-4">
+                        <button class="category-btn {{($selected_category->id ?? false) == $category->id ? 'category-btn__chosen' : ''}}" onclick="window.location.href = '{{route('trading-houses', ['trading_house' => $selected_trading_house->id ?? null, 'category' => $category->id])}}';">{{$category->getTranslatedAttribute('name')}}</button>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -99,8 +99,10 @@
                     <a href="{{route('boutique', $boutique->id)}}">
                         <img src="{{Voyager::image($boutique->firstImage)}}">
                     </a>
-                    <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
-                    <p class="boutique-title">{{$boutique->categoriesName}}</p>
+                    <div class="tab-title">
+                        <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
+                        <p class="boutique-title">{{$boutique->categoriesName}}</p>
+                    </div>
                     <div class="star-rating__wrapper">
                         {!!$boutique->averageRatingHtml!!}
                     </div>
@@ -121,24 +123,24 @@
                 </div>
             </div>
             <div class="row favorite__slick">
-                    @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
-                        @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
-                            <div class="boutique-block">
-                                <a href="{{route('boutique', $fav_boutique->id)}}">
-                                    <img src="{{Voyager::image($fav_boutique->firstImage)}}">
-                                </a>
-                                <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
-                                <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
-                                <div class="star-rating__wrapper">
-                                    {!!$fav_boutique->averageRatingHtml!!}
-                                </div>
-                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$fav_boutique->id}}</p>
-                            </div>
+                @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
+                @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
+                    <div class="boutique-block">
+                        <a href="{{route('boutique', $fav_boutique->id)}}">
+                            <img src="{{Voyager::image($fav_boutique->firstImage)}}">
+                        </a>
+                        <h3 class="boutique-header">{{$fav_boutique->getTranslatedAttribute('name')}}</h3>
+                        <p class="boutique-title">{{$fav_boutique->categoriesName}}</p>
+                        <div class="star-rating__wrapper">
+                            {!!$fav_boutique->averageRatingHtml!!}
                         </div>
-                        @endforeach
-                    @endif
+                        <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
+                        <p>Артикул: {{$fav_boutique->id}}</p>
+                    </div>
+                </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
