@@ -45,7 +45,7 @@
 							<input class="search-field" type="search" id="predictive_search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
 							<input class="search-btn" id="predictive_search_btn" type="submit" value="">
 						</div>
-						<div id="livesearch" class="w-100 bg-white mt-2" style="z-index: 100"></div>
+						<div id="livesearch" class="w-100 bg-white mt-2" style="z-index: 100; max-height: 500px; overflow-y: auto"></div>
 					</form>
 					<p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
 				</div>
