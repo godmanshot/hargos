@@ -68,7 +68,7 @@
                     
                 </div>
                 <div class="row justify-content-end mt-3">
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-12">
                             <div class="useful__wrapper">
                                 <h2>{{__('Отзыв полезен')}}</h2>
                                 <span class="review-like" data-id="{{ $review->id }}"
