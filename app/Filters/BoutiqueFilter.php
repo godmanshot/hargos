@@ -57,6 +57,20 @@ class BoutiqueFilter extends Filter {
         return $this->builder->where('is_hit', $value);
     }
 
+    public function search($value)
+    {
+        return $this->builder->whereHas('products', function ($query) use ($value) {
+            $query->where('name', 'like', '%'.$value.'%');
+        })->orWhereHas('categories', function ($query) use ($value) {
+            $query->where('name', 'like', '%'.$value.'%');
+        })->orWhereHas('allProducts', function ($query) use ($value) {
+            $query->where('name', 'like', '%'.$value.'%');
+        })->orWhere('name', 'like', '%'.$value.'%')
+        ->orWhere('boutique_number', 'like', '%'.$value.'%')
+        ->orWhere('seller_name', 'like', '%'.$value.'%')
+        ->orWhere('owner_name', 'like', '%'.$value.'%');
+    }
+
     public function sort($value)
     {
         return $this->builder->orderBy($value);
