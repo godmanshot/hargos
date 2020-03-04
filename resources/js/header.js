@@ -1,6 +1,46 @@
 window.axios = require("axios");
 // HEADER PRODUCTION CATALOG
 $(document).ready(function() {
+    var searchInput = document.querySelectorAll('#predictive_search');
+    var activeSearchBtn;
+    for (const search of searchInput) {
+        search.addEventListener('keyup', function() {
+            var activeLiveSearch = this.parentNode.nextElementSibling;
+            activeSearchBtn = this.nextElementSibling;
+            var activeInput = this;
+
+            showResult(this.value, activeLiveSearch);
+        });
+    }
+
+    function showResult(str, lv) {
+        if (str.length == 0) {
+            lv.innerHTML = "";
+            lv.classList.remove('p-2');	
+            return;
+        }
+        axios.get('/api/search-words?word=' + str)
+            .then(response => {
+                lv.innerHTML = "";
+                lv.classList.remove('p-2');	
+                for (const wordIndex in response.data) {
+                    lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
+                }
+
+                if(lv.children.length > 0) {
+                    lv.classList.add('p-2');
+                } else {
+                    lv.classList.remove('p-2');
+                }
+            });
+    }
+
+    function addWordToSearchField(word) {
+        activeInput.value = word;
+        activeLiveSearch.innerHTML = '';
+        activeSearchBtn.click();
+    }
+
     let $Catalog = $('#catalog-nav');
     let $Toggle = $('.toggle');
     let defaultData = {
@@ -70,10 +110,12 @@ $(document).ready(function() {
         //     }
         // });
         var lastScrollTop = 0;
-        $(window).scroll(function(event){
+        $(window).scroll(function(event) {
             var st = $(this).scrollTop();
             var showHeaderPosition = 450;
             var scrollPosition = window.scrollY;
+            var searchInput = document.querySelectorAll('#predictive_search');
+            var activeSearchBtn;
             if (st > lastScrollTop && scrollPosition > showHeaderPosition){
                 console.log("Scroll UP");
                 $('.search-form').removeClass('banner--stick');

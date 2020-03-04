@@ -50,6 +50,11 @@
 					<p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
 				</div>
 				<div class="col-xl-2 col-sm-4">
+					<ul class="nav pl-3">
+						<li class="nav-item"><a href="{{ url('/lang/ru') }}" class="nav-link">RU</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/en') }}" class="nav-link">EN</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/kz') }}" class="nav-link">KZ</a></li>
+					</ul>
 					@if(Auth::user())
 					<div class="loginOrReg">
 						<a class="login-btn" href="{{route('home')}}">{{Auth::user()->name}}</a>
@@ -229,6 +234,19 @@
 				</div>
 			</div>
 			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
+			<div class="col-md-12 d-flex justify-content-end">
+				<script type="text/javascript">
+					document.write('<a href="//www.liveinternet.ru/click" '+
+					'target="_blank"><img src="//counter.yadro.ru/hit?t27.6;r'+
+					escape(document.referrer)+((typeof(screen)=='undefined')?'':
+					';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+					screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+					';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+					'" alt="" title="LiveInternet: number of visitors and pageviews'+
+					' is shown" '+
+					'border="0" width="88" height="120"><\/a>')
+				</script>
+			</div>
 		</div>
 	</div>
 	<!-- PRODUCTION CATALOG -->
@@ -292,39 +310,44 @@
 	<script src="{{asset('js/main.js')}}"></script>
 	@stack('scripts')
 	<script>
-		var searchInput = document.getElementById('predictive_search');
-		var livesearch = document.getElementById('livesearch');
-		var searchBtn = document.getElementById('predictive_search_btn');
+		var searchInput = document.querySelectorAll('#predictive_search');
 
-		searchInput.addEventListener('keyup', function() {
-			showResult(this.value);
-		});
+		for (const search of searchInput) {
+			search.addEventListener('keyup', function() {
+				var activeLiveSearch = this.parentNode.nextElementSibling;
+				var activeSearchBtn = this.nextElementSibling;
+				var activeInput = this;
 
-		function showResult(str) {
+				showResult(this.value, activeLiveSearch, activeInput);
+			});
+		}
+
+		function showResult(str, lv, input) {
 			if (str.length == 0) {
-				livesearch.innerHTML = "";
-				livesearch.classList.remove('p-2');
+				lv.innerHTML = "";
+				lv.classList.remove('p-2');	
 				return;
 			}
 			axios.get('/api/search-words?word=' + str)
 				.then(response => {
-					livesearch.innerHTML = '';
+					lv.innerHTML = "";
+					lv.classList.remove('p-2');	
 					for (const wordIndex in response.data) {
-						livesearch.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
+						lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
 					}
 
-					if(livesearch.children.length > 0) {
-						livesearch.classList.add('p-2');
+					if(lv.children.length > 0) {
+						lv.classList.add('p-2');
 					} else {
-						livesearch.classList.remove('p-2');
+						lv.classList.remove('p-2');
 					}
 				});
 		}
 
 		function addWordToSearchField(word) {
-			searchInput.value = word;
-			livesearch.innerHTML = '';
-			searchBtn.click();
+			activeInput.value = word;
+			activeLiveSearch.innerHTML = '';
+			activeSearchBtn.click();
 		}
 	</script>
 	@if(session('message'))

@@ -308,8 +308,6 @@ Route::get('/callback', function(Request $request) {
 
 
 Route::get('/lang/{lang}', function(Request $request, $lang) {
-    
-    
     return back()->withCookie(cookie()->forever('lang', $lang));
 });
 
