@@ -243,7 +243,7 @@ q:before, q:after {
     .main .special-slider .glide_header .glide__slide {
       height: 100%;
       background-image: url("../images/special__slider_bg-01.png") !important;
-      background-size: inherit !important;
+      background-size: cover !important;
       background-repeat: no-repeat;
       background-position: center; }
       .main .special-slider .glide_header .glide__slide h1 {
