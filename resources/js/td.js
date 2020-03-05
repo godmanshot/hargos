@@ -12,27 +12,27 @@ if ($("div").is(".td")) {
                 breakpoint: 460,
                 settings: {
                     slidesToShow: 1,
-                    // arrows: false,
+                    arrows: false,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    // arrows: false,
+                    arrows: false,
                 }
             },
             {
                 breakpoint: 1032,
                 settings: {
                     slidesToShow: 3,
-                    arrows: true,
+                    arrows: false,
                 }
             },
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 4.99999,
                     arrows: true,
                 }
             }
@@ -66,7 +66,6 @@ if ($("div").is(".td")) {
     let div = document.createElement('div');
 
     $('.boutique-block').append('<div></div>');
-
 
     $('.grid-btn').attr("disabled", "disabled");
 
