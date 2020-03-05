@@ -1,7 +1,7 @@
 import { filter } from "minimatch";
 if ($("div").is(".td")) {
     $('.td-slider').slick({
-        slidesToShow: 5.9999,
+        slidesToShow: 4.9999,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
@@ -32,7 +32,7 @@ if ($("div").is(".td")) {
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 4.99999,
+                    slidesToShow: 4,
                     arrows: true,
                 }
             }
