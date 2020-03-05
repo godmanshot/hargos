@@ -26,14 +26,14 @@ if ($("div").is(".td")) {
                 breakpoint: 1032,
                 settings: {
                     slidesToShow: 3,
-                    arrows: false,
+                    arrows: true,
                 }
             },
             {
                 breakpoint: 1200,
                 settings: {
                     slidesToShow: 4,
-
+                    arrows: true,
                 }
             }
         ]
