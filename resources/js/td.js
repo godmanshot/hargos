@@ -1,6 +1,5 @@
 import { filter } from "minimatch";
 if ($("div").is(".td")) {
-    console.log('qweqwe')
     $('.td-slider').slick({
         slidesToShow: 5.9999,
         slidesToScroll: 1,
@@ -13,14 +12,14 @@ if ($("div").is(".td")) {
                 breakpoint: 460,
                 settings: {
                     slidesToShow: 1,
-                    arrows: false,
+                    // arrows: false,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    arrows: false,
+                    // arrows: false,
                 }
             },
             {
@@ -67,8 +66,7 @@ if ($("div").is(".td")) {
     let div = document.createElement('div');
 
     $('.boutique-block').append('<div></div>');
-    console.log($('.boutique-block .container .row a'));
-    console.log(div)
+
 
     $('.grid-btn').attr("disabled", "disabled");
 
