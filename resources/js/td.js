@@ -1,5 +1,6 @@
 import { filter } from "minimatch";
 if ($("div").is(".td")) {
+    console.log('qweqwe')
     $('.td-slider').slick({
         slidesToShow: 5.9999,
         slidesToScroll: 1,
