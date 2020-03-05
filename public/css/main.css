@@ -3952,7 +3952,13 @@ body {
       .td .td-slider .slick-next {
         right: -10px;
         z-index: 1; } }
-}
+@media (min-width: 576px) and (max-width: 768px) {
+    .td .td-slider .slick-prev {
+        left: -15px;
+        z-index: 1; }
+      .td .td-slider .slick-next {
+        right: -15px;
+        z-index: 1; } }
 .link-table {
   width: 50% !important;
   margin-right: 2rem; }
