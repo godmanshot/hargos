@@ -1027,6 +1027,18 @@ body {
 
 .header {
   background-color: #fff; }
+.header .nav {
+    padding: 0 !important;
+    justify-content: flex-end; }
+    .header .nav .nav-link {
+      display: block;
+      padding: .5rem 0.5rem;
+      font-family: Montserrat;
+      font-size: 12px;
+      line-height: 2;
+      font-weight: 700;
+      color: #a551db;
+      padding-right: 0; }
   .header .mobile-nav {
     display: none; }
   .header .logo {
