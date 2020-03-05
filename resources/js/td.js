@@ -5,6 +5,8 @@ if ($("div").is(".td")) {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
+        infinite: true,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 460,
@@ -31,7 +33,7 @@ if ($("div").is(".td")) {
                 breakpoint: 1200,
                 settings: {
                     slidesToShow: 4,
-                    
+
                 }
             }
         ]
@@ -109,7 +111,7 @@ if ($("div").is(".td")) {
         $('.list-btn').removeAttr('disabled');
     });
 
-    
+
 
 
     $('.footer').css("margin-top", "unset");
