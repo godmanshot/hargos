@@ -1,5 +1,8 @@
 import { filter } from "minimatch";
+const AOS = require('aos');
+
 if ($("div").is(".td")) {
+    AOS.init();
     $('.td-slider').slick({
         slidesToShow: 4.9999,
         slidesToScroll: 1,
