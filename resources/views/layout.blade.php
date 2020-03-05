@@ -211,8 +211,17 @@
 						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
 					</div>
 					<div class="mt-4">
-						<h5>{{__('Уникальных посетителей')}}</h5>
-						<p>{{$all_visitors_count}} {{__('человек')}}.</p>
+						<script type="text/javascript">
+							document.write('<a href="//www.liveinternet.ru/click" '+
+							'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
+							escape(document.referrer)+((typeof(screen)=='undefined')?'':
+							';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+							screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+							';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+							'" alt="" title="LiveInternet: number of visitors and pageviews'+
+							' is shown" '+
+							'border="0" width="130" height="170"><\/a>')
+						</script>
 					</div>
 					<!-- Модальное окно -->
 					<div class="modal fade" id="callUs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -235,17 +244,7 @@
 			</div>
 			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
 			<div class="col-md-12 d-flex justify-content-end">
-				<script type="text/javascript">
-					document.write('<a href="//www.liveinternet.ru/click" '+
-					'target="_blank"><img src="//counter.yadro.ru/hit?t27.6;r'+
-					escape(document.referrer)+((typeof(screen)=='undefined')?'':
-					';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
-					screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
-					';h'+escape(document.title.substring(0,150))+';'+Math.random()+
-					'" alt="" title="LiveInternet: number of visitors and pageviews'+
-					' is shown" '+
-					'border="0" width="88" height="120"><\/a>')
-				</script>
+				
 			</div>
 		</div>
 	</div>
