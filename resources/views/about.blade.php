@@ -132,9 +132,6 @@
                         {!!Block::_('4Tgj268eCPXj6N2V')!!}
                         <ul>
                             <li>
-                                {!!Block::_('VbSkv0vZhTOdj9Xz')!!}
-                            </li>
-                            <li>
                                 {!!Block::_('gv5VeBhgR6o4rVkV')!!}
                             </li>
                             <li>
