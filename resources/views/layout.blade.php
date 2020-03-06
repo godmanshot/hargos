@@ -16,13 +16,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hc-offcanvas-nav@3.4.1/dist/hc-offcanvas-nav.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.theme.min.css">
-	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.core.min.css">
+	<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
+	<link rel="stylesheet" href="{{asset('css/slick.css')}}">
+	<link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
+	<link rel="stylesheet" href="{{asset('css/hc-offcanvas-nav.css')}}">
+	<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+	<link rel="stylesheet" href="{{asset('css/glide.theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/glide.core.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/aos.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 </head>
 
@@ -244,7 +245,7 @@
 			</div>
 			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
 			<div class="col-md-12 d-flex justify-content-end">
-				
+
 			</div>
 		</div>
 	</div>
@@ -324,13 +325,13 @@
 		function showResult(str, lv, input) {
 			if (str.length == 0) {
 				lv.innerHTML = "";
-				lv.classList.remove('p-2');	
+				lv.classList.remove('p-2');
 				return;
 			}
 			axios.get('/api/search-words?word=' + str)
 				.then(response => {
 					lv.innerHTML = "";
-					lv.classList.remove('p-2');	
+					lv.classList.remove('p-2');
 					for (const wordIndex in response.data) {
 						lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
 					}
