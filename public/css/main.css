@@ -987,6 +987,12 @@ body {
 .banner--stick{
   border-radius: inherit !important;
 }
+.banner--clone input{
+  border-radius: inherit !important;
+}
+.banner--clone{
+  border-radius: inherit !important;
+}
 .banner--unstick {
   /* Not required to use, but could be useful to have */ }
 
