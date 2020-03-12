@@ -981,7 +981,9 @@ body {
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%); }
-
+.banner--stick input{
+  border-radius: inherit !important;
+}
 .banner--unstick {
   /* Not required to use, but could be useful to have */ }
 
@@ -1234,6 +1236,12 @@ body {
           right: 0; }
 
 @media (max-width: 576px) {
+  .main .background-slider{
+    height: 300px !important;
+  }
+  .main .background-slider .glide_header .glide__slide{
+    background-size: cover !important;
+  }
   body {
     word-wrap: break-word; }
     body .boutique__container .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
@@ -1263,7 +1271,8 @@ body {
     text-align: center; }
   .header .search-form {
     margin-top: 1.5rem;
-    max-width: 90%;
+    max-width: 100%;
+    border-radius: inherit !important;
     margin-left: auto;
     margin-right: auto; }
   .header .loginOrReg {
