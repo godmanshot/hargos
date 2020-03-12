@@ -984,6 +984,9 @@ body {
 .banner--stick input{
   border-radius: inherit !important;
 }
+.banner--stick{
+  border-radius: inherit !important;
+}
 .banner--unstick {
   /* Not required to use, but could be useful to have */ }
 
@@ -1281,10 +1284,11 @@ body {
   .header .logo {
     line-height: 2;
     text-align: center; }
+
   .header .search-form {
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
     max-width: 100%;
-    border-radius: inherit !important;
+    /* border-radius: inherit !important; */
     margin-left: auto;
     margin-right: auto; }
   .header .loginOrReg {
