@@ -16,13 +16,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hc-offcanvas-nav@3.4.1/dist/hc-offcanvas-nav.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.theme.min.css">
-	<link rel="stylesheet" href="https://cdn.bootcss.com/Glide.js/3.4.1/css/glide.core.min.css">
+	<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
+	<link rel="stylesheet" href="{{asset('css/slick.css')}}">
+	<link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
+	<link rel="stylesheet" href="{{asset('css/hc-offcanvas-nav.css')}}">
+	<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+	<link rel="stylesheet" href="{{asset('css/glide.theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/glide.core.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/aos.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 </head>
 
@@ -50,6 +51,11 @@
 					<p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
 				</div>
 				<div class="col-xl-2 col-sm-4">
+					<ul class="nav pl-3">
+						<li class="nav-item"><a href="{{ url('/lang/ru') }}" class="nav-link">RU</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/en') }}" class="nav-link">EN</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/kz') }}" class="nav-link">KZ</a></li>
+					</ul>
 					@if(Auth::user())
 					<div class="loginOrReg">
 						<a class="login-btn" href="{{route('home')}}">{{Auth::user()->name}}</a>
@@ -206,8 +212,17 @@
 						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
 					</div>
 					<div class="mt-4">
-						<h5>{{__('Уникальных посетителей')}}</h5>
-						<p>{{$all_visitors_count}} {{__('человек')}}.</p>
+						<script type="text/javascript">
+							document.write('<a href="//www.liveinternet.ru/click" '+
+							'target="_blank"><img src="//counter.yadro.ru/hit?t27.1;r'+
+							escape(document.referrer)+((typeof(screen)=='undefined')?'':
+							';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+							screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+							';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+							'" alt="" title="LiveInternet: number of visitors and pageviews'+
+							' is shown" '+
+							'border="0" width="130" height="170"><\/a>')
+						</script>
 					</div>
 					<!-- Модальное окно -->
 					<div class="modal fade" id="callUs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -229,6 +244,9 @@
 				</div>
 			</div>
 			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
+			<div class="col-md-12 d-flex justify-content-end">
+
+			</div>
 		</div>
 	</div>
 	<!-- PRODUCTION CATALOG -->
@@ -292,39 +310,44 @@
 	<script src="{{asset('js/main.js')}}"></script>
 	@stack('scripts')
 	<script>
-		var searchInput = document.getElementById('predictive_search');
-		var livesearch = document.getElementById('livesearch');
-		var searchBtn = document.getElementById('predictive_search_btn');
+		var searchInput = document.querySelectorAll('#predictive_search');
 
-		searchInput.addEventListener('keyup', function() {
-			showResult(this.value);
-		});
+		for (const search of searchInput) {
+			search.addEventListener('keyup', function() {
+				var activeLiveSearch = this.parentNode.nextElementSibling;
+				var activeSearchBtn = this.nextElementSibling;
+				var activeInput = this;
 
-		function showResult(str) {
+				showResult(this.value, activeLiveSearch, activeInput);
+			});
+		}
+
+		function showResult(str, lv, input) {
 			if (str.length == 0) {
-				livesearch.innerHTML = "";
-				livesearch.classList.remove('p-2');
+				lv.innerHTML = "";
+				lv.classList.remove('p-2');
 				return;
 			}
 			axios.get('/api/search-words?word=' + str)
 				.then(response => {
-					livesearch.innerHTML = '';
+					lv.innerHTML = "";
+					lv.classList.remove('p-2');
 					for (const wordIndex in response.data) {
-						livesearch.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
+						lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
 					}
 
-					if(livesearch.children.length > 0) {
-						livesearch.classList.add('p-2');
+					if(lv.children.length > 0) {
+						lv.classList.add('p-2');
 					} else {
-						livesearch.classList.remove('p-2');
+						lv.classList.remove('p-2');
 					}
 				});
 		}
 
 		function addWordToSearchField(word) {
-			searchInput.value = word;
-			livesearch.innerHTML = '';
-			searchBtn.click();
+			activeInput.value = word;
+			activeLiveSearch.innerHTML = '';
+			activeSearchBtn.click();
 		}
 	</script>
 	@if(session('message'))
