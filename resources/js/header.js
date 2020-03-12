@@ -16,13 +16,13 @@ $(document).ready(function() {
     function showResult(str, lv) {
         if (str.length == 0) {
             lv.innerHTML = "";
-            lv.classList.remove('p-2');	
+            lv.classList.remove('p-2');
             return;
         }
         axios.get('/api/search-words?word=' + str)
             .then(response => {
                 lv.innerHTML = "";
-                lv.classList.remove('p-2');	
+                lv.classList.remove('p-2');
                 for (const wordIndex in response.data) {
                     lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
                 }
@@ -71,7 +71,7 @@ $(document).ready(function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-    
+
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
@@ -83,17 +83,35 @@ $(document).ready(function() {
     $('.search-example span').on('click', function() {
         $('.search-field').val($('.search-example span')[0].innerText);
     });
+
     if (window.matchMedia("(max-width: 576px)").matches) {
-        let options = {
-            offset: 450,
-            offsetSide: 'top',
-            classes: {
-                clone:   'banner--clone',
-                stick:   'banner--stick',
-                unstick: 'banner--unstick'
+        var lastScrollTop = 0;
+
+        $(window).scroll(function(event){
+            var scrollPosition = window.scrollY;
+            if (scrollPosition < 700 && $('.header .search-form').hasClass('banner--clone')) {
+                $('.header .search-form').removeClass('banner--clone');
             }
-        };
-        let banner = new Headhesive('.search-form', options);
+            var showHeaderPosition = 1000;
+            var st = $(this).scrollTop();
+
+            if (st > lastScrollTop && scrollPosition > showHeaderPosition) {
+                $('.header .search-form').addClass('banner--clone');
+                if ($('.header .search-form').hasClass('banner--unstick')) {
+                    $('.header .search-form').removeClass('banner--unstick');
+                }
+                $('.header .search-form').addClass('banner--stick');
+            } else if(st < lastScrollTop && scrollPosition > showHeaderPosition) {
+                if ($('.header .search-form').hasClass('banner--stick')) {
+                    $('.header .search-form').removeClass('banner--stick');
+                }
+                $('.header .search-form').addClass('banner--unstick');
+            }
+            lastScrollTop = st;
+        });
+    }
+
+    if (window.matchMedia("(max-width: 576px)").matches) {
         // $(document).on('mousewheel DOMMouseScroll', function(event){
         //     let course = event.originalEvent.wheelDelta;
         //     var scrollPosition = window.scrollY,
