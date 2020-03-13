@@ -6924,3 +6924,11 @@ button, a {
 .modal-footer .btn{
   margin: 0 auto;
 }
+
+
+#livesearch {
+    transition: all .3s ease;
+}
+.banner--clone.banner--unstick #livesearch {
+    height: 0;
+}
