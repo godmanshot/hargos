@@ -1320,6 +1320,9 @@ body {
     display: block; } }
 
 @media (min-width: 577px) and (max-width: 768px) {
+  .header .logo{
+    margin-top: 1rem;
+  }
   .header .container.pt-5.pb-4 {
     padding-top: 1.5rem !important;
     padding-left: 15px !important;
@@ -1332,7 +1335,12 @@ body {
       width: 50%;
       text-align: center; }
   .header .multicolors .burger {
-    justify-content: space-between; } }
+    justify-content: flex-start;
+  }
+  .header .multicolors .burger a{
+    margin-right: 1rem;
+  }
+}
 
 @media (min-width: 769px) and (max-width: 992px) {
   .header .logo {
@@ -1359,6 +1367,16 @@ body {
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: space-between; }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .main .flexibleServices embed{
+        min-width: 102px;
+        max-height: 85px;
+    }
+    .main .flexibleServices {
+        margin-bottom: 2rem;
+    }
+  }
+
   .main .flexibleServices img {
     max-width: 78px;
     max-height: 96px; }

@@ -35,7 +35,7 @@
 				    </form>
                     <p class="search-example">Например: <span>Женские меховые жилетки</span></p>
                 </div>
-                <div class="col-xl-2 col-sm-4">
+                <div class="col-xl-2 col-sm-12">
                     <div class="loginOrReg">
 						<a class="login-btn" href="#">Войти</a>
 						<a class="reg-btn" href="#">Зарегистрироваться</a>
