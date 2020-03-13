@@ -1367,6 +1367,16 @@ body {
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: space-between; }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .main .flexibleServices embed{
+        min-width: 102px;
+        max-height: 85px;
+    }
+    .main .flexibleServices {
+        margin-bottom: 2rem;
+    }
+  }
+
   .main .flexibleServices img {
     max-width: 78px;
     max-height: 96px; }
