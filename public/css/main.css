@@ -1307,7 +1307,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
-    margin-top: 1.7rem;
+    margin-top: 1.2rem;
     max-width: 75%;
     margin-left: auto;
     margin-right: auto; }
@@ -1317,7 +1317,11 @@ body {
     padding-left: 0;
     display: none; }
   .header .mobile-nav {
-    display: block; } }
+    display: block; }
+    .header .nav{
+      margin-top: 10px;
+    }
+  }
 
 @media (min-width: 577px) and (max-width: 768px) {
   .header .container.pt-5.pb-4 {
@@ -1366,6 +1370,9 @@ body {
     }
     .main .flexibleServices {
         margin-bottom: 2rem;
+    }
+    .cardd .reviews__wrapper{
+      padding-top: 2rem;
     }
   }
 
@@ -4716,7 +4723,17 @@ body {
   .tour .tour__info .tour__info-contacts {
     flex-direction: column; }
   .tour .tour__info .tour__info-contacts ul {
-    justify-content: unset; } }
+    justify-content: unset; }
+    .advice .flexible{
+      margin: 0 15px;
+    }
+    .header .multicolors .burger{
+      justify-content: flex-start;
+    }
+    .header .multicolors .burger h3{
+      margin-left: 20px;
+    }
+  } 
 
 .cardd .flexible {
   display: -webkit-flex;
