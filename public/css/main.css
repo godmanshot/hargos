@@ -1324,6 +1324,9 @@ body {
   }
 
 @media (min-width: 577px) and (max-width: 768px) {
+  .header .logo{
+    margin-top: 1rem;
+  }
   .header .container.pt-5.pb-4 {
     padding-top: 1.5rem !important;
     padding-left: 15px !important;
@@ -1336,7 +1339,12 @@ body {
       width: 50%;
       text-align: center; }
   .header .multicolors .burger {
-    justify-content: space-between; } }
+    justify-content: flex-start;
+  }
+  .header .multicolors .burger a{
+    margin-right: 1rem;
+  }
+}
 
 @media (min-width: 769px) and (max-width: 992px) {
   .header .logo {
