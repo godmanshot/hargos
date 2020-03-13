@@ -1268,6 +1268,9 @@ body {
     }
 }
 @media (max-width: 576px) {
+    .footer p {
+        font-size: 16px;
+    }
   .main .background-slider{
     height: 300px !important;
   }
