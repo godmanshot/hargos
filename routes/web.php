@@ -19,6 +19,7 @@ use App\AdviceCategory;
 use App\PopularProduct;
 use App\BoutiqueProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
