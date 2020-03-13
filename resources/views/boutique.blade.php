@@ -6,7 +6,7 @@
         <div class="row mt-5 mb-5">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 col-12 pr-0">
                 <div class="flexible justify-content-start">
-                    <a href="#">
+                    <a href="/">
                         <span>главная</span>
                     </a>
                     <span>/</span>
@@ -346,7 +346,7 @@
                 </div>
             </div>
         </div>
-        
+
     @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
     <div class="container-fluid favorite-boutiques">
         <div class="container">

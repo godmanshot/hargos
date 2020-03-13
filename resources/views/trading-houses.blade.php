@@ -6,7 +6,7 @@
         <div class="row mt-5 mb-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                 <div class="flexible">
-                    <a href="#">
+                    <a href="/">
                         <span>{{__('главная')}}</span>
                     </a>
                     <span>/</span>
@@ -50,7 +50,7 @@
     <div class="filters-block mt-5" id="filters-block">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-6 col-sm-12">
+                <div class="col-xl-6 col-lg-8 col-sm-12">
                     <div class="row">
                         <div class="col-xl-3 col-sm-3">
                             <h4 class="sort-by">{{__('Сортировать по')}}:</h4>
@@ -65,15 +65,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-sm-12">
+                <div class="col-xl-6 col-lg-4 col-sm-12">
                     <div class="row">
-                        <div class="col-xl-7 col-sm-9">
+                        <div class="col-xl-7 col-lg-10 col-sm-9">
                             <form action="#filters-block" class="search-form">
                                 <input class="search-field" type="search" name="search" placeholder="{{__('Поиск')}}">
                                 <input class="search-btn" type="submit" value="">
                             </form>
                         </div>
-                        <div class="col-xl-2 col-sm-3">
+                        <div class="col-xl-2 col-lg-2 col-sm-3">
                             <div class="list-grid_wrapper">
                                 <button class="grid-btn view-btn active">
                                     <i class="fa fa-th-large"></i>

@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
-                        <a href="#">
+                        <a href="/">
                             <span>{{__('главная')}}</span>
                         </a>
                         <span>/</span>
@@ -38,7 +38,7 @@
                         <div class="filters-question__block">
                             <h2>{{__('Ваш город')}}?</h2>
                             <div>
-                                <svg 
+                                <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="17px" height="23px">
@@ -59,7 +59,7 @@
                         <div class="col-xl-3">
                             <select class="countries js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                 <option></option>
-                                
+
                             </select>
                         </div>
                         <div class="col-xl-3">
@@ -184,17 +184,17 @@
                         <div>
                         <iframe
                             src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe> 
+                        </iframe>
                         </div>
                         <div>
                             <iframe
                                 src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe> 
+                            </iframe>
                         </div>
                         <div>
                             <iframe
                                 src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe> 
+                            </iframe>
                         </div>
                     </div>
                 </div>
