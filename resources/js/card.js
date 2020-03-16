@@ -75,7 +75,7 @@ if ($("div").is(".cardd")) {
         }
     });
     $(document).ready(function(){
-        $('.MagicZoom').zoom();
+        $('.mfp-figure figure').zoom();
     });
     $('.cardd .slider-for').magnificPopup({
         delegate: 'a',
