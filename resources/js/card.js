@@ -76,6 +76,7 @@ if ($("div").is(".cardd")) {
     });
     function zoom(e){
         var zoomer = e.currentTarget;
+        console.log(zoomer);
         e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
         e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
         x = offsetX/zoomer.offsetWidth*100
