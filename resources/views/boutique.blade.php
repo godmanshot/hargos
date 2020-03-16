@@ -22,9 +22,11 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                        <a  onmousemove="zoom(event)" href="{{Voyager::image($image)}}" class="zoomMe" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
+                        <a  href="{{Voyager::image($image)}}">
+                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
                                 <img src="{{Voyager::image($image)}}">
-                            </a>
+                            </figure>
+                        </a>
                         </div>
                     @endforeach
                 </div>
