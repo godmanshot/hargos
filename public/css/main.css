@@ -768,7 +768,7 @@ body.hc-nav-open {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-top: 15px;
     padding-left: 15px !important; } }
