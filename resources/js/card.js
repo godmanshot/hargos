@@ -1,4 +1,4 @@
-if ($("div").is(".cardd")) {    
+if ($("div").is(".cardd")) {
    $('.boutique__more').on('click', function() {
         let content = $('.moreContent');
         content.css('max-height', '100%');
@@ -23,7 +23,7 @@ if ($("div").is(".cardd")) {
         slidesToShow: 2.99999,
         slidesToScroll: 1,
         asNavFor: '.slider-for',
-        
+
         focusOnSelect: true,
         responsive: [
             {
@@ -74,7 +74,7 @@ if ($("div").is(".cardd")) {
             duration: 200 // don't foget to change the duration also in CSS
         }
     });
-    
+
     $('.cardd .slider-for').magnificPopup({
         delegate: 'a',
         type: 'image',
@@ -83,7 +83,7 @@ if ($("div").is(".cardd")) {
         gallery: {
             enabled: true,
             navigateByImgClick: true,
-            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+            preload: [0,1]
         },
     });
     if (window.matchMedia("(max-width: 576px)").matches) {
