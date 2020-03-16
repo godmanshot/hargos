@@ -22,7 +22,7 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                            <a href="{{Voyager::image($image)}}" data-options="zoomPosition: inner">
+                        <a href="{{Voyager::image($image)}}" class="zoomMe" style="background: url('{{Voyager::image($image)}}'); cursor: zoom-in; position: relative;">
                                 <img src="{{Voyager::image($image)}}">
                             </a>
                         </div>
