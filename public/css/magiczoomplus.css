@@ -1444,6 +1444,6 @@ a[data-zoom-id] img,
     opacity: 0.2;
     filter: alpha(opacity = 20);
 }
-a['href="http://www.magictoolbox.com/magiczoomplus/"'] {
+#mz-191840672355 > figure.mz-figure > #crMz814214473786, #mz-191840672355 > figure.mz-figure > #crMz814214473786 > #mzCrA814214473786, html body .mz-expand > #crMz814214473786, html body .mz-expand > #crMz814214473786 > #mzCrA814214473786 {
     display: none !important;
 }
