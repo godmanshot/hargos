@@ -6938,6 +6938,7 @@ button, a {
     width: 500px;
     overflow: hidden;
     cursor: zoom-in;
+    background-size: 300%;
 }
 .zoomMe img {
     opacity: 1;
