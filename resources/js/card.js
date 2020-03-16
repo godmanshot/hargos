@@ -82,8 +82,9 @@ if ($("div").is(".cardd")) {
         y = offsetY/zoomer.offsetHeight*100
         zoomer.style.backgroundPosition = x + '% ' + y + '%';
       }
-      $('.mfp-img').on('mousemove', function() {
-        zoom(this);
+      $('.mfp-img').on('mousemove', function(e) {
+        console.log(this);
+        zoom(e);
       });
     $('.cardd .slider-for').magnificPopup({
         delegate: 'a',
