@@ -18,8 +18,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
 	<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
 	<link rel="stylesheet" href="{{asset('css/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
-    <link rel="stylesheet" href="{{asset('css/magiczoomplus.css')}}">
+	<link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
 	<link rel="stylesheet" href="{{asset('css/hc-offcanvas-nav.css')}}">
 	<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
 	<link rel="stylesheet" href="{{asset('css/glide.theme.min.css')}}">
@@ -298,8 +297,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="{{asset('js/popper.min.js')}}"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="{{asset('js/slick.min.js')}}"></script>
-    <script src="{{asset('js/magiczoomplus.js')}}"></script>
+	<script src="{{asset('js/slick.min.js')}}"></script>
 	<script src="{{asset('js/select2.min.js')}}"></script>
 	<script src="{{asset('js/glide.min.js')}}"></script>
 	<script src="{{asset('js/hc-offcanvas-nav.js')}}"></script>
