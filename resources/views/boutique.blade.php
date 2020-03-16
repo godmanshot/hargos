@@ -22,7 +22,7 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                        <a href="{{Voyager::image($image)}}" class="zoomMe" style="background: url('{{Voyager::image($image)}}');">
+                        <a onmousemove="zoom(event)" href="{{Voyager::image($image)}}" class="zoomMe" style="background: url('{{Voyager::image($image)}}');">
                                 <img src="{{Voyager::image($image)}}">
                             </a>
                         </div>
@@ -437,4 +437,15 @@
     </div>
     @endif
 </div>
+<script>
+    function zoom(e){
+        var zoomer = e.currentTarget;
+        console.log(zoomer);
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*100
+        y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+      }
+</script>
 @endsection
