@@ -74,7 +74,9 @@ if ($("div").is(".cardd")) {
             duration: 200 // don't foget to change the duration also in CSS
         }
     });
-
+    $(document).ready(function(){
+        $('.mfp-figure figure').zoom();
+    });
     $('.cardd .slider-for').magnificPopup({
         delegate: 'a',
         type: 'image',
