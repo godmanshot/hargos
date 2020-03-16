@@ -22,8 +22,10 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                            <a href="{{Voyager::image($image)}}" class="MagicZoom" data-options="zoomPosition: inner">
-                                <img src="{{Voyager::image($image)}}">
+                            <a href="{{Voyager::image($image)}}" data-options="zoomPosition: inner">
+                                <span class="MagicZoom">
+                                    <img src="{{Voyager::image($image)}}">
+                                </span>
                             </a>
                         </div>
                     @endforeach
