@@ -74,9 +74,17 @@ if ($("div").is(".cardd")) {
             duration: 200 // don't foget to change the duration also in CSS
         }
     });
-    $(document).ready(function(){
-        $('.mfp-figure figure').zoom();
-    });
+    function zoom(e){
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*100
+        y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+      }
+      $('.mfp-img').on('mousemove', function() {
+        zoom(this);
+      });
     $('.cardd .slider-for').magnificPopup({
         delegate: 'a',
         type: 'image',
