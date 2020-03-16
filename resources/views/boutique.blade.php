@@ -22,7 +22,7 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                        <a onmousemove="zoom(event)" href="{{Voyager::image($image)}}" class="zoomMe" style="background: url('{{Voyager::image($image)}}');">
+                        <a  onmousemove="zoom(event)" href="{{Voyager::image($image)}}" class="zoomMe" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
                                 <img src="{{Voyager::image($image)}}">
                             </a>
                         </div>
@@ -440,7 +440,6 @@
 <script>
     function zoom(e){
         var zoomer = e.currentTarget;
-        console.log(zoomer);
         e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
         e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
         x = offsetX/zoomer.offsetWidth*100
