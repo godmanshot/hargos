@@ -23,7 +23,7 @@
                     @foreach($images as $image)
                         <div>
                         <a  href="{{Voyager::image($image)}}">
-                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
+                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url('{{Voyager::image($image)}}')">
                                 <img src="{{Voyager::image($image)}}">
                             </figure>
                         </a>

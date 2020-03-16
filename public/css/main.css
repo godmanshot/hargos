@@ -6939,3 +6939,9 @@ button, a {
     overflow: hidden;
     cursor: zoom-in;
 }
+.zoomMe img {
+    opacity: 1;
+}
+.zoomMe:hover img{
+    opacity: 0;
+}
