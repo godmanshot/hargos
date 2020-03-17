@@ -9,7 +9,7 @@
             <div class="row mt-5 mb-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
-                        <a href="#">
+                        <a href="/">
                             <span>{{__('главная')}}</span>
                         </a>
                         <span>/</span>
@@ -128,7 +128,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="row">
-                    <div class="col-xl-7">
+                    <div class="col-xl-7 col-lg-7">
                         {!!Block::_('4Tgj268eCPXj6N2V')!!}
                         <ul>
                             <li>

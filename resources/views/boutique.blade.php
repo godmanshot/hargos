@@ -6,7 +6,7 @@
         <div class="row mt-5 mb-5">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 col-12 pr-0">
                 <div class="flexible justify-content-start">
-                    <a href="#">
+                    <a href="/">
                         <span>главная</span>
                     </a>
                     <span>/</span>
@@ -22,9 +22,11 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                            <a href="{{Voyager::image($image)}}">
+                        <a  href="{{Voyager::image($image)}}">
+                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url('{{Voyager::image($image)}}')">
                                 <img src="{{Voyager::image($image)}}">
-                            </a>
+                            </figure>
+                        </a>
                         </div>
                     @endforeach
                 </div>
@@ -346,7 +348,7 @@
                 </div>
             </div>
         </div>
-        
+
     @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
     <div class="container-fluid favorite-boutiques">
         <div class="container">
@@ -437,4 +439,14 @@
     </div>
     @endif
 </div>
+<script>
+    function zoom(e){
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*100
+        y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+      }
+</script>
 @endsection
