@@ -18,6 +18,8 @@ class Boutique extends Model
         'owner_name',
         'languages',
         'full_description',
+        'str_products',
+        'str_products_all'
     ];
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];

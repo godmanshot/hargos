@@ -48,7 +48,7 @@
 						</div>
 						<div id="livesearch" class="w-100 bg-white mt-2" style="z-index: 100; max-height: 500px; overflow-y: auto"></div>
 					</form>
-					<p class="search-example">{{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
+					<p class="search-example">@lang('search-placeholder-example-label'){{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
 				</div>
 				<div class="col-xl-2 col-sm-4">
 					<ul class="nav pl-3">
@@ -89,7 +89,7 @@
 							<a class="toggle">
 								<span></span>
 							</a>
-							<h3>{{__('Каталог бутиков')}}</h3>
+							<h3>@lang('interface.catalog-boutiques')</h3>
 						</div>
 					</div>
 					<div class="col-xl-9 flexible">

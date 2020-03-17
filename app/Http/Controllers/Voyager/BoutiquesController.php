@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Voyager;
 
+use App\Translation;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         if (!$request->has('_validate')) {
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             $this->addWatermark($data);
-            $this->addProducts($data);
+            $this->addProducts($data, $request->str_products_i18n);
             $this->addProductsAll($data);
             event(new BreadDataAdded($dataType, $data));
             if ($request->ajax()) {
@@ -41,7 +42,8 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
 
     public function update(Request $request, $id)
     {
-        
+        $str_products_i18n = json_decode($request->str_products_i18n, true);
+        $str_products_all_i18n = json_decode($request->str_products_all_i18n, true);
         $slug = $this->getSlug($request);
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
         // Compatibility with Model binding.
@@ -58,8 +60,8 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $old_images = json_decode($data->images ?? '[]', true);
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
             $this->addWatermark($data, $old_images);
-            $this->addProducts($data);
-            $this->addProductsAll($data);
+            $this->addProducts($data, $str_products_i18n);
+            $this->addProductsAll($data, $str_products_all_i18n);
             event(new BreadDataUpdated($dataType, $data));
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
@@ -107,39 +109,72 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         }
     }
 
-    public function addProducts($model)
+    public function addProducts($model, $fields)
     {
+        $products = array_map(function($field) {
+            return array_map('trim', explode(';', $field));
+        }, $fields);
+        $defaultLocaleProducts = $products[Translation::getDefaultLocale()];
+        unset($products[Translation::getDefaultLocale()]);
         $model->products()->delete();
-        $products = array_map('trim', explode(';', $model->str_products));
         $products_tmp = [];
 
-        foreach($products as $product) {
+        foreach($defaultLocaleProducts as $index => $product) {
             if(empty($product)) {
                 continue;
             }
-            $product = array_map('trim', explode('-', $product));
-            $prices = isset($product[1]) ? array_map('trim', explode(',', $product[1])) : [0, 0];
-            $name = $product[0];
+            $prod = array_map('trim', explode('-', $product));
+            $prices = isset($prod[1]) ? array_map('trim', explode(',', $prod[1])) : [0, 0];
+            $name = $prod[0];
             $price_from = $prices[0];
             $price_to = $prices[1];
-    
-            $products_tmp[] = $model->products()->create(['name' => $name, 'price_from' => $price_from, 'price_to' => $price_to]);
+            $tmp = $model->products()->create(['name' => $name, 'price_from' => $price_from, 'price_to' => $price_to]);
+            $foreignKey = $tmp->id;
+            $products_tmp[] = $tmp;
+
+            foreach(Translation::getLocales() as $locale) {
+                $localeProduct = array_map('trim', explode('-', $products[$locale][$index]));
+                $localeName = $localeProduct[0];
+                Translation::create([
+                    'table_name' => 'boutique_products',
+                    'column_name' => 'name',
+                    'foreign_key' => $foreignKey,
+                    'locale' => $locale,
+                    'value' => $localeName
+                ]);
+            }
         }
 
         return $products_tmp;
     }
 
-    public function addProductsAll($model)
+    public function addProductsAll($model, $fields)
     {
+        $products = array_map(function($field) {
+            return array_map('trim', explode(';', $field));
+        }, $fields);
+        $defaultLocaleProducts = $products[Translation::getDefaultLocale()];
+        unset($products[Translation::getDefaultLocale()]);
+        
         $model->allProducts()->delete();
-        $products = array_map('trim', explode(';', $model->str_products_all));
         $products_tmp = [];
-
-        foreach($products as $product) {
+        
+        foreach($defaultLocaleProducts as $index => $product) {
             if(empty($product)) {
                 continue;
             }
-            $products_tmp[] = $model->allProducts()->create(['name' => $product]);
+            $tmp = $model->allProducts()->create(['name' => $product]);
+            $foreignKey = $tmp->id;
+            $products_tmp[] = $tmp;
+            foreach(Translation::getLocales() as $locale) {
+                Translation::create([
+                    'table_name' => 'all_products',
+                    'column_name' => 'name',
+                    'foreign_key' => $foreignKey,
+                    'locale' => $locale,
+                    'value' => $products[$locale][$index]
+                ]);
+            }
         }
 
         return $products_tmp;
