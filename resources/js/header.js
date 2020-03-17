@@ -3,13 +3,20 @@ window.axios = require("axios");
 $(document).ready(function() {
     var searchInput = document.querySelectorAll('#predictive_search');
     var activeSearchBtn;
+    var timerInterval = 500;
+    var searchTimer;
+    
     for (const search of searchInput) {
         search.addEventListener('keyup', function() {
             var activeLiveSearch = this.parentNode.nextElementSibling;
             activeSearchBtn = this.nextElementSibling;
             var activeInput = this;
+            clearInterval(searchTimer);
+            searchTimer = setTimeout(() => showResult(this.value, activeLiveSearch), timerInterval);
+        });
 
-            showResult(this.value, activeLiveSearch);
+        search.addEventListener('keydown', function() {
+            clearInterval(searchTimer);
         });
     }
 

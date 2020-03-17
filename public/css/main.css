@@ -6925,6 +6925,9 @@ button, a {
   margin: 0 auto;
 }
 
+/* .banner--clone.banner--unstick #livesearch {
+  display: none;
+} */
 
 #livesearch {
     transition: all .3s ease;
