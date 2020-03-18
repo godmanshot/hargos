@@ -7,21 +7,21 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                 <div class="flexible">
                     <a href="/">
-                        <span>{{__('главная')}}</span>
+                        <span>@lang('interface.main')</span>
                     </a>
                     <span>/</span>
-                    <h4>{{__('отзывы')}}</h4>
+                    <h4>@lang('interface.reviews')</h4>
                 </div>
             </div>
             <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
         </div>
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-sm-6 d-flex align-items-center">
-                <h1>{{__('Наши клиенты о нас')}}</h1>
+                <h1>@lang('interface.clientsAboutUs')</h1>
             </div>
             <div class="col-xl-2 col-lg-3 col-sm-6">
                 <a href="#leave__review-wrapper" class="leave__review">
-                    {{__('Оставить отзыв')}}
+                    @lang('interface.liveAReview')
                 </a>
             </div>
             <div class="col-xl-7"></div>
@@ -42,7 +42,7 @@
                             <div class="col-xl-4">
                                 <div class="reviewBy">
                                     <h2>{{$review->name}} <span>{{$review->dateFormated}}</span></h2>
-                                    <h2>{{__('Оценка')}}</h2>
+                                    <h2>@lang('interface.rating')</h2>
                                     <div class="star-rating__wrapper">
                                         <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$review->rating >= 5 ? 'star-rating__checked' : ''}}">
                                             <input class="star-rating__input" type="radio" name="rating" value="5">
@@ -70,7 +70,7 @@
                 <div class="row justify-content-end mt-3">
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-12">
                             <div class="useful__wrapper">
-                                <h2>{{__('Отзыв полезен')}}</h2>
+                                <h2>@lang('interface.reviewIsHelpful')</h2>
                                 <span class="review-like" data-id="{{ $review->id }}"
                                 {{-- @if( !in_array($review->id, json_decode(request()->cookie('can_like', '[]'), true)) )
                                         onclick="window.location.href = '{{url('/reviews/'.$review->id.'/like')}}';"
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-md-4 pl-2 pr-2 pt-2">
-                                <button type="submit" class="leave__review-btn">Оставить отзыв</button>
+                                <button type="submit" class="leave__review-btn">@lang('interface.liveAReview')</button>
                             </div>
                         </div>
                     </form>

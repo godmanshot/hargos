@@ -10,10 +10,10 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="/">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('о компании')}}</h4>
+                        <h4>@lang('interface.aboutCompany')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>{{__('Что такое')}} “<span>{{__('SMART SHOPPING')}}</span>”?</h1>
+                    <h1>@lang('interface.whatIs') “<span>{{__('SMART SHOPPING')}}</span>”?</h1>
                 </div>
             </div>
             <div class="row">
@@ -106,11 +106,11 @@
                 <div class="col-xl-4 col-sm-12 col-md-8 col-lg-4">
                     <div class="makeSure">
                         <div>
-                            <h1>{{__('Узнайте точно')}}</h1>
+                            <h1>@lang('interface.findOutForSure')</h1>
                             <div class="no-spacing">
                                 {!!Block::_('6tOPu9JcT6fHv2gG')!!}
                             </div>
-                            <button type="button" class="getConsultation">{{__('Получить консультацию')}}</button>
+                            <button type="button" class="getConsultation">@lang('interface.getAConsultation')</button>
                             <div class="no-spacing">
                                 {!!Block::_('GQfI1j13nUJYFsFp')!!}
                             </div>
@@ -157,10 +157,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h2>{{__('Сколько у нас бутиков?')}}</h2>
+                    <h2>@lang('interface.howManyBoutiquesDoWeHave')</h2>
                 </div>
                 <div class="col-xl-12">
-                    <h1>{{__('1000 брендов')}}</h1>
+                    <h1>@lang('interface.thousandBrands')</h1>
                 </div>
                 <div class="col-xl-7 col-lg-7"></div>
                 <div class="col-xl-5 col-md-6 col-lg-5">
@@ -184,7 +184,7 @@
         <div class="container quality__container">
             <div class="row">
                 <div class="col-xl-6 col-md-6">
-                    <h1>{{__('Как у нас с качеством?')}}</h1>
+                    <h1>@lang('interface.howAreWeWithTheQuality')</h1>
                     {!!Block::_('YcwIwsMHp17pJF6w')!!}
                     <div class="quotes">
                         {!!Block::_('IAczmBIWjF83RYYK')!!}

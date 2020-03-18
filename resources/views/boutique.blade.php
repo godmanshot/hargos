@@ -7,7 +7,7 @@
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 col-12 pr-0">
                 <div class="flexible justify-content-start">
                     <a href="/">
-                        <span>главная</span>
+                        <span>@lang('interface.main')</span>
                     </a>
                     <span>/</span>
                     <h4>{{$boutique->getTranslatedAttribute('name')}}</h4>
@@ -45,7 +45,7 @@
                             <h1>{{$boutique->getTranslatedAttribute('name')}}</h1>
                         </div>
                         <div class="col-xl-6 col-sm-4 col-12">
-                            <p>{{__('Поделиться')}}</p>
+                            <p>@lang('interface.share')</p>
                             <ul class="share">
                                 <li>
                                     <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-xl-4 col-sm-5 col-12">
                             <div class="boutique__rating">
-                                <p>{{__('Рейтинг')}}:</p>
+                                <p>@lang('interface.rating')</p>
                                 <div class="star-rating__wrapper">
                                     {!!$boutique->averageRatingHtml!!}
                                 </div>
@@ -71,24 +71,24 @@
                                     @method('POST')
                                     @csrf
 
-                                    <button type="submit" class="btn btn-link pl-0">{{__('В избранное')}}</button>
+                                    <button type="submit" class="btn btn-link pl-0">@lang('interface.addToFavorites')</button>
                                 </form>
                                 @else
                                 <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
 
-                                    <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
+                                    <button type="submit" class="btn btn-link pl-0">@lang('interface.deleteFromFavorite')</button>
                                 </form>
                                 @endif
                             @endauth
-                            <b>{{__('Эту страницу посещали')}} {{$current_page_visitors_count}} {{__('человек')}}</b>
+                            <b>@lang('interface.thisPageVisitedBy') {{$current_page_visitors_count}} @lang('interface.people')</b>
                         </div>
                     </div>
                     <div class="boutique__info">
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Торговый дом')}}</p>
+                                <p>@lang('interface.shoppingMall')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->tradingHousesName}}</h2>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Этаж')}}</p>
+                                <p>@lang('interface.floor')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->floor}}</h2>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Номер бутика')}}</p>
+                                <p>@lang('interface.boutiqueNumber')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->boutique_number}}</h2>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Категория')}}</p>
+                                <p>@lang('interface.category')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->categoriesName}}</h2>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Бутик')}}</p>
+                                <p>@lang('interface.boutique')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->getTranslatedAttribute('name')}}</h2>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Имя продавца')}}</p>
+                                <p>@lang('interface.sellerName')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->getTranslatedAttribute('seller_name')}}</h2>
@@ -136,7 +136,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Имя владельца')}}</p>
+                                <p>@lang('interface.ownerName')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->getTranslatedAttribute('owner_name')}}</h2>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Язык общения')}}</p>
+                                <p>@lang('interface.language')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->getTranslatedAttribute('languages')}}</h2>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-sm-4 col-6">
-                                <p>{{__('Телефон')}}</p>
+                                <p>@lang('interface.phone')</p>
                             </div>
                             <div class="col-xl-9 col-md-6 col-sm-8 col-6">
                                 <h2>{{$boutique->getTranslatedAttribute('phone')}}</h2>
@@ -194,7 +194,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>{{__('Описание магазина')}}</h1>
+                    <h1>@lang('interface.shopDescription')</h1>
                 </div>
                 <div class="col-xl-12">
                     <div class="moreContent">
@@ -216,7 +216,7 @@
                 <div class="pricesPerProducts">
                     <div class="row">
                         <div class="col-xl-4 col-6">
-                            <h1>Цены на товары от А до Я</h1>
+                            <h1>@lang('interface.pricesFromAToZ')</h1>
                         </div>
                         <div class="col-xl-4 col-6">
                             <select class="prices js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -278,7 +278,7 @@
                     <div class="mallMap">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h1>{{__('Карта торгового центра')}}</h1>
+                                <h1>@lang('interface.tcMap')</h1>
                             </div>
                         </div>
                         <a class="zoomMap" href="{{Voyager::image($boutique->trading_house_image)}}">
@@ -354,7 +354,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
+                    <h1 class="favorite-header">@lang('interface.feautredBoutiques')</h1>
                 </div>
             </div>
             <div class="row favorite__slick">
@@ -369,8 +369,8 @@
                         <div class="star-rating__wrapper">
                             {!!$fav_boutique->averageRatingHtml!!}
                         </div>
-                        <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                        <p>Артикул: {{$fav_boutique->id}}</p>
+                        <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                        <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                     </div>
                 </div>
                 @endforeach
@@ -384,7 +384,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">{{__('Похожие бутики')}}</h1>
+                    <h1 class="favorite-header">@lang('interface.similarBoutiques')</h1>
                 </div>
             </div>
             <div class="row similar__slick">
@@ -399,7 +399,7 @@
                                 <div class="star-rating__wrapper">
                                     {!!$boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">{{__('Перейти в бутик')}}</a>
+                                <a href="{{route('boutique', $boutique)}}">@lang('interface.goToTheBoutiques')</a>
                                 <p>Артикул: {{$boutique->id}}</p>
                             </div>
                         </div>
@@ -414,7 +414,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">{{__('Рекомендуемые бутики')}}</h1>
+                    <h1 class="favorite-header">@lang('interface.recommednedBoutiques')</h1>
                 </div>
             </div>
             <div class="row recommended__slick">
@@ -429,8 +429,8 @@
                                 <div class="star-rating__wrapper">
                                     {!!$boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$boutique->id}}</p>
+                                <a href="{{route('boutique', $boutique)}}">@lang('interface.goToTheBoutiques')</a>
+                                <p>@lang('interface.sku'): {{$boutique->id}}</p>
                             </div>
                         </div>
                     @endforeach

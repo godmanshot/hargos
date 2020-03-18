@@ -7,10 +7,10 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="/">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('контакты')}}</h4>
+                        <h4>@lang('interface.contacts')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -28,12 +28,12 @@
                                 <a href="tel: {{setting('kontakty.phone-2')}}">{{setting('kontakty.phone-2')}}</a>
                             </div>
                             <div class="contact__details">
-                                <h2>{{__('Адрес')}}</h2>
+                                <h2>@lang('interface.address')</h2>
                                 <p>{{setting('sayt.address')}}</p>
                             </div>
                         </div>
                         <div class="contact__card">
-                            <h2>{{__('Генеральный директор')}}:</h2>
+                            <h2>@lang('interface.ceo'):</h2>
                             <div class="card__wrapper">
                                 <div class="img__wrapper">
                                     <img src="{{Voyager::image(setting('kontakty.director-photo'))}}">
@@ -42,16 +42,16 @@
                             </div>
                         </div>
                         <div class="contact__details--wrapper">
-                            <h1>{{__('Отправить сообщения')}}</h1>
+                            <h1>@lang('interface.liveAMessage')</h1>
                             <form action="{{route('send')}}" method="POST" class="leave__message-form" id="leave__message-form">
                                 @csrf
-                                <input type="text" name="name" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
+                                <input type="text" name="name" placeholder="@lang('interface.name')" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
                                 <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
-                                <textarea name="message" required placeholder="Сообщение" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
-                                <button type="submit" class="leave__message-btn">Отправить</button>
+                                <textarea name="message" required placeholder="@lang('interface.message')" oninvalid="this.setCustomValidity('Введите ваше сообщение')" oninput="setCustomValidity('')"></textarea>
+                                <button type="submit" class="leave__message-btn">@lang('interface.send')</button>
                                 <div class="consent__wrapper">
                                     <input id="consent" type="checkbox" required oninvalid="this.setCustomValidity('Необходимо принять условие соглашения')" oninput="setCustomValidity('')">
-                                    <label for="consent">Даю согласие на обработку <span>персональных данных</span></label>
+                                    <label for="consent">@lang('interface.agreemnt') <span>@lang('interface.personal')</span></label>
                                 </div>
                             </form>
                         </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-xl-8 col-md-6 col-lg-7 pl-1 pr-1">
                     <div class="map__wrapper">
-                        <h1>{{__('Общество с ограниченной ответственностью “Хоргос”')}}</h1>
+                        <h1>@lang('interface.llcHorgos')</h1>
                         <div class="separator"></div>
                     </div>
                     <div class="mapouter"><div class="gmap_canvas">{!!setting('kontakty.map')!!}</div></div>
@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 mt-5">
-                        <h1 class="favorite-header">Избранные бутики</h1>
+                        <h1 class="favorite-header">@lang('interface.featuredBoutiques')</h1>
                     </div>
                 </div>
                 <div class="row favorite__slick">
@@ -86,8 +86,8 @@
                                 <div class="star-rating__wrapper">
                                     {!!$fav_boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$fav_boutique->id}}</p>
+                                <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                                <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                             </div>
                         </div>
                         @endforeach

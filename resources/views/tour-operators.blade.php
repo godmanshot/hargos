@@ -9,10 +9,10 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="/">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('тур операторы')}}</h4>
+                        <h4>@lang('interface.tourOperators')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -36,7 +36,7 @@
                     <div class="filters-confirm__bc"></div>
                     <div class="filters-confirm__block">
                         <div class="filters-question__block">
-                            <h2>{{__('Ваш город')}}?</h2>
+                            <h2>@lang('interface.yourCity')?</h2>
                             <div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -44,13 +44,13 @@
                                     width="17px" height="23px">
                                     <image  x="0px" y="0px" width="17px" height="23px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAXCAMAAADa6lTVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB7FBMVEX/////yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/yFH/////yFH/yFH/////////////////////////yFH/yFH/3ZP/////////////////////////////////yFH/////////////////////////////46j/yFH/yFH/////////////yFH/yFH/////////////////yFH/yFH/////////////////////////yFH/yFH/yFH/////////////////////////////////////////+/P/yFH/8tX/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yFH////KA3NuAAAAonRSTlMAIpTZ8t2dLUTq+/NXH+zCRyNAs/Uui8gIAaLLP9/XOSbuv29V1OQrHdaGC9DrVn/jFQRNWESOPQKgWQLMCLNBfnNjLJwkUgaSCUqhjyACvMchcXtBSzeEjGC2wElvFJhCgj38SApyHw0pi8aFa1AdZxl9triQk2RdGiZXRRI5eAMPVnlATmolblGWE5eBO40BsXoIHAsusDZ1F0dtPyhbiplmDWT2AAAAAWJLR0QAiAUdSAAAAAd0SU1FB+MLChAbM06pGwUAAAFFSURBVBjTPY6HN4JRGIdfI5siK5vM7CgjSmb47JGMEkqyoygrUbbI3rx/qft9fbzn3N9zz3Pu+zsXACAgMCiYExIK/xMWjhiBGBn1J6JjkMuLjeNjfAJrEjEpmUDAxxTWpKL/eRqmsyYDMxlmYTZrclDIMBfzWCPE/AKCwiIUsaa4BEtFZeUVyKn0CzFUoX+qJdKaWmLq6mVcRjQ0yhVNyuYWaFW08RjT3qEC6OzqBqoHevuI6JcNqOiWQRiSAAwTMwKjarp2DDQawnGcEMDkFLlpdTCtJ5yZnQODUT1vggUzKBaXlldW19Yt1Mam1abXKWFr22R37Oza98T7B+A8dB2B5ZhsuT0kTigSDilQDsLTM7r0nMTFJeichFfX9Fe85NyY4dbndtyp7h8eXb4ntefZ8AKvb0arVW6xed8/tJ9f37afX17/XfilHfEPAAAAAElFTkSuQmCC" />
                                 </svg>
-                                <p class="isCity">{{__('Алматы')}}</p>
+                                <p class="isCity">@lang('interface.almaty')</p>
                             </div>
                         </div>
                         <div class="filters-answer__block">
-                            <button class="rightCity">{{__('Да')}}</button>
+                            <button class="rightCity">@lang('interface.yes')</button>
                             <div class="separator"></div>
-                            <button class="wrongCity">{{__('Нет, другой город')}}</button>
+                            <button class="wrongCity">@lang('interface.noOhterCity')</button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                             </select>
                         </div>
                         <div class="col-xl-3 separator">
-                            <button class="clear-filter">{{__('Очистить фильтр')}}</button>
+                            <button class="clear-filter">@lang('interface.clearFilter')</button>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">Избранные бутики</h1>
+                    <h1 class="favorite-header">@lang('interface.featuredBoutiques')</h1>
                 </div>
             </div>
             <div class="row favorite__slick">
@@ -221,8 +221,8 @@
                             <div class="star-rating__wrapper">
                                 {!!$fav_boutique->averageRatingHtml!!}
                             </div>
-                            <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                            <p>Артикул: {{$fav_boutique->id}}</p>
+                            <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
+                            <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                         </div>
                     </div>
                     @endforeach
