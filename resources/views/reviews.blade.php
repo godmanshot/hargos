@@ -106,16 +106,16 @@
                         @csrf
                         <div class="row">
                             <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
-                                <input type="text" name="uname" placeholder="Имя" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
+                                <input type="text" name="uname" placeholder="@lang('interface.name')" required oninvalid="this.setCustomValidity('Введите ваше имя')" oninput="setCustomValidity('')">
                             </div>
                             <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
-                                <input type="tel" name="utel" placeholder="Телефон" required oninvalid="this.setCustomValidity('Введите ваш номер телефона')" oninput="setCustomValidity('')">
+                                <input type="tel" name="utel" placeholder="@lang('interface.phone')" required oninvalid="this.setCustomValidity('Введите ваш номер телефона')" oninput="setCustomValidity('')">
                             </div>
                             <div class="col-xl-4 col-md-4 pl-2 pr-2 pb-2">
-                                <input type="email" name="umail" placeholder="Эл. почта" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
+                                <input type="email" name="umail" placeholder="Email" required oninvalid="this.setCustomValidity('Введите ваш email')" oninput="setCustomValidity('')">
                             </div>
                             <div class="col-xl-12 pl-2 pr-2 pt-2 pb-2">
-                                <textarea name="review__textarea" required placeholder="Оставьте отзыв" oninvalid="this.setCustomValidity('Введите ваш отзыв')" oninput="setCustomValidity('')"></textarea>
+                                <textarea name="review__textarea" required placeholder="@lang('interface.liveAReview')" oninvalid="this.setCustomValidity('Введите ваш отзыв')" oninput="setCustomValidity('')"></textarea>
                             </div>
                             <div class="col-xl-4 col-md-4 pl-2 pr-2 pt-2">
                                 <div class="star-rating__wrapper">

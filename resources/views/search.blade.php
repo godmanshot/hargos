@@ -21,7 +21,7 @@
                         <div class="star-rating__wrapper">
                             {!!$model->averageRatingHtml!!}
                         </div>
-                        <a href="{{route('boutique', $model)}}">@lang('interface.goToTheBoutique')</a>
+                        <a href="{{route('boutique', $model)}}">@lang('interface.goToTheBoutiques')</a>
                         <p>@lang('interface.sku'): {{$model->id}}</p>
                     </div>
                 </div>

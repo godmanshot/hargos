@@ -16,7 +16,7 @@
                 <div class="star-rating__wrapper">
                     {!!$boutique->averageRatingHtml!!}
                 </div>
-                <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
                 <p>@lang('interface.sku'): {{$boutique->id}}</p>
             </div>
             <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">

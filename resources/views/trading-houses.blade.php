@@ -106,7 +106,7 @@
                     <div class="star-rating__wrapper">
                         {!!$boutique->averageRatingHtml!!}
                     </div>
-                    <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                    <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
                     <p>@lang('interface.sku'): {{$boutique->id}}</p>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                         <div class="star-rating__wrapper">
                             {!!$fav_boutique->averageRatingHtml!!}
                         </div>
-                        <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                        <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
                         <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                     </div>
                 </div>

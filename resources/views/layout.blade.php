@@ -54,7 +54,7 @@
 					<ul class="nav pl-3">
 						<li class="nav-item"><a href="{{ url('/lang/ru') }}" class="nav-link">RU</a></li>
 						<li class="nav-item"><a href="{{ url('/lang/en') }}" class="nav-link">EN</a></li>
-						<li class="nav-item"><a href="{{ url('/lang/kz') }}" class="nav-link">KZ</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/kk') }}" class="nav-link">KZ</a></li>
 					</ul>
 					@if(Auth::user())
 					<div class="loginOrReg">
