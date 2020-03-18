@@ -19,7 +19,8 @@ class Boutique extends Model
         'languages',
         'full_description',
         'str_products',
-        'str_products_all'
+        'str_products_all',
+        'description_mobile'
     ];
 
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
