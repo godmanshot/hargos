@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-xl-3">
                                     @if(!empty($slide->link))
-                                    <a href="{{$slide->link}}" class="detailed">{{__('подробнее')}}</a>
+                                    <a href="{{$slide->link}}" class="detailed">@lang('interface.detailed')</a>
                                     @endif
                                 </div>
                                 <div class="col-xl-9"></div>
@@ -133,7 +133,7 @@
                                             <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                             <p>{{$item->boutiqueCategories}}</p>
                                         </div>
-                                        <a href="{{$item->boutiqueLink}}">@lang('interface.goToTheBoutique')</a>
+                                        <a href="{{$item->boutiqueLink}}">@lang('interface.goToTheBoutiques')</a>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@
         <div class="container special-block">
             <div class="row">
                 <div class="col-xl-6 col-sm-6">
-                    <h2>@lang('interface.sepeciallyForYou')</h2>
+                    <h2>@lang('interface.speciallyForYou')</h2>
                 </div>
                 <div class="col-xl-6 col-sm-6">
                     <div class="hidenAdWrapper">
