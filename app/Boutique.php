@@ -23,6 +23,7 @@ class Boutique extends Model
         'description_mobile'
     ];
 
+    
     protected $appends = ['firstImage', 'categoriesName', 'averageRating'];
 
     public $with = ['categories', 'tradingHouses', 'products', 'allProducts', 'reviews', 'recommendedRelations', 'relatedRelations'];
