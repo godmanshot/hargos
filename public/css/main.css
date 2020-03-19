@@ -5271,7 +5271,7 @@ body {
 
 @media (max-width: 576px) {
     .zoomMe {
-        width: unset;
+        width: unset !important;
     }
   .cardd .slider-for .slick-slide img {
       max-width: 280px;
