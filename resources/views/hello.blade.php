@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-xl-3">
                                     @if(!empty($slide->link))
-                                    <a href="{{$slide->link}}" class="detailed">{{__('подробнее')}}</a>
+                                    <a href="{{$slide->link}}" class="detailed">@lang('interface.detailed')</a>
                                     @endif
                                 </div>
                                 <div class="col-xl-9"></div>
@@ -107,11 +107,11 @@
         <div class="container geek-block">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Гиды рекомендуют')}}</h2>
+                    <h2>@lang('interface.guidesRecommended')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="geek-recommendation__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -133,7 +133,7 @@
                                             <h3>{{$item->getTranslatedAttribute('name')}}</h3>
                                             <p>{{$item->boutiqueCategories}}</p>
                                         </div>
-                                        <a href="{{$item->boutiqueLink}}">Перейти в бутик</a>
+                                        <a href="{{$item->boutiqueLink}}">@lang('interface.goToTheBoutiques')</a>
                                     </div>
                                 </div>
                             </div>
@@ -148,11 +148,11 @@
         <div class="container special-block">
             <div class="row">
                 <div class="col-xl-6 col-sm-6">
-                    <h2>{{__('Специально для вас')}}</h2>
+                    <h2>@lang('interface.speciallyForYou')</h2>
                 </div>
                 <div class="col-xl-6 col-sm-6">
                     <div class="hidenAdWrapper">
-                        <a href="#" class="hidenAd">cкрытая фраза - реклама</a>
+                        <a href="#" class="hidenAd">@lang('interface.hiddenPhraseAdvertising')</a>
                     </div>
                 </div>
             </div>
@@ -206,11 +206,11 @@
         <div class="container category-discounts">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Скидки по категориям')}}</h2>
+                    <h2>@lang('interface.salesByCategories')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="category-discounts__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -316,11 +316,11 @@
         <div class="container top-products">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Топ товары')}}</h2>
+                    <h2>@lang('interface.topProducts')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="top-products__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -369,11 +369,11 @@
         <div class="container popular-products">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Популярные товары')}}</h2>
+                    <h2>@lang('interface.popularProducts')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="popular-products__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -397,7 +397,7 @@
                                             <p>
                                                 {{$item->getTranslatedAttribute('description')}}
                                             </p>
-                                            <a href="{{$item->boutiqueLink}}">{{__('Подробнее')}}</a>
+                                            <a href="{{$item->boutiqueLink}}">@lang('interface.seeMore')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -412,11 +412,11 @@
         <div class="container about-us">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Интервью о нас')}}</h2>
+                    <h2>@lang('interface.interviewAboutUs')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="about-us__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -444,11 +444,11 @@
         <div class="container freebie">
             <div class="row">
                 <div class="col-xl-9 col-sm-6">
-                    <h2>{{__('Халява')}}</h2>
+                    <h2>@lang('interface.freebie')</h2>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="freebie__control-panel">
-                        <a href="#" class="showAll">{{__('Смотреть все')}}</a>
+                        <a href="#" class="showAll">@lang('interface.showAll')</a>
                         <ul>
                             <li class="prev"></li>
                             <li class="next"></li>
@@ -472,7 +472,7 @@
                                             <p>
                                                 {{$item->getTranslatedAttribute('description')}}
                                             </p>
-                                            <a href="{{$item->boutiqueLink}}">{{__('Подробнее')}}</a>
+                                            <a href="{{$item->boutiqueLink}}">@lang('interface.seeMore')</a>
                                         </div>
                                     </div>
                                 </div>

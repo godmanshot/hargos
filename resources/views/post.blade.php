@@ -7,10 +7,10 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="#">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('новости')}}</h4>
+                        <h4>@lang('interface.news')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -55,8 +55,8 @@
                                 <div class="star-rating__wrapper">
                                     {!!$fav_boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$fav_boutique->id}}</p>
+                                <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
+                                <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                             </div>
                         </div>
                         @endforeach

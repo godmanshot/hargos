@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container boutique__container mt-5">
-    <h1 class="h1">Избранное</h1>
+    <h1 class="h1">@lang('interface.favorites')</h1>
     <div class="row" id="boutiquesInTradingHouses">
         @if ($boutiques->count() > 0)
         @foreach($boutiques as $boutique)
@@ -16,19 +16,19 @@
                 <div class="star-rating__wrapper">
                     {!!$boutique->averageRatingHtml!!}
                 </div>
-                <a href="{{route('boutique', $boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                <p>Артикул: {{$boutique->id}}</p>
+                <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
+                <p>@lang('interface.sku'): {{$boutique->id}}</p>
             </div>
             <form action="{{url('/favorite/'.$boutique->id)}}" method="POST">
                 @method('DELETE')
                 @csrf
 
-                <button type="submit" class="btn btn-link pl-0">{{__('Удалить из избранного')}}</button>
+                <button type="submit" class="btn btn-link pl-0">@lang('interface.deleteFromFavorite')</button>
             </form>
         </div>
         @endforeach
         @else
-        <p>Нет бутиков в избранном</p>
+        <p>@lang('interface.noBoutiquesInFavorite')</p>
         @endif
     </div>
 </div>

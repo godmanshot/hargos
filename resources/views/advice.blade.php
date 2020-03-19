@@ -8,17 +8,17 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="/">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('советы')}}</h4>
+                        <h4>@lang('interface.advice')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>{{__('Популярные советы')}}</h1>
+                    <h1>@lang('interface.popularAdvices')</h1>
                 </div>
                 <div class="col-xl-12">
                     <div class="popular__advices mt-4">
@@ -35,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        <h1>{{__('Видео')}}</h1>
+                        <h1>@lang('interface.video')</h1>
                     </div>
                     <div class="col-xl-12">
                         <div class="slider advice-player">
@@ -56,7 +56,7 @@
         <div class="container articles--container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h1>{{__('Статьи')}}</h1>
+                    <h1>@lang('interface.articles')</h1>
                 </div>
                 @if($posts->count())
                     @foreach($posts as $post)
@@ -74,7 +74,7 @@
                                     {!!$post->getTranslatedAttribute('content')!!}
                                     <div class="content__fadeout"></div>
                                 </div>
-                                <a class="article__more">{{__('Читать далее')}}</a>
+                                <a class="article__more">@lang('interface.readMore')</a>
                             </div>
                         </div>
                     </div>

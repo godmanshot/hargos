@@ -43,18 +43,18 @@
 				<div class="col-xl-8 col-sm-8">
 					<form action="{{route('search')}}" method="GET" class="search-form flex-wrap">
 						<div class="d-flex w-100">
-							<input class="search-field" type="search" id="predictive_search" placeholder="{{__('Поиск по продукции')}}" name="q" value="{{request()->q}}" required>
+							<input class="search-field" type="search" id="predictive_search" placeholder="@lang('interface.productSearchPlaceholder')" name="q" value="{{request()->q}}" required>
 							<input class="search-btn" id="predictive_search_btn" type="submit" value="">
 						</div>
 						<div id="livesearch" class="w-100 bg-white mt-2" style="z-index: 100; max-height: 500px; overflow-y: auto"></div>
 					</form>
-					<p class="search-example">@lang('search-placeholder-example-label'){{__('Например:')}} <span>{{__('Женские меховые жилетки')}}</span></p>
+					<p class="search-example">@lang('interface.productSearchPlaceholderLabel') <span>@lang('interface.productSearchPlaceholderExample')</span></p>
 				</div>
 				<div class="col-xl-2 col-sm-4">
 					<ul class="nav pl-3">
 						<li class="nav-item"><a href="{{ url('/lang/ru') }}" class="nav-link">RU</a></li>
 						<li class="nav-item"><a href="{{ url('/lang/en') }}" class="nav-link">EN</a></li>
-						<li class="nav-item"><a href="{{ url('/lang/kz') }}" class="nav-link">KZ</a></li>
+						<li class="nav-item"><a href="{{ url('/lang/kk') }}" class="nav-link">KZ</a></li>
 					</ul>
 					@if(Auth::user())
 					<div class="loginOrReg">
@@ -62,7 +62,7 @@
 
 						<a class="reg-btn" href="{{ route('logout') }}" onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
-							{{ __('Выйти') }}
+							@lang('interface.logout')
 						</a>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -71,8 +71,8 @@
 					</div>
 					@else
 					<div class="loginOrReg">
-						<a class="login-btn" href="{{route('login')}}">{{__('Войти')}}</a>
-						<a class="reg-btn" href="{{route('register')}}">{{__('Зарегистрироваться')}}</a>
+						<a class="login-btn" href="{{route('login')}}">@lang('interface.login')</a>
+						<a class="reg-btn" href="{{route('register')}}">@lang('interface.register')</a>
 					</div>
 					@endif
 				</div>
@@ -89,7 +89,7 @@
 							<a class="toggle">
 								<span></span>
 							</a>
-							<h3>@lang('interface.catalog-boutiques')</h3>
+							<h3>@lang('interface.catalogOfBoutiques')</h3>
 						</div>
 					</div>
 					<div class="col-xl-9 flexible">
@@ -117,7 +117,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
-					<h5>{{__('Меню')}}</h5>
+					<h5>@lang('interface.menu')</h5>
 					<ul class="footer__nav">
 						@php
 						$menu = menu('Меню в футере', '_json');
@@ -129,7 +129,7 @@
 					</ul>
 				</div>
 				<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6">
-					<h5>{{__('Торговые дома')}}</h5>
+					<h5>@lang('interface.shoppingMalls')</h5>
 					<ul class="footer__nav">
 						@php
 						$menu = menu('Торговые дома в футере', '_json');
@@ -141,13 +141,13 @@
 					</ul>
 				</div>
 				<div class="col-xl-5 col-lg-5 col-md-8">
-					<h5>{{__('Подпишитесь на рассылку')}}</h5>
+					<h5>@lang('interface.subscribe')</h5>
 					<form action="{{route('subscribe')}}" method="POST" class="subscription__form">
 						@csrf
-						<input class="subscription__value" type="email" name="email" placeholder="{{__('Почта')}}" required>
-						<button class="subscription__button" type="submit">{{__('Подписаться')}}</button>
+						<input class="subscription__value" type="email" name="email" placeholder="Email" required>
+						<button class="subscription__button" type="submit">@lang('interface.subscribe')</button>
 					</form>
-					<h5 class="mt-3">{{__('Мы в социальных сетях')}}</h5>
+					<h5 class="mt-3">@lang('interface.socials')</h5>
 					<ul class="social__btns mt-2">
 						@if(!empty(setting('sayt.facebook')))
 						<li><a href="{{setting('sayt.facebook')}}">
@@ -200,16 +200,16 @@
 					</div>
 				</div>
 				<div class="col-xl-3 col-lg-3 pl-5 mobile__padding-left">
-					<h5>{{__('Звоните')}}</h5>
+					<h5>@lang('interface.callUs')</h5>
 					<a class="phoneNumber" href="tel: {{setting('sayt.phone')}}">{{setting('sayt.phone')}}</a>
-					<button class="callOrder" type="button" data-toggle="modal" data-target="#callUs" onclick="function(){callhunter();}()">{{__('Заказать звонок')}}</button>
+					<button class="callOrder" type="button" data-toggle="modal" data-target="#callUs" onclick="function(){callhunter();}()">@lang('interface.orderACall')</button>
 					<div class="mt-4">
-						<h5>{{__('Адрес')}}</h5>
+						<h5>@lang('interface.address')</h5>
 						<p>{{setting('sayt.address')}}</p>
 					</div>
 					<div class="mt-4">
-						<h5>{{__('Время работы')}}</h5>
-						<p>Работаем с {{setting('sayt.work-time')}} без выходных.</p>
+						<h5>@lang('interface.workingHours')</h5>
+						<p>@lang('interface.working') @lang('interface.from') {{setting('sayt.work-time')}} @lang('interface.sevenDaysAWeek').</p>
 					</div>
 					<div class="mt-4">
 						<script type="text/javascript">
@@ -229,21 +229,21 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title" id="myModalLabel">Свяжитесь с нами</h4>
+									<h4 class="modal-title" id="myModalLabel">@lang('interface.contactUs')</h4>
 								</div>
 								<div class="modal-body">
 									<h2>{{setting('kontakty.name-1')}}</h2>
 									<a href="tel: {{setting('kontakty.phone-1')}}">{{setting('kontakty.phone-1')}}</a>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('interface.close')</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<p>Разработано В <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
+			<p>@lang('interface.developpedBy') <a href="https://www.a-lux.kz/">Алматы Люкс</a></p>
 			<div class="col-md-12 d-flex justify-content-end">
 
 			</div>
@@ -253,7 +253,7 @@
 	<nav id="catalog-nav">
 		<ul class="first-nav">
 			<li>
-				<span>Навигация</span>
+				<span>@lang('interface.navigation')</span>
 				<ul>
 					@php
 					$menu = menu('Главное меню сайта', '_json');

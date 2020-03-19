@@ -5,12 +5,15 @@ $(document).ready(function() {
     var activeSearchBtn;
     var timerInterval = 500;
     var searchTimer;
-    
+    var activeInput;
+    var activeLiveSearch;
+
     for (const search of searchInput) {
         search.addEventListener('keyup', function() {
-            var activeLiveSearch = this.parentNode.nextElementSibling;
+            activeLiveSearch = this.parentNode.nextElementSibling;
             activeSearchBtn = this.nextElementSibling;
-            var activeInput = this;
+            activeInput = this;
+            
             clearInterval(searchTimer);
             searchTimer = setTimeout(() => showResult(this.value, activeLiveSearch), timerInterval);
         });
@@ -42,7 +45,7 @@ $(document).ready(function() {
             });
     }
 
-    function addWordToSearchField(word) {
+    window.addWordToSearchField = function(word) {
         activeInput.value = word;
         activeLiveSearch.innerHTML = '';
         activeSearchBtn.click();

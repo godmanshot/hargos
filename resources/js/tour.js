@@ -232,8 +232,15 @@ if ($("div").is(".tour")) {
         }
     }
     function drawBoutique(boutiuque) {
-        document.getElementById("product__info").innerHTML = "";
-        document.getElementById("tour__program-content").innerHTML = "";
+        const productInfo = document.getElementById("product__info");
+        const tourProgramContent = document.getElementById("tour__program-content"); 
+        if(productInfo) {
+            productInfo.innerHTML = "";
+        }
+
+        if(tourProgramContent) {
+            tourProgramContent.innerHTML = "";
+        }
         for (boutiqueInfo of boutiuque) {
             let sliderWrapper = document.createElement("div");
             sliderWrapper.className = 'col-xl-5 col-md-6';

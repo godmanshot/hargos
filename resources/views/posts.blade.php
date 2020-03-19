@@ -7,10 +7,10 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                     <div class="flexible">
                         <a href="#">
-                            <span>{{__('главная')}}</span>
+                            <span>@lang('interface.main')</span>
                         </a>
                         <span>/</span>
-                        <h4>{{__('новости')}}</h4>
+                        <h4>@lang('interface.news')</h4>
                     </div>
                 </div>
                 <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -31,7 +31,7 @@
                                         {{$post->getTranslatedAttribute('description')}}
                                     </p>
                                     <div class="d-flex align-items-center">
-                                        <a href="{{route('posts.show', $post)}}" class="more">{{__('Подробнее')}}...</a>
+                                        <a href="{{route('posts.show', $post)}}" class="more">@lang('interface.more')...</a>
                                         <span>{{$post->dateFormated}}</span>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 mt-5">
-                        <h1 class="favorite-header">{{__('Избранные бутики')}}</h1>
+                        <h1 class="favorite-header">@lang('interface.featuredBoutiques')</h1>
                     </div>
                 </div>
                 <div class="row favorite__slick">
@@ -61,8 +61,8 @@
                                 <div class="star-rating__wrapper">
                                     {!!$fav_boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                                <p>Артикул: {{$fav_boutique->id}}</p>
+                                <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutique')</a>
+                                <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                             </div>
                         </div>
                         @endforeach

@@ -7,10 +7,10 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pr-0">
                 <div class="flexible">
                     <a href="/">
-                        <span>{{__('главная')}}</span>
+                        <span>@lang('interface.main')</span>
                     </a>
                     <span>/</span>
-                    <h4>{{__('торговые дома')}}</h4>
+                    <h4>@lang('interface.shoppingMalls')</h4>
                 </div>
             </div>
             <div class="col-xl-10 col-lg-9 col-md-8 col-sm-6 col-5"></div>
@@ -34,7 +34,7 @@
         </div>
         <div class="row mt-5">
             <div class="col-xl-12 mb-3">
-                <h1 class="category__header">{{__('Выберите категорию')}}</h1>
+                <h1 class="category__header">@lang('interface.selectACategory')</h1>
             </div>
             <div class="col-xl-12">
                 <div class="row">
@@ -53,14 +53,14 @@
                 <div class="col-xl-6 col-lg-8 col-sm-12">
                     <div class="row">
                         <div class="col-xl-3 col-sm-3">
-                            <h4 class="sort-by">{{__('Сортировать по')}}:</h4>
+                            <h4 class="sort-by">@lang('interface.sortBy')</h4>
                         </div>
                         <div class="col-xl-9 col-sm-9">
                             <ul class="filter__wrapper">
-                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'popular'])}}#filters-block" class="filter-btn" id="filter-by-popular">{{__('По популярности')}}</a></li>
-                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'top'])}}#filters-block" class="filter-btn top-products" id="filter-by-top">{{__('TOP товары')}}</a></li>
-                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'stock'])}}#filters-block" class="filter-btn discounts" id="filter-by-discount">{{__('Скидки %')}}</a></li>
-                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'new'])}}#filters-block" class="filter-btn novelties" id="filter-by-new">{{__('NEW')}}</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'popular'])}}#filters-block" class="filter-btn" id="filter-by-popular">@lang('interface.popular')</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'top'])}}#filters-block" class="filter-btn top-products" id="filter-by-top">@lang('interface.topProducts')</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'stock'])}}#filters-block" class="filter-btn discounts" id="filter-by-discount">@lang('interface.sales')</a></li>
+                                <li><a href="{{request()->fullUrlWithQuery(['sort' => 'new'])}}#filters-block" class="filter-btn novelties" id="filter-by-new">@lang('interface.new')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col-xl-7 col-lg-10 col-sm-9">
                             <form action="#filters-block" class="search-form">
-                                <input class="search-field" type="search" name="search" placeholder="{{__('Поиск')}}">
+                                <input class="search-field" type="search" name="search" placeholder="@lang('interface.search')">
                                 <input class="search-btn" type="submit" value="">
                             </form>
                         </div>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-sm-12 separator">
-                            <a href="{{url('/trading-houses')}}" class="clear-filter" id="filter-clear">Очистить фильтр</a>
+                            <a href="{{url('/trading-houses')}}" class="clear-filter" id="filter-clear">@lang('interface.clearFilter')</a>
                         </div>
                     </div>
                 </div>
@@ -106,8 +106,8 @@
                     <div class="star-rating__wrapper">
                         {!!$boutique->averageRatingHtml!!}
                     </div>
-                    <a href="{{route('boutique', $boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                    <p>Артикул: {{$boutique->id}}</p>
+                    <a href="{{route('boutique', $boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
+                    <p>@lang('interface.sku'): {{$boutique->id}}</p>
                 </div>
             </div>
             @endforeach
@@ -119,7 +119,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">Избранные бутики</h1>
+                    <h1 class="favorite-header">@lang('interface.featuredBoutiques')</h1>
                 </div>
             </div>
             <div class="row favorite__slick">
@@ -135,8 +135,8 @@
                         <div class="star-rating__wrapper">
                             {!!$fav_boutique->averageRatingHtml!!}
                         </div>
-                        <a href="{{route('boutique', $fav_boutique->id)}}">{{__('Перейти в бутик')}}</a>
-                        <p>Артикул: {{$fav_boutique->id}}</p>
+                        <a href="{{route('boutique', $fav_boutique->id)}}">@lang('interface.goToTheBoutiques')</a>
+                        <p>@lang('interface.sku'): {{$fav_boutique->id}}</p>
                     </div>
                 </div>
                 @endforeach
