@@ -153,7 +153,6 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         $products = array_map(function($field) {
             return array_map('trim', explode(';', $field));
         }, $fields);
-        dd($products);
         $defaultLocaleProducts = $products[Translation::getDefaultLocale()];
         unset($products[Translation::getDefaultLocale()]);
         

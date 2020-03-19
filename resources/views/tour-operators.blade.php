@@ -89,7 +89,7 @@
                 <div class="col-xl-4 col-lg-3">
                     <div class="schedule__left-block">
                         <h1>
-                            Расписание выездов на однодневный  шоппинг
+                            @lang('interface.schedule')
                         </h1>
                     </div>
                 </div>

@@ -102,5 +102,6 @@ return [
     'popular' => 'By popularity',
     'sales' => 'Discount%',
     'new' => 'NEW',
-    'search' => 'Search'
+    'search' => 'Search',
+    'schedule' => 'One-day shopping trip schedule',
 ];
