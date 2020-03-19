@@ -93,74 +93,32 @@
                         </h1>
                     </div>
                 </div>
+                @php
+                    $everydayTrips = \App\EverydayTrip::get();
+                @endphp
+                @foreach ($everydayTrips as $trip)
+                @php
+                    $trip = $trip->translate(app()->getLocale());
+                @endphp
                 <div class="col-xl-4 col-sm-6 col-lg-4">
                     <div class="schedule__right-block">
-                        <h1>Сентябрь 2019</h1>
+                        <h1>{{ $trip->title }}</h1>
                         <div class="schedule__content-wrapper">
-                            <h2>Дата выезда</h2>
-                            <ul>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                            </ul>
+                            <h2>@lang('interface.departureDate')</h2>
+                            {!! $trip->dates_description !!}
                             <div class="separator"></div>
-                            <p>Стоимость поездки:</p>
-                            <h3>6 500<sup>тг.</sup></h3>
-                            <p>Сбор группы:</p>
-                            <h3>с 21:00 до 21:30</h3>
-                            <p>Переодичность выездов -два раза в неделю!</p>
+                            <p>@lang('interface.costOfTravel'):</p>
+                            <h3>{{ $trip->price }}<sup>тг.</sup></h3>
+                            <p>@lang('interface.groupGathering'):</p>
+                            <h3>{{ $trip->meeting_starts_at }} {{ $trip->meeting_ends_at }}</h3>
+                            <p>{{ $trip->sub_title }}</p>
                             <div class="separator"></div>
-                            <p>Парковка метро ст. Алатау пр. Абая, угол ул. Жарокова (иногородних забираем с ЖД-1)</p>
+                            <p>{!! $trip->description !!}</p>
                             <div class="bottom__line"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-sm-6 col-lg-4">
-                    <div class="schedule__right-block">
-                        <h1>Сентябрь 2019</h1>
-                        <div class="schedule__content-wrapper">
-                            <h2>Дата выезда</h2>
-                            <ul>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                                <li>
-                                    <p><span>6</span> сентября 2019 г., с Пн., на Вт.</p>
-                                </li>
-                            </ul>
-                            <div class="separator"></div>
-                            <p>Стоимость поездки:</p>
-                            <h3>6 500<sup>тг.</sup></h3>
-                            <p>Сбор группы:</p>
-                            <h3>с 21:00 до 21:30</h3>
-                            <p>Переодичность выездов -два раза в неделю!</p>
-                            <div class="separator"></div>
-                            <p>Парковка метро ст. Алатау пр. Абая, угол ул. Жарокова (иногородних забираем с ЖД-1)</p>
-                            <div class="bottom__line"></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

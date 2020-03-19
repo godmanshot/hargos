@@ -104,4 +104,7 @@ return [
     'new' => 'NEW',
     'search' => 'Поиск',
     'schedule' => 'Расписание выездов на однодневный  шоппинг',
+    'departureDate' => 'Дата выезда',
+    'costOfTravel' => 'Стоимость поездки',
+    'groupGathering' => 'Сбор группы'
 ];

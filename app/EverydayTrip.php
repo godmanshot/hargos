@@ -11,16 +11,11 @@ class EverydayTrip extends Model
     
     public $translatable = [
         'title',
-        'dates',
+        'dates_description',
+        'price',
+        'meeting_starts_at',
+        'meeting_ends_at',
         'sub_title',
         'description'
     ];
-
 }
-
-// 'title',
-// 'dates',
-// 'price',
-// 'meeting_time',
-// 'sub_title',
-// 'description'

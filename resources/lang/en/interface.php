@@ -104,4 +104,7 @@ return [
     'new' => 'NEW',
     'search' => 'Search',
     'schedule' => 'One-day shopping trip schedule',
+    'departureDate' => 'Departure Date',
+    'costOfTravel' => 'Cost of travel',
+    'groupGathering' => 'Group gathering'
 ];

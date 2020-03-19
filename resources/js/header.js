@@ -1,5 +1,8 @@
 window.axios = require("axios");
 // HEADER PRODUCTION CATALOG
+window.lang = document.documentElement.lang;
+const locales = require('./lang/' + window.lang + '.js').default;
+
 $(document).ready(function() {
     var searchInput = document.querySelectorAll('#predictive_search');
     var activeSearchBtn;
@@ -56,11 +59,11 @@ $(document).ready(function() {
     let defaultData = {
         maxWidth: false,
         customToggle: $Toggle,
-        navTitle: 'Каталог',
+        navTitle: locales.catalog,
         levelTitles: true,
         pushContent: '#header',
         insertClose: /*11*/ false,
-        labelBack: 'Назад',
+        labelBack: locales.close,
        /* labelClose: 'Закрыть',*/
         closeLevels: false
     };

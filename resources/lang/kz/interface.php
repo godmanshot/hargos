@@ -104,4 +104,7 @@ return [
     'new' => 'ЖАҢА',
     'search' => 'Іздеу',
     'schedule' => 'Бір күндік сауда сапарларының кестесі',
+    'departureDate' => 'Ұшу күні',
+    'costOfTravel' => 'Саяхат құны',
+    'groupGathering' => 'Топтық жинақ'
 ];
