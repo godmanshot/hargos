@@ -5270,7 +5270,9 @@ body {
   background-color: transparent; }
 
 @media (max-width: 576px) {
-
+    .zoomMe {
+        width: unset;
+    }
   .cardd .slider-for .slick-slide img {
       max-width: 280px;
       margin-left: auto;
