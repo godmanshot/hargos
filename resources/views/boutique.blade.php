@@ -23,7 +23,7 @@
                     @foreach($images as $image)
                         <div>
                         <a href="{{Voyager::image($image)}}">
-                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url()">
+                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url({{Voyager::image($image)}})">
                                 <img class="asyncImage async-lazy async-figure" data-src="{{Voyager::image($image)}}" data-lazy="#">
                             </figure>
                         </a>
