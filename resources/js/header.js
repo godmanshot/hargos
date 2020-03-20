@@ -3,10 +3,10 @@ window.axios = require("axios");
 window.lang = document.documentElement.lang;
 var networkInformationApiPolyfill = require("network-information-api-polyfill");
 var type;
+var asyncImages = document.getElementsByClassName('asyncImage');
 new NetworkInformationApiPolyfill().then(connection => {
     type = connection.effectiveType;
     connection.addEventListener('change', updateConnectionStatus);
-    const asyncImages = document.getElementsByClassName('asyncImage');
 
     for (const asyncImage of asyncImages) {
         loadImage(asyncImage, type);
@@ -15,7 +15,7 @@ new NetworkInformationApiPolyfill().then(connection => {
 });
 
 function updateConnectionStatus(e) {
-    if(parseInt(connection.effectiveType) > parseInt(type)) {
+    if(parseInt(e.target.effectiveType) > parseInt(type)) {
     for (const asyncImage of asyncImages) {
         loadImage(asyncImage, e.target.effectiveType);
     }
@@ -32,6 +32,7 @@ function loadImage(image, connection) {
             image.parentNode.style.backgroundImage = 'url(' + dataSrc + ')';
         } else {
             image.setAttribute('data-lazy', dataSrc);
+            console.log(image)
         }
     } else {
         if(image.classList.contains('async-figure')) {
