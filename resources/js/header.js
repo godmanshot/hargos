@@ -1,29 +1,31 @@
 window.axios = require("axios");
 // HEADER PRODUCTION CATALOG
 window.lang = document.documentElement.lang;
-const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-let type = connection.effectiveType;
+var networkInformationApiPolyfill = require("network-information-api-polyfill");
+var type;
+new NetworkInformationApiPolyfill().then(connection => {
+    type = connection.effectiveType;
+    connection.addEventListener('change', updateConnectionStatus);
+    const asyncImages = document.getElementsByClassName('asyncImage');
 
-connection.addEventListener('change', updateConnectionStatus);
-const asyncImages = document.getElementsByClassName('asyncImage');
+    for (const asyncImage of asyncImages) {
+        loadImage(asyncImage, type);
+    }
 
-for (const asyncImage of asyncImages) {
-    loadImage(asyncImage, type);
-}
+});
 
-function updateConnectionStatus() {
-    console.log(connection.effectiveType, type)
+function updateConnectionStatus(e) {
     if(parseInt(connection.effectiveType) > parseInt(type)) {
     for (const asyncImage of asyncImages) {
-        loadImage(asyncImage, connection.effectiveType);
+        loadImage(asyncImage, e.target.effectiveType);
     }
   }
-  type = connection.effectiveType;
+  type = e.target.effectiveType;
 }
 
 function loadImage(image, connection) {
     let dataSrc = image.getAttribute('data-src').split('/');
-    dataSrc[dataSrc.length - 1] = /*connection + '_' + */dataSrc[dataSrc.length - 1];
+    dataSrc[dataSrc.length - 1] = connection + '_' + dataSrc[dataSrc.length - 1];
     dataSrc = dataSrc.join('/');
     if(image.classList.contains('async-lazy')) {
         if(image.classList.contains('async-figure')) {

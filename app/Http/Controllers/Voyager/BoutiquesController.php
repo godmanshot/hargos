@@ -27,6 +27,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         if (!$request->has('_validate')) {
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             $this->addWatermark($data);
+            $this->changeImagesQuality($data, []);
             $this->addProducts($data, $request->str_products_i18n);
             $this->addProductsAll($data);
             event(new BreadDataAdded($dataType, $data));
@@ -41,7 +42,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
                     ]);
         }
     }
-
+    
     public function update(Request $request, $id)
     {
         $str_products_i18n = json_decode($request->str_products_i18n, true);

@@ -307,6 +307,7 @@
 	<script>
 		window.lang = 'ru';
 	</script>
+	<script src="{{asset('js/app.js')}}?q={{rand()}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 	@stack('scripts')
 	@if(session('message'))

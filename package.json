@@ -22,7 +22,7 @@
   },
   "homepage": "https://gitlab.com/A-Lux/a_lux__horgos#readme",
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "css-loader": "^3.2.0",
@@ -48,6 +48,7 @@
     "jquery-slim": "^3.0.0",
     "jquery-zoom": "^1.7.21",
     "magnific-popup": "^1.1.0",
+    "network-information-api-polyfill": "0.0.2",
     "popper.js": "^1.16.0",
     "select2": "^4.0.12",
     "slick-carousel": "^1.8.1",
