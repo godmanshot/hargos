@@ -6938,6 +6938,7 @@ button, a {
 
 #livesearch {
     transition: all .3s ease;
+    z-index: 1000000!important;
 }
 .banner--clone.banner--unstick #livesearch {
     height: 0;
