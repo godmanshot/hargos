@@ -13,6 +13,8 @@ if ($("div").is(".cardd")) {
         minimumResultsForSearch: Infinity
     });
     $('.slider-for').slick({
+        lazyLoad: 'ondemand',
+        infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
@@ -20,6 +22,8 @@ if ($("div").is(".cardd")) {
         asNavFor: '.slider-nav'
     });
     $('.slider-nav').slick({
+        lazyLoad: 'ondemand',
+        infinite: false,
         slidesToShow: 2.99999,
         slidesToScroll: 1,
         asNavFor: '.slider-for',

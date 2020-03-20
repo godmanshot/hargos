@@ -22,9 +22,9 @@
                     @endphp
                     @foreach($images as $image)
                         <div>
-                        <a  href="{{Voyager::image($image)}}">
-                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url('{{Voyager::image($image)}}')">
-                                <img src="{{Voyager::image($image)}}">
+                        <a href="{{Voyager::image($image)}}">
+                            <figure onmousemove="zoom(event)" class="zoomMe" style="background-image: url()">
+                                <img class="asyncImage async-lazy async-figure" data-src="{{Voyager::image($image)}}" data-lazy="#">
                             </figure>
                         </a>
                         </div>
@@ -33,7 +33,7 @@
                 <div class="slider slider-nav">
                     @foreach($images as $image)
                         <div>
-                            <img src="{{Voyager::image($image)}}">
+                            <img class="asyncImage async-lazy" data-src="{{ Voyager::image($image) }}" data-lazy="#">
                         </div>
                     @endforeach
                 </div>

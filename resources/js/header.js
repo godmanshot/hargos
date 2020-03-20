@@ -1,6 +1,45 @@
 window.axios = require("axios");
 // HEADER PRODUCTION CATALOG
 window.lang = document.documentElement.lang;
+const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+let type = connection.effectiveType;
+
+connection.addEventListener('change', updateConnectionStatus);
+const asyncImages = document.getElementsByClassName('asyncImage');
+
+for (const asyncImage of asyncImages) {
+    loadImage(asyncImage, type);
+}
+
+function updateConnectionStatus() {
+    console.log(connection.effectiveType, type)
+    if(parseInt(connection.effectiveType) > parseInt(type)) {
+    for (const asyncImage of asyncImages) {
+        loadImage(asyncImage, connection.effectiveType);
+    }
+  }
+  type = connection.effectiveType;
+}
+
+function loadImage(image, connection) {
+    let dataSrc = image.getAttribute('data-src').split('/');
+    dataSrc[dataSrc.length - 1] = /*connection + '_' + */dataSrc[dataSrc.length - 1];
+    dataSrc = dataSrc.join('/');
+    if(image.classList.contains('async-lazy')) {
+        if(image.classList.contains('async-figure')) {
+            image.parentNode.style.backgroundImage = 'url(' + dataSrc + ')';
+        } else {
+            image.setAttribute('data-lazy', dataSrc);
+        }
+    } else {
+        if(image.classList.contains('async-figure')) {
+            image.parentNode.style.backgroundImage = 'url(' + dataSrc + ')';
+        } else {
+            image.src = dataSrc;
+        }
+    }
+}
+
 const locales = require('./lang/' + window.lang + '.js').default;
 
 $(document).ready(function() {

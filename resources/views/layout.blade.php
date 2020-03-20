@@ -307,52 +307,8 @@
 	<script>
 		window.lang = 'ru';
 	</script>
-	<script src="{{asset('js/app.js')}}?q={{rand()}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 	@stack('scripts')
-	<script>
-		// var searchInput = document.querySelector('#predictive_search');
-
-		// for (const search of searchInput) {
-		// search.addEventListener('keyup', function() {
-		// 	var activeLiveSearch = this.parentNode.nextElementSibling;
-		// 	var activeSearchBtn = this.nextElementSibling;
-		// 	var activeInput = this;
-
-			// setTimeout(() => {
-			// 	showResult(this.value, activeLiveSearch, activeInput);
-			// }, 10000);
-		// });
-		// }
-
-		// function showResult(str, lv, input) {
-		// 	if (str.length == 0) {
-		// 		lv.innerHTML = "";
-		// 		lv.classList.remove('p-2');
-		// 		return;
-		// 	}
-		// 	axios.get('/api/search-words?word=' + str)
-		// 	.then(response => {
-		// 		lv.innerHTML = "";
-		// 		lv.classList.remove('p-2');
-		// 		for (const wordIndex in response.data) {
-		// 			lv.innerHTML += '<div class="py-2"><a href="javascript:void(0)" style="color: #a39ab4" onclick="addWordToSearchField(\'' + response.data[wordIndex] + '\')">' + response.data[wordIndex] + '</a></div>';
-		// 		}
-
-		// 		if(lv.children.length > 0) {
-		// 			lv.classList.add('p-2');
-		// 		} else {
-		// 			lv.classList.remove('p-2');
-		// 		}
-		// 	});
-		// }
-
-		// function addWordToSearchField(word) {
-		// 	activeInput.value = word;
-		// 	activeLiveSearch.innerHTML = '';
-		// 	activeSearchBtn.click();
-		// }
-	</script>
 	@if(session('message'))
 	<script src="{{asset('js/sweetalert2.min.js')}}"></script>
 	<script>
