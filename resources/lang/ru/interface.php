@@ -50,7 +50,7 @@ return [
     'language' => 'Язык общения',
     'phone' => 'Телефон',
     'shopDescription' => 'Описание бутика',
-    'priceFromAToZ' => 'Цены от А до Я',
+    'pricesFromAToZ' => 'Цены от А до Я',
     'tcMap' => 'Карта торгового центра',
     'featuredBoutiques' => 'Избранные бутики',
     'goToTheBoutiques' => 'Перейти в бутик',

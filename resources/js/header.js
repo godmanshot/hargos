@@ -1,6 +1,47 @@
 window.axios = require("axios");
 // HEADER PRODUCTION CATALOG
 window.lang = document.documentElement.lang;
+var networkInformationApiPolyfill = require("network-information-api-polyfill");
+var type;
+new NetworkInformationApiPolyfill().then(connection => {
+    type = connection.effectiveType;
+    connection.addEventListener('change', updateConnectionStatus);
+    const asyncImages = document.getElementsByClassName('asyncImage');
+
+    for (const asyncImage of asyncImages) {
+        loadImage(asyncImage, type);
+    }
+
+});
+
+function updateConnectionStatus(e) {
+    if(parseInt(connection.effectiveType) > parseInt(type)) {
+    for (const asyncImage of asyncImages) {
+        loadImage(asyncImage, e.target.effectiveType);
+    }
+  }
+  type = e.target.effectiveType;
+}
+
+function loadImage(image, connection) {
+    let dataSrc = image.getAttribute('data-src').split('/');
+    dataSrc[dataSrc.length - 1] = connection + '_' + dataSrc[dataSrc.length - 1];
+    dataSrc = dataSrc.join('/');
+    if(image.classList.contains('async-lazy')) {
+        if(image.classList.contains('async-figure')) {
+            image.parentNode.style.backgroundImage = 'url(' + dataSrc + ')';
+        } else {
+            image.setAttribute('data-lazy', dataSrc);
+        }
+    } else {
+        if(image.classList.contains('async-figure')) {
+            image.parentNode.style.backgroundImage = 'url(' + dataSrc + ')';
+        } else {
+            image.src = dataSrc;
+        }
+    }
+}
+
 const locales = require('./lang/' + window.lang + '.js').default;
 
 $(document).ready(function() {

@@ -50,7 +50,7 @@ return [
     'language' => 'Қарым-қатынас тілі',
     'phone' => 'Телефон',
     'shopDescription' => 'Бутиктің сипаттамасы',
-    'priceFromAToZ' => 'А-дан Я-ға дейінгі баға',
+    'pricesFromAToZ' => 'А-дан Я-ға дейінгі баға',
     'tcMap' => 'Сауда орталығының картасы',
     'featuredBoutiques' => 'Танымал бутиктер',
     'goToTheBoutiques' => 'Бутикке бару',

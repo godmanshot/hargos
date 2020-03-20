@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Voyager;
 use App\Translation;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
+use App\Traits\ChangesImageQuality;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Events\BreadDataAdded;
@@ -12,6 +13,7 @@ use TCG\Voyager\Events\BreadDataUpdated;
 
 class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 {
+    use ChangesImageQuality;
     public function store(Request $request) {
         $slug = $this->getSlug($request);
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -25,6 +27,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         if (!$request->has('_validate')) {
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             $this->addWatermark($data);
+            $this->changeImagesQuality($data, []);
             $this->addProducts($data, $request->str_products_i18n);
             $this->addProductsAll($data);
             event(new BreadDataAdded($dataType, $data));
@@ -39,7 +42,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
                     ]);
         }
     }
-
+    
     public function update(Request $request, $id)
     {
         $str_products_i18n = json_decode($request->str_products_i18n, true);
@@ -60,6 +63,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $old_images = json_decode($data->images ?? '[]', true);
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
             $this->addWatermark($data, $old_images);
+            $this->changeImagesQuality($data, $old_images);
             $this->addProducts($data, $str_products_i18n);
             $this->addProductsAll($data, $str_products_all_i18n);
             event(new BreadDataUpdated($dataType, $data));
@@ -72,10 +76,24 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         }
     }
 
+    public function changeImagesQuality($model, $old_images = []) {
+        $images = json_decode($model->images ?? '[]', true);
+        $qualities = [
+            '4g' => env('IMAGE_QUALITY_4G'),
+            '3g' => env('IMAGE_QUALITY_3G'),
+            '2g' => env('IMAGE_QUALITY_2G')
+        ];
+        foreach($images as $image) {
+            if(in_array($image, $old_images))
+                continue;
+            $this->changeQuality($image, $qualities);
+        }
+    }
+
     public function addWatermark($model, $old_images = [])
     {
         $images = json_decode($model->images ?? '[]', true);
-
+        $old_images = $old_images ?: [];
         foreach($images as $image) {
             if(in_array($image, $old_images))
                 continue;

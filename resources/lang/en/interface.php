@@ -50,7 +50,7 @@ return [
     'language' => 'Communication language',
     'phone' => 'Phone',
     'shopDescription' => 'Description of the boutique',
-    'priceFromAToZ' => 'Prices from A to Z',
+    'pricesFromAToZ' => 'Prices from A to Z',
     'tcMap' => 'Shopping center map',
     'featuredBoutiques' => 'Featured Boutiques',
     'goToTheBoutiques' => 'Go to the boutique',
