@@ -30,6 +30,9 @@
                     </a>
                     @endforeach
                 </div>
+                <div class="col-xl-12 col-sm-12 separator text-center">
+                    <a href="{{url('/trading-houses')}}" class="text-dark text-decoration-none">@lang('interface.showAll')</a>
+                </div>
             </div>
         </div>
         <div class="row mt-5">
@@ -82,9 +85,6 @@
                                     <i class="fa fa-bars"></i>
                                 </button>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-12 separator">
-                            <a href="{{url('/trading-houses')}}" class="clear-filter" id="filter-clear">@lang('interface.clearFilter')</a>
                         </div>
                     </div>
                 </div>
