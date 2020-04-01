@@ -318,3 +318,7 @@ Route::post('reviews/{review}/dislike', 'LikeController@dislike')->name('review.
 Route::get('testtest', function() {
     
 });
+
+Route::get('/test', function() {
+    return phpinfo();
+});
