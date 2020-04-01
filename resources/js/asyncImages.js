@@ -6,7 +6,7 @@ new NetworkInformationApiPolyfill().then(connection => {
     connection.addEventListener('change', updateConnectionStatus);
     
     for (const asyncImage of asyncImages) {
-        loadImage(asyncImage, type);
+        loadImage(asyncImage, type, false);
     }
 
 });
@@ -14,15 +14,19 @@ new NetworkInformationApiPolyfill().then(connection => {
 function updateConnectionStatus(e) {
     if(parseInt(e.target.effectiveType) > parseInt(type)) {
     for (const asyncImage of asyncImages) {
-        loadImage(asyncImage, e.target.effectiveType);
+        loadImage(asyncImage, e.target.effectiveType, false);
     }
   }
   type = e.target.effectiveType;
 }
 
-function loadImage(image, connection) {
+function loadImage(image, connection, start) {
     let dataSrc = image.getAttribute('data-src').split('/');
-    dataSrc[dataSrc.length - 1] = connection + '_' + dataSrc[dataSrc.length - 1];
+    if(!start) {
+        dataSrc[dataSrc.length - 1] = dataSrc[dataSrc.length - 1];
+    } else {
+        dataSrc[dataSrc.length - 1] = connection + '_' + dataSrc[dataSrc.length - 1];
+    }
     dataSrc = dataSrc.join('/');
     if(image.classList.contains('async-lazy')) {
         if(image.classList.contains('async-figure')) {
