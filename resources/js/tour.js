@@ -12,10 +12,10 @@ if ($("div").is(".tour")) {
         allowClear: true,
         minimumResultsForSearch: Infinity
     });
-    
 
-    
-    
+
+
+
 
     $(".clear-filter").click(function() {
         $(".countries").select2('val', 'All');
@@ -23,14 +23,14 @@ if ($("div").is(".tour")) {
         $(".cities").attr("disabled", "true");
         document.getElementsByClassName("isCity")[0].innerText = "Алматы";
         wrongClicked = false;
-        
+
         $.ajax({
             type: 'GET',
             url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
             success: function(response) {
                 drawProducts(response);
                 boutiqueClick();
-                
+
             }
         });
     });
@@ -65,9 +65,9 @@ if ($("div").is(".tour")) {
         $('.filters-confirm__block').addClass('hide');
         $('.cities').attr("disabled", "true");
         wrongClicked = true;
-        
+
     });
-    window.onload = function(e) {        
+    window.onload = function(e) {
         $.ajax({
             type: 'GET',
             url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
@@ -84,7 +84,7 @@ if ($("div").is(".tour")) {
             success: function(response) {
                 document.getElementsByClassName("countries")[0].innerHTML = "<option></option>";
                 document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
-                
+
                 for (country of response) {
 
                     let temp = document.createElement("option");
@@ -103,7 +103,7 @@ if ($("div").is(".tour")) {
                 drawBoutique(response);
             }
         });
-        
+
     }
     $('.countries').on('change', function(e) {
         $('.cities').removeAttr('disabled');
@@ -122,22 +122,22 @@ if ($("div").is(".tour")) {
         });
     });
 
-    
-    
-    
+
+
+
     $('.cities').on('change', function(e) {
         $.ajax({
             type: 'GET',
             url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $(this).val(),
             success: function(response) {
-                
+
                 drawProducts(response);
                 boutiqueClick();
             }
         });
     });
-    
-    
+
+
     function slickPlayer() {
         $('.about-player').slick({
             slidesToShow: 1,
@@ -161,7 +161,7 @@ if ($("div").is(".tour")) {
             slidesToShow: 2.99999,
             slidesToScroll: 1,
             asNavFor: '.slider-for',
-            
+
             focusOnSelect: true,
             responsive: [
                 {
@@ -207,7 +207,7 @@ if ($("div").is(".tour")) {
             rating.className = 'star-rating__wrapper';
             let j = 5;
             for (let i = 0; i < 5; i++) {
-                
+
                 let ratingStars;
                 let ratingStarsInputs;
                 ratingStars = document.createElement("label");
@@ -220,7 +220,7 @@ if ($("div").is(".tour")) {
                 rating.appendChild(ratingStars);
                 ratingStars.appendChild(ratingStarsInputs);
                 j--;
-            }    
+            }
             document.getElementById("boutique__products").appendChild(boutiqueWrapper);
             boutiqueWrapper.appendChild(boutiqueBlock);
             boutiqueBlock.appendChild(imgWrapper);
@@ -233,7 +233,7 @@ if ($("div").is(".tour")) {
     }
     function drawBoutique(boutiuque) {
         const productInfo = document.getElementById("product__info");
-        const tourProgramContent = document.getElementById("tour__program-content"); 
+        const tourProgramContent = document.getElementById("tour__program-content");
         if(productInfo) {
             productInfo.innerHTML = "";
         }
@@ -273,7 +273,7 @@ if ($("div").is(".tour")) {
             tourContacts.childNodes[1].childNodes[0].innerText = boutiqueInfo.phone_name_2;
             tourContacts.childNodes[1].childNodes[1].innerHTML =("<a href='https://wa.me/"+boutiqueInfo.phone_2.replace(/[+()-/\s]/g, "")+"'>"+boutiqueInfo.phone_2+"</a>");
             tourInfo.innerHTML += boutiqueInfo.content;
-            
+
             let sliderFor = document.createElement("div");
             sliderFor.className = 'slider slider-for';
             let sliderNav = document.createElement("div");
@@ -302,7 +302,7 @@ if ($("div").is(".tour")) {
             sliderWrapper.appendChild(sliderNav);
             document.getElementById("product__info").appendChild(sliderWrapper);
             document.getElementById("product__info").appendChild(infoWrapper);
-            
+
             $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -314,7 +314,7 @@ if ($("div").is(".tour")) {
                 slidesToShow: 2.99999,
                 slidesToScroll: 1,
                 asNavFor: '.slider-for',
-                
+
                 focusOnSelect: true,
                 responsive: [
                     {
@@ -337,13 +337,15 @@ if ($("div").is(".tour")) {
                     },
                 ]
             });
-            document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
+            if ($('div').is('#tour__program')) {
+                document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
+            }
             let schedule = document.getElementsByClassName("schedule__right-block");
             for (let j = 0; j < schedule.length; j++) {
                 schedule[j].innerHTML = '';
             }
             for (let k = 0; k < schedule.length; k++) {
-                
+
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
                 schedule[k].innerHTML += "<div class='schedule__content-wrapper'></div>";
                 schedule[k].children[1].innerHTML += "<h2>Дата выезда</h2>";
@@ -360,10 +362,10 @@ if ($("div").is(".tour")) {
             }
             // let sliderFor = document.createElement("div");
             // sliderFor.className = 'slider slider-for';
-            
+
             document.getElementsByClassName("tour__program")[0].children[0].children[1].innerHTML = boutiqueInfo.tour_description;
             document.getElementById("gmap_canvas").src = "https://maps.google.com/maps?q=" + boutiqueInfo.coordinates +"&z=13&ie=UTF8&iwloc=&output=embed";
-            
+
             let aboutPlayer = document.getElementsByClassName("about-player");
             aboutPlayer[0].innerHTML = "";
             let aboutPlayerDivs = document.createElement("div");
@@ -391,10 +393,10 @@ if ($("div").is(".tour")) {
                         url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $('.cities').val() + '&&id=' + $(this).attr('id'),
                         success: function(response) {
                             drawBoutique(response);
-                            
+
                         }
                     });
-                    
+
                 }
                 else {
                     $.ajax({
@@ -402,7 +404,7 @@ if ($("div").is(".tour")) {
                         url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.select2').val() + '&&city_id=' + $('.select2').val() + '&&id=' + $(this).attr('id'),
                         success: function(response) {
                             drawBoutique(response);
-                            
+
                         }
                     });
                 }
@@ -414,7 +416,7 @@ if ($("div").is(".tour")) {
     //         slidesToShow: 2.99999,
     //         slidesToScroll: 1,
     //         asNavFor: '.slider-for',
-            
+
     //         focusOnSelect: true,
     //         responsive: [
     //             {
@@ -455,11 +457,11 @@ if ($("div").is(".tour")) {
     //         fade: true,
     //         asNavFor: '.slider-nav'
     //     });
-        
+
     // });
 }
 
-    
+
 $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -471,7 +473,7 @@ $('.slider-nav').slick({
     slidesToShow: 2.99999,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-    
+
     focusOnSelect: true,
     responsive: [
         {
