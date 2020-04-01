@@ -6951,7 +6951,7 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 
 @media (max-width:576px) {
     .zoomMe {
-        background-image: none!important;
+        /* background-image: none!important; */
         width: unset!important
     }
     .cardd .slider-for .slick-slide img {
