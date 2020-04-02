@@ -9144,7 +9144,7 @@ button {
     width: 500px;
     overflow: hidden;
     cursor: zoom-in;
-    background-size: 300%
+    background-size: cover;
 }
 
 .zoomMe img {
