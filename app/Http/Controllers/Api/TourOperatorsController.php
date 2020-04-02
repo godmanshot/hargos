@@ -23,7 +23,7 @@ class TourOperatorsController extends Controller
         if($request->has('id')) {
             $models->where('id', $request->id);
         }
-    
+        
         return $models->get();
     }
 }

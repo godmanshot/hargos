@@ -276,17 +276,30 @@ Route::get('/search', function(Request $request) {
 
     $search_query = $request->q;
 
+    /**
+     * 
+        * trading_houses
+        *all_products
+        *categories
+        *boutique_products
+        *boutiques
+        *boutique_number
+        *seller_name
+        *owner_name
+     */
     $models = Boutique::whereHas('products', function ($query) use ($search_query) {
-        $query->where('name', 'like', '%'.$search_query.'%');
-    })->orWhereHas('categories', function ($query) use ($search_query) {
         $query->where('name', 'like', '%'.$search_query.'%');
     })->orWhereHas('allProducts', function ($query) use ($search_query) {
         $query->where('name', 'like', '%'.$search_query.'%');
-    })->orWhere('name', 'like', '%'.$search_query.'%')
-    ->orWhere('boutique_number', 'like', '%'.$search_query.'%')
-    ->orWhere('seller_name', 'like', '%'.$search_query.'%')
-    ->orWhere('owner_name', 'like', '%'.$search_query.'%')->get()->shuffle();
-
+    })->orWhereHas('categories', function ($query) use ($search_query) {
+        $query->where('name', 'like', '%'.$search_query.'%');
+    });
+    // ->orWhere('name', 'like', '%'.$search_query.'%')
+    // ->orWhere('boutique_number', 'like', '%'.$search_query.'%')
+    // ->orWhere('seller_name', 'like', '%'.$search_query.'%')
+    // ->orWhere('owner_name', 'like', '%'.$search_query.'%');
+    // ->shuffle();
+    dd($models->get());
     return view('search', compact('search_query', 'models'));
 
 })->name('search');

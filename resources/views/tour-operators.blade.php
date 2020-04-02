@@ -159,6 +159,7 @@
             </div>
         </div>
     </div>
+    @if (Auth::check())
     <div class="container-fluid favorite-boutiques">
         <div class="container">
             <div class="row">
@@ -167,7 +168,7 @@
                 </div>
             </div>
             <div class="row favorite__slick">
-                @if(Auth::user() && Auth::user()->favoriteBoutiques->count())
+                @if(Auth::user()->favoriteBoutiques->count())
                     @foreach((Auth::user()->favoriteBoutiques ?? []) as $fav_boutique)
                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                         <div class="boutique-block">
@@ -188,5 +189,6 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 @endsection
