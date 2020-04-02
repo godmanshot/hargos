@@ -440,14 +440,9 @@
     @endif
 </div>
 <script>
-    document.getElementsByClassName('zoomMe')[0].addEventListener('mouseover', function() {
-        this.style.backgroundSize = '300%';
-    });
-    document.getElementsByClassName('zoomMe')[0].addEventListener('mouseleave', function() {
-        this.style.backgroundSize = 'cover';
-    });
     function zoom(e){
         var zoomer = e.currentTarget;
+        zoomer.style.backgroundSize = '300%';
         e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
         e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
         x = offsetX/zoomer.offsetWidth*100
