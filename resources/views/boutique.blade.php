@@ -448,6 +448,9 @@
         x = offsetX/zoomer.offsetWidth*100
         y = offsetY/zoomer.offsetHeight*100
         zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        zoomer.addEventListener('mouseleave', function() {
+            zoomer.style.backgroundSize = 'cover';
+        })
       }
 </script>
 @endsection
