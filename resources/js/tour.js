@@ -25,13 +25,11 @@ if ($("div").is(".tour")) {
 
         $('.cities').select2();
         $(".cities").select2({
-            placeholder: "Город",
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
         });
         $('.countries').select2({
-            placeholder: "Страна",
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
@@ -318,9 +316,10 @@ if ($("div").is(".tour")) {
                 document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
             }
             let schedule = document.getElementsByClassName("schedule__right-block");
-            console.log(schedule);
+
             for (let j = 0; j < schedule.length; j++) {
                 schedule[j].innerHTML = '';
+                console.log(schedule);
             }
             for (let k = 0; k < schedule.length; k++) {
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
