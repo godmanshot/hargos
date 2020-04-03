@@ -33,6 +33,7 @@ if ($("div").is(".tour")) {
             placeholder: "Страна",
             allowClear: true,
             minimumResultsForSearch: Infinity,
+            width: '100%',
             ajax: {
                 url: `${appUrl}/api/countries`,
                 processResults: function (data) {
