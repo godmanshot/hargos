@@ -120,7 +120,7 @@
             </div>
         </div>
     </div>
-    <div class="tour__program">
+    <div class="tour__program py-5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-md-12" id="tour__program-map">
@@ -134,7 +134,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row pb-5">
                 <div class="col-xl-12">
                     <div class="slider about-player">
 
