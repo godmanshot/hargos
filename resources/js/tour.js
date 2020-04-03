@@ -36,9 +36,13 @@ if ($("div").is(".tour")) {
             ajax: {
                 url: `${appUrl}/api/countries`,
                 processResults: function (data) {
-                    console.log(data);
                     return {
-                        results: data.name
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name,
+                                id: item.id
+                            }
+                        })
                     };
                 }
             }
