@@ -1,13 +1,6 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    // $('.cities').select2();
-    $(".cities").select2({
-        placeholder: "Город",
-        allowClear: true,
-        minimumResultsForSearch: Infinity,
-        width: '100%',
-    });
     $(".clear-filter").click(function() {
         $(".countries").select2('val', 'All');
         $(".cities").select2('val', 'All');
@@ -21,6 +14,7 @@ if ($("div").is(".tour")) {
             });
     });
     window.onload = function(e) {
+
         axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
             .then(function (response) {
                 drawProducts(response);
@@ -28,6 +22,7 @@ if ($("div").is(".tour")) {
                 slickNavFor();
                 slickPlayer();
             });
+
         $('.countries').select2({
             placeholder: "Страна",
             allowClear: true,
@@ -46,6 +41,12 @@ if ($("div").is(".tour")) {
                     };
                 }
             }
+        });
+        $(".cities").select2({
+            placeholder: "Город",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            width: '100%',
         });
         axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
             .then(function (response) {
