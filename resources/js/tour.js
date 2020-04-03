@@ -1,13 +1,9 @@
-if ($("div").is(".tour")) {
-    $(".countries").select2();
-    $('.countries').select2({
-        placeholder: "Страна",
-        allowClear: true,
-        minimumResultsForSearch: Infinity,
-    });
 
-    $(".cities").select2();
+if ($("div").is(".tour")) {
+    const appUrl = document.querySelector('meta[name=app-url]').content;
+    $('.footer').css("margin-top", "unset");
     $('.cities').select2({
+        disabled: true,
         placeholder: "Город",
         allowClear: true,
         minimumResultsForSearch: Infinity
@@ -19,40 +15,75 @@ if ($("div").is(".tour")) {
         $(".cities").attr("disabled", "true");
         document.getElementsByClassName("isCity")[0].innerText = "Алматы";
         wrongClicked = false;
-
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
+            });
+    });
+    window.onload = function(e) {
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
+                drawProducts(response);
+                boutiqueClick();
+                slickNavFor();
+                slickPlayer();
+            });
+        $('.countries').select2({
+            placeholder: "Страна",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            ajax: {
+                url: `${appUrl}/api/countries`,
+                processResults: function (data) {
+                    return {
+                        results: data.name
+                    };
+                }
+            }
+        });
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
+                drawProducts(response);
+                boutiqueClick();
+                slickNavFor();
+                slickPlayer();
+            });
+            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1`)
+                .then(function (response) {
+                    drawBoutique(response);
+                });
+    }
+    $('.countries').on('select2:select', function(e) {
+        $(".cities").select2("destroy").select2({
+            placeholder: "Город",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            ajax: {
+                url: `${appUrl}/api/cities?country_id=${$('.countries').val()}`,
+                processResults: function (data) {
+                    return {
+                        results: data.name
+                    };
+                }
             }
         });
     });
-
-    $('.footer').css("margin-top", "unset");
-
-    $('.cities').on('change', function() {
+    $('.cities').on('select2:select', function() {
         document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
     });
     $('.rightCity').on('click', function() {
         $('.filters-answer__block').addClass('hide');
         $('.yourLocation').removeClass('show');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
-            }
-        });
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1&&id=1&&id=1',
-            success: function(response) {
-                drawBoutique(response);
-            }
-        });
+            });
+            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1&&id=1`)
+                .then(function (response) {
+                    drawBoutique(response);
+                });
     });
     let wrongClicked = false;
     $('.wrongCity').on('click',function() {
@@ -60,84 +91,16 @@ if ($("div").is(".tour")) {
         $('.filters-confirm__block').addClass('hide');
         $('.cities').attr("disabled", "true");
         wrongClicked = true;
-
-    });
-    window.onload = function(e) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
-                drawProducts(response);
-                boutiqueClick();
-                slickNavFor();
-                slickPlayer();
-            }
-        });
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/countries',
-            success: function(response) {
-                document.getElementsByClassName("countries")[0].innerHTML = "<option></option>";
-                document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
-
-                for (country of response) {
-                    let temp = document.createElement("option");
-                    temp.value = country.id;
-                    temp.innerText = country.name;
-                    document.getElementsByClassName("countries")[0].appendChild(temp);
-                }
-            }
-        });
-        $(".select2").val(1);
-        $(".select2").trigger('change');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1&&id=1',
-            success: function(response) {
-                drawBoutique(response);
-            }
-        });
-
-    }
-    $('.countries').on('change', function(e) {
-        $('.cities').removeAttr('disabled');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/cities?country_id=' + $(this).val(),
-            success: function(response) {
-                document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
-                for (city of response) {
-                    let temp = document.createElement("option");
-                    temp.value = city.id;
-                    temp.innerText = city.name;
-                    document.getElementsByClassName("cities")[0].appendChild(temp);
-                }
-            }
-        });
     });
 
-
-
-
-    $('.cities').on('change', function(e) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $(this).val(),
-            success: function(response) {
-                console.log(response, response.length);
+    $('.cities').on('select2:select', function(e) {
+        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
+            .then(function (response) {
                 if (response.length) {
                     drawProducts(response);
                     boutiqueClick();
                 }
-                else {
-
-                    document.getElementById('boutique__products').innerHTML = '';
-                    document.getElementById('product__info').innerHTML = '';
-                    document.getElementsByClassName('schedule')[0].innerHTML = '';
-                    document.getElementsByClassName("tour__program")[0].children[0].children[1].innerHTML = '';
-                }
-            }
-        });
+            });
     });
 
 
@@ -286,7 +249,7 @@ if ($("div").is(".tour")) {
                 let sliderForImg;
                 sliderForDiv = document.createElement("div");
                 sliderForImg = document.createElement("img");
-                sliderForImg.src = "http://dai5.kz/storage/" + imgSrc[i];
+                sliderForImg.src = `${appUrl}/storage/` + imgSrc[i];
                 sliderForDiv.appendChild(sliderForImg);
                 sliderFor.appendChild(sliderForDiv);
             }
@@ -295,7 +258,7 @@ if ($("div").is(".tour")) {
                 let sliderNavImg;
                 sliderNavDiv = document.createElement("div");
                 sliderNavImg = document.createElement("img");
-                sliderNavImg.src = "http://dai5.kz/storage/" + imgSrc[i];
+                sliderNavImg.src = `${appUrl}/storage/` + imgSrc[i];
                 sliderNavDiv.appendChild(sliderNavImg);
                 sliderNav.appendChild(sliderNavDiv);
             }
@@ -347,7 +310,6 @@ if ($("div").is(".tour")) {
                 schedule[j].innerHTML = '';
             }
             for (let k = 0; k < schedule.length; k++) {
-
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
                 schedule[k].innerHTML += "<div class='schedule__content-wrapper'></div>";
                 schedule[k].children[1].innerHTML += "<h2>Дата выезда</h2>";
@@ -390,76 +352,20 @@ if ($("div").is(".tour")) {
         $('.boutique-block').on('click', function(e) {
             if(event.target == event.currentTarget) {
                 if (wrongClicked) {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $('.cities').val() + '&&id=' + $(this).attr('id'),
-                        success: function(response) {
+                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$('.cities').val()}&&id=${$(this).attr('id')}`)
+                        .then(function (response) {
                             drawBoutique(response);
-
-                        }
-                    });
-
+                        });
                 }
                 else {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.select2').val() + '&&city_id=' + $('.select2').val() + '&&id=' + $(this).attr('id'),
-                        success: function(response) {
+                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.select2').val()}&&city_id=${$('.select2').val()}&&id=${$(this).attr('id')}`)
+                        .then(function (response) {
                             drawBoutique(response);
-                        }
-                    });
+                        });
                 }
             }
         });
     }
-    // $('.boutique-block').on('event', '.slider-nav', function() {
-    //     $(this).slick({
-    //         slidesToShow: 2.99999,
-    //         slidesToScroll: 1,
-    //         asNavFor: '.slider-for',
-
-    //         focusOnSelect: true,
-    //         responsive: [
-    //             {
-    //                 breakpoint: 460,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //             {
-    //                 breakpoint: 768,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //             {
-    //                 breakpoint: 1032,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //         ]
-    //     });
-    // });
-    // $('.boutique-block').on('event', '.slider-for', function() {
-    //     // $('.about-player').slick({
-    //     //     slidesToShow: 1,
-    //     //     slidesToScroll: 1,
-    //     //     autoplay: false,
-    //     //     autoplaySpeed: 2000,
-    //     //     swipe: false,
-    //     //     touchMove: false,
-    //     //     lazyLoad: "ondemand",
-    //     // });
-    //     $(this).slick({
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         arrows: false,
-    //         fade: true,
-    //         asNavFor: '.slider-nav'
-    //     });
-
-    // });
 }
 
 

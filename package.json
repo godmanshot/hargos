@@ -45,7 +45,7 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@glidejs/glide": "^3.4.1",
     "aos": "^2.3.4",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "bootstrap.min.js": "^3.3.5",
     "hc-offcanvas-nav": "^3.4.1",
     "headhesive": "^1.2.4",
