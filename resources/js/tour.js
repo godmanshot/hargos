@@ -125,7 +125,7 @@ if ($("div").is(".tour")) {
             type: 'GET',
             url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $(this).val(),
             success: function(response) {
-                console.log(response, repsonse.length);
+                console.log(response, response.length);
                 if (response.length) {
                     drawProducts(response);
                     boutiqueClick();
