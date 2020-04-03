@@ -85,8 +85,13 @@ if ($("div").is(".tour")) {
     });
     $('.cities').on('select2:select', function() {
         document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
-        drawProducts(response);
-        boutiqueClick();
+        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
+            .then(function (response) {
+                if (response.length) {
+                    drawProducts(response);
+                    boutiqueClick();
+                }
+            });
     });
     $('.rightCity').on('click', function() {
         $('.filters-answer__block').addClass('hide');
@@ -109,15 +114,7 @@ if ($("div").is(".tour")) {
         wrongClicked = true;
     });
 
-    $('.cities').on('select2:select', function(e) {
-        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
-            .then(function (response) {
-                if (response.length) {
-                    drawProducts(response);
-                    boutiqueClick();
-                }
-            });
-    });
+
 
 
     function slickPlayer() {
