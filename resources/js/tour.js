@@ -197,7 +197,7 @@ if ($("div").is(".tour")) {
             boutiqueBlock.appendChild(rating);
         }
     }
-    function drawBoutique(botique) {
+    function drawBoutique(boutique) {
         console.log(boutique);
         const productInfo = document.getElementById("product__info");
         const tourProgramContent = document.getElementById("tour__program-content");
@@ -207,7 +207,7 @@ if ($("div").is(".tour")) {
         if(tourProgramContent) {
             tourProgramContent.innerHTML = "";
         }
-        for (let boutiqueInfo of botique) {
+        for (let boutiqueInfo of boutique) {
             let sliderWrapper = document.createElement("div");
             sliderWrapper.className = 'col-xl-5 col-md-6';
             let infoWrapper = document.createElement("div");
