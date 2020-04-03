@@ -318,6 +318,7 @@ if ($("div").is(".tour")) {
                 document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
             }
             let schedule = document.getElementsByClassName("schedule__right-block");
+            console.log(schedule);
             for (let j = 0; j < schedule.length; j++) {
                 schedule[j].innerHTML = '';
             }
