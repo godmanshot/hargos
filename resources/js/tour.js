@@ -1,6 +1,7 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
+    $('.cities').select2();
     $('.cities').select2({
         disabled: true,
         placeholder: "Город",
@@ -61,6 +62,7 @@ if ($("div").is(".tour")) {
             ajax: {
                 url: `${appUrl}/api/cities?country_id=${$('.countries').val()}`,
                 processResults: function (data) {
+                    console.log(data);
                     return {
                         results: data.name
                     };
