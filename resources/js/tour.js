@@ -2,8 +2,8 @@
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
     $(".clear-filter").click(function() {
-        $(".countries").select2('val', 'All');
-        $(".cities").select2('val', 'All');
+        $(".countries").select2('val', '1');
+        $(".cities").select2('val', '1');
         $(".cities").attr("disabled", "true");
         document.getElementsByClassName("isCity")[0].innerText = "Алматы";
         wrongClicked = false;

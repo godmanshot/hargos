@@ -58,13 +58,11 @@
                     <div class="row h-100 align-items-center yourLocation">
                         <div class="col-xl-3">
                             <select class="countries js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option></option>
 
                             </select>
                         </div>
                         <div class="col-xl-3">
                             <select class="cities js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option></option>
                             </select>
                         </div>
                         <div class="col-xl-3 separator">
