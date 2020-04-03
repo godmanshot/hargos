@@ -206,7 +206,7 @@ if ($("div").is(".tour")) {
         if(tourProgramContent) {
             tourProgramContent.innerHTML = "";
         }
-        for (boutiqueInfo of boutiuque) {
+        for (let boutiqueInfo of boutiuque) {
             let sliderWrapper = document.createElement("div");
             sliderWrapper.className = 'col-xl-5 col-md-6';
             let infoWrapper = document.createElement("div");
