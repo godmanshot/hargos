@@ -1,14 +1,7 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    // $('.cities').select2();
-    $('.cities').select2({
-        disabled: true,
-        placeholder: "Город",
-        allowClear: true,
-        minimumResultsForSearch: Infinity,
-        width: '100%'
-    });
+    $('.cities').select2();
 
     $(".clear-filter").click(function() {
         $(".countries").select2('val', 'All');
