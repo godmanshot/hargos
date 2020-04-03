@@ -361,7 +361,6 @@ if ($("div").is(".tour")) {
                 autoplaySpeed: 2000,
                 swipe: false,
                 touchMove: false,
-                lazyLoad: "ondemand",
             });
         }
     }
