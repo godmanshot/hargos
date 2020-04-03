@@ -163,53 +163,60 @@ if ($("div").is(".tour")) {
     }
     function drawProducts(products){
         document.getElementById("boutique__products").innerHTML = "";
-        for (product of products.data) {
-            let boutiqueWrapper = document.createElement("div");
-            boutiqueWrapper.className = 'col-xl-3 col-lg-4 col-md-4 col-sm-6';
-            let boutiqueBlock = document.createElement("div");
-            boutiqueBlock.className = 'boutique-block';
-            boutiqueBlock.setAttribute('id', product.id);
-            let imgWrapper = document.createElement("div");
-            imgWrapper.className = 'boutique-img__wrapper';
-            let boutiqueImg = document.createElement("img");
-            boutiqueImg.src = "http://dai5.kz/storage/" + product.logo;
-            let borderBottom = document.createElement("div");
-            borderBottom.className = 'separator';
-            let boutiqueTitle = document.createElement("h2");
-            boutiqueTitle.innerText = product.name;
-            let ratingTitle = document.createElement("p");
-            ratingTitle.innerText = "Рейтинг:";
-            let rating = document.createElement("div");
-            rating.className = 'star-rating__wrapper';
-            let j = 5;
-            for (let i = 0; i < 5; i++) {
+        if (products.data.length) {
+            for (product of products.data) {
+                let boutiqueWrapper = document.createElement("div");
+                boutiqueWrapper.className = 'col-xl-3 col-lg-4 col-md-4 col-sm-6';
+                let boutiqueBlock = document.createElement("div");
+                boutiqueBlock.className = 'boutique-block';
+                boutiqueBlock.setAttribute('id', product.id);
+                let imgWrapper = document.createElement("div");
+                imgWrapper.className = 'boutique-img__wrapper';
+                let boutiqueImg = document.createElement("img");
+                boutiqueImg.src = "http://dai5.kz/storage/" + product.logo;
+                let borderBottom = document.createElement("div");
+                borderBottom.className = 'separator';
+                let boutiqueTitle = document.createElement("h2");
+                boutiqueTitle.innerText = product.name;
+                let ratingTitle = document.createElement("p");
+                ratingTitle.innerText = "Рейтинг:";
+                let rating = document.createElement("div");
+                rating.className = 'star-rating__wrapper';
+                let j = 5;
+                for (let i = 0; i < 5; i++) {
 
-                let ratingStars;
-                let ratingStarsInputs;
-                ratingStars = document.createElement("label");
-                ratingStars.className = 'star-rating__ico star-rating__hover fa fa-star fa-lg';
-                ratingStarsInputs = document.createElement('input');
-                ratingStarsInputs.className = 'star-rating__input';
-                ratingStarsInputs.setAttribute('type', 'radio');
-                ratingStarsInputs.setAttribute('name', "rating");
-                ratingStarsInputs.setAttribute('value', j);
-                rating.appendChild(ratingStars);
-                ratingStars.appendChild(ratingStarsInputs);
-                j--;
+                    let ratingStars;
+                    let ratingStarsInputs;
+                    ratingStars = document.createElement("label");
+                    ratingStars.className = 'star-rating__ico star-rating__hover fa fa-star fa-lg';
+                    ratingStarsInputs = document.createElement('input');
+                    ratingStarsInputs.className = 'star-rating__input';
+                    ratingStarsInputs.setAttribute('type', 'radio');
+                    ratingStarsInputs.setAttribute('name', "rating");
+                    ratingStarsInputs.setAttribute('value', j);
+                    rating.appendChild(ratingStars);
+                    ratingStars.appendChild(ratingStarsInputs);
+                    j--;
+                }
+                document.getElementById("boutique__products").appendChild(boutiqueWrapper);
+                boutiqueWrapper.appendChild(boutiqueBlock);
+                boutiqueBlock.appendChild(imgWrapper);
+                imgWrapper.appendChild(boutiqueImg);
+                boutiqueBlock.appendChild(borderBottom);
+                boutiqueBlock.appendChild(boutiqueTitle);
+                boutiqueBlock.appendChild(ratingTitle);
+                boutiqueBlock.appendChild(rating);
             }
-            document.getElementById("boutique__products").appendChild(boutiqueWrapper);
-            boutiqueWrapper.appendChild(boutiqueBlock);
-            boutiqueBlock.appendChild(imgWrapper);
-            imgWrapper.appendChild(boutiqueImg);
-            boutiqueBlock.appendChild(borderBottom);
-            boutiqueBlock.appendChild(boutiqueTitle);
-            boutiqueBlock.appendChild(ratingTitle);
-            boutiqueBlock.appendChild(rating);
         }
+
     }
     function drawBoutique(boutique) {
         const productInfo = document.getElementById("product__info");
         const tourProgramContent = document.getElementById("tour__program-content");
+        let schedule = document.getElementsByClassName("schedule__right-block");
+        for (let j = 0; j < schedule.length; j++) {
+            schedule[j].innerHTML = '';
+        }
         if(productInfo) {
             productInfo.innerHTML = "";
         }
@@ -315,12 +322,7 @@ if ($("div").is(".tour")) {
             if ($('div').is('#tour__program-content')) {
                 document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
             }
-            let schedule = document.getElementsByClassName("schedule__right-block");
 
-            for (let j = 0; j < schedule.length; j++) {
-                schedule[j].innerHTML = '';
-                console.log(schedule);
-            }
             for (let k = 0; k < schedule.length; k++) {
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
                 schedule[k].innerHTML += "<div class='schedule__content-wrapper'></div>";
