@@ -370,7 +370,7 @@ if ($("div").is(".tour")) {
                         });
                 }
                 else {
-                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.select2').val()}&&city_id=${$('.select2').val()}&&id=${$(this).attr('id')}`)
+                    axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=${$(this).attr('id')}`)
                         .then(function (response) {
                             drawBoutique(response);
                         });
