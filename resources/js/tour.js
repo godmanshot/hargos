@@ -1,7 +1,7 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    $('.cities').select2();
+    // $('.cities').select2();
     $(".cities").select2({
         placeholder: "Город",
         allowClear: true,
