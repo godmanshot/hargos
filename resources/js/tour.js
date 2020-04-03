@@ -13,10 +13,6 @@ if ($("div").is(".tour")) {
         minimumResultsForSearch: Infinity
     });
 
-
-
-
-
     $(".clear-filter").click(function() {
         $(".countries").select2('val', 'All');
         $(".cities").select2('val', 'All');
@@ -86,7 +82,6 @@ if ($("div").is(".tour")) {
                 document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
 
                 for (country of response) {
-
                     let temp = document.createElement("option");
                     temp.value = country.id;
                     temp.innerText = country.name;
@@ -130,9 +125,16 @@ if ($("div").is(".tour")) {
             type: 'GET',
             url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $(this).val(),
             success: function(response) {
-
-                drawProducts(response);
-                boutiqueClick();
+                console.log(response, repsonse.length);
+                if (response.length) {
+                    drawProducts(response);
+                    boutiqueClick();
+                }
+                else {
+                    document.getElementById('product__info').innerHTML = '';
+                    document.getElementsByClassName('schedule')[0].innerHTML = '';
+                    document.getElementsByClassName('tour__program')[0].innerHTML = '';
+                }
             }
         });
     });
