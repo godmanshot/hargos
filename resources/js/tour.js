@@ -55,7 +55,7 @@ if ($("div").is(".tour")) {
                 });
     }
     $('.countries').on('select2:select', function(e) {
-
+        $('.cities').attr("disabled", "false");
         $(".cities").select2("destroy").select2({
             placeholder: "Город",
             allowClear: true,
