@@ -137,21 +137,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="slider about-player">
-                        <div>
-                        <iframe
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
-                        </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
+
                     </div>
                 </div>
             </div>
