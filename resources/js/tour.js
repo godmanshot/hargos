@@ -23,7 +23,7 @@ if ($("div").is(".tour")) {
                 slickPlayer();
             });
 
-
+        $('.cities').select2();
         $(".cities").select2({
             placeholder: "Город",
             allowClear: true,
