@@ -134,7 +134,7 @@ if ($("div").is(".tour")) {
                     document.getElementById('boutique__products').innerHTML = '';
                     document.getElementById('product__info').innerHTML = '';
                     document.getElementsByClassName('schedule')[0].innerHTML = '';
-                    document.getElementsByClassName('tour__program')[0].innerHTML = '';
+                    document.getElementsByClassName("tour__program")[0].children[0].children[1].innerHTML = '';
                 }
             }
         });
@@ -240,7 +240,6 @@ if ($("div").is(".tour")) {
         if(productInfo) {
             productInfo.innerHTML = "";
         }
-
         if(tourProgramContent) {
             tourProgramContent.innerHTML = "";
         }
@@ -340,7 +339,7 @@ if ($("div").is(".tour")) {
                     },
                 ]
             });
-            if ($('div').is('#tour__program')) {
+            if ($('div').is('#tour__program-content')) {
                 document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
             }
             let schedule = document.getElementsByClassName("schedule__right-block");
