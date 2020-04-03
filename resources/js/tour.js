@@ -346,10 +346,13 @@ if ($("div").is(".tour")) {
 
             let aboutPlayer = document.getElementsByClassName("about-player");
             aboutPlayer[0].innerHTML = "";
-            let aboutPlayerDivs = document.createElement("div");
             for (let i = 0; i < boutiqueInfo.slider.length; i++) {
+                let aboutPlayerDivs = document.createElement("div");
+                let videoPlayer = document.createElement("iframe");
+                videoPlayer.setAttribute('src', boutiqueInfo.slider[i].video);
+                videoPlayer.setAttribute('srcdoc', '<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/' + boutiqueInfo.slider[i].video +'?autoplay=1><img src=https://img.youtube.com/vi/'+ boutiqueInfo.slider[i].video +'/hqdefault.jpg><span>▶</span></a>')
+                aboutPlayerDivs.innerHTML = videoPlayer;
                 aboutPlayer[0].appendChild(aboutPlayerDivs);
-                aboutPlayerDivs.innerHTML = boutiqueInfo.slider[i].video;
             }
             $('.about-player').slick({
                 slidesToShow: 1,
