@@ -26,7 +26,6 @@ if ($("div").is(".tour")) {
             success: function(response) {
                 drawProducts(response);
                 boutiqueClick();
-
             }
         });
     });
@@ -408,7 +407,6 @@ if ($("div").is(".tour")) {
                         url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.select2').val() + '&&city_id=' + $('.select2').val() + '&&id=' + $(this).attr('id'),
                         success: function(response) {
                             drawBoutique(response);
-
                         }
                     });
                 }
