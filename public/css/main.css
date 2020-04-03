@@ -5506,9 +5506,10 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
     margin-left: 1rem;
     margin-right: 1rem
 }
-.tour .filters-block .filters-confirm__block .filters-answer__block .rightCity.hide {
-    opacity: 0;
+.tour .filters-block .filters-confirm__block .filters-answer__block .rightCity.disabled {
+    pointer-events: none;
 }
+
 .tour .filters-block .filters-confirm__block .filters-answer__block .rightCity,
 .tour .filters-block .filters-confirm__block .filters-answer__block .wrongCity {
     font-family: Montserrat;

@@ -108,7 +108,7 @@ if ($("div").is(".tour")) {
     let wrongClicked = false;
     $('.wrongCity').on('click',function() {
         $('.yourLocation').addClass('show');
-        $('.rightCity').addClass('hide');
+        $('.rightCity').addClass('disabled');
         $('.cities').attr("disabled", "true");
         wrongClicked = true;
     });
