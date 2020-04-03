@@ -23,6 +23,13 @@ if ($("div").is(".tour")) {
                 slickPlayer();
             });
 
+
+        $(".cities").select2({
+            placeholder: "Город",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            width: '100%',
+        });
         $('.countries').select2({
             placeholder: "Страна",
             allowClear: true,
@@ -41,12 +48,6 @@ if ($("div").is(".tour")) {
                     };
                 }
             }
-        });
-        $(".cities").select2({
-            placeholder: "Город",
-            allowClear: true,
-            minimumResultsForSearch: Infinity,
-            width: '100%',
         });
         axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
             .then(function (response) {
