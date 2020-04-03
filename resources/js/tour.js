@@ -36,6 +36,7 @@ if ($("div").is(".tour")) {
             ajax: {
                 url: `${appUrl}/api/countries`,
                 processResults: function (data) {
+                    console.log(data);
                     return {
                         results: data.name
                     };
@@ -62,7 +63,7 @@ if ($("div").is(".tour")) {
             ajax: {
                 url: `${appUrl}/api/cities?country_id=${$('.countries').val()}`,
                 processResults: function (data) {
-                    console.log(data);
+
                     return {
                         results: data.name
                     };
