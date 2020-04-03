@@ -5534,7 +5534,8 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 
 .tour .filters-block .yourLocation.show {
     opacity: 1;
-    pointer-events: all
+    pointer-events: all;
+    display: block!important;
 }
 
 .tour .filters-block .select2-container--default .select2-selection--single {
