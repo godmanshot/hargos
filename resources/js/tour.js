@@ -87,10 +87,9 @@ if ($("div").is(".tour")) {
         document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
         axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
             .then(function (response) {
-                if (response.length) {
-                    drawProducts(response);
-                    boutiqueClick();
-                }
+                drawProducts(response);
+                boutiqueClick();
+                drawBoutique(response);
             });
     });
     $('.rightCity').on('click', function() {
