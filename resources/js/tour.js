@@ -153,7 +153,7 @@ if ($("div").is(".tour")) {
     }
     function drawProducts(products){
         document.getElementById("boutique__products").innerHTML = "";
-        for (product of products) {
+        for (product of products.data) {
             let boutiqueWrapper = document.createElement("div");
             boutiqueWrapper.className = 'col-xl-3 col-lg-4 col-md-4 col-sm-6';
             let boutiqueBlock = document.createElement("div");
@@ -198,7 +198,6 @@ if ($("div").is(".tour")) {
         }
     }
     function drawBoutique(boutique) {
-        console.log(boutique);
         const productInfo = document.getElementById("product__info");
         const tourProgramContent = document.getElementById("tour__program-content");
         if(productInfo) {
@@ -207,7 +206,7 @@ if ($("div").is(".tour")) {
         if(tourProgramContent) {
             tourProgramContent.innerHTML = "";
         }
-        for (let boutiqueInfo of boutique) {
+        for (let boutiqueInfo of boutique.data) {
             let sliderWrapper = document.createElement("div");
             sliderWrapper.className = 'col-xl-5 col-md-6';
             let infoWrapper = document.createElement("div");
