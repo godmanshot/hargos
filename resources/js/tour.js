@@ -131,6 +131,8 @@ if ($("div").is(".tour")) {
                     boutiqueClick();
                 }
                 else {
+
+                    document.getElementById('boutique__products').innerHTML = '';
                     document.getElementById('product__info').innerHTML = '';
                     document.getElementsByClassName('schedule')[0].innerHTML = '';
                     document.getElementsByClassName('tour__program')[0].innerHTML = '';
