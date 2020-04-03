@@ -1,12 +1,13 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    $('.cities').select2();
+    // $('.cities').select2();
     $('.cities').select2({
         disabled: true,
         placeholder: "Город",
         allowClear: true,
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+        width: '100%'
     });
 
     $(".clear-filter").click(function() {
@@ -61,16 +62,22 @@ if ($("div").is(".tour")) {
                 });
     }
     $('.countries').on('select2:select', function(e) {
+
         $(".cities").select2("destroy").select2({
             placeholder: "Город",
             allowClear: true,
             minimumResultsForSearch: Infinity,
+            width: '100%',
             ajax: {
                 url: `${appUrl}/api/cities?country_id=${$('.countries').val()}`,
                 processResults: function (data) {
-
                     return {
-                        results: data.name
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name,
+                                id: item.id
+                            }
+                        })
                     };
                 }
             }
