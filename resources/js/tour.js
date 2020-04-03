@@ -25,11 +25,13 @@ if ($("div").is(".tour")) {
 
         $('.cities').select2();
         $(".cities").select2({
+            placeholder: 'Город',
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
         });
         $('.countries').select2({
+            placeholder: 'Страна',
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
@@ -106,7 +108,7 @@ if ($("div").is(".tour")) {
     let wrongClicked = false;
     $('.wrongCity').on('click',function() {
         $('.yourLocation').addClass('show');
-        $('.filters-confirm__block').addClass('hide');
+        $('.rightCity').addClass('hide');
         $('.cities').attr("disabled", "true");
         wrongClicked = true;
     });
