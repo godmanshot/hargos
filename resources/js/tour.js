@@ -85,6 +85,8 @@ if ($("div").is(".tour")) {
     });
     $('.cities').on('select2:select', function() {
         document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
+        drawProducts(response);
+        boutiqueClick();
     });
     $('.rightCity').on('click', function() {
         $('.filters-answer__block').addClass('hide');
