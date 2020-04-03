@@ -1,7 +1,6 @@
 
 if ($("div").is(".tour")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    $('.footer').css("margin-top", "unset");
     $('.cities').select2({
         disabled: true,
         placeholder: "Город",
