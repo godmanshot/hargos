@@ -1,141 +1,119 @@
+
 if ($("div").is(".tour")) {
-    $(".countries").select2();
-    $('.countries').select2({
-        placeholder: "Страна",
-        allowClear: true,
-        minimumResultsForSearch: Infinity,
-    });
-
-    $(".cities").select2();
-    $('.cities').select2({
-        placeholder: "Город",
-        allowClear: true,
-        minimumResultsForSearch: Infinity
-    });
-
-
-
-
-
+    const appUrl = document.querySelector('meta[name=app-url]').content;
     $(".clear-filter").click(function() {
-        $(".countries").select2('val', 'All');
-        $(".cities").select2('val', 'All');
+        $(".countries").select2('val', '1');
+        $(".cities").select2('val', '1');
         $(".cities").attr("disabled", "true");
         document.getElementsByClassName("isCity")[0].innerText = "Алматы";
         wrongClicked = false;
-
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
-
-            }
-        });
-    });
-
-    $('.footer').css("margin-top", "unset");
-
-    $('.cities').on('change', function() {
-        document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
-    });
-    $('.rightCity').on('click', function() {
-        $('.filters-answer__block').addClass('hide');
-        $('.yourLocation').removeClass('show');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
-                drawProducts(response);
-                boutiqueClick();
-            }
-        });
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1&&id=1&&id=1',
-            success: function(response) {
-                drawBoutique(response);
-            }
-        });
-    });
-    let wrongClicked = false;
-    $('.wrongCity').on('click',function() {
-        $('.yourLocation').addClass('show');
-        $('.filters-confirm__block').addClass('hide');
-        $('.cities').attr("disabled", "true");
-        wrongClicked = true;
-
+            });
     });
     window.onload = function(e) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1',
-            success: function(response) {
+
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
                 slickNavFor();
                 slickPlayer();
-            }
+            });
+
+        $('.cities').select2();
+        $(".cities").select2({
+            placeholder: 'Город',
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            width: '100%',
         });
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/countries',
-            success: function(response) {
-                document.getElementsByClassName("countries")[0].innerHTML = "<option></option>";
-                document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
-
-                for (country of response) {
-
-                    let temp = document.createElement("option");
-                    temp.value = country.id;
-                    temp.innerText = country.name;
-                    document.getElementsByClassName("countries")[0].appendChild(temp);
+        $('.countries').select2({
+            placeholder: 'Страна',
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            width: '100%',
+            ajax: {
+                url: `${appUrl}/api/countries`,
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name,
+                                id: item.id
+                            }
+                        })
+                    };
                 }
             }
         });
-        $(".select2").val(1);
-        $(".select2").trigger('change');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=1&&city_id=1&&id=1',
-            success: function(response) {
-                drawBoutique(response);
-            }
-        });
-
-    }
-    $('.countries').on('change', function(e) {
-        $('.cities').removeAttr('disabled');
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/cities?country_id=' + $(this).val(),
-            success: function(response) {
-                document.getElementsByClassName("cities")[0].innerHTML = "<option></option>";
-                for (city of response) {
-                    let temp = document.createElement("option");
-                    temp.value = city.id;
-                    temp.innerText = city.name;
-                    document.getElementsByClassName("cities")[0].appendChild(temp);
-                }
-            }
-        });
-    });
-
-
-
-
-    $('.cities').on('change', function(e) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $(this).val(),
-            success: function(response) {
-
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
+                slickNavFor();
+                slickPlayer();
+            });
+            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1`)
+                .then(function (response) {
+                    drawBoutique(response);
+                });
+    }
+    $('.countries').on('select2:select', function(e) {
+        $('.cities').removeAttr('disabled');
+        $(".cities").select2("destroy").select2({
+            placeholder: "Город",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            width: '100%',
+            ajax: {
+                url: `${appUrl}/api/cities?country_id=${$('.countries').val()}`,
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name,
+                                id: item.id
+                            }
+                        })
+                    };
+                }
             }
         });
     });
+    $('.cities').on('select2:select', function() {
+        document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
+        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
+            .then(function (response) {
+                drawProducts(response);
+                boutiqueClick();
+                drawBoutique(response);
+            });
+    });
+    $('.rightCity').on('click', function() {
+        $('.filters-answer__block').addClass('hide');
+        $('.yourLocation').removeClass('show');
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+            .then(function (response) {
+                drawProducts(response);
+                boutiqueClick();
+            });
+            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1&&id=1`)
+                .then(function (response) {
+                    drawBoutique(response);
+                });
+    });
+    let wrongClicked = false;
+    $('.wrongCity').on('click',function() {
+        $('.yourLocation').addClass('show');
+        $('.rightCity').addClass('disabled');
+        $('.cities').attr("disabled", "true");
+        wrongClicked = true;
+    });
+
+
 
 
     function slickPlayer() {
@@ -187,61 +165,67 @@ if ($("div").is(".tour")) {
     }
     function drawProducts(products){
         document.getElementById("boutique__products").innerHTML = "";
-        for (product of products) {
-            let boutiqueWrapper = document.createElement("div");
-            boutiqueWrapper.className = 'col-xl-3 col-lg-4 col-md-4 col-sm-6';
-            let boutiqueBlock = document.createElement("div");
-            boutiqueBlock.className = 'boutique-block';
-            boutiqueBlock.setAttribute('id', product.id);
-            let imgWrapper = document.createElement("div");
-            imgWrapper.className = 'boutique-img__wrapper';
-            let boutiqueImg = document.createElement("img");
-            boutiqueImg.src = "http://dai5.kz/storage/" + product.logo;
-            let borderBottom = document.createElement("div");
-            borderBottom.className = 'separator';
-            let boutiqueTitle = document.createElement("h2");
-            boutiqueTitle.innerText = product.name;
-            let ratingTitle = document.createElement("p");
-            ratingTitle.innerText = "Рейтинг:";
-            let rating = document.createElement("div");
-            rating.className = 'star-rating__wrapper';
-            let j = 5;
-            for (let i = 0; i < 5; i++) {
+        if (products.data.length) {
+            for (product of products.data) {
+                let boutiqueWrapper = document.createElement("div");
+                boutiqueWrapper.className = 'col-xl-3 col-lg-4 col-md-4 col-sm-6';
+                let boutiqueBlock = document.createElement("div");
+                boutiqueBlock.className = 'boutique-block';
+                boutiqueBlock.setAttribute('id', product.id);
+                let imgWrapper = document.createElement("div");
+                imgWrapper.className = 'boutique-img__wrapper';
+                let boutiqueImg = document.createElement("img");
+                boutiqueImg.src = "http://dai5.kz/storage/" + product.logo;
+                let borderBottom = document.createElement("div");
+                borderBottom.className = 'separator';
+                let boutiqueTitle = document.createElement("h2");
+                boutiqueTitle.innerText = product.name;
+                let ratingTitle = document.createElement("p");
+                ratingTitle.innerText = "Рейтинг:";
+                let rating = document.createElement("div");
+                rating.className = 'star-rating__wrapper';
+                let j = 5;
+                for (let i = 0; i < 5; i++) {
 
-                let ratingStars;
-                let ratingStarsInputs;
-                ratingStars = document.createElement("label");
-                ratingStars.className = 'star-rating__ico star-rating__hover fa fa-star fa-lg';
-                ratingStarsInputs = document.createElement('input');
-                ratingStarsInputs.className = 'star-rating__input';
-                ratingStarsInputs.setAttribute('type', 'radio');
-                ratingStarsInputs.setAttribute('name', "rating");
-                ratingStarsInputs.setAttribute('value', j);
-                rating.appendChild(ratingStars);
-                ratingStars.appendChild(ratingStarsInputs);
-                j--;
+                    let ratingStars;
+                    let ratingStarsInputs;
+                    ratingStars = document.createElement("label");
+                    ratingStars.className = 'star-rating__ico star-rating__hover fa fa-star fa-lg';
+                    ratingStarsInputs = document.createElement('input');
+                    ratingStarsInputs.className = 'star-rating__input';
+                    ratingStarsInputs.setAttribute('type', 'radio');
+                    ratingStarsInputs.setAttribute('name', "rating");
+                    ratingStarsInputs.setAttribute('value', j);
+                    rating.appendChild(ratingStars);
+                    ratingStars.appendChild(ratingStarsInputs);
+                    j--;
+                }
+                document.getElementById("boutique__products").appendChild(boutiqueWrapper);
+                boutiqueWrapper.appendChild(boutiqueBlock);
+                boutiqueBlock.appendChild(imgWrapper);
+                imgWrapper.appendChild(boutiqueImg);
+                boutiqueBlock.appendChild(borderBottom);
+                boutiqueBlock.appendChild(boutiqueTitle);
+                boutiqueBlock.appendChild(ratingTitle);
+                boutiqueBlock.appendChild(rating);
             }
-            document.getElementById("boutique__products").appendChild(boutiqueWrapper);
-            boutiqueWrapper.appendChild(boutiqueBlock);
-            boutiqueBlock.appendChild(imgWrapper);
-            imgWrapper.appendChild(boutiqueImg);
-            boutiqueBlock.appendChild(borderBottom);
-            boutiqueBlock.appendChild(boutiqueTitle);
-            boutiqueBlock.appendChild(ratingTitle);
-            boutiqueBlock.appendChild(rating);
         }
+
     }
-    function drawBoutique(boutiuque) {
+    function drawBoutique(boutique) {
         const productInfo = document.getElementById("product__info");
         const tourProgramContent = document.getElementById("tour__program-content");
+        let schedule = document.getElementsByClassName("schedule__right-block");
+        for (let j = 0; j < schedule.length; j++) {
+            schedule[j].innerHTML = '';
+        }
         if(productInfo) {
             productInfo.innerHTML = "";
         }
-
         if(tourProgramContent) {
             tourProgramContent.innerHTML = "";
         }
-        for (boutiqueInfo of boutiuque) {
+        for (let boutiqueInfo of boutique.data) {
             let sliderWrapper = document.createElement("div");
             sliderWrapper.className = 'col-xl-5 col-md-6';
             let infoWrapper = document.createElement("div");
@@ -284,7 +268,7 @@ if ($("div").is(".tour")) {
                 let sliderForImg;
                 sliderForDiv = document.createElement("div");
                 sliderForImg = document.createElement("img");
-                sliderForImg.src = "http://dai5.kz/storage/" + imgSrc[i];
+                sliderForImg.src = `${appUrl}/storage/` + imgSrc[i];
                 sliderForDiv.appendChild(sliderForImg);
                 sliderFor.appendChild(sliderForDiv);
             }
@@ -293,7 +277,7 @@ if ($("div").is(".tour")) {
                 let sliderNavImg;
                 sliderNavDiv = document.createElement("div");
                 sliderNavImg = document.createElement("img");
-                sliderNavImg.src = "http://dai5.kz/storage/" + imgSrc[i];
+                sliderNavImg.src = `${appUrl}/storage/` + imgSrc[i];
                 sliderNavDiv.appendChild(sliderNavImg);
                 sliderNav.appendChild(sliderNavDiv);
             }
@@ -337,15 +321,11 @@ if ($("div").is(".tour")) {
                     },
                 ]
             });
-            if ($('div').is('#tour__program')) {
+            if ($('div').is('#tour__program-content')) {
                 document.getElementById("tour__program-content").innerHTML += boutiqueInfo.tour_content;
             }
-            let schedule = document.getElementsByClassName("schedule__right-block");
-            for (let j = 0; j < schedule.length; j++) {
-                schedule[j].innerHTML = '';
-            }
-            for (let k = 0; k < schedule.length; k++) {
 
+            for (let k = 0; k < schedule.length; k++) {
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
                 schedule[k].innerHTML += "<div class='schedule__content-wrapper'></div>";
                 schedule[k].children[1].innerHTML += "<h2>Дата выезда</h2>";
@@ -368,10 +348,13 @@ if ($("div").is(".tour")) {
 
             let aboutPlayer = document.getElementsByClassName("about-player");
             aboutPlayer[0].innerHTML = "";
-            let aboutPlayerDivs = document.createElement("div");
             for (let i = 0; i < boutiqueInfo.slider.length; i++) {
+                let aboutPlayerDivs = document.createElement("div");
+                let videoPlayer = document.createElement("iframe");
+                videoPlayer.setAttribute('src', boutiqueInfo.slider[i].video);
+                videoPlayer.setAttribute('srcdoc', '<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/' + boutiqueInfo.slider[i].video +'?autoplay=1><img src=https://img.youtube.com/vi/'+ boutiqueInfo.slider[i].video +'/hqdefault.jpg><span>▶</span></a>')
+                aboutPlayerDivs.innerHTML = videoPlayer;
                 aboutPlayer[0].appendChild(aboutPlayerDivs);
-                aboutPlayerDivs.innerHTML = boutiqueInfo.slider[i].video;
             }
             $('.about-player').slick({
                 slidesToShow: 1,
@@ -380,7 +363,6 @@ if ($("div").is(".tour")) {
                 autoplaySpeed: 2000,
                 swipe: false,
                 touchMove: false,
-                lazyLoad: "ondemand",
             });
         }
     }
@@ -388,77 +370,20 @@ if ($("div").is(".tour")) {
         $('.boutique-block').on('click', function(e) {
             if(event.target == event.currentTarget) {
                 if (wrongClicked) {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.countries').val() + '&&city_id=' + $('.cities').val() + '&&id=' + $(this).attr('id'),
-                        success: function(response) {
+                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$('.cities').val()}&&id=${$(this).attr('id')}`)
+                        .then(function (response) {
                             drawBoutique(response);
-
-                        }
-                    });
-
+                        });
                 }
                 else {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://dai5.kz/api/tour-operators?country_id=' + $('.select2').val() + '&&city_id=' + $('.select2').val() + '&&id=' + $(this).attr('id'),
-                        success: function(response) {
+                    axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=${$(this).attr('id')}`)
+                        .then(function (response) {
                             drawBoutique(response);
-
-                        }
-                    });
+                        });
                 }
             }
         });
     }
-    // $('.boutique-block').on('event', '.slider-nav', function() {
-    //     $(this).slick({
-    //         slidesToShow: 2.99999,
-    //         slidesToScroll: 1,
-    //         asNavFor: '.slider-for',
-
-    //         focusOnSelect: true,
-    //         responsive: [
-    //             {
-    //                 breakpoint: 460,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //             {
-    //                 breakpoint: 768,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //             {
-    //                 breakpoint: 1032,
-    //                 settings: {
-    //                     arrows: false,
-    //                 }
-    //             },
-    //         ]
-    //     });
-    // });
-    // $('.boutique-block').on('event', '.slider-for', function() {
-    //     // $('.about-player').slick({
-    //     //     slidesToShow: 1,
-    //     //     slidesToScroll: 1,
-    //     //     autoplay: false,
-    //     //     autoplaySpeed: 2000,
-    //     //     swipe: false,
-    //     //     touchMove: false,
-    //     //     lazyLoad: "ondemand",
-    //     // });
-    //     $(this).slick({
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         arrows: false,
-    //         fade: true,
-    //         asNavFor: '.slider-nav'
-    //     });
-
-    // });
 }
 
 

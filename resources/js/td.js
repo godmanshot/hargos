@@ -112,7 +112,7 @@ if ($("div").is(".td")) {
 
 
 
-    $('.footer').css("margin-top", "unset");
+
 
 }
 

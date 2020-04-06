@@ -5506,6 +5506,9 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
     margin-left: 1rem;
     margin-right: 1rem
 }
+.tour .filters-block .filters-confirm__block .filters-answer__block .rightCity.disabled {
+    pointer-events: none;
+}
 
 .tour .filters-block .filters-confirm__block .filters-answer__block .rightCity,
 .tour .filters-block .filters-confirm__block .filters-answer__block .wrongCity {
@@ -5534,7 +5537,8 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 
 .tour .filters-block .yourLocation.show {
     opacity: 1;
-    pointer-events: all
+    pointer-events: all;
+    display: block!important;
 }
 
 .tour .filters-block .select2-container--default .select2-selection--single {
@@ -5931,7 +5935,9 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
     -webkit-text-fill-color: transparent;
     text-align: center
 }
-
+.tour .schedule .schedule__right-block .schedule__content-wrapper img {
+    width: 100%;
+}
 .tour .schedule .schedule__right-block .schedule__content-wrapper {
     min-height: 710px;
     padding-top: 30px;
@@ -6165,6 +6171,10 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 }
 
 @media (max-width:576px) {
+    .tour .filters-block {
+        background-color: #783dd0;
+        background-image: none;
+    }
     .tour .filters-block .yourLocation {
         display: none
     }
@@ -7113,7 +7123,12 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
         margin-bottom: 13px
     }
 }
-
+.advice .flexible:first-of-type, .about .flexible:first-of-type, .reviews .flexible:first-of-type, .news .flexible:first-of-type, .contact .flexible:first-of-type, .about .flexible:first-of-type, .td .flexible:first-of-type, .cardd .flexible:first-of-type, .tour .flexible:first-of-type {
+    display: block;
+}
+.advice .flexible:first-of-type h4, .about .flexible:first-of-type h4, .reviews .flexible:first-of-type h4, .news .flexible:first-of-type h4, .contact .flexible:first-of-type h4, .about .flexible:first-of-type h4, .td .flexible:first-of-type h4, .cardd .flexible:first-of-type h4, .tour .flexible:first-of-type h4 {
+    display: inline-block;
+}
 .advice .flexible {
     display: -webkit-flex;
     display: -moz-flex;
@@ -9144,7 +9159,8 @@ button {
     width: 500px;
     overflow: hidden;
     cursor: zoom-in;
-    background-size: 300%
+    background-size: cover;
+    transition: all .3s ease;
 }
 
 .zoomMe img {
@@ -9153,4 +9169,53 @@ button {
 
 .zoomMe:hover img {
     opacity: 0
+}
+.show-all-tds {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+.show-all-tds:before, .show-all-tds:after {
+    content: '';
+    right: 0;
+    bottom: 0;
+    background: #9f56d9;
+    position: absolute;
+    transition: transform .35s ease;
+}
+.show-all-tds:before {
+    width: 100%;
+    height: 1.5px;
+    transform: translateX(-100%);
+}
+.show-all-tds:after {
+    width: 1.5px;
+    height: 100%;
+    transform: translateY(100%);
+}
+.show-all-tds span {
+    position: relative;
+    display: block;
+    padding: 7px;
+}
+.show-all-tds span:before, .show-all-tds span:after {
+    position: absolute;
+    transition: transform .35s ease;
+    content: '';
+    left: 0;
+    top: 0;
+    background: #9f56d9;
+}
+.show-all-tds span:before {
+    width: 100%;
+    height: .5px;
+    transform: translateX(100%);
+}
+.show-all-tds span:after  {
+    width: 1.5px;
+    height: 100%;
+    transform: translateY(-100%);
+}
+.show-all-tds:hover:before, .show-all-tds:hover:after, .show-all-tds:hover>span:before, .show-all-tds:hover>span:after {
+    transform: translate(0, 0);
 }

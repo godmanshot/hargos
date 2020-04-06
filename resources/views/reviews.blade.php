@@ -150,6 +150,14 @@
 
 @push('scripts')
     <script type="text/javascript">
+        let sendReviewBtn = document.querySelector('.leave__review-btn');
+        sendReviewBtn.addEventListener('submit', e => {
+            Swal.fire({
+                title: 'Благодарим за обратную связь. Ваш отзыв успешно добавлен',
+            });
+        });
+    </script>
+    <script>
         $('.leave__review-wrapper .star-rating__input').on('click', function() {
             $(this).parent('label').nextAll('label').addClass('star-rating__checked');
             $(this).parent('label').prevAll('label').removeClass('star-rating__checked');

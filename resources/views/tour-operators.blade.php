@@ -58,13 +58,11 @@
                     <div class="row h-100 align-items-center yourLocation">
                         <div class="col-xl-3">
                             <select class="countries js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option></option>
 
                             </select>
                         </div>
                         <div class="col-xl-3">
                             <select class="cities js-states form-control select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option></option>
                             </select>
                         </div>
                         <div class="col-xl-3 separator">
@@ -122,7 +120,7 @@
             </div>
         </div>
     </div>
-    <div class="tour__program">
+    <div class="tour__program py-5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-md-12" id="tour__program-map">
@@ -136,24 +134,10 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row pb-5">
                 <div class="col-xl-12">
                     <div class="slider about-player">
-                        <div>
-                        <iframe
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
-                        </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
-                        <div>
-                            <iframe
-                                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
+
                     </div>
                 </div>
             </div>
