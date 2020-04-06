@@ -109,6 +109,8 @@
 
             axios.post(appUrl + "/api/feedback", data)
                 .then(function(response) {
+                    console.log(response);
+                    console.log(response.message);
                     Swal.fire({
                         title: response.message
                     });
