@@ -11,8 +11,7 @@ if ($("div").is(".reviews")) {
         $(this).parent('label').addClass('star-rating__checked');
     });
     let sendReviewBtn = document.querySelector('.leave__review-btn');
-    sendReviewBtn.addEventListener('click', e => {
-        e.preventDefault();
+    sendReviewBtn.addEventListener('submit', e => {
         Swal.fire({
             title: 'Благодарим за обратную связь. Ваш отзыв успешно добавлен',
         });
