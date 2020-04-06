@@ -1,7 +1,7 @@
 
 if ($("div").is(".about")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    $('.input[type="tel"]').mask('+79999999999');
+    $('input[type="tel"]').mask('+79999999999');
     $('.about-player').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
