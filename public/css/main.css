@@ -7123,7 +7123,12 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
         margin-bottom: 13px
     }
 }
-
+.advice .flexible:first-of-type, .about .flexible:first-of-type, .reviews .flexible:first-of-type, .news .flexible:first-of-type, .contact .flexible:first-of-type, .about .flexible:first-of-type, .td .flexible:first-of-type, .cardd .flexible:first-of-type, .tour .flexible:first-of-type {
+    display: block;
+}
+.advice .flexible:first-of-type h4, .about .flexible:first-of-type h4, .reviews .flexible:first-of-type h4, .news .flexible:first-of-type h4, .contact .flexible:first-of-type h4, .about .flexible:first-of-type h4, .td .flexible:first-of-type h4, .cardd .flexible:first-of-type h4, .tour .flexible:first-of-type h4 {
+    display: inline-block;
+}
 .advice .flexible {
     display: -webkit-flex;
     display: -moz-flex;
