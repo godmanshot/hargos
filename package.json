@@ -50,6 +50,7 @@
     "hc-offcanvas-nav": "^3.4.1",
     "headhesive": "^1.2.4",
     "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.16",
     "jquery-migrate": "^3.1.0",
     "jquery-slim": "^3.0.0",
     "jquery-zoom": "^1.7.21",

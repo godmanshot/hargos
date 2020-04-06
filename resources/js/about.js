@@ -1,6 +1,7 @@
+import "jquery-mask-plugin";
 if ($("div").is(".about")) {
     const appUrl = document.querySelector('meta[name=app-url]').content;
-    
+    $('.input[type="tel"]').mask('+79999999999');
     $('.about-player').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -10,7 +11,7 @@ if ($("div").is(".about")) {
         touchMove: false,
         lazyLoad: "ondemand",
     });
-    
+
     $('.getConsultation').on('click', function() {
         Swal.fire({
             title: 'Введите номер телефона',
