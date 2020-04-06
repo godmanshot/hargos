@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 if ($("div").is(".reviews")) {
-    for (i = 0; i < $('.avatar__wrapper').length; i++) {
+    for (let i = 0; i < $('.avatar__wrapper').length; i++) {
         $('.avatar__wrapper')[i].classList.add("avatar__bg")
     }
     $('.leave__review-wrapper .star-rating__input').on('click', function() {
