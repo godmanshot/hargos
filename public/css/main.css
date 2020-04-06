@@ -9173,6 +9173,7 @@ button {
 .show-all-tds {
     overflow: hidden;
     position: relative;
+    display: inline-block;
 }
 .show-all-tds:before, .show-all-tds:after {
     content: '';
@@ -9212,4 +9213,7 @@ button {
     width: 1.5px;
     height: 100%;
     transform: translateY(-100%);
+}
+.show-all-tds:hover:before, .show-all-tds:hover:after, .show-all-tds:hover>span:before, .show-all-tds:hover>span:after {
+    transform: translate(0, 0);
 }
