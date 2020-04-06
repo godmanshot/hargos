@@ -31,7 +31,7 @@
                     @endforeach
                 </div>
                 <div class="col-xl-12 col-sm-12 separator text-center">
-                    <a href="{{url('/trading-houses')}}" class="text-dark text-decoration-none">@lang('interface.showAll')</a>
+                    <a href="{{url('/trading-houses')}}" class="text-dark text-decoration-none show-all-tds"><span>@lang('interface.showAll')</span></a>
                 </div>
             </div>
         </div>
