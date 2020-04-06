@@ -1,4 +1,4 @@
-
+import "./jquery.mask.js";
 import './header.js';
 import './index.js';
 import './about.js';
