@@ -106,5 +106,6 @@ return [
     'schedule' => 'Бір күндік сауда сапарларының кестесі',
     'departureDate' => 'Ұшу күні',
     'costOfTravel' => 'Саяхат құны',
-    'groupGathering' => 'Топтық жинақ'
+    'groupGathering' => 'Топтық жинақ',
+    'subscribed' => 'Сіз жазылдыңыз'
 ];

@@ -13,6 +13,7 @@ use App\AdvicePost;
 use App\TopProduct;
 use App\AdviceVideo;
 use App\Recommended;
+use App\Facades\Lang;
 use App\TradingHouse;
 use App\CategoryStock;
 use App\AdviceCategory;
@@ -262,7 +263,7 @@ Route::post('/subscribe', function(Request $request) {
         'email' => $request->email
     ]);
 
-    $request->session()->flash('message', __('Вы подписаны!'));
+    $request->session()->flash('message', Lang::get('interface.subscribed'));
 
 	return back();
 
@@ -291,7 +292,6 @@ Route::get('/search', function(Request $request) {
     return view('search', compact('search_query', 'models'));
 
 })->name('search');
-
 
 Route::get('/callback', function(Request $request) {
     

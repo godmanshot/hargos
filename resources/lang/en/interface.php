@@ -106,5 +106,6 @@ return [
     'schedule' => 'One-day shopping trip schedule',
     'departureDate' => 'Departure Date',
     'costOfTravel' => 'Cost of travel',
-    'groupGathering' => 'Group gathering'
+    'groupGathering' => 'Group gathering',
+    'subscribed' => 'You are subscribed'
 ];
