@@ -9179,7 +9179,7 @@ button {
     content: '';
     right: 0;
     bottom: 0;
-    background: #f7ba6c;
+    background: #9f56d9;
     position: absolute;
     transition: transform .35s ease;
 }
@@ -9195,6 +9195,8 @@ button {
 }
 .show-all-tds span {
     position: relative;
+    display: block;
+    padding: 7px;
 }
 .show-all-tds span:before, .show-all-tds span:after {
     position: absolute;
@@ -9202,11 +9204,11 @@ button {
     content: '';
     left: 0;
     top: 0;
-    background: #f7ba6c;
+    background: #9f56d9;
 }
 .show-all-tds span:before {
     width: 100%;
-    height: 1.5px;
+    height: .5px;
     transform: translateX(100%);
 }
 .show-all-tds span:after  {
