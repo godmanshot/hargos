@@ -144,7 +144,7 @@
 					<h5>@lang('interface.subscribe')</h5>
 					<form action="{{route('subscribe')}}" method="POST" class="subscription__form">
 						@csrf
-						<input class="subscription__value" type="email" name="email" placeholder="Email" required>
+						<input class="subscription__value" type="email" name="email" placeholder="@lang('interface.email')" required>
 						<button class="subscription__button" type="submit">@lang('interface.subscribe')</button>
 					</form>
 					<h5 class="mt-3">@lang('interface.socials')</h5>
@@ -209,7 +209,7 @@
 					</div>
 					<div class="mt-4">
 						<h5>@lang('interface.workingHours')</h5>
-						<p>@lang('interface.working') @lang('interface.from') {{setting('sayt.work-time')}} @lang('interface.sevenDaysAWeek').</p>
+						<p>@lang('interface.working') @lang('interface.from') {{setting('kontakty.work-time')}} @lang('interface.sevenDaysAWeek').</p>
 					</div>
 					<div class="mt-4">
 						<script type="text/javascript">

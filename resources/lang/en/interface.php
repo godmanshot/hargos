@@ -18,9 +18,9 @@ return [
     'contactUs' => 'Contact us',
     'close' => 'Close',
     'developpedBy' => 'Developed in',
-    'working' => 'Work',
-    'from' => 's',
-    'sevenDaysAWeek' => '7 days a week',
+    'working' => 'We work from ',
+    'from' => '',
+    'sevenDaysAWeek' => 'seven days a week',
     'main' => 'Home',
     'aboutCompany' => 'About the Company',
     'whatIs' => 'What is',
@@ -107,5 +107,11 @@ return [
     'departureDate' => 'Departure Date',
     'costOfTravel' => 'Cost of travel',
     'groupGathering' => 'Group gathering',
-    'subscribed' => 'You are subscribed'
+    'subscribed' => 'You are subscribed',
+    'reviewAboutBoutique' => 'Reviews about the boutique',
+    'wholeRange' => 'The whole range',
+    'avgRating' => 'The average rating',
+    'mark' => 'Mark',
+    'to' => 'to',
+    'email' => 'Email'
 ];

@@ -203,7 +203,7 @@
                     </div>
                 </div>
                 <div class="col-xl-2">
-                    <a class="boutique__more">Подробнее</a>
+                    <a class="boutique__more">@lang('interface.detailed')</a>
                 </div>
                 <div class="col-xl-10"></div>
             </div>
@@ -237,10 +237,10 @@
                                             <p>{{$product->getTranslatedAttribute('name')}}</p>
                                         </div>
                                         <div class="col-xl-5">
-                                            <h2 class="one_price price_cny" style="display: block;">от {{$product->priceFromCny}} до {{$product->priceToCny}} &#165;</h2>
-                                            <h2 class="one_price price_usd" style="display: none;">от {{$product->priceFromDollar}} до {{$product->priceToDollar}} &#36;</h2>
-                                            <h2 class="one_price price_kzt" style="display: none;">от {{$product->priceFromTenge}} до {{$product->priceToTenge}} &#8376;</h2>
-                                            <h2 class="one_price price_rub" style="display: none;">от {{$product->priceFromRub}} до {{$product->priceToRub}} &#8381;</h2>
+                                            <h2 class="one_price price_cny" style="display: block;">@lang('interface.from') {{$product->priceFromCny}} @lang('interface.to') {{$product->priceToCny}} &#165;</h2>
+                                            <h2 class="one_price price_usd" style="display: none;">@lang('interface.from'){{$product->priceFromDollar}} @lang('interface.to') {{$product->priceToDollar}} &#36;</h2>
+                                            <h2 class="one_price price_kzt" style="display: none;">@lang('interface.from'){{$product->priceFromTenge}} @lang('interface.to') {{$product->priceToTenge}} &#8376;</h2>
+                                            <h2 class="one_price price_rub" style="display: none;">@lang('interface.from'){{$product->priceFromRub}} @lang('interface.to') {{$product->priceToRub}} &#8381;</h2>
                                         </div>
                                     </li>
                                 @endforeach
@@ -249,7 +249,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xl-4 col-6">
-                            <h1>Весь ассортимент</h1>
+                            <h1>@lang('interface.wholeRange')</h1>
                         </div>
                     </div>
                     <div class="priceList mb-3">
@@ -294,13 +294,13 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="row justify-content-between pl-3 pr-3">
-                            <h1>Отзывы о бутике</h1>
+                            <h1>@lang('interface.reviewAboutBoutique')</h1>
                             <div class="avg--rate">
-                                <p>Средняя оценка <span>{{$boutique->averageRating->rating ?? 0}}</span></p>
+                                <p>@lang('interface.avgRating') <span>{{$boutique->averageRating->rating ?? 0}}</span></p>
                                 <div class="star-rating__wrapper">
                                     {!!$boutique->averageRatingHtml!!}
                                 </div>
-                                <button type="button" class="leave__feedback" id="create-review" data-boutique_id="{{$boutique->id}}">Оставить отзыв</button>
+                                <button type="button" class="leave__feedback" id="create-review" data-boutique_id="{{$boutique->id}}">@lang('interface.liveAReview')</button>
                             </div>
                         </div>
                     </div>
@@ -309,7 +309,7 @@
                             <div class="col-xl-12 comment--wrapper">
                                 <div class="row justify-content-between">
                                     <div class="col-xl-2 mobile__flex">
-                                        <h2>Оценка</h2>
+                                        <h2>@lang('interface.mark')</h2>
                                         <div class="star-rating__wrapper">
                                             <label class="star-rating__ico star-rating__hover fa fa-star fa-lg {{$comment->rating >= 5 ? 'star-rating__checked' : ''}}">
                                                 <input class="star-rating__input" type="radio" name="rating" value="5">
@@ -334,7 +334,7 @@
                                         <div class="row justify-content-end mt-3">
                                         <div class="col-xl-3 col-lg-4 col-sm-6 col-md-5 col-9">
                                             <div class="useful__wrapper">
-                                                <h2>Отзыв полезен</h2>
+                                                <h2>@lang('interface.reviewIsHelpful')</h2>
                                                 <span><button class="liked" type="button"></button>{{$comment->likes}}</span>
                                                 <span><button class="disliked" type="button"></button>{{$comment->dislikes}}</span>
                                             </div>
@@ -354,7 +354,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">@lang('interface.feautredBoutiques')</h1>
+                    <h1 class="favorite-header">@lang('interface.featuredBoutiques')</h1>
                 </div>
             </div>
             <div class="row favorite__slick">

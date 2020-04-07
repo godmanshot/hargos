@@ -107,5 +107,11 @@ return [
     'departureDate' => 'Дата выезда',
     'costOfTravel' => 'Стоимость поездки',
     'groupGathering' => 'Сбор группы',
-    'subscribed' => 'Вы подписаны'
+    'subscribed' => 'Вы подписаны',
+    'reviewAboutBoutique' => 'Отзывы о бутике',
+    'wholeRange' => 'Весь ассортимент',
+    'avgRating' => 'Средняя оценка',
+    'mark' => 'Оценка',
+    'to' => 'До',
+    'email' => 'Почта'
 ];

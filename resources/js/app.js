@@ -21,6 +21,9 @@ var _app_lang = document.head.querySelector('meta[name="app-lang"]').content;
 var _app_storage_url = _app_url + '/storage';
 var _app_api_url = _app_url + '/api';
 
+window.lang = document.documentElement.lang;
+const locales = require('./lang/' + window.lang + '.js').default;
+console.log(locales)
 let edit_class = process.env.MIX_EDITABLE_BLOCK_CLASS;
 
 window.adminEdit = function() {
@@ -36,7 +39,7 @@ window.adminEdit = function() {
 window.review = async (boutique_id) => {
 
     const { value: formValues } = await Swal.fire({
-        title: 'Оставьте свой отзыв',
+        title: locales.liveAReview,
         html:
             '<p>Рейтинг</p>' +
             '<div class="">'+

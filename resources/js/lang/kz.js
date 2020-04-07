@@ -1,4 +1,9 @@
 export default {
     catalog: 'Каталогы',
-    close: 'Жабу'
+    close: 'Жабу',
+    liveAReview: 'Пікіріңізді қалдырыңыз',
+    rating: 'Бағалау',
+    name: 'аты',
+    review: 'шолу',
+    thanksForAReview: 'Қарағаныңыз үшін рақмет!'
 };

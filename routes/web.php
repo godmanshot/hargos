@@ -13,7 +13,6 @@ use App\AdvicePost;
 use App\TopProduct;
 use App\AdviceVideo;
 use App\Recommended;
-use App\Facades\Lang;
 use App\TradingHouse;
 use App\CategoryStock;
 use App\AdviceCategory;

@@ -3,7 +3,54 @@ window.axios = require("axios");
 window.lang = document.documentElement.lang;
 
 const locales = require('./lang/' + window.lang + '.js').default;
+var _app_url = document.head.querySelector('meta[name="app-url"]').content;
+var _app_lang = document.head.querySelector('meta[name="app-lang"]').content;
+var _app_storage_url = _app_url + '/storage';
+var _app_api_url = _app_url + '/api';
+window.review = async (boutique_id) => {
 
+    const { value: formValues } = await Swal.fire({
+        title: locales.liveAReview,
+        html:
+            '<p>' + locales.rating + '</p>' +
+            '<div class="">'+
+            '    <label class="">'+
+            '        <input class="swal-input3" type="radio" name="rating" value="1"> 1'+
+            '    </label>'+
+            '    <label class="">'+
+            '        <input class="swal-input3" type="radio" name="rating" value="2"> 2'+
+            '    </label>'+
+            '    <label class="">'+
+            '        <input class="swal-input3" type="radio" name="rating" value="3"> 3'+
+            '    </label>'+
+            '    <label class="">'+
+            '        <input class="swal-input3" type="radio" name="rating" value="4"> 4'+
+            '    </label>'+
+            '    <label class="">'+
+            '        <input class="swal-input3" type="radio" name="rating" value="5" checked> 5'+
+            '    </label>'+
+            '</div>'+
+            '<input id="swal-input1" class="swal2-input" placeholder="'+ locales.name +'"/>' +
+            '<textarea id="swal-input2" class="swal2-textarea" placeholder="' + locales.review + '"></textarea>',
+        focusConfirm: false,
+        preConfirm: () => {
+            return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value,
+                $(".swal-input3:checked").val()
+            ]
+        }
+    })
+
+    if (formValues) {
+        fetch(_app_api_url + '/boutique/'+boutique_id+'/reviews/create?' + $.param({name: formValues[0], review: formValues[1], rating: formValues[2]}))
+        .then(res => {
+            Swal.fire(locales.thanksForAReview);
+        });
+    }
+
+
+}
 $(document).ready(function() {
     var searchInput = document.querySelectorAll('#predictive_search');
     var activeSearchBtn;
