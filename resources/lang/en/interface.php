@@ -63,7 +63,6 @@ return [
     'ceo' => 'CEO',
     'liveAMessage' => 'Leave a message',
     'name' => 'Name',
-    'message' => 'Message',
     'send' => 'Send',
     'agreemnt' => 'I consent to the processing',
     'personal' => 'personal data',
@@ -113,5 +112,6 @@ return [
     'avgRating' => 'The average rating',
     'mark' => 'Mark',
     'to' => 'to',
-    'email' => 'Email'
+    'email' => 'Email',
+    'notAll' => 'And that is not all'
 ];

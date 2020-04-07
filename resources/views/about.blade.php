@@ -124,7 +124,7 @@
         </div>
     </div>
 
-    <div class="container text__border" data-text="И это еще не все">
+    <div class="container text__border" data-text="@lang('interface.notAll')">
         <div class="row">
             <div class="col-xl-12">
                 <div class="row">

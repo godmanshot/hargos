@@ -5,5 +5,6 @@ export default {
     rating: 'Рейтинг',
     name: 'Имя',
     review: 'Отзыв',
-    thanksForAReview: 'Спасибо за отзыв!'
+    thanksForAReview: 'Спасибо за отзыв!',
+    enterPhoneNumber: 'Введите номер телефона'
 };

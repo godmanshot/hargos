@@ -5,5 +5,6 @@ export default {
     rating: 'Бағалау',
     name: 'аты',
     review: 'шолу',
-    thanksForAReview: 'Қарағаныңыз үшін рақмет!'
+    thanksForAReview: 'Қарағаныңыз үшін рақмет!',
+    enterPhoneNumber: 'Телефон нөмірін енгізіңіз'
 };

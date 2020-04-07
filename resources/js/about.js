@@ -1,5 +1,7 @@
 
 if ($("div").is(".about")) {
+    window.lang = document.documentElement.lang;
+    const locales = require('./lang/' + window.lang + '.js').default;
     const appUrl = document.querySelector('meta[name=app-url]').content;
     $('input[type="tel"]').mask('+79999999999');
     $('.about-player').slick({
@@ -11,12 +13,11 @@ if ($("div").is(".about")) {
         touchMove: false,
         lazyLoad: "ondemand",
     });
-
     $('.getConsultation').on('click', function() {
         Swal.fire({
-            title: 'Введите номер телефона',
+            title: locales.enterPhoneNumber,
             input: 'tel',
-            inputPlaceholder: 'Введите номер телефона',
+            inputPlaceholder: locales.enterPhoneNumber,
             preConfirm: (phone) => {
                 return axios.post(`${appUrl}/api/consultations`, {phone})
                     .then(response => response.data)
