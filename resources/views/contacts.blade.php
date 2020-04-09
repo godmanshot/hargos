@@ -107,7 +107,11 @@
             event.preventDefault();
             var data = new FormData(requestForm);
 
-            axios.post(appUrl + "/api/feedback", data)
+            axios.post(appUrl + "/api/feedback", data, {
+                headers: {
+                    'X-localization': window.lang
+                }
+            })
                 .then(function(response) {
                     Swal.fire({
                         title: response.data.message

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'message' => 'Your application has been accepted!',
+    'message' => 'Ваша заявка принята!',
     'catalogOfBoutiques' => 'Каталог бутиков',
     'productSearchPlaceholder' => 'Поиско по товарам',
     'productSearchPlaceholderExample' => 'Например',

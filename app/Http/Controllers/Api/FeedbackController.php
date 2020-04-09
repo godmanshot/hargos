@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Feedback;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Cookie;
 
 class FeedbackController extends Controller
 {
@@ -15,8 +17,7 @@ class FeedbackController extends Controller
             'message' => 'required'
         ]);
 
-        Feedback::create($request->all());
-
-        return response(['message' => trans('interface.message')], 201);
+        // Feedback::create($request->all());
+        return response(['message' => Lang::get('interface.message')]);
     }
 }

@@ -14,7 +14,7 @@ class ConsultationController extends Controller
         ]);
 
         Consultation::create($request->all());
-
+        
         return response(['message' => trans('interface.message')], 201);
     }
 }

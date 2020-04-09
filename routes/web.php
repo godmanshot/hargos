@@ -20,6 +20,7 @@ use App\PopularProduct;
 use App\BoutiqueProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
     $hello_slider = Slider::withTranslations()->where('name', 'Главный слайдер')->first();
     $special_slider = Slider::withTranslations()->where('name', 'Специально для вас')->first();
     $recommended = Recommended::withTranslations()->orderBy('order')->get();
@@ -309,16 +310,8 @@ Route::get('/callback', function(Request $request) {
 
 
 Route::get('/lang/{lang}', function(Request $request, $lang) {
-    app()->setLocale($lang);
-    return back()->withCookie(cookie()->forever('lang', $lang));
+    return redirect()->back()->withCookie(Cookie::forever('lang', $lang));
 });
 
 Route::post('reviews/{review}/like', 'LikeController@like')->name('review.like');
 Route::post('reviews/{review}/dislike', 'LikeController@dislike')->name('review.dislike');
-Route::get('testtest', function() {
-    
-});
-
-Route::get('/test', function() {
-    return phpinfo();
-});

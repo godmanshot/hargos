@@ -111,7 +111,9 @@
 
 	@yield('content')
 
-
+	@php
+		$contacts = $contacts->translate(app()->getLocale());
+	@endphp
 	<!-- FOOTER -->
 	<div class="footer" style="margin-top: unset;">
 		<div class="container">
@@ -205,11 +207,11 @@
 					<button class="callOrder" type="button" data-toggle="modal" data-target="#callUs" onclick="function(){callhunter();}()">@lang('interface.orderACall')</button>
 					<div class="mt-4">
 						<h5>@lang('interface.address')</h5>
-						<p>{{setting('sayt.address')}}</p>
+						<p>{{ $contacts->address }}</p>
 					</div>
 					<div class="mt-4">
 						<h5>@lang('interface.workingHours')</h5>
-						<p>@lang('interface.working') @lang('interface.from') {{setting('kontakty.work-time')}} @lang('interface.sevenDaysAWeek').</p>
+						<p>{{ $contacts->schedule }}</p>
 					</div>
 					<div class="mt-4">
 						<script type="text/javascript">

@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 class TourOperatorsController extends Controller
 {
     public function index(Request $request) {
-
         $models = TourHouse::orderBy('name');
     
         if($request->has('country_id')) {
@@ -23,7 +22,13 @@ class TourOperatorsController extends Controller
         if($request->has('id')) {
             $models->where('id', $request->id);
         }
-        
-        return $models->get();
+        $models = $models->get()->map(function($model) {
+            $model->sheldures = $model->sheldures->map(function($sheldure) {
+                return $sheldure->translate(app()->getLocale());
+            });
+            return $model->translate(app()->getLocale());
+        });
+
+        return $models;
     }
 }

@@ -19,7 +19,11 @@ if ($("div").is(".about")) {
             input: 'tel',
             inputPlaceholder: locales.enterPhoneNumber,
             preConfirm: (phone) => {
-                return axios.post(`${appUrl}/api/consultations`, {phone})
+                return axios.post(`${appUrl}/api/consultations`, {phone}, {
+                    headers: {
+                        'X-localization': window.lang
+                    }
+                })
                     .then(response => response.data)
                     .catch(error => {
                         Swal.showValidationMessage(

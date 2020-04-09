@@ -45,8 +45,9 @@ class Boutique extends Model
 
     public function getCategoriesNameAttribute()
     {
-        $categories = $this->categories;
-
+        $categories = $this->categories->map(function($category) {
+            return $category->translate(app()->getLocale());
+        });
         return $categories->implode('name', ', ');
     }
 

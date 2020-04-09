@@ -6,5 +6,7 @@ export default {
     name: 'Имя',
     review: 'Отзыв',
     thanksForAReview: 'Спасибо за отзыв!',
-    enterPhoneNumber: 'Введите номер телефона'
+    enterPhoneNumber: 'Введите номер телефона',
+    country: 'Страна',
+    city: 'Город'
 };

@@ -3,11 +3,12 @@
 namespace App;
 
 use App\CanFilterTrait;
+use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class TourHouse extends Model
 {
-    use CanFilterTrait;
+    use CanFilterTrait, Translatable;
 
     public $with = [
         'sheldures',

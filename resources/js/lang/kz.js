@@ -6,5 +6,7 @@ export default {
     name: 'аты',
     review: 'шолу',
     thanksForAReview: 'Қарағаныңыз үшін рақмет!',
-    enterPhoneNumber: 'Телефон нөмірін енгізіңіз'
+    enterPhoneNumber: 'Телефон нөмірін енгізіңіз',
+    country: 'Eлі',
+    city: 'Қала'
 };

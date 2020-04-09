@@ -1,5 +1,6 @@
 
 if ($("div").is(".tour")) {
+    const translations = require(`./lang/${window.lang}`).default;
     const appUrl = document.querySelector('meta[name=app-url]').content;
     $(".clear-filter").click(function() {
         $(".countries").select2('val', '1');
@@ -7,7 +8,11 @@ if ($("div").is(".tour")) {
         $(".cities").attr("disabled", "true");
         document.getElementsByClassName("isCity")[0].innerText = "Алматы";
         wrongClicked = false;
-        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
             .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
@@ -15,7 +20,11 @@ if ($("div").is(".tour")) {
     });
     window.onload = function(e) {
 
-        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
             .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
@@ -25,13 +34,13 @@ if ($("div").is(".tour")) {
 
         $('.cities').select2();
         $(".cities").select2({
-            placeholder: 'Город',
+            placeholder: translations.city,
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
         });
         $('.countries').select2({
-            placeholder: 'Страна',
+            placeholder: translations.country,
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
@@ -49,22 +58,30 @@ if ($("div").is(".tour")) {
                 }
             }
         });
-        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
             .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
                 slickNavFor();
                 slickPlayer();
             });
-            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1`)
-                .then(function (response) {
-                    drawBoutique(response);
-                });
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1&id=1`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
+            .then(function (response) {
+                drawBoutique(response);
+            });
     }
     $('.countries').on('select2:select', function(e) {
         $('.cities').removeAttr('disabled');
         $(".cities").select2("destroy").select2({
-            placeholder: "Город",
+            placeholder: translations.city,
             allowClear: true,
             minimumResultsForSearch: Infinity,
             width: '100%',
@@ -85,7 +102,11 @@ if ($("div").is(".tour")) {
     });
     $('.cities').on('select2:select', function() {
         document.getElementsByClassName("isCity")[0].innerText = document.getElementsByClassName("select2-selection__rendered")[1].innerText;
-        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$(this).val()}`)
+        axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&city_id=${$(this).val()}`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
             .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
@@ -95,12 +116,20 @@ if ($("div").is(".tour")) {
     $('.rightCity').on('click', function() {
         $('.filters-answer__block').addClass('hide');
         $('.yourLocation').removeClass('show');
-        axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1`)
+        axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1`, {
+            headers: {
+                'X-localization': window.lang
+            }
+        })
             .then(function (response) {
                 drawProducts(response);
                 boutiqueClick();
             });
-            axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=1&&id=1`)
+            axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1&id=1&id=1`, {
+                headers: {
+                    'X-localization': window.lang
+                }
+            })
                 .then(function (response) {
                     drawBoutique(response);
                 });
@@ -210,7 +239,6 @@ if ($("div").is(".tour")) {
                 boutiqueBlock.appendChild(rating);
             }
         }
-
     }
     function drawBoutique(boutique) {
         const productInfo = document.getElementById("product__info");
@@ -370,13 +398,21 @@ if ($("div").is(".tour")) {
         $('.boutique-block').on('click', function(e) {
             if(event.target == event.currentTarget) {
                 if (wrongClicked) {
-                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&&city_id=${$('.cities').val()}&&id=${$(this).attr('id')}`)
+                    axios.get(`${appUrl}/api/tour-operators?country_id=${$('.countries').val()}&city_id=${$('.cities').val()}&id=${$(this).attr('id')}`, {
+                        headers: {
+                            'X-localization': window.lang
+                        }
+                    })
                         .then(function (response) {
                             drawBoutique(response);
                         });
                 }
                 else {
-                    axios.get(`${appUrl}/api/tour-operators?country_id=1&&city_id=1&&id=${$(this).attr('id')}`)
+                    axios.get(`${appUrl}/api/tour-operators?country_id=1&city_id=1&id=${$(this).attr('id')}`, {
+                        headers: {
+                            'X-localization': window.lang
+                        }
+                    })
                         .then(function (response) {
                             drawBoutique(response);
                         });

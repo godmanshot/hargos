@@ -396,7 +396,7 @@
                                 </a>
                                 <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
                                 <p class="boutique-title">{{$boutique->categoriesName}}</p>
-                                <div class="star-rating__wrapper">
+                                <div class="star-rating__wrapper">  
                                     {!!$boutique->averageRatingHtml!!}
                                 </div>
                                 <a href="{{route('boutique', $boutique)}}">@lang('interface.goToTheBoutiques')</a>

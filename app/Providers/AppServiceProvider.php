@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Contact;
 use App\SeoPage;
 use App\Category;
 use App\BlockFactory;
@@ -45,8 +46,12 @@ class AppServiceProvider extends ServiceProvider
             $models = Category::withTranslations()->get()->sortBy(function ($model, $key) {
                 return $model->getTranslatedAttribute('name');
             });
-            
-            $view->with('_categories', $models);
+
+            $data = [
+                '_categories' => $models
+            ];
+
+            $view->with($data);
         });
 
         View::composer('*', function ($view) {
@@ -56,11 +61,14 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer('*', function ($view) {
-            
             $count = KslStatistic::where('str_url', url()->current())->distinct('ip')->count('ip');
 
-            $view->with('current_page_visitors_count', $count);
+            $data = [
+                'contacts' => Contact::with('translations')->first(),
+                'current_page_visitors_count' => $count
+            ];
             
+            $view->with($data);
         });
 
         View::composer('*', function ($view) {
