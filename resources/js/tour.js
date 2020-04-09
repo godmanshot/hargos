@@ -357,7 +357,7 @@ if ($("div").is(".tour")) {
                 schedule[k].innerHTML += "<h1>"+boutiqueInfo.sheldures[k].title + "</h1>";
                 schedule[k].innerHTML += "<div class='schedule__content-wrapper'></div>";
                 schedule[k].children[1].innerHTML += "<h2>Дата выезда</h2>";
-                schedule[k].children[1].innerHTML +=   boutiqueInfo.sheldures[k].dates;
+                schedule[k].children[1].innerHTML +=   boutiqueInfo.sheldures[k].tour_dates;
                 schedule[k].children[1].innerHTML += "<div class='separator'></div>";
                 schedule[k].children[1].innerHTML += "<p>Стоимость поездки:</p>";
                 schedule[k].children[1].innerHTML += "<h3>" + boutiqueInfo.sheldures[k].price + '<sup>тг.</sup>' + "</h3>";

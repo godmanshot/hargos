@@ -11,7 +11,7 @@ class TourHouseSheldure extends Model
     use CanFilterTrait, Translatable;
     protected $translatable = [
         'title',
-        'dates',
+        'tour_dates',
         'price',
         'times',
         'periods',
