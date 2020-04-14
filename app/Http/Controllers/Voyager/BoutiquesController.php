@@ -28,6 +28,7 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             $this->addWatermark($data);
             $this->changeImagesQuality($data, []);
+            $this->addWatermarkOnMap($data);
             $this->addProducts($data, $request->str_products_i18n);
             $this->addProductsAll($data);
             event(new BreadDataAdded($dataType, $data));
@@ -61,8 +62,11 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
         }
         if (!$request->ajax()) {
             $old_images = json_decode($data->images ?? '[]', true);
+            $old_map = $data->trading_house_image;
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
+
             $this->addWatermark($data, $old_images);
+            $this->addWatermarkOnMap($data, $old_map);
             $this->changeImagesQuality($data, $old_images);
             $this->addProducts($data, $str_products_i18n);
             $this->addProductsAll($data, $str_products_all_i18n);
@@ -87,6 +91,38 @@ class BoutiquesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseContr
             if(in_array($image, $old_images))
                 continue;
             $this->changeQuality($image, $qualities);
+        }
+    }
+
+    public function addWatermarkOnMap($model, $old_map = null) {
+        if($old_map != $model->trading_house_image) {
+            $img = Image::make(storage_path('app/public/'.$model->trading_house_image));
+
+            $x = 0;
+
+            while ($x < $img->width()) {
+                $y = 0;
+
+                while($y < $img->height()) {
+                    $font_size = $img->width() * 0.05;
+
+                    $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
+                        $font->file(public_path('fonts/Montserrat-Regular.ttf'));
+                        $font->size($font_size);
+                        $font->color(array(255, 255, 255, 0.2));
+                        $font->align('center');
+                        $font->valign('top');
+                        $font->angle(45);
+                    });
+
+
+                    $y += $font_size*5;
+                }
+
+                $x += $font_size*5;
+            }
+
+            $img->save(storage_path('app/public/'.$model->trading_house_image));
         }
     }
 
