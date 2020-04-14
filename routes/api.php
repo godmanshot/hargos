@@ -64,7 +64,6 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/tour-houses', 'TourHousesController@index');
 
     Route::get('/trading-houses', 'TradingHousesController@index');
-
     Route::get('/advices/categories', 'AdvicesController@categories');
     Route::get('/advices/posts', 'AdvicesController@posts');
     Route::get('/advices/videos', 'AdvicesController@videos');
@@ -74,7 +73,7 @@ Route::middleware('cors')->namespace('Api')->group(function() {
     Route::get('/customer-choices', 'CustomerChoicesController@index');
 
     Route::get('/popular-boutiques', 'PopularBoutiquesController@index');
-
+ 
     Route::get('/stock-today', 'StockTodayController@index');
 
     Route::get('/video-about-horgos', 'VideoHorgosController@index');

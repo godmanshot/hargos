@@ -24,6 +24,7 @@ class Locale
             $lang = $request->header('X-localization');
             App::setLocale($lang);
         }
+        
         return $next($request);
     }
 }

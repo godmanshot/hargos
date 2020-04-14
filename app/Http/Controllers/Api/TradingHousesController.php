@@ -8,13 +8,18 @@ use App\TradingHouse;
 use Illuminate\Http\Request;
 use App\Filters\TradingHouseFilter;
 use App\Http\Controllers\Controller;
+use App\Traits\LoadsAllTranslations;
+use App\Traits\TranslatesCollection;
 
 class TradingHousesController extends Controller
 {
+    use LoadsAllTranslations;
+
     public function index(Request $request, TradingHouseFilter $filter) {
-        $models = TradingHouse::filter($filter)->orderBy('order');
-    
-        return $models->get();
+        $models = TradingHouse::filter($filter)->orderBy('order')->get();
+        $this->loadForCollection($models);
+
+        return $models;
     }
 
     public function categories(Request $request, TradingHouse $trading_house) {
@@ -25,7 +30,9 @@ class TradingHousesController extends Controller
                 $categories->push($category);
             }
         });
-    
+        
+        $this->loadForCollection($categories);
+
         return $categories;
     }
 
@@ -35,7 +42,8 @@ class TradingHousesController extends Controller
         })->whereHas('tradingHouses', function ($query) use ($trading_house) {
             $query->where('trading_houses.id', '=', $trading_house->id);
         })->get();
-    
+        $this->loadForCollection($models);
+
         return $models;
     }
 }

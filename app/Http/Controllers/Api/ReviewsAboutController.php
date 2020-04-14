@@ -12,7 +12,7 @@ class ReviewsAboutController extends Controller
     public function index(Request $request, ReviewFilter $filter)
     {
         $models = Review::latest()->filter($filter);
-
+        
         return $models->get();
     }
 }

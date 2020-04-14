@@ -2,10 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\CanFilterTrait;
+use TCG\Voyager\Traits\Translatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    use CanFilterTrait;
+    use Translatable, CanFilterTrait;
+    protected $translatable = [
+        'name'
+    ];
 }

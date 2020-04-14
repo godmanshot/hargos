@@ -12,7 +12,7 @@ class InterviewsController extends Controller
     public function index(Request $request, InterviewFilter $filter)
     {
         $models = Interview::latest()->filter($filter);
-
+        
         return $models->get();
     }
 }

@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\TourHouse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\LoadsAllTranslations;
 
 class TourOperatorsController extends Controller
 {
+    use LoadsAllTranslations;
+    
     public function index(Request $request) {
         $models = TourHouse::orderBy('name');
     
@@ -22,12 +25,19 @@ class TourOperatorsController extends Controller
         if($request->has('id')) {
             $models->where('id', $request->id);
         }
-        $models = $models->get()->map(function($model) {
-            $model->sheldures = $model->sheldures->map(function($sheldure) {
-                return $sheldure->translate(app()->getLocale());
+        
+        $models = $models->get();
+
+        if($request->mobile_app) {
+            $this->loadForCollection($models);
+        } else {
+            $models = $models->map(function($model) {
+                $model->sheldures = $model->sheldures->map(function($sheldure) {
+                    return $sheldure->translate(app()->getLocale());
+                });
+                return $model->translate(app()->getLocale());
             });
-            return $model->translate(app()->getLocale());
-        });
+        }
 
         return $models;
     }
