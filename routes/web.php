@@ -333,7 +333,7 @@ Route::get('putWater', function() {
                     $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
                         $font->file(public_path('fonts/Montserrat-Regular.ttf'));
                         $font->size($font_size);
-                        $font->color(array(255, 255, 255, 0.2));
+                        $font->color(array(219, 219, 219, 0.4));
                         $font->align('center');
                         $font->valign('top');
                         $font->angle(45);
