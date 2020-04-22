@@ -6,16 +6,20 @@ use Illuminate\Support\Facades\DB;
 
 trait LoadsAllTranslations {
     public function loadForOne(&$item) {
-        $locales = array_diff(config('voyager.multilingual.locales'), [config('voyager.multilingual.default')]);
-        $this->translate($item, $locales);
+        if($item) {
+            $locales = array_diff(config('voyager.multilingual.locales'), [config('voyager.multilingual.default')]);
+            $this->translate($item, $locales);
+        }
     }
 
     public function loadForCollection(&$collection) {
         $locales = array_diff(config('voyager.multilingual.locales'), [config('voyager.multilingual.default')]);
-        if($collection) {
+        if($collection && count($collection) > 0) {
             $collection = $collection->map(function($model) use($locales) {
-                $this->translate($model, $locales);
-                return $model;
+                if($model) {
+                    $this->translate($model, $locales);
+                    return $model;
+                }
             });
         }
     }

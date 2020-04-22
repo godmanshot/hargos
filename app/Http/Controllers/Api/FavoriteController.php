@@ -5,15 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Boutique;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\LoadsAllTranslations;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
+    use LoadsAllTranslations;
     public function index(Request $request)
     {
         $user = Auth::user();
-
-        return $user->favoriteBoutiques;
+        $models = $user->favoriteBoutiques;
+        $this->loadForCollection($models);
+        
+        return $models;
     }
 
     public function add(Request $request, Boutique $boutique) {

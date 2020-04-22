@@ -123,7 +123,7 @@ Route::middleware('cors')->namespace('Api')->group(function() {
                 )
             );
         }
-        
+
         return $res->pluck('name')->sort();
     });
 });
