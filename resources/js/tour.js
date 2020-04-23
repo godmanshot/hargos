@@ -226,7 +226,7 @@ if ($("div").is(".tour")) {
     function drawProducts(products) {
         document.getElementById("boutique__products").innerHTML = "";
         if (products.data.length) {
-            for (product of products.data) {
+            for (let product of products.data) {
                 let boutiqueWrapper = document.createElement("div");
                 boutiqueWrapper.className =
                     "col-xl-3 col-lg-4 col-md-4 col-sm-6";
