@@ -5841,18 +5841,21 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 
 .tour .boutique__container .boutique-block .boutique-img__wrapper {
     display: flex;
+    pointer-events: none;
     align-items: center;
     justify-content: center;
     min-height: 93px;
 }
 
 .tour .boutique__container .boutique-block .separator {
+    pointer-events: none;
     background-color: #9f56d9;
     width: 37px;
     height: 2px;
 }
 
 .tour .boutique__container .boutique-block h2 {
+    pointer-events: none;
     font-family: Montserrat;
     font-size: 20px;
     line-height: 1.2;
@@ -5861,6 +5864,7 @@ body .recommended-boutiques .col-xl-3.col-lg-4.col-md-4.col-sm-6 {
 }
 
 .tour .boutique__container .boutique-block p {
+    pointer-events: none;
     font-family: Montserrat;
     font-size: 14px;
     line-height: 1.786;
