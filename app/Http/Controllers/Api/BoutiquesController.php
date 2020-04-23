@@ -17,6 +17,6 @@ class BoutiquesController extends Controller
         $models = Boutique::latest()->filter($filter)->get();
         $this->loadForCollection($models);
         
-        return $models;
+        return response($models);
     }
 }

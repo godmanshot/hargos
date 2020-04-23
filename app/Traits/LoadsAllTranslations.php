@@ -5,8 +5,9 @@ namespace App\Traits;
 use Illuminate\Support\Facades\DB;
 
 trait LoadsAllTranslations {
+    protected $modelsContainer = [];
     public function loadForOne(&$item) {
-        if($item) {
+        if($item) { 
             $locales = array_diff(config('voyager.multilingual.locales'), [config('voyager.multilingual.default')]);
             $this->translate($item, $locales);
         }
@@ -15,7 +16,7 @@ trait LoadsAllTranslations {
     public function loadForCollection(&$collection) {
         $locales = array_diff(config('voyager.multilingual.locales'), [config('voyager.multilingual.default')]);
         if($collection && count($collection) > 0) {
-            $collection = $collection->map(function($model) use($locales) {
+            $collection = $collection->map(function(&$model) use($locales) {
                 if($model) {
                     $this->translate($model, $locales);
                     return $model;
@@ -40,8 +41,8 @@ trait LoadsAllTranslations {
                 $translations[$locale][$column->column_name] = $column->value;
             }
         }
-
-        $model->translations = $translations;
+        $model->translation = $translations;
+        
         if(count($model->getRelations()) > 0) {
             foreach($model->getRelations() as $relationName => $relation) {
                 if($relationName != 'pivot') {
