@@ -2,7 +2,7 @@ import NProgress from "nprogress";
 if ($("div").is(".tour")) {
     const translations = require(`./lang/${window.lang}`).default;
     const appUrl = document.querySelector("meta[name=app-url]").content;
-    const apiClient = apiClient.create({
+    const apiClient = axios.create({
         baseURL: appUrl,
         withCredentials: false,
         headers: {
