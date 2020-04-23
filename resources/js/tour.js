@@ -471,9 +471,7 @@ if ($("div").is(".tour")) {
         }
     }
     function boutiqueClick() {
-        $(
-            ".boutique-block, .boutique-block img, .boutique-block h2, .boutique-block p, .boutique-block .star-rating__wrapper"
-        ).on("click", function (e) {
+        $(".boutique-block").on("click", function (e) {
             if (event.target == event.currentTarget) {
                 if (wrongClicked) {
                     apiClient
