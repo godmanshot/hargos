@@ -321,9 +321,8 @@ Route::get('putWater', function() {
     $maps = App\Boutique::select('map')->whereNotNull('map')->where('map', '<>', '')->get();
     foreach($maps as $model) {
         $image = json_decode($model->map, true)[0];
-        dump(storage_path('app/public/'.$image));
-        // $img = Image::make(storage_path('app/public/'.$image));
-
+        $img = Image::make(storage_path('app/public/'.$image));
+        dd($img);
             // $x = 0;
 
             // while ($x < $img->width()) {
