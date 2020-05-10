@@ -322,7 +322,7 @@ Route::get('putWater', function() {
     foreach($maps as $model) {
         $image = json_decode($model->map, true)[0];
         $img = Image::make(storage_path('app/public/'.$image));
-        dd($img);
+        dump($img);
             // $x = 0;
 
             // while ($x < $img->width()) {
