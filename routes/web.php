@@ -321,33 +321,34 @@ Route::get('putWater', function() {
     $maps = App\Boutique::select('map')->whereNotNull('map')->where('map', '<>', '')->get();
     foreach($maps as $model) {
         $image = json_decode($model->map, true)[0];
-        $img = Image::make(storage_path('app/public/'.$image));
+        dump($image);
+        // $img = Image::make(storage_path('app/public/'.$image));
 
-            $x = 0;
+            // $x = 0;
 
-            while ($x < $img->width()) {
-                $y = 0;
+            // while ($x < $img->width()) {
+            //     $y = 0;
 
-                while($y < $img->height()) {
-                    $font_size = $img->width() * 0.05;
+            //     while($y < $img->height()) {
+            //         $font_size = $img->width() * 0.05;
 
-                    $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
-                        $font->file(public_path('fonts/Montserrat-Regular.ttf'));
-                        $font->size($font_size);
-                        $font->color(array(219, 219, 219, 0.4));
-                        $font->align('center');
-                        $font->valign('top');
-                        $font->angle(45);
-                    });
+            //         $img->text(env('APP_NAME'), $x, $y, function($font) use ($font_size) {
+            //             $font->file(public_path('fonts/Montserrat-Regular.ttf'));
+            //             $font->size($font_size);
+            //             $font->color(array(219, 219, 219, 0.4));
+            //             $font->align('center');
+            //             $font->valign('top');
+            //             $font->angle(45);
+            //         });
 
 
-                    $y += $font_size*5;
-                }
+            //         $y += $font_size*5;
+            //     }
 
-                $x += $font_size*5;
-            }
+            //     $x += $font_size*5;
+            // }
 
-            $img->save(storage_path('app/public/'.$model->map));
+            // $img->save(storage_path('app/public/'.$model->map));
     }
     
     echo 'OK';
