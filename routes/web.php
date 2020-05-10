@@ -320,7 +320,8 @@ use Intervention\Image\Facades\Image;
 Route::get('putWater', function() {
     $maps = App\Boutique::select('map')->whereNotNull('map')->where('map', '<>', '')->get();
     foreach($maps as $model) {
-        $img = Image::make(storage_path('app/public/'.$model->map));
+        $image = json_decode($model->map, true)[0];
+        $img = Image::make(storage_path('app/public/'.$image));
 
             $x = 0;
 
