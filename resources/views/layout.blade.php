@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="{{asset('css/glide.theme.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/glide.core.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/aos.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/nprogress.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 </head>
 
