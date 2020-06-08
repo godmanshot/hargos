@@ -408,7 +408,7 @@
         </div>
     </div>
     @endif
-
+    @dd($boutique->recommended)
     @if($boutique->recommended->count())
     <div class="container-fluid recommended-boutiques">
         <div class="container">
