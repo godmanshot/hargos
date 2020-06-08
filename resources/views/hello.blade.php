@@ -465,7 +465,7 @@
                                 <div>
                                     <div class="flexible">
                                         <a href="{{$item->boutiqueLink}}">
-                                            <img src="images/popular-products__img-01.png">
+                                            <img src="{{ asset('storage/' . $item->image) }}">
                                         </a>
                                         <div class="freebie__inner-block">
                                             <h3>{{$item->getTranslatedAttribute('name')}}</h3>
