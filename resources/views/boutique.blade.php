@@ -379,6 +379,7 @@
     </div>
     @endif
 
+    @dd($boutique->related)
     @if($boutique->related->count())
     <div class="container-fluid similar-boutiques">
         <div class="container">
@@ -387,7 +388,6 @@
                     <h1 class="favorite-header">@lang('interface.similarBoutiques')</h1>
                 </div>
             </div>
-            @dd($boutique->related)
             <div class="row similar__slick">
                     @foreach($boutique->related as $boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">

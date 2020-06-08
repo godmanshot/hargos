@@ -122,12 +122,12 @@ class Boutique extends Model
 
     public function recommended()
     {
-        return $this->belongsToMany('App\Boutique', 'recommended_boutiques', 'boutique_id');
+        return $this->belongsToMany('App\Boutique', 'recommended_boutiques', 'related_boutique_id');
     }
 
     public function related()
     {
-        return $this->belongsToMany('App\Boutique', 'related_boutiques', 'boutique_id');
+        return $this->belongsToMany('App\Boutique', 'related_boutiques', 'related_boutique_id');
     }
 
     public function recommendedRelations()
