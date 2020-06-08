@@ -379,7 +379,6 @@
     </div>
     @endif
 
-    @dd($boutique->related)
     @if($boutique->related->count())
     <div class="container-fluid similar-boutiques">
         <div class="container">
