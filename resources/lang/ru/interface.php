@@ -56,7 +56,7 @@ return [
     'goToTheBoutiques' => 'Перейти в бутик',
     'goToTheBoutique' => 'Перейти в бутик',
     'sku' => 'Артикул',
-    'simillarBoutiques' => 'Похожие бутики',
+    'similarBoutiques' => 'Похожие бутики',
     'recommendedBoutiques' => 'Рекомендуемые бутики',
     'contacts' => 'Контакты',
     'address' => 'Адрес',

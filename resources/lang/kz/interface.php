@@ -56,7 +56,7 @@ return [
     'goToTheBoutiques' => 'Бутикке бару',
     'goToTheBoutique' => 'Бутикке бару',
     'sku' => 'Мақала',
-    'simillarBoutiques' => 'Ұқсас бутиктер',
+    'similarBoutiques' => 'Ұқсас бутиктер',
     'recommendBoutiques' => 'Ұсынылатын бутиктер',
     'contacts' => 'Байланыстар',
     'address' => 'Мекенжай',

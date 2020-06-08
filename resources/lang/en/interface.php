@@ -56,7 +56,7 @@ return [
     'goToTheBoutiques' => 'Go to the boutique',
     'goToTheBoutique' => 'Go to the boutique',
     'sku' => 'Article',
-    'simillarBoutiques' => 'Similar boutiques',
+    'similarBoutiques' => 'Similar boutiques',
     'recommendedBoutiques' => 'Recommended boutiques',
     'contacts' => 'Contacts',
     'address' => 'Address',
