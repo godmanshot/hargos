@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="smart__shopping">
+    <div class="smart__shopping" style="display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

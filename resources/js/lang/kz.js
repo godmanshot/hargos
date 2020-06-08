@@ -8,5 +8,7 @@ export default {
     thanksForAReview: 'Қарағаныңыз үшін рақмет!',
     enterPhoneNumber: 'Телефон нөмірін енгізіңіз',
     country: 'Eлі',
-    city: 'Қала'
+    city: 'Қала',
+    readMore: 'уца',
+    readLess: 'выа'
 };

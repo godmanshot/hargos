@@ -8,5 +8,7 @@ export default {
     thanksForAReview: 'Thanks for the review!',
     enterPhoneNumber: 'Enter a phone number',
     country: 'Country',
-    city: 'City'
+    city: 'City',
+    readMore: 'Read more',
+    readLess: 'Hide'
 };

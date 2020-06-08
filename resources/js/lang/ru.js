@@ -8,5 +8,7 @@ export default {
     thanksForAReview: 'Спасибо за отзыв!',
     enterPhoneNumber: 'Введите номер телефона',
     country: 'Страна',
-    city: 'Город'
+    city: 'Город',
+    readMore: 'Читать далее',
+    readLess: 'Скрыть'
 };

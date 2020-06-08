@@ -1,4 +1,8 @@
+
 if ($("div").is(".advice")) {
+window.lang = document.documentElement.lang;
+
+        const locales = require('./lang/' + window.lang + '.js').default;
     $('.advice-btn').on('click', function () {
         $(this).toggleClass('advice-btn__chosen');
         $('.advice-btn').not(this).removeClass('advice-btn__chosen');
@@ -46,12 +50,18 @@ if ($("div").is(".advice")) {
     let articleFadeOut = document.querySelectorAll('.content__fadeout');
     for (let i = 0; i < articleBtn.length; i++) {
         articleBtn[i].onclick = function () {
+            articleContent.forEach((content, index) => {
+                if (content.classList.contains('block')) {
+                    content.classList.remove('block');
+                    articleBtn[index].innerHTML = locales.readMore
+                }
+            })
             articleContent[i].classList.toggle("block");
             articleFadeOut[i].classList.remove('content__fadeout');
-            if (this.innerHTML == "Читать далее") {
-                this.innerHTML = "Скрыть";
+            if (this.innerHTML == locales.readMore) {
+                this.innerHTML = locales.readLess;
             } else {
-                this.innerHTML = "Читать далее";
+                this.innerHTML = locales.readMore;
             };
         }
     };

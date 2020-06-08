@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="container boutique__container mt-5">
-        <div class="row" id="boutique__products">
+        <div class="row flex-nowrap flex-sm-wrap" id="boutique__products">
         </div>
     </div>
     <div class="container mt-5">

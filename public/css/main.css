@@ -559,6 +559,9 @@ q:before {
 html.hc-nav-yscroll {
     overflow-y: scroll;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body.hc-nav-open {
     overflow: visible;
@@ -1054,6 +1057,13 @@ body.hc-nav-open {
 }
 
 @media (max-width: 576px) {
+    #boutique__products {
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .tour .boutique__container .boutique-block:hover {
+        transform: scale(1.03);
+    }
     .footer {
         text-align: center;
     }
@@ -9294,7 +9304,10 @@ button {
 .hc-offcanvas-nav ul {
     background: #336ca6;
 }
+.hc-offcanvas-nav ul.first-nav li.nav-parent .nav-item span{
+    font-weight: 800;
 
+}
 .hc-offcanvas-nav h2 {
     font-size: 19px;
     font-weight: 400;

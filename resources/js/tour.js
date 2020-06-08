@@ -229,8 +229,9 @@ if ($("div").is(".tour")) {
             for (let product of products.data) {
                 let boutiqueWrapper = document.createElement("div");
                 boutiqueWrapper.className =
-                    "col-xl-3 col-lg-4 col-md-4 col-sm-6";
-                let boutiqueBlock = document.createElement("div");
+                    "col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12";
+                let boutiqueBlock = document.createElement("a");
+                boutiqueBlock.href = "#product__info"
                 boutiqueBlock.className = "boutique-block";
                 boutiqueBlock.setAttribute("id", product.id);
                 let imgWrapper = document.createElement("div");
