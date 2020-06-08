@@ -387,6 +387,7 @@
                     <h1 class="favorite-header">@lang('interface.similarBoutiques')</h1>
                 </div>
             </div>
+            @dd($boutique->related)
             <div class="row similar__slick">
                     @foreach($boutique->related as $boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
@@ -409,12 +410,12 @@
     </div>
     @endif
 
-    @if($boutique->related->count())
+    @if($boutique->recommended->count())
     <div class="container-fluid recommended-boutiques">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 mt-5">
-                    <h1 class="favorite-header">@lang('interface.recommednedBoutiques')</h1>
+                    <h1 class="favorite-header">@lang('interface.recommendedBoutiques')</h1>
                 </div>
             </div>
             <div class="row recommended__slick">
