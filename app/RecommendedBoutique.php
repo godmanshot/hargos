@@ -11,6 +11,6 @@ class RecommendedBoutique extends Model
     use CanFilterTrait;
 
     public function boutique() {
-        return $this->belongsTo(Boutique::class, 'recommended_boutique_id', 'id');
+        return $this->belongsTo(Boutique::class, 'related_boutique_id', 'id');
     }
 }
