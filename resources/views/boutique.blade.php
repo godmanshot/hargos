@@ -378,7 +378,6 @@
         </div>
     </div>
     @endif
-
     @if($boutique->related->count())
     <div class="container-fluid similar-boutiques">
         <div class="container">
@@ -388,19 +387,19 @@
                 </div>
             </div>
             <div class="row similar__slick">
-                    @foreach($boutique->related as $boutique)
+                    @foreach($boutique->related as $relatedBoutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
-                                <a href="{{route('boutique', $boutique)}}">
-                                    <img src="{{Voyager::image($boutique->firstImage)}}">
+                                <a href="{{route('boutique', $relatedBoutique->boutique)}}">
+                                    <img src="{{Voyager::image($relatedBoutique->boutique->firstImage)}}">
                                 </a>
-                                <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
-                                <p class="boutique-title">{{$boutique->categoriesName}}</p>
+                                <h3 class="boutique-header">{{$relatedBoutique->boutique->getTranslatedAttribute('name')}}</h3>
+                                <p class="boutique-title">{{$relatedBoutique->boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">  
-                                    {!!$boutique->averageRatingHtml!!}
+                                    {!!$relatedBoutique->boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">@lang('interface.goToTheBoutiques')</a>
-                                <p>Артикул: {{$boutique->id}}</p>
+                                <a href="{{route('boutique', $relatedBoutique->boutique)}}">@lang('interface.goToTheBoutiques')</a>
+                                <p>Артикул: {{$relatedBoutique->boutique->id}}</p>
                             </div>
                         </div>
                     @endforeach
@@ -417,19 +416,19 @@
                 </div>
             </div>
             <div class="row recommended__slick">
-                    @foreach($boutique->recommended as $boutique)
+                    @foreach($boutique->recommended as $recommendedBoutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
-                                <a href="{{route('boutique', $boutique)}}">
-                                    <img src="{{Voyager::image($boutique->firstImage)}}">
+                                <a href="{{route('boutique', $recommendedBoutique->boutique)}}">
+                                    <img src="{{Voyager::image($recommendedBoutique->boutique->firstImage)}}">
                                 </a>
-                                <h3 class="boutique-header">{{$boutique->getTranslatedAttribute('name')}}</h3>
-                                <p class="boutique-title">{{$boutique->categoriesName}}</p>
+                                <h3 class="boutique-header">{{$recommendedBoutique->boutique->getTranslatedAttribute('name')}}</h3>
+                                <p class="boutique-title">{{$recommendedBoutique->boutique->categoriesName}}</p>
                                 <div class="star-rating__wrapper">
-                                    {!!$boutique->averageRatingHtml!!}
+                                    {!!$recommendedBoutique->boutique->averageRatingHtml!!}
                                 </div>
-                                <a href="{{route('boutique', $boutique)}}">@lang('interface.goToTheBoutiques')</a>
-                                <p>@lang('interface.sku'): {{$boutique->id}}</p>
+                                <a href="{{route('boutique', $recommendedBoutique->boutique)}}">@lang('interface.goToTheBoutiques')</a>
+                                <p>@lang('interface.sku'): {{$recommendedBoutique->boutique->id}}</p>
                             </div>
                         </div>
                     @endforeach

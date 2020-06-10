@@ -3,6 +3,8 @@
 namespace App;
 
 use App\CanFilterTrait;
+use App\RelatedBoutique;
+use App\RecommendedBoutique;
 use TCG\Voyager\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -122,12 +124,12 @@ class Boutique extends Model
 
     public function recommended()
     {
-        return $this->belongsToMany('App\Boutique', 'recommended_boutiques', 'related_boutique_id');
+        return $this->hasMany(RecommendedBoutique::class);
     }
 
     public function related()
     {
-        return $this->belongsToMany('App\Boutique', 'related_boutiques', 'related_boutique_id');
+        return $this->hasMany(RelatedBoutique::class);
     }
 
     public function recommendedRelations()
