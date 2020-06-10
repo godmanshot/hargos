@@ -387,22 +387,24 @@
                 </div>
             </div>
             <div class="row similar__slick">
-                    @foreach($boutique->related as $relatedBoutique)
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
-                            <div class="boutique-block">
-                                <a href="{{route('boutique', $relatedBoutique->boutique)}}">
-                                    <img src="{{Voyager::image($relatedBoutique->boutique->firstImage)}}">
-                                </a>
-                                <h3 class="boutique-header">{{$relatedBoutique->boutique->getTranslatedAttribute('name')}}</h3>
-                                <p class="boutique-title">{{$relatedBoutique->boutique->categoriesName}}</p>
-                                <div class="star-rating__wrapper">  
-                                    {!!$relatedBoutique->boutique->averageRatingHtml!!}
-                                </div>
-                                <a href="{{route('boutique', $relatedBoutique->boutique)}}">@lang('interface.goToTheBoutiques')</a>
-                                <p>Артикул: {{$relatedBoutique->boutique->id}}</p>
+                @foreach($boutique->related as $relatedBoutique)
+                    @if ($relatedBoutique->boutique)
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
+                        <div class="boutique-block">
+                            <a href="{{route('boutique', $relatedBoutique->boutique)}}">
+                                <img src="{{Voyager::image($relatedBoutique->boutique->firstImage)}}">
+                            </a>
+                            <h3 class="boutique-header">{{$relatedBoutique->boutique->getTranslatedAttribute('name')}}</h3>
+                            <p class="boutique-title">{{$relatedBoutique->boutique->categoriesName}}</p>
+                            <div class="star-rating__wrapper">  
+                                {!!$relatedBoutique->boutique->averageRatingHtml!!}
                             </div>
+                            <a href="{{route('boutique', $relatedBoutique->boutique)}}">@lang('interface.goToTheBoutiques')</a>
+                            <p>Артикул: {{$relatedBoutique->boutique->id}}</p>
                         </div>
-                    @endforeach
+                    </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -417,7 +419,7 @@
             </div>
             <div class="row recommended__slick">
                     @foreach($boutique->recommended as $recommendedBoutique)
-                    @dd($recommendedBoutique)
+                        @if ($recommendedBoutique->boutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <a href="{{route('boutique', $recommendedBoutique->boutique)}}">
@@ -432,6 +434,7 @@
                                 <p>@lang('interface.sku'): {{$recommendedBoutique->boutique->id}}</p>
                             </div>
                         </div>
+                        @endif
                     @endforeach
             </div>
         </div>
