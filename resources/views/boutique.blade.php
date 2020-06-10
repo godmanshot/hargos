@@ -417,6 +417,7 @@
             </div>
             <div class="row recommended__slick">
                     @foreach($boutique->recommended as $recommendedBoutique)
+                    @dd($recommendedBoutique)
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10">
                             <div class="boutique-block">
                                 <a href="{{route('boutique', $recommendedBoutique->boutique)}}">
